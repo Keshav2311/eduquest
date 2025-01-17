@@ -7,7 +7,7 @@ const routes: Routes = [
   { path: "", component: HomeComponentComponent }, //default page
   { path: "login", component: LoginComponent}
 ];
-
+// i fail
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
