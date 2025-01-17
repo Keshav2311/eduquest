@@ -1,0 +1,115 @@
+<footer class="text-white text-center py-4">
+    <div class="container">
+      <div class="row">
+        <!-- Logo and Description -->
+        <div class="col-md-4 mb-4">
+          <section>
+            <img
+              src="assets/images/logo.webp"
+              alt="EduQuest Logo"
+              style="height: 100px; width: 100px"
+              class="mb-3"
+            />
+            <p>
+              Unlock your potential and embark on your educational journey with us today.
+            </p>
+          </section>
+          <section>
+            <h5 class="mb-3">Follow Us On</h5>
+            <!-- Social Media Links -->
+            <a
+              class="btn btn-outline-light btn-floating m-1"
+              href="#!"
+              role="button"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              class="btn btn-outline-light btn-floating m-1"
+              href="#!"
+              role="button"
+              ><i class="fab fa-google"></i
+            ></a>
+            <a
+              class="btn btn-outline-light btn-floating m-1"
+              href="#!"
+              role="button"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </section>
+        </div>
+        
+        <!-- Important Links -->
+        <div class="col-md-4 mb-4">
+          <h5 class="text-uppercase mb-4 mt-3">Important Links</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a class="text-white text-decoration-none" href="#!">Home</a></li>
+            <li class="mb-2"><a class="text-white text-decoration-none" href="#!">Instructor</a></li>
+            <li class="mb-2"><a class="text-white text-decoration-none" href="#!">Courses</a></li>
+            <li class="mb-2"><a class="text-white text-decoration-none" href="#!">Blogs</a></li>
+            <li class="mb-2"><a class="text-white text-decoration-none" href="#!">Contact Us</a></li>
+          </ul>
+        </div>
+        
+        <!-- Newsletter Signup -->
+        <div class="col-md-4">
+          <h5 class="text-uppercase mb-4 mt-3">Subscribe to Our Newsletter</h5>
+          <form #subscriptionForm="ngForm" (ngSubmit)="onSubscribe(subscriptionForm)">
+            <div class="input-group mb-3">
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Enter your email"
+                name="email"
+                [(ngModel)]="email"
+                required
+                email
+                #emailInput="ngModel"
+                aria-label="Email address"
+                aria-describedby="button-addon2"
+              />
+              <button
+                class="btn btn-outline-light"
+                type="submit"
+                id="button-addon2"
+                [disabled]="!subscriptionForm.valid"
+              >
+                Subscribe
+              </button>
+            </div>
+          
+            <!-- Validation Feedback -->
+            <div *ngIf="emailInput.invalid && emailInput.touched" class="text-danger">
+              <small *ngIf="emailInput.errors?.['required']">Email is required.</small>
+              <small *ngIf="emailInput.errors?.['email']">Enter a valid email address.</small>
+            </div>
+          </form>
+          
+          <div class="container">
+            <div class="row align-items-center">
+              <!-- Phone -->
+              <div class="col-md-8 d-flex align-items-center m-2">
+                <i class="fa fa-phone me-2 text-primary"></i>
+                <span class="ms-2">+91 8736498379</span>
+              </div>
+              <!-- Location -->
+              <div class="col-md-8 d-flex align-items-center m-2">
+                <i class="fa-solid fa-location-dot me-2 text-danger"></i>
+                <span class="ms-2">Bangalore, INDIA</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+  
+      <hr class="text-white-50" />
+  
+      <!-- Footer Bottom -->
+      <div class="text-center pt-3">
+        <p class="mb-0">
+          &copy; 2025 EduQuest. All Rights Reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+  
