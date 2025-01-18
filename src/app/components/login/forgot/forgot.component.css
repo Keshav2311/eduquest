@@ -25,6 +25,15 @@ label{
     font-weight: bold;
 }
 
+#button{
+    background-color: #520352;
+    color: aliceblue;
+    /* border-radius: 50%; */
+}
+#button:hover{
+    background-color: black;
+}
+
 
 @media screen and (max-width: 768px){
     #dissbox{

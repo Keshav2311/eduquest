@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 import { AppRoutingModule} from './app-routing.module';
@@ -13,6 +14,8 @@ import { AboutComponent } from './components/Home/about/about.component';
 import { TrendCoursesComponent } from './components/Home/trend-courses/trend-courses.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
+import { SignComponent } from './components/sign/sign.component';
+import { ForgotComponent } from './components/login/forgot/forgot.component';
 
 
 @NgModule({
@@ -25,12 +28,15 @@ import { LoginComponent } from './components/login/login.component';
     TrendCoursesComponent,
     FooterComponent,
     LoginComponent,
+    SignComponent,
+    ForgotComponent
   ],
   imports: [
     RouterModule,
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

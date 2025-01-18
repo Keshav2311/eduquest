@@ -1,0 +1,113 @@
+<app-navbar></app-navbar>
+<section class="vh-100">
+    <div class="container">
+      <h1>Create New Password</h1>
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-6 col-lg-6 col-xl-6 col-12">
+          <form #forgotForm="ngForm" (ngSubmit)="onSubmit(forgotForm)">
+            <div data-mdb-input-init class="form-outline mb-4">
+              <label class="form-label" for="name">Name*</label>
+              <input
+                type="text"
+                id="name"
+                class="form-control form-control-lg"
+                placeholder="Enter Name"
+                name="name"
+                [(ngModel)]="user.name"
+                required
+                #nameInput="ngModel"
+              />
+              <div *ngIf="nameInput.invalid && nameInput.touched" class="text-danger">
+                <small *ngIf="nameInput.errors?.['required']">Name is required.</small>
+              </div>
+            </div>
+          
+            <div data-mdb-input-init class="form-outline mb-4">
+                <label class="form-label" for="forgot">New Password*</label>
+                <div class="input-group">
+                  <input
+                    [type]="showPassword ? 'text' : 'password'"
+                    id="forgot"
+                    class="form-control form-control-lg"
+                    placeholder="Enter new password"
+                    name="forgot"
+                    [(ngModel)]="user.forgot"
+                    required
+                    minlength="8"
+                    pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}"
+                    #forgotInput="ngModel"
+                  />
+                  <button
+                    type="button"
+                    id="button"
+                    class="btn"
+                    (click)="togglePasswordVisibility('new')"
+                  >
+                    {{ showPassword ? 'Hide' : 'Show' }}
+                  </button>
+                </div>
+                <div *ngIf="forgotInput.invalid && forgotInput.touched" class="text-danger">
+                  <small *ngIf="forgotInput.errors?.['required']">New password is required.</small>
+                  <small *ngIf="forgotInput.errors?.['minlength']">
+                    Password must be at least 8 characters long.
+                  </small>
+                  <small *ngIf="forgotInput.errors?.['pattern']">
+                    Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character.
+                  </small>
+                </div>
+              </div>
+              
+              <div data-mdb-input-init class="form-outline mb-3">
+                <label class="form-label" for="confirm">Confirm Password*</label>
+                <div class="input-group">
+                  <input
+                    [type]="showConfirmPassword ? 'text' : 'password'"
+                    id="confirm"
+                    class="form-control form-control-lg"
+                    placeholder="Re-enter new password"
+                    name="confirm"
+                    [(ngModel)]="user.confirm"
+                    required
+                    [pattern]="user.forgot"
+                    #confirmInput="ngModel"
+                  />
+                  <button
+                    type="button"
+                    id="button"
+                    class="btn"
+                    (click)="togglePasswordVisibility('confirm')"
+                  >
+                    {{ showConfirmPassword ? 'Hide' : 'Show' }}
+                  </button>
+                
+                </div>
+                <div *ngIf="confirmInput.invalid && confirmInput.touched" class="text-danger">
+                  <small *ngIf="confirmInput.errors?.['required']">Confirming the password is required.</small>
+                  <small *ngIf="confirmInput.errors?.['pattern']">Passwords must match.</small>
+                </div>
+              </div>
+              
+              
+          
+            
+          
+            <div class="text-center text-lg-start mt-4 pt-2">
+              <button
+                type="submit"
+                class="btn btn-primary btn-lg"
+                style="padding-left: 2.5rem; padding-right: 2.5rem;"
+                [disabled]="forgotForm.invalid"
+              >
+                Confirm
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="col-md-6 col-lg-6 col-xl-6 col-12 mb-5" id="dissbox">
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+            class="img-fluid" alt="Login Image">
+        </div>
+      </div>
+    </div>
+  </section>
+  <app-footer></app-footer>
