@@ -4,12 +4,14 @@ import { HomeComponentComponent } from './components/Home/home-component/home-co
 import { LoginComponent } from './components/login/login.component';
 import { SignComponent } from './components/sign/sign.component';
 import { ForgotComponent } from './components/login/forgot/forgot.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 const routes: Routes = [
-  { path: "", component: HomeComponentComponent }, //default page
+  { path: "home", component: HomeComponentComponent }, //default page
   { path: "login", component: LoginComponent},
   { path: "signup", component: SignComponent},
-  { path: "fogot", component: ForgotComponent}
+  { path: "fogot", component: ForgotComponent},
+  { path: "contact", component: ContactComponent}
 
 ];
 // i fail

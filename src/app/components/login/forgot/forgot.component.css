@@ -28,7 +28,7 @@ label{
 #button{
     background-color: #520352;
     color: aliceblue;
-    /* border-radius: 50%; */
+    /* border-radus: 50%; */
 }
 #button:hover{
     background-color: black;

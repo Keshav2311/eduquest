@@ -16,6 +16,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignComponent } from './components/sign/sign.component';
 import { ForgotComponent } from './components/login/forgot/forgot.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { ForgotComponent } from './components/login/forgot/forgot.component';
     FooterComponent,
     LoginComponent,
     SignComponent,
-    ForgotComponent
+    ForgotComponent,
+    ContactComponent
   ],
   imports: [
     RouterModule,
