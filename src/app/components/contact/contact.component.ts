@@ -8,14 +8,14 @@ import { Component } from '@angular/core';
   styleUrl: './contact.component.css'
 })
 export class ContactComponent {
-  user = {
+  users = {
     name: '',
     email: '',
   };
 
   onSubmit(form: any): void {
     if (form.valid) {
-      console.log('Form Submitted: ', this.user);
+      console.log('Form Submitted: ', this.users);
       alert('Thank you! We will get back to you.');
       form.reset();
     }

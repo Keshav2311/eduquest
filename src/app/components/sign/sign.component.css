@@ -4,8 +4,8 @@ section{
 }
 .container{
     border-radius: 10px;
-    box-shadow: 10px 10px 10px black;
-    background-color: rgb(236, 204, 236);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.473);
+    background-color: rgb(241, 228, 241);
     padding: 20px 20px 20px;
 }
 h1{

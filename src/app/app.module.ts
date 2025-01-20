@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -17,6 +18,8 @@ import { LoginComponent } from './components/login/login.component';
 import { SignComponent } from './components/sign/sign.component';
 import { ForgotComponent } from './components/login/forgot/forgot.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { LoginDialogComponent } from './components/Login/login-dialog/login-dialog.component';
 
 
 @NgModule({
@@ -31,16 +34,20 @@ import { ContactComponent } from './components/contact/contact.component';
     LoginComponent,
     SignComponent,
     ForgotComponent,
-    ContactComponent
+    ContactComponent,
+    LoginDialogComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     RouterModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule
+    ],
+  providers: [
+    provideAnimationsAsync()
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

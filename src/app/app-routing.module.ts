@@ -7,7 +7,8 @@ import { ForgotComponent } from './components/login/forgot/forgot.component';
 import { ContactComponent } from './components/contact/contact.component';
 
 const routes: Routes = [
-  { path: "home", component: HomeComponentComponent }, //default page
+  { path: "", component: HomeComponentComponent }, 
+  { path: "home", component: HomeComponentComponent },
   { path: "login", component: LoginComponent},
   { path: "signup", component: SignComponent},
   { path: "fogot", component: ForgotComponent},

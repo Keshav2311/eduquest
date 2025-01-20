@@ -4,15 +4,15 @@ section{
 }
 .container{
     border-radius: 10px;
-    box-shadow: 10px 10px 10px black;
-    background-color: rgb(236, 204, 236);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.478);
+    background-color: rgb(250, 241, 250);
     padding: 20px 20px 20px;
 }
 
 h1{
     text-align: center;
     color: rgb(24, 1, 48);
-    background-color: #dab8df;
+    background-color: #dbc0e0;
     width: 100%;
     border-radius: 10px;
     padding: 5px 5px 5px;

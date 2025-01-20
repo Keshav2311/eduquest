@@ -22,4 +22,19 @@ export class LoginComponent {
       form.reset();
     }
   }
+
+  // constructor(private dialog: any) {}
+
+  // onSubmit(form: any) {
+  //   if (form.valid) {
+  //     this.openDialog();
+  //   }
+  // }
+
+  // openDialog(): void {
+  //   this.dialog.open(LoginDialogComponent, {
+  //     width: '300px',
+  //     disableClose: true, // Optional: Prevent closing by clicking outside
+  //   });
+  // }
 }
