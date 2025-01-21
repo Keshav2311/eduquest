@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <section class="vh-100">
     <div class="container">
-      <h1>Access</h1>
+      <h1>LOGIN</h1>
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-md-6 col-lg-6 col-xl-6 col-12">
           <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
@@ -67,7 +67,7 @@
                 <input class="form-check-input me-2" type="checkbox" id="remember" [(ngModel)]="user.remember" name="remember" />
                 <label class="form-check-label" for="remember">Remember me</label>
               </div>
-              <a routerLink="/fogot" class="text-body">Forgot password?</a>
+              <a routerLink="/fogot" id="forgotten">Forgot password?</a>
             </div>
           
             <div class="text-center text-lg-start mt-4 pt-2">

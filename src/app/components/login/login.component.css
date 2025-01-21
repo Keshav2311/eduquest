@@ -25,6 +25,17 @@ label{
     font-weight: bold;
 }
 
+#forgotten{
+    color: #250344;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#forgotten:hover{
+    text-decoration: none;
+
+}
+
 
 @media screen and (max-width: 768px){
     #dissbox{

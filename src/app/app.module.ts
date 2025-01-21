@@ -20,6 +20,9 @@ import { ForgotComponent } from './components/login/forgot/forgot.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { LoginDialogComponent } from './components/Login/login-dialog/login-dialog.component';
+import { FaqComponent } from './components/faq/faq.component';
+import { TestimonialsComponent } from './components/testimonials/testimonials.component';
+import { CoursesComponent } from './components/courses/courses.component';
 
 
 @NgModule({
@@ -35,7 +38,11 @@ import { LoginDialogComponent } from './components/Login/login-dialog/login-dial
     SignComponent,
     ForgotComponent,
     ContactComponent,
-    LoginDialogComponent
+    LoginDialogComponent,
+    FaqComponent,
+    TestimonialsComponent,
+    CoursesComponent
+    
   ],
   imports: [
     BrowserAnimationsModule,

@@ -10,23 +10,23 @@ body {
   iframe{
     border: 3;
     border-radius: 15px;
-    background-color: #614d77;
+    background-color: #dcd4e6;
     padding: 20px 20px 20px;
     margin-top: 4vh;
-    box-shadow: 20px 20px 20px black;
+    box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.466);
   }
 
   #dissbox{
-    background-color: #614d77;
+    background-color: #dfd6e9;
     border-radius: 15px;
     padding: 10px 10px 10px;
     margin-top: 4vh;
-    box-shadow: 20px 20px 20px black;
+    box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.411);
+    color: #301b30;
     /* color: anti??quewhite; */
   }
 
   #dissbox h1 {
-    color: #f8f9fa;
     margin-bottom: 4vh;
     text-align: center;
     font-family: "Kumbh Sans", sans-serif;
@@ -35,7 +35,6 @@ body {
 
   #dissbox h4 {
     margin:25px;
-    color: #fafbfc;
     text-align: center;
   }
 
@@ -49,8 +48,9 @@ body {
   }
 
   #contactor{
-    background-color: #d7c8e7;
+    background-color: #e0d8e9;
     color: #301b30;
+    box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.466);
   }
 
   .form-control-lg {
