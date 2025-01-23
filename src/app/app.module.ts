@@ -27,6 +27,8 @@ import { PartnersComponent } from './components/partners/partners.component';
 import { ContactService } from './services/contact.service';
 import{HttpClientModule}from'@angular/common/http';
 import { StudentComponent } from './components/student/student.component';
+import { SignService } from './services/sign.service';
+import { LoginService } from './services/login.service';
 
 
 
@@ -62,7 +64,9 @@ import { StudentComponent } from './components/student/student.component';
     ],
   providers: [
     provideAnimationsAsync(),
-    ContactService
+    ContactService,
+    SignService,
+    LoginService
   ],
   bootstrap: [AppComponent]
 })
