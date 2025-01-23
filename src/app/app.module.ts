@@ -23,6 +23,7 @@ import { LoginDialogComponent } from './components/Login/login-dialog/login-dial
 import { FaqComponent } from './components/faq/faq.component';
 import { TestimonialsComponent } from './components/testimonials/testimonials.component';
 import { CoursesComponent } from './components/courses/courses.component';
+import { PartnersComponent } from './components/partners/partners.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { CoursesComponent } from './components/courses/courses.component';
     LoginDialogComponent,
     FaqComponent,
     TestimonialsComponent,
-    CoursesComponent
+    CoursesComponent,
+    PartnersComponent
     
   ],
   imports: [

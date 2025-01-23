@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Belanosima&family=Rubik+Vinyl&display=swap');
+   
+body
+{
+    margin: 0;
+    width: 100%;
+    /* height: 200vh; */
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* background-color: #E9F1FF; */
+    /* overflow-y: scroll; */
+    font-family: 'Belanosima', sans-serif;
+    background-color: rgba(255, 255, 255, 0.5);
+    background-image: linear-gradient(0deg, #d3b4d3 0%, #eee5f0 100%);
+}
+
+.container{
+     
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 11vh;
+}
+.spectacledcoder-search-bar
+{
+    width: 60px;
+    height: 60px;
+    margin: auto;
+    background-color: white;
+    display: flex;
+    border-radius: 0% 30px 30px 30px;
+    transition: width 1s;
+    box-shadow: 5px 5px 20px #d8e6fd, -5px -5px 30px white;
+    position: fixed;
+    top: 102px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+.search-icon
+{
+    padding: 5px;
+    margin-bottom: auto;
+    margin-top: auto;
+    margin-left: 10px;
+    margin-right: auto;
+    border-radius: 50%;
+    background-color: #f6f3f7;
+}
+.spectacledcoder-search-bar:hover
+{
+    width: 400px;
+    border-radius:  0% 30px 30px 30px;
+}
+.spectacledcoder-search-input
+{
+    margin: auto;
+    display: none;
+    transition: display 12s;
+    outline: none;
+    border: none;
+    font-family: 'Belanosima', sans-serif;
+    border-radius: 25px;
+    padding-left: 10px;
+}
+.spectacledcoder-search-bar:hover .spectacledcoder-search-input
+{
+    display: inline-flex;
+    width: 78%;
+    height: 70%;
+}
+input[type="submit"]
+{
+    display: none;
+}
+@media only screen and (max-width: 600px) 
+{
+    .spectacledcoder-search-bar:hover
+    {
+        width: 80%;
+        border-radius:  0% 30px 30px 15px;
+    }
+}
+
+.content
+{
+    /* width: 80%; */
+    height: 80vh;
+    /* margin: auto; */
+    background-color: white;
+    display: flex;
+    border-radius: 15px;
+    box-shadow: 5px 5px 20px #04050573, -5px -5px 30px rgba(7, 2, 2, 0.432);
+    margin-bottom: 20px;
+    margin-top: 11vh;
+    padding: 25px 25px 25px;
+}
+
+ /* width */
+ ::-webkit-scrollbar 
+{
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track 
+{
+    background-color: rgba(226, 247, 255, 0);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb 
+{
+background: #99beff;
+border-radius: 10px;
+height: 10px;
+width: 3px;
+}
+.nav p
+{
+    margin: auto;
+    color: #303030;
+}
+.disclaimer
+{
+    margin: auto;
+    width: fit-content;
+    color: rgb(0, 0, 0);
+}
+.disclaimer a
+{
+    text-decoration: none;
+    color: #6fa4ff;
+}
+.disclaimer a:hover
+{
+    color: #4a8cff;
+}
+::selection
+{
+    background-color: #ffffff00;
+    color: #ffffff00;
+}

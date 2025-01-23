@@ -6,6 +6,7 @@ import { SignComponent } from './components/sign/sign.component';
 import { ForgotComponent } from './components/login/forgot/forgot.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { FaqComponent } from './components/faq/faq.component';
+import { CoursesComponent } from './components/courses/courses.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponentComponent }, 
@@ -14,7 +15,9 @@ const routes: Routes = [
   { path: "signup", component: SignComponent},
   { path: "fogot", component: ForgotComponent},
   { path: "contact", component: ContactComponent},
-  { path: "faq", component: FaqComponent}
+  { path: "faq", component: FaqComponent},
+  { path: "courses", component: CoursesComponent },
+
 ];
 // i fail
 @NgModule({
