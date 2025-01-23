@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ContactService } from '../../services/contact.service';
 
 @Component({
   selector: 'app-contact',
@@ -13,11 +14,12 @@ export class ContactComponent {
     email: '',
   };
 
-  onSubmit(form: any): void {
-    if (form.valid) {
-      console.log('Form Submitted: ', this.users);
-      alert('Thank you! We will get back to you.');
-      form.reset();
-    }
+  constructor(private dataService: ContactService) {}
+  onSubmit(contactForm: any) {
+    this.dataService.addItem(this.users).subscribe(response => {
+      console.log('Contact Detail Data added:', response);
+    });
+
+    contactForm.resetForm();
   }
 }

@@ -24,6 +24,10 @@ import { FaqComponent } from './components/faq/faq.component';
 import { TestimonialsComponent } from './components/testimonials/testimonials.component';
 import { CoursesComponent } from './components/courses/courses.component';
 import { PartnersComponent } from './components/partners/partners.component';
+import { ContactService } from './services/contact.service';
+import{HttpClientModule}from'@angular/common/http';
+import { StudentComponent } from './components/student/student.component';
+
 
 
 @NgModule({
@@ -43,7 +47,8 @@ import { PartnersComponent } from './components/partners/partners.component';
     FaqComponent,
     TestimonialsComponent,
     CoursesComponent,
-    PartnersComponent
+    PartnersComponent,
+    StudentComponent
     
   ],
   imports: [
@@ -52,10 +57,12 @@ import { PartnersComponent } from './components/partners/partners.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
     ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    ContactService
   ],
   bootstrap: [AppComponent]
 })

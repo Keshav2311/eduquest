@@ -1,0 +1,26 @@
+{
+  "contacts": [
+    {
+      "id": "486a",
+      "name": "Achyut",
+      "email": "achyut2311@gmail.com"
+    },
+    {
+      "id": "383a",
+      "name": "Sreejith Ks",
+      "email": "sreejith.ks@impelsys.com"
+    }
+  ],
+  "sign": [
+    {
+      "id": "d29d",
+      "name": "Achyut",
+      "email": "achyut2311@gmail.com",
+      "gender": "male",
+      "role": "student",
+      "interest": "Angular",
+      "experience": 2,
+      "password": "Achyut@2311"
+    }
+  ]
+}
