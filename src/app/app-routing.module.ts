@@ -7,6 +7,8 @@ import { ForgotComponent } from './components/login/forgot/forgot.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { CoursesComponent } from './components/courses/courses.component';
+import { StudentComponent } from './components/student/student.component';
+import { IntructorComponent } from './components/intructor/intructor.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponentComponent }, 
@@ -17,7 +19,9 @@ const routes: Routes = [
   { path: "contact", component: ContactComponent},
   { path: "faq", component: FaqComponent},
   { path: "courses", component: CoursesComponent },
-
+  { path: "student", component: StudentComponent},
+  { path: "intructor", component: IntructorComponent},
+  { path: "student", component: StudentComponent}
 ];
 // i fail
 @NgModule({

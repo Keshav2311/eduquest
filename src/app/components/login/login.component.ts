@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { LoginService } from '../../services/login.service';
 import { Route, Router} from '@angular/router';
+import { SignService } from '../../services/sign.service';
 @Component({
   selector: 'app-login',
   standalone: false,
@@ -16,17 +16,24 @@ export class LoginComponent {
     remember: false
   };
 
-  constructor(private loginService: LoginService, private router: Router) {}
+  constructor(private signService: SignService, private router: Router) {}
   onSubmit(loginForm: any): void {
   if (loginForm.valid) {
     const email = loginForm.value.email; // Get email from the form
 
-    this.loginService.getUsers().subscribe({
+    this.signService.getUsers().subscribe({
       next: (users) => {
         const userExists = users.some((user) => user.email === email); // Check email existence
-
+        
         if (userExists) {
           alert('Login successful!');
+          // if(userType === "student"){
+          //   this.router.navigate(['/student']);
+          //   alert("Student Dashboard");
+          // }
+          // else{
+          //   this.router.navigate(['/intructor']);
+          // }
           this.router.navigate(['/home']); // Navigate to home page
         } else {
           alert('User does not exist.');

@@ -28,7 +28,7 @@ import { ContactService } from './services/contact.service';
 import{HttpClientModule}from'@angular/common/http';
 import { StudentComponent } from './components/student/student.component';
 import { SignService } from './services/sign.service';
-import { LoginService } from './services/login.service';
+import { IntructorComponent } from './components/intructor/intructor.component';
 
 
 
@@ -50,7 +50,8 @@ import { LoginService } from './services/login.service';
     TestimonialsComponent,
     CoursesComponent,
     PartnersComponent,
-    StudentComponent
+    StudentComponent,
+    IntructorComponent
     
   ],
   imports: [
@@ -65,8 +66,7 @@ import { LoginService } from './services/login.service';
   providers: [
     provideAnimationsAsync(),
     ContactService,
-    SignService,
-    LoginService
+    SignService
   ],
   bootstrap: [AppComponent]
 })

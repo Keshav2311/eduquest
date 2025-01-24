@@ -21,6 +21,26 @@
       "interest": "Angular",
       "experience": 2,
       "password": "Achyut@2311"
+    },
+    {
+      "id": "4dc1",
+      "name": "Sreejith Ks",
+      "email": "sreejith.ks@impelsys.com",
+      "gender": "male",
+      "role": "instructor",
+      "interest": "Database",
+      "experience": 5,
+      "password": "Hello@123"
+    },
+    {
+      "id": "b0a8",
+      "name": "Achyut",
+      "email": "achyut2311@gmail.com",
+      "gender": "male",
+      "role": "student",
+      "interest": "React",
+      "experience": 2,
+      "password": "Hari*5559"
     }
   ]
 }

@@ -76,6 +76,8 @@ export class SignComponent {
       };
 
       delete formData.confirmPassword; // Remove confirmPassword before sending
+      console.log(formData);
+      localStorage.setItem("users", JSON.stringify(formData))
 
       this.signService.addItem(formData).subscribe({
         next: (response) => {
