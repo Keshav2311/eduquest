@@ -1,0 +1,28 @@
+.contaner {
+    /* margin-top: 5vh; */
+    font-family: "Kumbh Sans", sans-serif;
+    background-color: #eadfeb;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    margin-left: 344px;
+    margin-right: 344px;
+  }
+
+  
+  
+  .full-width {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  mat-chip {
+    margin-right: 5px;
+  }
+  
+  button {
+    display: block;
+    margin: 20px auto 0;
+  }
+  

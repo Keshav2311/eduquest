@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from './shared/material/material.module';
 
 
 import { AppRoutingModule} from './app-routing.module';
@@ -29,6 +30,7 @@ import{HttpClientModule}from'@angular/common/http';
 import { StudentComponent } from './components/student/student.component';
 import { SignService } from './services/sign.service';
 import { IntructorComponent } from './components/intructor/intructor.component';
+import { CourseAddComponent } from './components/course-add/course-add.component';
 
 
 
@@ -51,7 +53,8 @@ import { IntructorComponent } from './components/intructor/intructor.component';
     CoursesComponent,
     PartnersComponent,
     StudentComponent,
-    IntructorComponent
+    IntructorComponent,
+    CourseAddComponent
     
   ],
   imports: [
@@ -61,6 +64,7 @@ import { IntructorComponent } from './components/intructor/intructor.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    MaterialModule,
     HttpClientModule
     ],
   providers: [

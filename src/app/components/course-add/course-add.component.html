@@ -1,0 +1,139 @@
+
+<div class="contaner">
+  <div class="gap">
+  <h2 class="text-center mb-4">Create Course</h2>
+  <form [formGroup]="courseForm" (ngSubmit)="onSubmit()" >
+    <!-- Course Name -->
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Course Name</mat-label>
+      <input
+        matInput
+        formControlName="courseName"
+        placeholder="Enter course name"
+      />
+      <mat-error *ngIf="courseForm.get('courseName')?.hasError('required')"
+        >Course name is required.</mat-error
+      >
+      <mat-error *ngIf="courseForm.get('courseName')?.hasError('minlength')"
+        >Minimum 3 characters required.</mat-error
+      >
+    </mat-form-field>
+
+    <!-- Trainer Name -->
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Trainer Name</mat-label>
+      <input
+        matInput
+        formControlName="trainerName"
+        placeholder="Enter trainer name"
+      />
+      <mat-error *ngIf="courseForm.get('trainerName')?.hasError('required')"
+        >Trainer name is required.</mat-error
+      >
+      <mat-error *ngIf="courseForm.get('trainerName')?.hasError('minlength')"
+        >Minimum 3 characters required.</mat-error
+      >
+    </mat-form-field>
+
+    <!-- Duration -->
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Duration (in weeks)</mat-label>
+      <input
+        matInput
+        type="number"
+        formControlName="duration"
+        placeholder="Enter duration"
+      />
+      <mat-error *ngIf="courseForm.get('duration')?.hasError('required')"
+        >Duration is required.</mat-error
+      >
+      <mat-error *ngIf="courseForm.get('duration')?.hasError('min')"
+        >Minimum 1 week required.</mat-error
+      >
+    </mat-form-field>
+
+    <!-- Technologies -->
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Technologies</mat-label>
+      <mat-chip-row>
+        <mat-chip
+          *ngFor="let tech of courseForm.get('technologies')?.value"
+          (removed)="removeTechnology(tech)"
+        >
+          {{ tech }}
+          <button matChipRemove>&times;</button>
+        </mat-chip>
+        <input
+          matInput
+          placeholder="Add a technology"
+          (keyup.enter)="addTechnology($event)"
+        />
+      </mat-chip-row>
+      <mat-error *ngIf="courseForm.get('technologies')?.hasError('required')"
+        >At least one technology is required.</mat-error
+      >
+    </mat-form-field>
+
+    <!-- Course Fee -->
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Course Fee ($)</mat-label>
+      <input
+        matInput
+        type="number"
+        formControlName="courseFee"
+        placeholder="Enter course fee"
+      />
+      <mat-error *ngIf="courseForm.get('courseFee')?.hasError('required')"
+        >Course fee is required.</mat-error
+      >
+      <mat-error *ngIf="courseForm.get('courseFee')?.hasError('min')"
+        >Fee cannot be negative.</mat-error
+      >
+    </mat-form-field>
+
+    <!-- Credits -->
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Credits</mat-label>
+      <input
+        matInput
+        type="number"
+        formControlName="credits"
+        placeholder="Enter credits (1-10)"
+      />
+      <mat-error *ngIf="courseForm.get('credits')?.hasError('required')"
+        >Credits are required.</mat-error
+      >
+      <mat-error *ngIf="courseForm.get('credits')?.hasError('min')"
+        >Minimum 1 credit required.</mat-error
+      >
+      <mat-error *ngIf="courseForm.get('credits')?.hasError('max')"
+        >Maximum 10 credits allowed.</mat-error
+      >
+    </mat-form-field>
+
+    <!-- Trainer Remark -->
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Trainer Remark</mat-label>
+      <textarea
+        matInput
+        formControlName="trainerRemark"
+        placeholder="Enter remark (max 250 chars)"
+      ></textarea>
+      <mat-error *ngIf="courseForm.get('trainerRemark')?.hasError('maxlength')"
+        >Max 250 characters allowed.</mat-error
+      >
+    </mat-form-field>
+
+    <!-- Submit Button -->
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="!courseForm.valid"
+    >
+      Submit
+    </button>
+  </form>
+    </div>
+</div>
+

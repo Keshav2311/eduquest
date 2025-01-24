@@ -9,6 +9,7 @@ import { FaqComponent } from './components/faq/faq.component';
 import { CoursesComponent } from './components/courses/courses.component';
 import { StudentComponent } from './components/student/student.component';
 import { IntructorComponent } from './components/intructor/intructor.component';
+import { CourseAddComponent } from './components/course-add/course-add.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponentComponent }, 
@@ -21,7 +22,8 @@ const routes: Routes = [
   { path: "courses", component: CoursesComponent },
   { path: "student", component: StudentComponent},
   { path: "intructor", component: IntructorComponent},
-  { path: "student", component: StudentComponent}
+  { path: "student", component: StudentComponent},
+  { path: "course_add", component: CourseAddComponent}
 ];
 // i fail
 @NgModule({

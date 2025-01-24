@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SignService } from '../../../services/sign.service';
 
 @Component({
   selector: 'app-forgot',
@@ -25,7 +26,27 @@ export class ForgotComponent {
     }
   }
 
+  constructor(private signService: SignService){}
+
   onSubmit(form: any): void {
+    const { name, forgot, confirm } = this.user;
+
+    if( !confirm ){
+      alert('Please provide all required fields.');
+      return;
+    }
+
+    this.signService.updatePassword(name, forgot, confirm).subscribe({
+      next: (response) => {
+        console.log('Password Updated successfully:', response)
+        alert(`Password updated successfully`);
+      },
+      error: (err) => {
+        console.error('Error updating Password:', err);
+        alert('Failed to update the Password. Please check the details.');
+      }
+    })
+
     if (form.valid) {
       console.log('Form Submitted:', this.user);
       alert('Password Set successful!');
