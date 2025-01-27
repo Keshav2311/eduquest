@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CoursesService } from '../../services/courses.service';
+import { SignService } from '../../services/sign.service';
 
 @Component({
   selector: 'app-courses',
@@ -12,7 +13,7 @@ export class CoursesComponent {
   courses: any[] = []; // Array to hold courses fetched from the API
   selectedCourse: any | null = null;
 
-  constructor(private coursesService: CoursesService) {}
+  constructor(private coursesService: CoursesService, private signservice: SignService) {}
 
   ngOnInit(): void {
     this.fetchCourses();
@@ -30,9 +31,39 @@ export class CoursesComponent {
     });
   }
 
-  enroll(courseName: string): void {
+  enroll(courseName: string, id: string): void {
     
-    // alert(`Enrolled in ${courseName}!`);
+    const user = JSON.parse(localStorage.getItem('users') || '{}'); // Retrieve user details
+  const userId = user.id;
+
+  if (!userId) {
+    alert('User not logged in. Please login to enroll.');
+    return;
+  }
+
+  // Update user's courses list
+  const updatedCourses = [...(user.courses || []), id]; // Add the new course ID to the existing list
+
+  const updatedUserData = {
+    ...user,
+    courses: updatedCourses, // Update the courses array
+  };
+
+  console.log('Updated user data:', updatedUserData);
+
+  this.signservice.updateUser(userId, updatedUserData).subscribe({
+    next: (response) => {
+      console.log('Enrollment successful:', response);
+      alert(`Successfully enrolled in ${courseName}!`);
+      // Update localStorage with the updated user data
+      localStorage.setItem('users', JSON.stringify(updatedUserData));
+    },
+    error: (error) => {
+      console.error('Error enrolling in the course:', error);
+      alert('An error occurred while enrolling in the course.');
+    },
+  });
+    
   }
 
   showDetails(course: any): void {

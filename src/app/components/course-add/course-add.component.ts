@@ -49,16 +49,6 @@ export class CourseAddComponent {
       this.courseForm.get('technologies')?.setValue(technologies);
     }
   }
-
-  // test(): void{
-  //   console.log("called the test function");
-  //   this.signservice.addCourseToUser("hello", "5827").subscribe(res=>{
-  //     console.log(">>>");
-      
-  //   })
-  // }
-  // var response_id: string;
-  // Submit the form
   onSubmit(): void {
 
     

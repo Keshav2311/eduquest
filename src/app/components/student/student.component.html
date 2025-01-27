@@ -11,9 +11,9 @@
 
       <!-- Instructor Details -->
       <div class="col-md-8">
-        <h2 class="fw-bold">{{userInfo.name}}</h2>
-        <p class="mb-1"><strong>Gender:</strong> {{userInfo.gender}}</p>
-        <p class="mb-1"><strong>Learner Since:</strong> {{userInfo.experience}} years</p>
+        <h2 class="fw-bold">{{userInfo?.name}}</h2>
+        <p class="mb-1"><strong>Gender:</strong> {{userInfo?.gender}}</p>
+        <p class="mb-1"><strong>Learner Since:</strong> {{userInfo?.experience}} years</p>
       </div>
     </div>
     <!-- Content Section -->
@@ -27,3 +27,33 @@
     </div>
   </div>
 </section>
+
+<div *ngIf="coursedata.length > 0">
+  <section class="dashboard-section py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h3 class="fw-bold mb-4">Courses</h3>
+        </div>
+      </div>
+      <div *ngFor="let course of coursedata" class="row align-items-center bg-light text-dark rounded shadow p-4 m-2">
+        <div class="col-md-4 text-center">
+          <img src="img.jpg" alt="Course Image" class="img-fluid rounded shadow-lg profile-img">
+        </div>
+        <div class="col-md-6">
+          <h2 class="fw-bold">{{course.courseName}}</h2>
+          <p class="mb-1"><strong>Technologies:</strong> {{course.technologies.join(', ')}}</p>
+          <p class="mb-1"><strong>Duration:</strong> {{course.duration}} weeks</p>
+          <p class="mb-1"><strong>Price:</strong> ${{course.courseFee}}</p>
+          <p class="mb-1"><strong>Credits:</strong> {{course.credits}}</p>
+          <p class="mb-1"><strong>Trainer Remark:</strong> {{course.trainerRemark}}</p>
+        </div>
+        <div class="col-md-2 d-flex justify-content-center align-items-center">
+          <button mat-raised-button color="primary" type="button" (click)="course_delete(course.id)">
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
