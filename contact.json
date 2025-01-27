@@ -22,7 +22,7 @@
       "experience": 2,
       "password": "Hello@2311",
       "courses": [
-        "f678"
+        "f678","b456","c789"
       ]
     },
     {
@@ -35,8 +35,9 @@
       "experience": 5,
       "password": "Hello@123",
       "courses": [
-        "a123",
-        "c789"
+        "k123",
+        "d012",
+        "e345"
       ]
     },
     {
@@ -49,8 +50,9 @@
       "experience": 2,
       "password": "Hari*5559",
       "courses": [
-        "f583",
-        "b456"
+        "f678",
+        "g901",
+        "h234"
       ]
     },
     {
@@ -63,9 +65,9 @@
       "experience": 2,
       "password": "Priyam@1122",
       "courses": [
-        "e345",
-        "c789",
-        "110c"
+        "i567",
+        "j890",
+        "k123"
       ]
     },
     {
@@ -78,9 +80,11 @@
       "experience": 7,
       "password": "Anita@1122",
       "courses": [
-        "878e",
-        "a123",
-        "g901"
+        "l456",
+        "m789",
+        "n012",
+        "a788",
+        "878e"
       ]
     }
   ],

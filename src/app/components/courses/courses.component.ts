@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CoursesService } from '../../services/courses.service';
 import { SignService } from '../../services/sign.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-courses',
@@ -12,11 +13,13 @@ import { SignService } from '../../services/sign.service';
 export class CoursesComponent {
   courses: any[] = []; // Array to hold courses fetched from the API
   selectedCourse: any | null = null;
+  role: string = '';
 
-  constructor(private coursesService: CoursesService, private signservice: SignService) {}
+  constructor(private coursesService: CoursesService, private signservice: SignService, private authservice: AuthService) {}
 
   ngOnInit(): void {
     this.fetchCourses();
+    this.role = this.authservice.getUserRole();  
   }
 
   fetchCourses(): void {

@@ -106,7 +106,9 @@
 
   .content-section {
     font-family: "Kumbh Sans", sans-serif;
-    background-color: #f8f9fa;
+    background-color: #26023b;
+    color: #f5f1f1;
+    text-align: center;
   }
   
   .bg-dark {
@@ -145,16 +147,28 @@
   .card {
     border-radius: 15px;
   }
+
+  #card {
+    background-color: #010002;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+    color: #f5f1f1;
+  }
   
   #button{
-    /* background-color: rgb(243, 241, 242); */
-    border-radius: 10px;
+    background-color: #f4f3f5;
+    color: white;
+    border-radius: 20px;
+    padding: 1px;
+    border: none;
+    box-shadow: 2px 2px 2px black;
   }
-  #button:hover{
-    background-color: rgb(84, 1, 117);
-    color: rgb(250, 247, 250);
-    padding: 8px;
-    box-sizing: border-box;
-    text-decoration: none;
-    box-shadow: 2px 2px 2px rgb(129, 100, 129);
+  button{
+    width: 100%;
   }

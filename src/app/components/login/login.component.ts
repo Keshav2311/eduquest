@@ -43,7 +43,7 @@ export class LoginComponent {
               this.router.navigate(['/student']);
               // alert("Student Dashboard");
             } else if (userdetail.role === 'instructor') {
-              this.router.navigate(['/intructor']);
+              this.router.navigate(['/instructor']);
             }
           } else {
             alert('User does not exist.');

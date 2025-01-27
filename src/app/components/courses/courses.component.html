@@ -29,6 +29,7 @@
           <div class="card-footer d-flex justify-content-between">
             <button
               class="btn btn-enroll"
+              *ngIf="role === 'student'"
               (click)="enroll(course.courseName,course.id)"
             >
               Enroll

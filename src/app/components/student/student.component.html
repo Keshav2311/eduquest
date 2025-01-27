@@ -1,8 +1,15 @@
 <section class="dashboard-section py-5">
   <div class="container">
+    <div class="row mt-1">
+      <div class="col-12">
+        <div class="content-section rounded shadow p-4 mb-5">
+          <h3 class="fw-bold mb-1 text-center">Student Dashboard Content</h3>
+        </div>
+      </div>
+    </div>
     <div class="row align-items-center bg-dark text-light rounded shadow p-4">
       <!-- Profile Picture -->
-      <div class="col-md-4 text-center">
+      <div class="col-md-4 col-sm-4 text-center">
         <img 
           src="https://media.istockphoto.com/id/1332100919/vector/man-icon-black-icon-person-symbol.jpg?s=612x612&w=0&k=20&c=AVVJkvxQQCuBhawHrUhDRTCeNQ3Jgt0K1tXjJsFy1eg=" 
           alt="Instructor Profile" 
@@ -10,37 +17,34 @@
       </div>
 
       <!-- Instructor Details -->
-      <div class="col-md-8">
+      <div class="col-md-8 col-sm-8 d-flex flex-column justify-content-center align-items-center">
         <h2 class="fw-bold">{{userInfo?.name}}</h2>
         <p class="mb-1"><strong>Gender:</strong> {{userInfo?.gender}}</p>
         <p class="mb-1"><strong>Learner Since:</strong> {{userInfo?.experience}} years</p>
       </div>
     </div>
-    <!-- Content Section -->
-    <div class="row mt-5">
-      <div class="col-12">
-        <div class="content-section bg-light rounded shadow p-4">
-          <h3 class="fw-bold mb-4">Dashboard Content</h3>
-          <p>This is where additional instructor-specific information or actions will go, such as managing courses, viewing students, or analytics.</p>
-        </div>
-      </div>
-    </div>
+
+    <div class="d-flex justify-content-center align-items-center mt-2 button">
+      <a class="hero-cta" routerLink="/courses">
+        <span class="cta-title">More Courses<i class="fa fa-arrow-right"></i></span>
+      </a>
+    </div>    
   </div>
 </section>
 
 <div *ngIf="coursedata.length > 0">
-  <section class="dashboard-section py-5">
+  <section class="dashboard-section">
     <div class="container">
       <div class="row">
-        <div class="col-12">
-          <h3 class="fw-bold mb-4">Courses</h3>
+        <div class="col-12" class="h1">
+          <h1>COURSES</h1>
         </div>
       </div>
-      <div *ngFor="let course of coursedata" class="row align-items-center bg-light text-dark rounded shadow p-4 m-2">
-        <div class="col-md-4 text-center">
+      <div *ngFor="let course of coursedata" class="row align-items-center rounded shadow p-4 m-2" id="card">
+        <!-- <div class="col-md-4 text-center">
           <img src="img.jpg" alt="Course Image" class="img-fluid rounded shadow-lg profile-img">
-        </div>
-        <div class="col-md-6">
+        </div> -->
+        <div class="col-md-10 col-sm-10">
           <h2 class="fw-bold">{{course.courseName}}</h2>
           <p class="mb-1"><strong>Technologies:</strong> {{course.technologies.join(', ')}}</p>
           <p class="mb-1"><strong>Duration:</strong> {{course.duration}} weeks</p>
@@ -48,8 +52,8 @@
           <p class="mb-1"><strong>Credits:</strong> {{course.credits}}</p>
           <p class="mb-1"><strong>Trainer Remark:</strong> {{course.trainerRemark}}</p>
         </div>
-        <div class="col-md-2 d-flex justify-content-center align-items-center">
-          <button mat-raised-button color="primary" type="button" (click)="course_delete(course.id)">
+        <div class="col-md-2 col-sm-2 d-flex justify-content-center align-items-center" id="button">
+          <button mat-raised-button  type="button" (click)="course_delete(course.id)">
             Delete
           </button>
         </div>
