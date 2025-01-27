@@ -21,25 +21,14 @@
               <span>Home</span>
             </a>
           </li>
-          <li class="nav-item px-3">
+          <!-- <li class="nav-item px-3">
             <a class="nav-link" routerLink="/course_add" aria-label="Home Page">
               <span>course_add</span>
             </a>
-          </li>
-          <li class="nav-item px-3">
+          </li> -->
+          <!-- <li class="nav-item px-3">
             <a class="nav-link" routerLink="/instructor" aria-label="instructor Page">
               <span>instructor</span>
-            </a>
-          </li>
-          
-          <li class="nav-item px-3" *ngIf="authService.isAuthenticated()">
-            <a class="nav-link" routerLink="/dashboard">
-              <span>Dashboard</span>
-            </a>
-          </li>
-          <!-- <li class="nav-item px-3">
-            <a class="nav-link" routerLink="/intructor">
-              <span>Instructor</span>
             </a>
           </li> -->
           <li class="nav-item dropdown px-3">
@@ -66,6 +55,11 @@
               <li><a class="dropdown-item" routerLink="/faq">FAQ</a></li>
               <li><a class="dropdown-item" routerLink="/contact">Contact Us</a></li>
             </ul>
+          </li>
+          <li class="nav-item px-3" *ngIf="authService.isAuthenticated()">
+            <a class="nav-link" [routerLink]="authService.getUserRole() === 'student' ? '/student' : '/instructor'" id="button">
+              <span>Dashboard</span>
+            </a>
           </li>
           <li class="nav-item px-3">
             <a

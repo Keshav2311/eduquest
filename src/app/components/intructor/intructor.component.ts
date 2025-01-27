@@ -17,7 +17,7 @@ export class IntructorComponent implements OnInit {
   courseslist: String[] = [];
   coursedata: Courseinterface[] = [];
 
-  constructor(private signService: SignService, private coursesService: CoursesService) {}
+  constructor(private signService: SignService, private coursesService: CoursesService) { }
 
   ngOnInit() {
     this.signService.getUserById(this.luser.id).subscribe({
@@ -36,6 +36,18 @@ export class IntructorComponent implements OnInit {
             }
           });
         });
+      },
+      error: (err) => {
+        console.error('There was an error!', err);
+      }
+    });
+  }
+
+  course_delete(courseId: string): void {
+    this.coursesService.deleteCourse(courseId).subscribe({
+      next: (res) => {
+        console.log('Course deleted successfully!', res);
+        this.coursedata = this.coursedata.filter((course) => course.id !== courseId);
       },
       error: (err) => {
         console.error('There was an error!', err);

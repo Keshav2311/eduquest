@@ -21,4 +21,8 @@ export class CoursesService {
     getcourseById(id: String): Observable<any> {
       return this.http.get<any>(`${this.apiUrl}/${id}`);
     }
+
+    deleteCourse(id: String): Observable<any> {
+      return this.http.delete<any>(`${this.apiUrl}/${id}`);
+    }
 }

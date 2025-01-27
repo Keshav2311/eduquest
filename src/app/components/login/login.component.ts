@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { SignService } from '../../services/sign.service';
+import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-login',
   standalone: false,
@@ -16,7 +17,7 @@ export class LoginComponent {
     remember: false,
   };
 
-  constructor(private signService: SignService, private router: Router) {}
+  constructor(private signService: SignService, private router: Router ,private authservice: AuthService) {}
   onSubmit(loginForm: any): void {
     if (loginForm.valid) {
       const email = loginForm.value.email; // Get email from the form
@@ -34,13 +35,14 @@ export class LoginComponent {
 
           if (userExists) {
             localStorage.setItem("users", JSON.stringify(userdetail))
+            this.authservice.login(userdetail);
 
             alert('Login successful!');
             console.log(userdetail.role);
             if (userdetail.role === 'student') {
               this.router.navigate(['/student']);
               // alert("Student Dashboard");
-            } else {
+            } else if (userdetail.role === 'instructor') {
               this.router.navigate(['/intructor']);
             }
           } else {

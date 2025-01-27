@@ -21,7 +21,10 @@
       "interest": "Angular",
       "experience": 2,
       "password": "Hello@2311",
-      "courses": ["a123", "f583"]
+      "courses": [
+        "a123",
+        "f583"
+      ]
     },
     {
       "id": "4dc1",
@@ -32,7 +35,10 @@
       "interest": "Database",
       "experience": 5,
       "password": "Hello@123",
-      "courses": ["a123", "f583"]
+      "courses": [
+        "a123",
+        "f583"
+      ]
     },
     {
       "id": "b0a8",
@@ -43,7 +49,10 @@
       "interest": "React",
       "experience": 2,
       "password": "Hari*5559",
-      "courses": ["f583", "b456"]
+      "courses": [
+        "f583",
+        "b456"
+      ]
     },
     {
       "id": "c1c4",
@@ -54,7 +63,11 @@
       "interest": "PHP",
       "experience": 2,
       "password": "Priyam@1122",
-      "courses": ["e345", "c789"]
+      "courses": [
+        "e345",
+        "c789",
+        "110c"
+      ]
     },
     {
       "id": "5827",
@@ -65,36 +78,25 @@
       "interest": "AI",
       "experience": 7,
       "password": "Anita@1122",
-      "courses": ["878e", "a123", "g901"]
+      "courses": [
+        "878e",
+        "a123",
+        "g901"
+      ]
     }
   ],
   "courses": [
-    {
-      "id": "f583",
-      "courseName": "React",
-      "trainerName": "Priyam Kumar",
-      "duration": 4,
-      "technologies": ["html", "css", "javascript", "nodejs"],
-      "courseFee": 300,
-      "credits": 3,
-      "trainerRemark": "Pre-requisites are very necessary in this course."
-    },
-    {
-      "id": "a123",
-      "courseName": "Angular",
-      "trainerName": "Anita Sharma",
-      "duration": 5,
-      "technologies": ["html", "css", "typescript", "rxjs"],
-      "courseFee": 350,
-      "credits": 4,
-      "trainerRemark": "Basic knowledge of JavaScript is required."
-    },
     {
       "id": "b456",
       "courseName": "Vue.js",
       "trainerName": "Ravi Patel",
       "duration": 3,
-      "technologies": ["html", "css", "javascript", "vuex"],
+      "technologies": [
+        "html",
+        "css",
+        "javascript",
+        "vuex"
+      ],
       "courseFee": 250,
       "credits": 2,
       "trainerRemark": "Familiarity with JavaScript frameworks is beneficial."
@@ -104,7 +106,12 @@
       "courseName": "Node.js",
       "trainerName": "Suman Gupta",
       "duration": 6,
-      "technologies": ["javascript", "express", "mongodb", "restful apis"],
+      "technologies": [
+        "javascript",
+        "express",
+        "mongodb",
+        "restful apis"
+      ],
       "courseFee": 400,
       "credits": 5,
       "trainerRemark": "Understanding of backend development is necessary."
@@ -114,7 +121,12 @@
       "courseName": "Python",
       "trainerName": "Neha Verma",
       "duration": 4,
-      "technologies": ["python", "flask", "django", "sql"],
+      "technologies": [
+        "python",
+        "flask",
+        "django",
+        "sql"
+      ],
       "courseFee": 300,
       "credits": 3,
       "trainerRemark": "No prior programming experience required."
@@ -124,7 +136,12 @@
       "courseName": "Java",
       "trainerName": "Amit Singh",
       "duration": 5,
-      "technologies": ["java", "spring", "hibernate", "maven"],
+      "technologies": [
+        "java",
+        "spring",
+        "hibernate",
+        "maven"
+      ],
       "courseFee": 350,
       "credits": 4,
       "trainerRemark": "Basic understanding of OOP concepts is required."
@@ -134,7 +151,12 @@
       "courseName": "C++",
       "trainerName": "Rohit Mehta",
       "duration": 4,
-      "technologies": ["c++", "stl", "oop", "algorithms"],
+      "technologies": [
+        "c++",
+        "stl",
+        "oop",
+        "algorithms"
+      ],
       "courseFee": 300,
       "credits": 3,
       "trainerRemark": "Prior programming experience is beneficial."
@@ -144,7 +166,12 @@
       "courseName": "Data Science",
       "trainerName": "Shreya Kapoor",
       "duration": 6,
-      "technologies": ["python", "pandas", "numpy", "machine learning"],
+      "technologies": [
+        "python",
+        "pandas",
+        "numpy",
+        "machine learning"
+      ],
       "courseFee": 450,
       "credits": 5,
       "trainerRemark": "Basic knowledge of Python is required."
@@ -154,7 +181,12 @@
       "courseName": "Machine Learning",
       "trainerName": "Vikram Rao",
       "duration": 6,
-      "technologies": ["python", "scikit-learn", "tensorflow", "keras"],
+      "technologies": [
+        "python",
+        "scikit-learn",
+        "tensorflow",
+        "keras"
+      ],
       "courseFee": 500,
       "credits": 5,
       "trainerRemark": "Understanding of linear algebra and statistics is necessary."
@@ -164,7 +196,12 @@
       "courseName": "Cyber Security",
       "trainerName": "Anjali Nair",
       "duration": 5,
-      "technologies": ["network security", "cryptography", "ethical hacking", "firewalls"],
+      "technologies": [
+        "network security",
+        "cryptography",
+        "ethical hacking",
+        "firewalls"
+      ],
       "courseFee": 400,
       "credits": 4,
       "trainerRemark": "Basic knowledge of networking is required."
@@ -174,7 +211,12 @@
       "courseName": "Blockchain",
       "trainerName": "Karan Desai",
       "duration": 4,
-      "technologies": ["blockchain", "ethereum", "smart contracts", "solidity"],
+      "technologies": [
+        "blockchain",
+        "ethereum",
+        "smart contracts",
+        "solidity"
+      ],
       "courseFee": 350,
       "credits": 3,
       "trainerRemark": "Understanding of distributed systems is beneficial."
@@ -184,7 +226,12 @@
       "courseName": "DevOps",
       "trainerName": "Pooja Reddy",
       "duration": 5,
-      "technologies": ["docker", "kubernetes", "jenkins", "ansible"],
+      "technologies": [
+        "docker",
+        "kubernetes",
+        "jenkins",
+        "ansible"
+      ],
       "courseFee": 400,
       "credits": 4,
       "trainerRemark": "Basic knowledge of software development and operations is required."
@@ -194,7 +241,12 @@
       "courseName": "Artificial Intelligence",
       "trainerName": "Rajesh Kumar",
       "duration": 6,
-      "technologies": ["python", "neural networks", "deep learning", "natural language processing"],
+      "technologies": [
+        "python",
+        "neural networks",
+        "deep learning",
+        "natural language processing"
+      ],
       "courseFee": 500,
       "credits": 5,
       "trainerRemark": "Understanding of machine learning concepts is necessary."
@@ -204,7 +256,12 @@
       "courseName": "Cloud Computing",
       "trainerName": "Sanjay Gupta",
       "duration": 5,
-      "technologies": ["aws", "azure", "google cloud", "cloud architecture"],
+      "technologies": [
+        "aws",
+        "azure",
+        "google cloud",
+        "cloud architecture"
+      ],
       "courseFee": 450,
       "credits": 4,
       "trainerRemark": "Basic knowledge of networking and virtualization is required."
@@ -214,7 +271,12 @@
       "courseName": "Big Data",
       "trainerName": "Meera Joshi",
       "duration": 6,
-      "technologies": ["hadoop", "spark", "hive", "pig"],
+      "technologies": [
+        "hadoop",
+        "spark",
+        "hive",
+        "pig"
+      ],
       "courseFee": 500,
       "credits": 5,
       "trainerRemark": "Understanding of data processing concepts is beneficial."
@@ -224,7 +286,9 @@
       "courseName": "dummy",
       "trainerName": "dummy",
       "duration": 2,
-      "technologies": ["dummy"],
+      "technologies": [
+        "dummy"
+      ],
       "courseFee": 20,
       "credits": 2,
       "trainerRemark": "hello"
@@ -234,7 +298,9 @@
       "courseName": "dummy",
       "trainerName": "dummy",
       "duration": 2,
-      "technologies": ["mhtml"],
+      "technologies": [
+        "mhtml"
+      ],
       "courseFee": 200,
       "credits": 2,
       "trainerRemark": "hello"
