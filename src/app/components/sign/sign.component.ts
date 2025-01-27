@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { SignService } from '../../services/sign.service';
+import { UserInterface } from '../../interfaces/user';
 
 @Component({
   selector: 'app-sign',
@@ -9,8 +10,9 @@ import { SignService } from '../../services/sign.service';
   styleUrls: ['./sign.component.css'], // Fixed styleUrls key
 })
 export class SignComponent {
-  step = 1; // Current form page
+  step = 1; 
   signupForm: FormGroup;
+  user: UserInterface | undefined;
 
   constructor(private fb: FormBuilder, private signService: SignService) {
     this.signupForm = this.fb.group({

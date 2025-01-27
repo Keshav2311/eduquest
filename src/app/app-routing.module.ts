@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: "faq", component: FaqComponent},
   { path: "courses", component: CoursesComponent },
   { path: "student", component: StudentComponent},
-  { path: "intructor", component: IntructorComponent},
+  { path: "instructor", component: IntructorComponent},
   { path: "student", component: StudentComponent},
   { path: "course_add", component: CourseAddComponent}
 ];

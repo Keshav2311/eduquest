@@ -60,7 +60,7 @@ export class SignService {
         debugger;
         console.log("reached here, userdata is :",userdata)
         const userCourses = userdata.courses || [];
-        const updatedCourses = [...userCourses, { courseId }];
+        const updatedCourses = [...userCourses, courseId ];
         console.log(updatedCourses);
         userdata.courses = updatedCourses;
         console.log("updated");
@@ -70,5 +70,9 @@ export class SignService {
   }
   getUsers(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl);
+  }
+
+  getUserById(id: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/${id}`);
   }
 }

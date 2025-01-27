@@ -15,6 +15,7 @@ export class AuthService {
 
   logout(): void {
     this.isLoggedIn = false;
+    localStorage.removeItem('users')
   }
 
   isAuthenticated(): boolean {

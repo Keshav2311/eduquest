@@ -21,6 +21,17 @@
               <span>Home</span>
             </a>
           </li>
+          <li class="nav-item px-3">
+            <a class="nav-link" routerLink="/course_add" aria-label="Home Page">
+              <span>course_add</span>
+            </a>
+          </li>
+          <li class="nav-item px-3">
+            <a class="nav-link" routerLink="/instructor" aria-label="instructor Page">
+              <span>instructor</span>
+            </a>
+          </li>
+          
           <li class="nav-item px-3" *ngIf="authService.isAuthenticated()">
             <a class="nav-link" routerLink="/dashboard">
               <span>Dashboard</span>

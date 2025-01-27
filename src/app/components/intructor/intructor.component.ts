@@ -1,52 +1,45 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SignService } from '../../services/sign.service';
+import { CoursesService } from '../../services/courses.service';
+import { UserInterface } from '../../interfaces/user';
+import { Courseinterface } from '../../interfaces/courses';
 
 @Component({
   selector: 'app-instructor',
   standalone: false,
-   templateUrl: './intructor.component.html',
-  styleUrl: './intructor.component.css'
+  templateUrl: './intructor.component.html',
+  styleUrls: ['./intructor.component.css']
 })
 export class IntructorComponent implements OnInit {
-  instructor$: any[] = []; // Holds the list of instructors
-  userInfo :any[]=[];
-  constructor(private signService: SignService) {}
+  instructor$: any[] = [];
+  userInfo: UserInterface | undefined;
+  luser = JSON.parse(localStorage.getItem('users') || '{}');
+  courseslist: String[] = [];
+  coursedata: Courseinterface[] = [];
 
-
+  constructor(private signService: SignService, private coursesService: CoursesService) {}
 
   ngOnInit() {
-    // Fetch users from the service
-    this.signService.getUsers().subscribe({
+    this.signService.getUserById(this.luser.id).subscribe({
       next: (res) => {
-        this.instructor$ = res; // Assign the fetched data to instructor$
-        console.log('Fetched instructors:', this.instructor$);
-
-        // Check localStorage for user data
-        let userData = JSON.parse(localStorage.getItem('users') || '{}');
-        if (userData && userData.email) {
-          const email = userData.email;
-          console.log('User email from localStorage:', email);
-
-          // Find matching instructor
-          const matchingInstructor = this.instructor$.find(
-            (instructor: any) => instructor.email === email
-          );
-
-          if (matchingInstructor) {
-            console.log('Matching instructor found:', matchingInstructor);
-            this.userInfo = matchingInstructor;
-          } else {
-            console.log('No matching instructor found.');
-          }
-        } else {
-          console.log('No user data in localStorage.');
-        }
+        this.userInfo = res;
+        this.courseslist = this.userInfo?.courses || [];
+        console.log(this.courseslist);
+        this.courseslist.forEach((courseId) => {
+          this.coursesService.getcourseById(courseId).subscribe({
+            next: (course) => {
+              this.coursedata.push(course);
+              console.log("courses are:", this.coursedata);
+            },
+            error: (err) => {
+              console.error('There was an error!', err);
+            }
+          });
+        });
       },
       error: (err) => {
-        console.error('Error fetching instructors:', err);
-      },
+        console.error('There was an error!', err);
+      }
     });
   }
-
-  
 }
