@@ -52,6 +52,22 @@ export class SignService {
     );
   }
 
+  addCourseToUser(courseId: string, userId: string): Observable<any> {
+    console.log("started");
+
+    return this.http.get<any>(this.apiUrl+"/"+userId).pipe(
+      switchMap(userdata => {
+        debugger;
+        console.log("reached here, userdata is :",userdata)
+        const userCourses = userdata.courses || [];
+        const updatedCourses = [...userCourses, { courseId }];
+        console.log(updatedCourses);
+        userdata.courses = updatedCourses;
+        console.log("updated");
+        return this.http.put(`${this.apiUrl}/${userId}`, userdata);
+      })
+    );
+  }
   getUsers(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl);
   }

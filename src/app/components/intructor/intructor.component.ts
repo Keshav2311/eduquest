@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { SignService } from '../../services/sign.service';
 
 @Component({
@@ -9,8 +9,10 @@ import { SignService } from '../../services/sign.service';
 })
 export class IntructorComponent implements OnInit {
   instructor$: any[] = []; // Holds the list of instructors
-  userInfo : any;
+  userInfo :any[]=[];
   constructor(private signService: SignService) {}
+
+
 
   ngOnInit() {
     // Fetch users from the service
@@ -45,4 +47,6 @@ export class IntructorComponent implements OnInit {
       },
     });
   }
+
+  
 }

@@ -30,6 +30,7 @@ import{HttpClientModule}from'@angular/common/http';
 import { StudentComponent } from './components/student/student.component';
 import { SignService } from './services/sign.service';
 import { IntructorComponent } from './components/intructor/intructor.component';
+import { CoursesService } from './services/courses.service';
 import { CourseAddComponent } from './components/course-add/course-add.component';
 
 
@@ -54,8 +55,7 @@ import { CourseAddComponent } from './components/course-add/course-add.component
     PartnersComponent,
     StudentComponent,
     IntructorComponent,
-    CourseAddComponent
-    
+    CourseAddComponent    
   ],
   imports: [
     BrowserAnimationsModule,
@@ -70,7 +70,8 @@ import { CourseAddComponent } from './components/course-add/course-add.component
   providers: [
     provideAnimationsAsync(),
     ContactService,
-    SignService
+    SignService,
+    CoursesService
   ],
   bootstrap: [AppComponent]
 })

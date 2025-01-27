@@ -83,6 +83,7 @@ export class SignComponent {
         next: (response) => {
           console.log('Contact Detail Data added:', response);
           alert('Sign-up Successful!');
+          // localStorage.setItem("users", JSON.stringify(response))
           this.signupForm.reset();
           this.step = 1; // Reset to the first step
         },

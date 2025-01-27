@@ -9,14 +9,8 @@ import { MatError } from '@angular/material/form-field';
 import { MatLabel } from '@angular/material/form-field';
 
 
-
-
-
 @NgModule({
-  declarations: [
-    
-    
-  ],
+  declarations: [],
   imports: [
     MatFormFieldModule,
     MatInputModule,
@@ -26,7 +20,7 @@ import { MatLabel } from '@angular/material/form-field';
     MatCardModule,
     MatError,
     MatLabel,
-    MatChipListbox
+    MatChipListbox,
   ],
   exports:[
     MatFormFieldModule,
@@ -37,6 +31,6 @@ import { MatLabel } from '@angular/material/form-field';
     MatCardModule,
     MatError,
     MatLabel,
-    MatChipListbox
-]})
+    MatChipListbox,
+  ]})
 export class MaterialModule { }

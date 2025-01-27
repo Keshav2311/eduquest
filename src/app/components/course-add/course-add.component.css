@@ -1,28 +1,67 @@
 .contaner {
-    /* margin-top: 5vh; */
-    font-family: "Kumbh Sans", sans-serif;
-    background-color: #eadfeb;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    margin-left: 344px;
-    margin-right: 344px;
-  }
+  font-family: "Kumbh Sans", sans-serif;
+  background-color: #f4e9f4; /* Light purple background */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 15vh;
+  width: 80%;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-  
-  
-  .full-width {
-    width: 100%;
-    margin-bottom: 15px;
-  }
-  
-  mat-chip {
-    margin-right: 5px;
-  }
-  
-  button {
-    display: block;
-    margin: 20px auto 0;
-  }
-  
+h2 {
+  font-weight: bolder;
+  text-align: center;
+  color: #5a005a; /* Dark purple text */
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 15px;
+  background-color: #fff; /* White input background */
+  border-radius: 5px; /* Rounded edges for inputs */
+}
+
+mat-form-field {
+  background-color: #ffffff; /* Input field background */
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+mat-chip {
+  margin-right: 5px;
+  background-color: #d7b3d7; /* Light purple chips */
+  color: #5a005a; /* Dark purple text for chips */
+}
+
+button {
+  display: block;
+  margin: 20px auto 0;
+  background-color: #a84ca8; /* Purple button background */
+  color: white; /* White text for buttons */
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #830083; /* Darker purple on hover */
+}
+
+mat-error {
+  color: #a84ca8; /* Light purple for error text */
+}
+
+textarea, input[type="number"], input[type="text"] {
+  color: #5a005a; /* Dark purple text for inputs */
+}
+
+textarea::placeholder, input::placeholder {
+  color: #a084a0; /* Light placeholder color */
+}

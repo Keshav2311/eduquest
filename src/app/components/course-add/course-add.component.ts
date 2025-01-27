@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CoursesService } from '../../services/courses.service';
+import { Router } from '@angular/router';
+import { SignService } from '../../services/sign.service';
 
 @Component({
   selector: 'app-course-add',
@@ -11,7 +14,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class CourseAddComponent {
   courseForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+
+  constructor(private fb: FormBuilder, private coursesService: CoursesService, private router: Router, private signservice:SignService) {
     this.courseForm = this.fb.group({
       courseName: ['', [Validators.required, Validators.minLength(3)]],
       trainerName: ['', [Validators.required, Validators.minLength(3)]],
@@ -46,13 +50,48 @@ export class CourseAddComponent {
     }
   }
 
+  // test(): void{
+  //   console.log("called the test function");
+  //   this.signservice.addCourseToUser("hello", "5827").subscribe(res=>{
+  //     console.log(">>>");
+      
+  //   })
+  // }
+  // var response_id: string;
   // Submit the form
   onSubmit(): void {
+
+    
+
     if (this.courseForm.valid) {
-      console.log('Form Data:', this.courseForm.value);
-      alert('Course submitted successfully!');
+      const formData = this.courseForm.value;
+
+      // Use the service to send data to the backend
+      this.coursesService.addItem(formData).subscribe({
+        next: (response) => {
+          console.log('Course submitted successfully:', response);
+          alert('Course submitted successfully!');
+          console.log('Generated ID:', response.id); 
+          let courseid=response.id;
+          let tutorid = JSON.parse(localStorage.getItem('users')||'').id;
+          console.log(courseid,tutorid);
+          this.signservice.addCourseToUser(courseid,tutorid).subscribe(res=>{
+            console.log(">>>");
+            
+          });
+
+          this.courseForm.reset(); // Reset the form
+          this.router.navigate(['/courses']); // Optional: Navigate to another route
+        },
+        error: (error) => {
+          console.error('Error submitting the course:', error);
+          alert('An error occurred while submitting the course.');
+        }
+      });
     } else {
       alert('Please correct the errors before submitting.');
     }
   }
+
+  
 }

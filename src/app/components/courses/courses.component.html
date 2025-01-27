@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" id="search">
   <div class="spectacledcoder-search-bar">
     <img
       class="search-icon"
@@ -15,5 +15,77 @@
       autocomplete="on"
     />
   </div>
-  <div class="content"></div>
+  <div class="container mt-5">
+    <div class="row">
+      <!-- Iterate over the courses array and display each course in a card -->
+      <div class="col-md-4 mb-4" *ngFor="let course of courses">
+        <div class="card shadow-lg course-card">
+          <div class="card-body">
+            <h5 class="card-title">{{ course.courseName }}</h5>
+            <p class="card-text">
+              <strong>Trainer:</strong> {{ course.trainerName }}
+            </p>
+          </div>
+          <div class="card-footer d-flex justify-content-between">
+            <button
+              class="btn btn-enroll"
+              (click)="enroll(course.courseName)"
+            >
+              Enroll
+            </button>
+            <button
+              class="btn btn-details"
+              (click)="showDetails(course)"
+              [disabled]
+            >
+              Details
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Dialog Box -->
+    <div
+      class="modal fade"
+      id="detailsModal"
+      tabindex="-1"
+      aria-labelledby="detailsModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="detailsModalLabel">Course Details</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p><strong>Course Name:</strong> {{ selectedCourse?.courseName }}</p>
+            <p><strong>Trainer:</strong> {{ selectedCourse?.trainerName }}</p>
+            <p><strong>Duration:</strong> {{ selectedCourse?.duration }} weeks</p>
+            <p><strong>Technologies:</strong> {{ selectedCourse?.technologies.join(', ') }}</p>
+            <p><strong>Fee:</strong> ${{ selectedCourse?.courseFee }}</p>
+            <p><strong>Credits:</strong> {{ selectedCourse?.credits }}</p>
+            <p><strong>Remark:</strong> {{ selectedCourse?.trainerRemark }}</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
 </div>

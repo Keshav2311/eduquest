@@ -23,6 +23,9 @@ export class LoginComponent {
 
       const userType = loginForm.value.role;
 
+      // localStorage.setItem("users", JSON.stringify(loginForm));
+
+
       this.signService.getUsers().subscribe({
         next: (users) => {
           const userExists = users.some((user) => user.email === email); // Check email existence
@@ -30,6 +33,8 @@ export class LoginComponent {
           console.log(userdetail);
 
           if (userExists) {
+            localStorage.setItem("users", JSON.stringify(userdetail))
+
             alert('Login successful!');
             console.log(userdetail.role);
             if (userdetail.role === 'student') {
