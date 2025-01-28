@@ -10,6 +10,7 @@ import { CoursesComponent } from './components/courses/courses.component';
 import { StudentComponent } from './components/student/student.component';
 import { IntructorComponent } from './components/intructor/intructor.component';
 import { CourseAddComponent } from './components/course-add/course-add.component';
+import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponentComponent }, 
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: "student", component: StudentComponent},
   { path: "instructor", component: IntructorComponent},
   { path: "student", component: StudentComponent},
+  { path: "admin", component: AdminComponent},
   { path: "course_add", component: CourseAddComponent}
 ];
 // i fail

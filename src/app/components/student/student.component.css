@@ -110,11 +110,18 @@
   }
 
   .h1{
-    color: #7a4685;
+    color: #f4f1f5;
+    text-align: center;
+    background-color: rgb(25, 0, 26);
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.212);    
   }
   
   #card {
-    background-color: #010002;
+    background-color: #18022e;
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     display: flex;
@@ -122,13 +129,13 @@
     align-items: center;
     padding: 20px;
     margin: 20px;
-    text-align: center;
+    text-align: left;
     color: #f5f1f1;
   }
 
   #button{
-    background-color: #f4f3f5;
-    color: white;
+    background-color: #f1eff3;
+    color: rgb(2, 2, 2);
     border-radius: 20px;
     padding: 1px;
     border: none;

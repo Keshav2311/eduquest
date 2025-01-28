@@ -14,12 +14,18 @@ export class CoursesComponent {
   courses: any[] = []; // Array to hold courses fetched from the API
   selectedCourse: any | null = null;
   role: string = '';
+  enrolledCourses: Set<string> = new Set();
 
   constructor(private coursesService: CoursesService, private signservice: SignService, private authservice: AuthService) {}
 
   ngOnInit(): void {
     this.fetchCourses();
-    this.role = this.authservice.getUserRole();  
+    this.role = this.authservice.getUserRole();
+    
+    const user = JSON.parse(localStorage.getItem('users') || '{}');
+    if (user && user.courses) {
+      this.enrolledCourses = new Set(user.courses);
+    }
   }
 
   fetchCourses(): void {
@@ -60,6 +66,8 @@ export class CoursesComponent {
       alert(`Successfully enrolled in ${courseName}!`);
       // Update localStorage with the updated user data
       localStorage.setItem('users', JSON.stringify(updatedUserData));
+
+      this.enrolledCourses.add(id);
     },
     error: (error) => {
       console.error('Error enrolling in the course:', error);

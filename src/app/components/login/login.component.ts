@@ -42,8 +42,12 @@ export class LoginComponent {
             if (userdetail.role === 'student') {
               this.router.navigate(['/student']);
               // alert("Student Dashboard");
-            } else if (userdetail.role === 'instructor') {
+            } 
+            else if (userdetail.role === 'instructor') {
               this.router.navigate(['/instructor']);
+            }
+            else if (userdetail.role === 'admin') {
+              this.router.navigate(['/admin']);
             }
           } else {
             alert('User does not exist.');

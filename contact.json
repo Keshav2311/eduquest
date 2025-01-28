@@ -22,7 +22,24 @@
       "experience": 2,
       "password": "Hello@2311",
       "courses": [
-        "f678","b456","c789"
+        "f678",
+        "b456",
+        "c789"
+      ]
+    },
+    {
+      "id": "e240",
+      "name": "Keshav",
+      "email": "keshav.a@impelsys.com",
+      "gender": "male",
+      "role": "admin",
+      "interest": "nothing",
+      "experience": 0,
+      "password": "Admin@1234",
+      "courses": [
+        "f678",
+        "b456",
+        "c789"
       ]
     },
     {

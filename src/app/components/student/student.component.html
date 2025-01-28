@@ -40,23 +40,49 @@
           <h1>COURSES</h1>
         </div>
       </div>
-      <div *ngFor="let course of coursedata" class="row align-items-center rounded shadow p-4 m-2" id="card">
+      <div class="d-flex flex-wrap justify-content-center align-items-center">
+      <div *ngFor="let course of coursedata" class="row align-items-center rounded shadow p-4 m-2 col-md-5"  id="card">
         <!-- <div class="col-md-4 text-center">
           <img src="img.jpg" alt="Course Image" class="img-fluid rounded shadow-lg profile-img">
         </div> -->
-        <div class="col-md-10 col-sm-10">
-          <h2 class="fw-bold">{{course.courseName}}</h2>
-          <p class="mb-1"><strong>Technologies:</strong> {{course.technologies.join(', ')}}</p>
-          <p class="mb-1"><strong>Duration:</strong> {{course.duration}} weeks</p>
-          <p class="mb-1"><strong>Price:</strong> ${{course.courseFee}}</p>
-          <p class="mb-1"><strong>Credits:</strong> {{course.credits}}</p>
-          <p class="mb-1"><strong>Trainer Remark:</strong> {{course.trainerRemark}}</p>
-        </div>
-        <div class="col-md-2 col-sm-2 d-flex justify-content-center align-items-center" id="button">
-          <button mat-raised-button  type="button" (click)="course_delete(course.id)">
-            Delete
+        <div>
+          <h2 class="fw-bold text-center" style="color: rgb(231, 189, 235);">{{course.courseName}}</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th class="px-3">Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Technologies</strong></td>
+                <td class="px-3">{{ course.technologies.join(', ') }}</td>
+              </tr>
+              <tr>
+                <td><strong>Duration</strong></td>
+                <td class="px-3">{{ course.duration }} weeks</td>
+              </tr>
+              <tr>
+                <td><strong>Price</strong></td>
+                <td class="px-3">${{ course.courseFee }}</td>
+              </tr>
+              <tr>
+                <td><strong>Credits</strong></td>
+                <td class="px-3">{{ course.credits }}</td>
+              </tr>
+              <tr>
+                <td><strong>Trainer Remark</strong></td>
+                <td class="px-3">{{ course.trainerRemark }}</td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <button mat-raised-button  type="button" (click)="course_delete(course.id)" id="button">
+            UNSUBSCRIBE
           </button>
         </div>
+      </div>
       </div>
     </div>
   </section>

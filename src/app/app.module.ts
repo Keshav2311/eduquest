@@ -32,6 +32,7 @@ import { SignService } from './services/sign.service';
 import { IntructorComponent } from './components/intructor/intructor.component';
 import { CoursesService } from './services/courses.service';
 import { CourseAddComponent } from './components/course-add/course-add.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 
@@ -55,7 +56,8 @@ import { CourseAddComponent } from './components/course-add/course-add.component
     PartnersComponent,
     StudentComponent,
     IntructorComponent,
-    CourseAddComponent    
+    CourseAddComponent,
+    AdminComponent    
   ],
   imports: [
     BrowserAnimationsModule,
