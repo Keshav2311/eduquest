@@ -10,7 +10,7 @@ import { CoursesComponent } from './components/courses/courses.component';
 import { StudentComponent } from './components/student/student.component';
 import { IntructorComponent } from './components/intructor/intructor.component';
 import { CourseAddComponent } from './components/course-add/course-add.component';
-import { AdminComponent } from './admin/admin.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponentComponent }, 

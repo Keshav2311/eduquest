@@ -16,27 +16,20 @@ body {
     box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.466);
   }
 
-  #dissbox{
+  #dissbox {
     background-color: #dfd6e9;
     border-radius: 15px;
-    padding: 10px 10px 10px;
+    padding: 20px;
     margin-top: 4vh;
-    box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.411);
+    box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.527);
     color: #301b30;
-    /* color: anti??quewhite; */
-  }
-
-  #dissbox h1 {
-    margin-bottom: 4vh;
-    text-align: center;
     font-family: "Kumbh Sans", sans-serif;
-
   }
-
+  
   #dissbox h4 {
-    margin:25px;
-    text-align: center;
+    font-size: 1.2rem;
   }
+  
 
   .btn-primary {
     background-color: #030303;

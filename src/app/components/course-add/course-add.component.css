@@ -24,6 +24,10 @@ h2 {
   border-radius: 5px; /* Rounded edges for inputs */
 }
 
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: #eaeaee !important; /* Change this to your desired color */
+}
+
 mat-form-field {
   background-color: #ffffff; /* Input field background */
   padding: 10px;

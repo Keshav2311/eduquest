@@ -24,7 +24,8 @@
       "courses": [
         "f678",
         "b456",
-        "c789"
+        "c789",
+        "e345"
       ]
     },
     {
@@ -58,50 +59,32 @@
       ]
     },
     {
-      "id": "b0a8",
-      "name": "Achyut",
-      "email": "achyut2311@gmail.com",
+      "id": "a1b2",
+      "name": "Rohit",
+      "email": "rohit.kumar@example.com",
       "gender": "male",
       "role": "student",
-      "interest": "React",
-      "experience": 2,
-      "password": "Hari*5559",
+      "interest": "Java",
+      "experience": 1,
+      "password": "Rohit@123",
       "courses": [
-        "f678",
-        "g901",
-        "h234"
+        "e345",
+        "f678"
       ]
     },
     {
-      "id": "c1c4",
-      "name": "Priyam Kumar",
-      "email": "priyam.kumar@gmail.com",
-      "gender": "male",
-      "role": "instructor",
-      "interest": "PHP",
-      "experience": 2,
-      "password": "Priyam@1122",
-      "courses": [
-        "i567",
-        "j890",
-        "k123"
-      ]
-    },
-    {
-      "id": "5827",
-      "name": "Anita Sharma",
-      "email": "anita.sharma@gmail.com",
+      "id": "c3d4",
+      "name": "Priya",
+      "email": "priya.sharma@example.com",
       "gender": "female",
-      "role": "instructor",
-      "interest": "AI",
-      "experience": 7,
-      "password": "Anita@1122",
+      "role": "student",
+      "interest": "Data Science",
+      "experience": 3,
+      "password": "Priya@456",
       "courses": [
-        "l456",
-        "m789",
-        "n012",
-        "a788",
-        "878e"
+        "g901",
+        "h234",
+        "i567"
       ]
     }
   ],

@@ -1,0 +1,66 @@
+<section class="dashboard-section py-5">
+    <div class="container">
+      <!-- Dashboard Header -->
+      <div class="row mt-1">
+        <div class="col-12">
+          <div class="content-section rounded shadow p-4 mb-5">
+            <h3 class="fw-bold mb-1 text-center">Admin Dashboard Content</h3>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Admin Info -->
+      <div class="row align-items-center bg-dark text-light rounded shadow p-4 mb-4">
+        <div class="col-md-4 col-sm-4 text-center">
+          <img
+            src="https://media.istockphoto.com/id/1332100919/vector/man-icon-black-icon-person-symbol.jpg?s=612x612&w=0&k=20&c=AVVJkvxQQCuBhawHrUhDRTCeNQ3Jgt0K1tXjJsFy1eg="
+            alt="Admin Profile"
+            class="img-fluid rounded-circle shadow-lg profile-img"
+          />
+        </div>
+        <div class="col-md-8 col-sm-8 d-flex flex-column justify-content-center align-items-center">
+          <h2 class="fw-bold">{{ adminInfo?.name }}</h2>
+          <p class="mb-1"><strong>Gender:</strong> {{ adminInfo?.gender }}</p>
+        </div>
+      </div>
+  
+      <!-- Buttons for Students and Instructors -->
+      <div class="row text-center my-4 d-flex justify-content-evenly">
+        <div class="col-3">
+          <button class="p-2" (click)="showTable('student')">Show Students</button>
+        </div>
+        <div class="col-3">
+          <button class="p-2" (click)="showTable('instructor')">Show Instructors</button>
+        </div>
+      </div>
+  
+      <!-- Data Table -->
+      <div class="row mt-4" *ngIf="displayedData.length > 0">
+        <div class="col-12">
+          <table class="table">
+            <thead class="table-dark">
+              <tr class="tr">
+                <th>Name</th>
+                <th>Email</th>
+                <th>Gender</th>
+                <th>Interest</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of displayedData">
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.gender }}</td>
+                <td>{{ user.interest }}</td>
+                <td>
+                  <button class="btn btn-danger btn-sm" (click)="deleteUser(user.id)">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+  

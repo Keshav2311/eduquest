@@ -32,7 +32,8 @@ import { SignService } from './services/sign.service';
 import { IntructorComponent } from './components/intructor/intructor.component';
 import { CoursesService } from './services/courses.service';
 import { CourseAddComponent } from './components/course-add/course-add.component';
-import { AdminComponent } from './admin/admin.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { AuthService } from './services/auth.service';
 
 
 
@@ -73,7 +74,8 @@ import { AdminComponent } from './admin/admin.component';
     provideAnimationsAsync(),
     ContactService,
     SignService,
-    CoursesService
+    CoursesService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

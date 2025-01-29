@@ -80,5 +80,8 @@ export class SignService {
     return this.http.put<any>(`${this.apiUrl}/${userId}`, updatedData); // Adjust URL as needed
   }
 
+  deleteUser(userId: String): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/${userId}`);
+  }
   
 }
