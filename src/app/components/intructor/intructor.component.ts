@@ -3,6 +3,7 @@ import { SignService } from '../../services/sign.service';
 import { CoursesService } from '../../services/courses.service';
 import { UserInterface } from '../../interfaces/user';
 import { Courseinterface } from '../../interfaces/courses';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-instructor',
@@ -17,7 +18,7 @@ export class IntructorComponent implements OnInit {
   courseslist: String[] = [];
   coursedata: Courseinterface[] = [];
 
-  constructor(private signService: SignService, private coursesService: CoursesService) { }
+  constructor(private signService: SignService, private coursesService: CoursesService, private router: Router ) { }
 
   ngOnInit() {
     this.signService.getUserById(this.luser.id).subscribe({
@@ -53,5 +54,13 @@ export class IntructorComponent implements OnInit {
         console.error('There was an error!', err);
       }
     });
+  }
+
+  course_edit(courseId: string): void{
+
+
+  this.router.navigate(['/course_add', courseId]); // Navigate to the edit form with course ID
+
+  
   }
 }

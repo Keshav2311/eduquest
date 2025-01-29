@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { UserInterface } from '../../interfaces/user';
 import { SignService } from '../../services/sign.service';
 import { CoursesService } from '../../services/courses.service';
+import { Courseinterface } from '../../interfaces/courses';
 
 
 @Component({
@@ -15,9 +16,14 @@ export class AdminComponent {
   admin$: any[] = [];
   
   adminInfo: UserInterface | undefined;
+  coursesInfo: Courseinterface[] = [];
   studentInfo: UserInterface[] = [];
   instructorInfo: UserInterface[] = [];
   displayedData: UserInterface[] = [];
+  displayedCoursesData: Courseinterface[] = [];
+  showCourses = false;
+  courses: any[] = [];
+
 
   luser = JSON.parse(localStorage.getItem('users') || '{}');
 
@@ -40,6 +46,7 @@ export class AdminComponent {
     }
 
     this.fetchUsers();
+    this.fetchCourses();
     this.deleteUser = this.deleteUser.bind(this);
   }
   
@@ -58,6 +65,18 @@ export class AdminComponent {
     });
   }
 
+  fetchCourses(): void {
+    this.courseService.getCourses().subscribe({
+      next: (res) => {
+        this.coursesInfo = res;
+        console.log('Courses:', this.coursesInfo);
+      },
+      error: (err) => {
+        console.error('Error fetching courses:', err);
+      },
+    });
+  }
+
   showTable(type: string): void {
     if (type === 'student') {
       this.displayedData = this.studentInfo;
@@ -66,7 +85,33 @@ export class AdminComponent {
     }
   }
 
+  showCoursesTable() {
+    this.showCourses = !this.showCourses;
+    if (this.showCourses) {
+      this.displayedCoursesData = this.coursesInfo;
+    } else {
+      this.displayedCoursesData = [];
+    }
+  }
+
+  deleteCourse(courseId: string): void {
+    console.log("delete function invoked");
+    if (confirm('Are you sure you want to delete this course?')) {
+      this.courseService.deleteCourse(courseId).subscribe({
+        next: () => {
+          alert('Course deleted successfully.');
+          // Update the list after deletion
+          this.displayedCoursesData = this.displayedCoursesData.filter((course) => course.id !== courseId);
+        },
+        error: (err) => {
+          console.error('Error deleting course:', err);
+        },
+      });
+    }
+  }
+
   deleteUser(userId: String): void {
+    localStorage.setItem('userId', JSON.stringify(userId));
     console.log("delete function invoked");
     if (confirm('Are you sure you want to delete this user?')) {
       this.signservice.deleteUser(userId).subscribe({
@@ -80,5 +125,6 @@ export class AdminComponent {
         },
       });
     }
+
   }
 }

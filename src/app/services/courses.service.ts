@@ -22,7 +22,15 @@ export class CoursesService {
       return this.http.get<any>(`${this.apiUrl}/${id}`);
     }
 
+    getCourses(): Observable<any> {
+      return this.http.get<any[]>(this.apiUrl);
+    }
+
     deleteCourse(id: String): Observable<any> {
       return this.http.delete<any>(`${this.apiUrl}/${id}`);
+    }
+
+    updateCourse(courseId: string, updatedData: any): Observable<any>{
+      return this.http.put<any>(`${this.apiUrl}/${courseId}`, updatedData);
     }
 }

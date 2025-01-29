@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, switchMap, throwError } from 'rxjs';
+import { CoursesService } from './courses.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SignService {
   private apiUrl = 'http://localhost:3000/sign';
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private courseservice: CoursesService) {}
 
   
   addItem(item: any): Observable<any> {
@@ -72,7 +73,7 @@ export class SignService {
     return this.http.get<any[]>(this.apiUrl);
   }
 
-  getUserById(id: string): Observable<any> {
+  getUserById(id: String): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/${id}`);
   }
 
@@ -81,6 +82,20 @@ export class SignService {
   }
 
   deleteUser(userId: String): Observable<any> {
+    let user = this.getUserById(userId);
+    let courses = user.pipe(map((data: any) => data.courses));
+    courses.subscribe((data) => {
+      data.forEach((courseId: string) => {
+        this.courseservice.deleteCourse(courseId).subscribe({
+          next: (res) => {
+            console.log('Course deleted successfully!', res);
+          },
+          error: (err) => {
+            console.error('There was an error!', err);
+          },
+        });
+      });
+    });
     return this.http.delete<any>(`${this.apiUrl}/${userId}`);
   }
   

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CoursesService } from '../../services/courses.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { SignService } from '../../services/sign.service';
 
 @Component({
@@ -13,9 +13,10 @@ import { SignService } from '../../services/sign.service';
 })
 export class CourseAddComponent {
   courseForm: FormGroup;
+  courseId: string | null = null;
 
 
-  constructor(private fb: FormBuilder, private coursesService: CoursesService, private router: Router, private signservice:SignService) {
+  constructor(private fb: FormBuilder, private coursesService: CoursesService, private router: Router, private signservice:SignService,   private route: ActivatedRoute) {
     this.courseForm = this.fb.group({
       courseName: ['', [Validators.required, Validators.minLength(3)]],
       trainerName: ['', [Validators.required, Validators.minLength(3)]],
@@ -49,12 +50,42 @@ export class CourseAddComponent {
       this.courseForm.get('technologies')?.setValue(technologies);
     }
   }
+
+
+  ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      this.courseId = params.get('id');
+      console.log('Course ID:', this.courseId);
+      if (this.courseId) {
+        this.coursesService.getcourseById(this.courseId).subscribe(course => {
+          this.courseForm.patchValue(course);
+        });
+      }
+    });
+  }
+
+
   onSubmit(): void {
 
     
 
     if (this.courseForm.valid) {
       const formData = this.courseForm.value;
+
+      if (this.courseId) {
+        // Update the course
+        this.coursesService.updateCourse(this.courseId, formData).subscribe({
+          next: () => {
+            alert('Course updated successfully!');
+          },
+          error: (error) => {
+            console.error('Error updating course:', error);
+            alert('Error updating course.');
+          }
+        });
+      }
+
+      else {
 
       // Use the service to send data to the backend
       this.coursesService.addItem(formData).subscribe({
@@ -78,6 +109,9 @@ export class CourseAddComponent {
           alert('An error occurred while submitting the course.');
         }
       });
+    }
+
+
     } else {
       alert('Please correct the errors before submitting.');
     }

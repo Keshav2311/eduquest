@@ -32,6 +32,9 @@
         <div class="col-3">
           <button class="p-2" (click)="showTable('instructor')">Show Instructors</button>
         </div>
+        <div class="col-3">
+          <button class="p-2" (click)="showCoursesTable()">{{ showCourses ? 'Hide Courses' : 'Show Courses' }}</button>
+        </div>
       </div>
   
       <!-- Data Table -->
@@ -61,6 +64,31 @@
           </table>
         </div>
       </div>
+
+      <div class="row mt-4" *ngIf="displayedCoursesData.length > 0">
+        <div class="col-12">
+            <thead class="table-dark">
+              <tr class="tr">
+                <th>Course Name</th>
+                <th>Course Instructor</th>
+                <th>Course fee</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let course of displayedCoursesData">
+                <td px-3>{{ course.courseName }}</td>
+                <td>{{ course.trainerName }}</td>
+                <td>{{ course.courseFee }}</td>
+                <td>
+                  <button class="btn btn-danger btn-sm" (click)="deleteCourse(course.id)">Desable</button>
+                </td>
+              </tr>
+            </tbody>
+        </div>
+      </div>
+
+      
     </div>
   </section>
   

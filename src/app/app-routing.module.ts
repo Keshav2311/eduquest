@@ -25,7 +25,9 @@ const routes: Routes = [
   { path: "instructor", component: IntructorComponent},
   { path: "student", component: StudentComponent},
   { path: "admin", component: AdminComponent},
-  { path: "course_add", component: CourseAddComponent}
+  { path: "course_add", component: CourseAddComponent},
+  { path: 'course_add/:id', component: CourseAddComponent } // Route for editing courses
+
 ];
 // i fail
 @NgModule({
