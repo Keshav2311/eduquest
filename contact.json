@@ -13,22 +13,6 @@
   ],
   "sign": [
     {
-      "id": "d29d",
-      "name": "Achyut",
-      "email": "achyut2311@gmail.com",
-      "gender": "male",
-      "role": "student",
-      "interest": "Angular",
-      "experience": 2,
-      "password": "Hello@2311",
-      "courses": [
-        "f678",
-        "b456",
-        "c789",
-        "e345"
-      ]
-    },
-    {
       "id": "e240",
       "name": "Keshav",
       "email": "keshav.a@impelsys.com",
@@ -37,11 +21,7 @@
       "interest": "nothing",
       "experience": 0,
       "password": "Admin@1234",
-      "courses": [
-        "f678",
-        "b456",
-        "c789"
-      ]
+      "courses": []
     },
     {
       "id": "4dc1",
@@ -52,261 +32,285 @@
       "interest": "Database",
       "experience": 5,
       "password": "Hello@123",
-      "courses": [
-        "k123",
-        "d012",
-        "e345"
-      ]
+      "courses": ["k123", "d012", "e345"]
     },
     {
-      "id": "a1b2",
-      "name": "Rohit",
-      "email": "rohit.kumar@example.com",
+      "id": "t001",
+      "name": "Anjali Sharma",
+      "email": "anjali.sharma@impelsys.com",
+      "gender": "female",
+      "role": "instructor",
+      "interest": "Machine Learning",
+      "experience": 6,
+      "password": "Teach@ml123",
+      "courses": ["m789", "l567"]
+    },
+    {
+      "id": "t002",
+      "name": "Raj Mehta",
+      "email": "raj.mehta@impelsys.com",
+      "gender": "male",
+      "role": "instructor",
+      "interest": "Cybersecurity",
+      "experience": 4,
+      "password": "Secure@raj",
+      "courses": ["c456", "f678"]
+    },
+    {
+      "id": "t003",
+      "name": "Priya Verma",
+      "email": "priya.verma@impelsys.com",
+      "gender": "female",
+      "role": "instructor",
+      "interest": "Web Development",
+      "experience": 5,
+      "password": "WebDev@priya",
+      "courses": ["w123", "b456"]
+    },
+    {
+      "id": "t004",
+      "name": "Vikas Reddy",
+      "email": "vikas.reddy@impelsys.com",
+      "gender": "male",
+      "role": "instructor",
+      "interest": "Data Science",
+      "experience": 7,
+      "password": "Data@vikas",
+      "courses": ["d345", "p678"]
+    },
+    {
+      "id": "s001",
+      "name": "Achyut",
+      "email": "achyut2311@gmail.com",
       "gender": "male",
       "role": "student",
-      "interest": "Java",
-      "experience": 1,
-      "password": "Rohit@123",
-      "courses": [
-        "e345",
-        "f678"
-      ]
+      "interest": "Angular",
+      "experience": 2,
+      "password": "Hello@2311",
+      "courses": ["f678", "b456", "c789"]
     },
     {
-      "id": "c3d4",
-      "name": "Priya",
-      "email": "priya.sharma@example.com",
+      "id": "s002",
+      "name": "Rohan Singh",
+      "email": "rohan.singh@gmail.com",
+      "gender": "male",
+      "role": "student",
+      "interest": "Cloud Computing",
+      "experience": 1,
+      "password": "Cloud@123",
+      "courses": ["m789", "c456"]
+    },
+    {
+      "id": "s003",
+      "name": "Meera Nair",
+      "email": "meera.nair@gmail.com",
+      "gender": "female",
+      "role": "student",
+      "interest": "Machine Learning",
+      "experience": 2,
+      "password": "ML@meera",
+      "courses": ["l567", "m789"]
+    },
+    {
+      "id": "s004",
+      "name": "Amit Patel",
+      "email": "amit.patel@gmail.com",
+      "gender": "male",
+      "role": "student",
+      "interest": "Cybersecurity",
+      "experience": 1,
+      "password": "Secure@amit",
+      "courses": ["c456", "p678"]
+    },
+    {
+      "id": "s005",
+      "name": "Sanya Kapoor",
+      "email": "sanya.kapoor@gmail.com",
       "gender": "female",
       "role": "student",
       "interest": "Data Science",
       "experience": 3,
-      "password": "Priya@456",
-      "courses": [
-        "g901",
-        "h234",
-        "i567"
-      ]
+      "password": "Data@sanya",
+      "courses": ["d345"]
+    },
+    {
+      "id": "s006",
+      "name": "Vivek Sharma",
+      "email": "vivek.sharma@gmail.com",
+      "gender": "male",
+      "role": "student",
+      "interest": "Web Development",
+      "experience": 1,
+      "password": "Web@vivek",
+      "courses": ["w123", "b456"]
+    },
+    {
+      "id": "s007",
+      "name": "Neha Agarwal",
+      "email": "neha.agarwal@gmail.com",
+      "gender": "female",
+      "role": "student",
+      "interest": "Database",
+      "experience": 2,
+      "password": "DB@neha",
+      "courses": ["k123", "e345"]
+    },
+    {
+      "id": "s008",
+      "name": "Arjun Das",
+      "email": "arjun.das@gmail.com",
+      "gender": "male",
+      "role": "student",
+      "interest": "Software Engineering",
+      "experience": 3,
+      "password": "SoftEng@arjun",
+      "courses": ["d012", "w123"]
+    },
+    {
+      "id": "s009",
+      "name": "Kiran Nair",
+      "email": "kiran.nair@gmail.com",
+      "gender": "female",
+      "role": "student",
+      "interest": "Networking",
+      "experience": 2,
+      "password": "Net@kiran",
+      "courses": ["n345", "d012"]
+    },
+    {
+      "id": "s010",
+      "name": "Rahul Malhotra",
+      "email": "rahul.malhotra@gmail.com",
+      "gender": "male",
+      "role": "student",
+      "interest": "AI",
+      "experience": 1,
+      "password": "AI@rahul",
+      "courses": ["a789", "m789"]
     }
   ],
   "courses": [
     {
-      "id": "b456",
-      "courseName": "Vue.js",
-      "trainerName": "Ravi Patel",
-      "duration": 3,
-      "technologies": [
-        "html",
-        "css",
-        "javascript",
-        "vuex"
-      ],
-      "courseFee": 250,
-      "credits": 2,
-      "trainerRemark": "Familiarity with JavaScript frameworks is beneficial."
-    },
-    {
-      "id": "c789",
-      "courseName": "Node.js",
-      "trainerName": "Suman Gupta",
+      "id": "k123",
+      "courseName": "Database Management",
+      "trainerName": "Sreejith Ks",
       "duration": 6,
-      "technologies": [
-        "javascript",
-        "express",
-        "mongodb",
-        "restful apis"
-      ],
-      "courseFee": 400,
-      "credits": 5,
-      "trainerRemark": "Understanding of backend development is necessary."
+      "technologies": ["SQL", "NoSQL", "Indexing"],
+      "courseFee": 450,
+      "credits": 4,
+      "trainerRemark": "Basic understanding of data structures is helpful."
     },
     {
       "id": "d012",
-      "courseName": "Python",
-      "trainerName": "Neha Verma",
-      "duration": 4,
-      "technologies": [
-        "python",
-        "flask",
-        "django",
-        "sql"
-      ],
-      "courseFee": 300,
-      "credits": 3,
-      "trainerRemark": "No prior programming experience required."
+      "courseName": "Software Engineering",
+      "trainerName": "Sreejith Ks",
+      "duration": 5,
+      "technologies": ["Agile", "Scrum", "UML"],
+      "courseFee": 400,
+      "credits": 4,
+      "trainerRemark": "Recommended for developers."
     },
     {
       "id": "e345",
-      "courseName": "Java",
-      "trainerName": "Amit Singh",
-      "duration": 5,
-      "technologies": [
-        "java",
-        "spring",
-        "hibernate",
-        "maven"
-      ],
-      "courseFee": 350,
-      "credits": 4,
-      "trainerRemark": "Basic understanding of OOP concepts is required."
-    },
-    {
-      "id": "f678",
-      "courseName": "C++",
-      "trainerName": "Rohit Mehta",
-      "duration": 4,
-      "technologies": [
-        "c++",
-        "stl",
-        "oop",
-        "algorithms"
-      ],
-      "courseFee": 300,
-      "credits": 3,
-      "trainerRemark": "Prior programming experience is beneficial."
-    },
-    {
-      "id": "g901",
-      "courseName": "Data Science",
-      "trainerName": "Shreya Kapoor",
-      "duration": 6,
-      "technologies": [
-        "python",
-        "pandas",
-        "numpy",
-        "machine learning"
-      ],
-      "courseFee": 450,
-      "credits": 5,
-      "trainerRemark": "Basic knowledge of Python is required."
-    },
-    {
-      "id": "h234",
-      "courseName": "Machine Learning",
-      "trainerName": "Vikram Rao",
-      "duration": 6,
-      "technologies": [
-        "python",
-        "scikit-learn",
-        "tensorflow",
-        "keras"
-      ],
+      "courseName": "Advanced SQL Queries",
+      "trainerName": "Sreejith Ks",
+      "duration": 7,
+      "technologies": ["Stored Procedures", "Triggers", "Optimization"],
       "courseFee": 500,
       "credits": 5,
-      "trainerRemark": "Understanding of linear algebra and statistics is necessary."
-    },
-    {
-      "id": "i567",
-      "courseName": "Cyber Security",
-      "trainerName": "Anjali Nair",
-      "duration": 5,
-      "technologies": [
-        "network security",
-        "cryptography",
-        "ethical hacking",
-        "firewalls"
-      ],
-      "courseFee": 400,
-      "credits": 4,
-      "trainerRemark": "Basic knowledge of networking is required."
-    },
-    {
-      "id": "j890",
-      "courseName": "Blockchain",
-      "trainerName": "Karan Desai",
-      "duration": 4,
-      "technologies": [
-        "blockchain",
-        "ethereum",
-        "smart contracts",
-        "solidity"
-      ],
-      "courseFee": 350,
-      "credits": 3,
-      "trainerRemark": "Understanding of distributed systems is beneficial."
-    },
-    {
-      "id": "k123",
-      "courseName": "DevOps",
-      "trainerName": "Pooja Reddy",
-      "duration": 5,
-      "technologies": [
-        "docker",
-        "kubernetes",
-        "jenkins",
-        "ansible"
-      ],
-      "courseFee": 400,
-      "credits": 4,
-      "trainerRemark": "Basic knowledge of software development and operations is required."
-    },
-    {
-      "id": "l456",
-      "courseName": "Artificial Intelligence",
-      "trainerName": "Rajesh Kumar",
-      "duration": 6,
-      "technologies": [
-        "python",
-        "neural networks",
-        "deep learning",
-        "natural language processing"
-      ],
-      "courseFee": 500,
-      "credits": 5,
-      "trainerRemark": "Understanding of machine learning concepts is necessary."
+      "trainerRemark": "Prior SQL experience required."
     },
     {
       "id": "m789",
       "courseName": "Cloud Computing",
-      "trainerName": "Sanjay Gupta",
+      "trainerName": "Anjali Sharma",
       "duration": 5,
-      "technologies": [
-        "aws",
-        "azure",
-        "google cloud",
-        "cloud architecture"
-      ],
+      "technologies": ["AWS", "Azure", "Google Cloud"],
       "courseFee": 450,
       "credits": 4,
       "trainerRemark": "Basic knowledge of networking and virtualization is required."
     },
     {
-      "id": "n012",
-      "courseName": "Big Data",
-      "trainerName": "Meera Joshi",
+      "id": "l567",
+      "courseName": "Machine Learning Fundamentals",
+      "trainerName": "Anjali Sharma",
+      "duration": 8,
+      "technologies": ["Python", "TensorFlow", "Scikit-learn"],
+      "courseFee": 600,
+      "credits": 6,
+      "trainerRemark": "Requires statistics knowledge."
+    },
+    {
+      "id": "c456",
+      "courseName": "Cybersecurity Basics",
+      "trainerName": "Raj Mehta",
       "duration": 6,
-      "technologies": [
-        "hadoop",
-        "spark",
-        "hive",
-        "pig"
-      ],
+      "technologies": ["Firewalls", "Encryption", "Penetration Testing"],
       "courseFee": 500,
       "credits": 5,
-      "trainerRemark": "Understanding of data processing concepts is beneficial."
+      "trainerRemark": "Prior programming experience helpful."
     },
     {
-      "id": "a788",
-      "courseName": "dummy",
-      "trainerName": "dummy",
-      "duration": 2,
-      "technologies": [
-        "dummy"
-      ],
-      "courseFee": 20,
-      "credits": 2,
-      "trainerRemark": "hello"
+      "id": "f678",
+      "courseName": "Ethical Hacking",
+      "trainerName": "Raj Mehta",
+      "duration": 7,
+      "technologies": ["Kali Linux", "Metasploit", "Wireshark"],
+      "courseFee": 650,
+      "credits": 6,
+      "trainerRemark": "Cybersecurity Basics recommended."
     },
     {
-      "id": "878e",
-      "courseName": "dummy",
-      "trainerName": "dummy",
-      "duration": 2,
-      "technologies": [
-        "mhtml"
-      ],
-      "courseFee": 200,
-      "credits": 2,
-      "trainerRemark": "hello"
+      "id": "w123",
+      "courseName": "Full Stack Web Development",
+      "trainerName": "Priya Verma",
+      "duration": 10,
+      "technologies": ["HTML", "CSS", "React", "Node.js"],
+      "courseFee": 700,
+      "credits": 8,
+      "trainerRemark": "Prior JavaScript experience recommended."
+    },
+    {
+      "id": "b456",
+      "courseName": "Frontend Development with Angular",
+      "trainerName": "Priya Verma",
+      "duration": 6,
+      "technologies": ["Angular", "TypeScript", "RxJS"],
+      "courseFee": 550,
+      "credits": 5,
+      "trainerRemark": "Basic JavaScript knowledge required."
+    },
+    {
+      "id": "d345",
+      "courseName": "Data Science with Python",
+      "trainerName": "Vikas Reddy",
+      "duration": 7,
+      "technologies": ["NumPy", "Pandas", "Matplotlib"],
+      "courseFee": 550,
+      "credits": 5,
+      "trainerRemark": "Python basics recommended."
+    },
+    {
+      "id": "p678",
+      "courseName": "Big Data Analytics",
+      "trainerName": "Vikas Reddy",
+      "duration": 8,
+      "technologies": ["Hadoop", "Spark", "Kafka"],
+      "courseFee": 600,
+      "credits": 6,
+      "trainerRemark": "Prior data handling experience beneficial."
+    },
+    {
+      "id": "a789",
+      "courseName": "Artificial Intelligence",
+      "trainerName": "Vikas Reddy",
+      "duration": 9,
+      "technologies": ["Neural Networks", "Deep Learning", "NLP"],
+      "courseFee": 700,
+      "credits": 7,
+      "trainerRemark": "Machine Learning Fundamentals recommended."
     }
-  ]
+]
+
+  
 }
