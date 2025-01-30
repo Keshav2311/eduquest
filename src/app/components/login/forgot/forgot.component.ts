@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { SignService } from '../../../services/sign.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-forgot',
@@ -39,7 +40,13 @@ export class ForgotComponent {
     this.signService.updatePassword(name, forgot, confirm).subscribe({
       next: (response) => {
         console.log('Password Updated successfully:', response)
-        alert(`Password updated successfully`);
+        Swal.fire({
+          title: 'Success!',
+          text: 'Password updated successfully',
+          icon: 'success',
+          confirmButtonText: 'OK',
+          confirmButtonColor: '#28a745',
+        });        
       },
       error: (err) => {
         console.error('Error updating Password:', err);

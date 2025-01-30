@@ -7,5 +7,6 @@ role:String,
 interest:String,
 experience:Number,
 password:String
-courses?: String[]
+courses?: String[],
+students?: String[]
 };

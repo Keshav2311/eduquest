@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { CoursesService } from '../../services/courses.service';
 import { SignService } from '../../services/sign.service';
 import { AuthService } from '../../services/auth.service';
+import * as Bootstrap from 'bootstrap';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-courses',
@@ -14,6 +16,7 @@ export class CoursesComponent {
   courses: any[] = []; // Array to hold courses fetched from the API
   selectedCourse: any | null = null;
   role: string = '';
+  trainerName: string = '';
   enrolledCourses: Set<string> = new Set();
 
   constructor(private coursesService: CoursesService, private signservice: SignService, private authservice: AuthService) {}
@@ -21,6 +24,7 @@ export class CoursesComponent {
   ngOnInit(): void {
     this.fetchCourses();
     this.role = this.authservice.getUserRole();
+
     
     const user = JSON.parse(localStorage.getItem('users') || '{}');
     if (user && user.courses) {
@@ -43,7 +47,7 @@ export class CoursesComponent {
   enroll(courseName: string, id: string): void {
     
     const user = JSON.parse(localStorage.getItem('users') || '{}'); // Retrieve user details
-  const userId = user.id;
+    const userId = user.id;
 
   if (!userId) {
     alert('User not logged in. Please login to enroll.');
@@ -52,6 +56,24 @@ export class CoursesComponent {
 
   // Update user's courses list
   const updatedCourses = [...(user.courses || []), id]; // Add the new course ID to the existing list
+  this.coursesService.getcourseById(id).subscribe({
+    next: (data) => {
+      this.trainerName = data.trainerName;
+    },
+    error: (err) => {
+      console.error('Error fetching course details:', err);
+    },  
+  });
+  
+
+  this.signservice.updateUser(userId, this.trainerName).subscribe({
+    next: (response) => {
+      console.log('Trainer name updated:', response);
+    },
+    error: (error) => {
+      console.error('Error updating trainer name:', error);
+    },
+  });
 
   const updatedUserData = {
     ...user,
@@ -63,8 +85,13 @@ export class CoursesComponent {
   this.signservice.updateUser(userId, updatedUserData).subscribe({
     next: (response) => {
       console.log('Enrollment successful:', response);
-      alert(`Successfully enrolled in ${courseName}!`);
-      // Update localStorage with the updated user data
+      Swal.fire({
+        title: 'Enrollment Successful!',
+        text: `You have successfully enrolled in ${courseName}.`,
+        icon: 'success',
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#3085d6',
+      });      // Update localStorage with the updated user data
       localStorage.setItem('users', JSON.stringify(updatedUserData));
 
       this.enrolledCourses.add(id);
@@ -79,9 +106,9 @@ export class CoursesComponent {
 
   showDetails(course: any): void {
     this.selectedCourse = course; // Set selected course details
-    // const modal = new bootstrap.Modal(
-    //   document.getElementById('detailsModal') as HTMLElement
-    // );
-    // modal.show();
+    const modal = new Bootstrap.Modal(
+      document.getElementById('detailsModal') as HTMLElement
+    );
+    modal.show();
   }
 }

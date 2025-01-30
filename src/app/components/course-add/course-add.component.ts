@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CoursesService } from '../../services/courses.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SignService } from '../../services/sign.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-course-add',
@@ -76,8 +77,13 @@ export class CourseAddComponent {
         // Update the course
         this.coursesService.updateCourse(this.courseId, formData).subscribe({
           next: () => {
-            alert('Course updated successfully!');
-          },
+            Swal.fire({
+              title: 'Updated!',
+              text: 'Course updated successfully!',
+              icon: 'success',
+              confirmButtonText: 'OK',
+              confirmButtonColor: '#28a745',
+            });          },
           error: (error) => {
             console.error('Error updating course:', error);
             alert('Error updating course.');
@@ -91,7 +97,13 @@ export class CourseAddComponent {
       this.coursesService.addItem(formData).subscribe({
         next: (response) => {
           console.log('Course submitted successfully:', response);
-          alert('Course submitted successfully!');
+          Swal.fire({
+            title: 'Submitted!',
+            text: 'Course Added successfully!',
+            icon: 'success',
+            confirmButtonText: 'OK',
+            confirmButtonColor: '#28a745',
+          });          
           console.log('Generated ID:', response.id); 
           let courseid=response.id;
           let tutorid = JSON.parse(localStorage.getItem('users')||'').id;

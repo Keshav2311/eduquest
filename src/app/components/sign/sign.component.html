@@ -64,6 +64,12 @@
                   Select your gender.
                 </small>
               </div>
+            </div>
+          </div>
+
+          <!-- Page 2: Interest & Experience -->
+          <div *ngIf="step === 2">
+            <div formGroupName="page2">
               <div class="mb-3">
                 <label class="form-label">Role*</label>
                 <div>
@@ -84,39 +90,6 @@
                   class="text-danger"
                 >
                   Select your role.
-                </small>
-              </div>
-            </div>
-          </div>
-
-          <!-- Page 2: Interest & Experience -->
-          <div *ngIf="step === 2">
-            <div formGroupName="page2">
-              <div class="mb-3">
-                <label for="interest" class="form-label"
-                  >Area of Interest*</label
-                >
-                <select
-                  id="interest"
-                  class="form-select"
-                  formControlName="interest"
-                >
-                  <option value="">Select Option</option>
-                  <option value="React">React</option>
-                  <option value="Angular">Angular</option>
-                  <option value="Database">Database</option>
-                  <option value="AI">AI</option>
-                  <option value="PHP">PHP</option>
-                  <option value="Go">Go</option>
-                </select>
-                <small
-                  *ngIf="
-                    signupForm.get('page2.interest')?.touched &&
-                    signupForm.get('page2.interest')?.invalid
-                  "
-                  class="text-danger"
-                >
-                  Please select an area of interest.
                 </small>
               </div>
               <div class="mb-3">

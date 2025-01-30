@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import emailjs from '@emailjs/browser';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-contact',
@@ -22,14 +23,24 @@ export class ContactComponent {
   onSubmit(contactForm: any) {
     // Validate the form
     if (!this.users.name || !this.users.email) {
-      alert('Please fill in all required fields.');
-      return;
+      Swal.fire({
+        title: 'Incomplete Form!',
+        text: 'Please fill in all required fields.',
+        icon: 'warning',
+        timer: 2000, // Closes automatically after 3 seconds
+        showConfirmButton: false
+      });      return;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(this.users.email)) {
-      alert('Please enter a valid email address.');
-      return;
+      Swal.fire({
+        title: 'Incomplete Form!',
+        text: 'Please fill Valid Email.',
+        icon: 'warning',
+        timer: 2000, // Closes automatically after 3 seconds
+        showConfirmButton: false
+      });      return;
     }
 
     // Prepare the template parameters
@@ -44,8 +55,13 @@ export class ContactComponent {
       .then(
         (response: { status: number; text: string }) => {
           console.log('Email sent successfully!', response.status, response.text);
-          alert('Thank you for subscribing! We’ve sent a confirmation to your email.');
-        },
+          Swal.fire({
+            title: 'Incomplete Form!',
+            text: 'Please fill in all required fields.',
+            icon: 'warning',
+            timer: 3000, // Closes automatically after 3 seconds
+            showConfirmButton: false
+          });        },
         (error: any) => {
           console.error('Failed to send email:', error);
           alert('Oops! Something went wrong. Please try again later.');

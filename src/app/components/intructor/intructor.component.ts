@@ -16,7 +16,9 @@ export class IntructorComponent implements OnInit {
   userInfo: UserInterface | undefined;
   luser = JSON.parse(localStorage.getItem('users') || '{}');
   courseslist: String[] = [];
+  studentlist: String[] = [];
   coursedata: Courseinterface[] = [];
+  count: number = 0;
 
   constructor(private signService: SignService, private coursesService: CoursesService, private router: Router ) { }
 
@@ -25,7 +27,12 @@ export class IntructorComponent implements OnInit {
       next: (res) => {
         this.userInfo = res;
         this.courseslist = this.userInfo?.courses || [];
+        this.studentlist = this.userInfo?.students || [];
+        for (let i=0; i<this.studentlist.length; i++){
+          this.count++;
+        }
         console.log(this.courseslist);
+        console.log(this.studentlist);
         this.courseslist.forEach((courseId) => {
           this.coursesService.getcourseById(courseId).subscribe({
             next: (course) => {

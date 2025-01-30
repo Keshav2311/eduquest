@@ -77,6 +77,10 @@ export class SignService {
     return this.http.get<any>(`${this.apiUrl}/${id}`);
   }
 
+  getUserByName(name: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}${name}`);
+  }
+
   updateUser(userId: string, updatedData: any): Observable<any> {
     return this.http.put<any>(`${this.apiUrl}/${userId}`, updatedData); // Adjust URL as needed
   }

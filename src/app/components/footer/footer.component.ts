@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-footer',
@@ -13,7 +14,13 @@ export class FooterComponent {
   onSubscribe(form: any): void {
     if (form.valid) {
       console.log('Subscribed email:', this.email);
-      alert(`Thank you for subscribing, ${this.email}!`);
+      Swal.fire({
+        title: 'Subscribed!',
+        text: `Thank you for subscribing, ${this.email}!`,
+        icon: 'success',
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#28a745',
+      });
       form.reset(); // Reset the form after submission
     }
   }

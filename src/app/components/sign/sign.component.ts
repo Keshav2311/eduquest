@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { SignService } from '../../services/sign.service';
 import { UserInterface } from '../../interfaces/user';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-sign',
@@ -20,10 +21,9 @@ export class SignComponent {
         name: ['', [Validators.required, Validators.minLength(2)]],
         email: ['', [Validators.required, Validators.email]],
         gender: ['', Validators.required],
-        role: ['', Validators.required], // 'student' or 'instructor'
       }),
       page2: this.fb.group({
-        interest: ['', Validators.required],
+        role: ['', Validators.required], // 'student' or 'instructor'
         experience: [
           '',
           [Validators.required, Validators.min(0), Validators.max(12)],
@@ -84,8 +84,13 @@ export class SignComponent {
       this.signService.addItem(formData).subscribe({
         next: (response) => {
           console.log('Contact Detail Data added:', response);
-          alert('Sign-up Successful!');
-          // localStorage.setItem("users", JSON.stringify(response))
+          Swal.fire({
+            title: 'Welcome!',
+            text: 'Sign-up Successful!',
+            icon: 'success',
+            confirmButtonText: 'Continue',
+            confirmButtonColor: '#28a745',
+          });          // localStorage.setItem("users", JSON.stringify(response))
           this.signupForm.reset();
           this.step = 1; // Reset to the first step
         },
@@ -95,7 +100,12 @@ export class SignComponent {
         },
       });
     } else {
-      alert('Passwords do not match!');
-    }
+      Swal.fire({
+        title: 'Error!',
+        text: 'Passwords do not match!',
+        icon: 'error',
+        confirmButtonText: 'Try Again',
+        confirmButtonColor: '#d33',
+      });    }
   }
 }

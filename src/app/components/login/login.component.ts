@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { SignService } from '../../services/sign.service';
 import { AuthService } from '../../services/auth.service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-login',
   standalone: false,
@@ -37,8 +38,13 @@ export class LoginComponent {
             localStorage.setItem("users", JSON.stringify(userdetail))
             this.authservice.login(userdetail);
 
-            alert('Login successful!');
-            console.log(userdetail.role);
+            Swal.fire({
+              title: 'Welcome Back!',
+              text: 'Login successful!',
+              icon: 'success',
+              timer: 3000, // Auto closes after 3 seconds
+              showConfirmButton: false
+            });            console.log(userdetail.role);
             if (userdetail.role === 'student') {
               this.router.navigate(['/student']);
               // alert("Student Dashboard");
@@ -50,8 +56,13 @@ export class LoginComponent {
               this.router.navigate(['/admin']);
             }
           } else {
-            alert('User does not exist.');
-          }
+            Swal.fire({
+              title: 'Error!',
+              text: 'User does not exist.',
+              icon: 'error',
+              timer: 3000, // Auto closes after 3 seconds
+              showConfirmButton: false
+            });          }
         },
         error: (err) => {
           console.error('Error fetching users:', err);
@@ -59,7 +70,12 @@ export class LoginComponent {
         },
       });
     } else {
-      alert('Please enter a valid email.');
-    }
+      Swal.fire({
+        title: 'Invalid Email!',
+        text: 'Please enter a valid email.',
+        icon: 'warning',
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#f39c12',
+      });    }
   }
 }

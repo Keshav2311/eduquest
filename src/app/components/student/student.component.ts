@@ -3,6 +3,7 @@ import { SignService } from '../../services/sign.service';
 import { UserInterface } from '../../interfaces/user';
 import { Courseinterface } from '../../interfaces/courses';
 import { CoursesService } from '../../services/courses.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-student',
@@ -37,11 +38,15 @@ export class StudentComponent {
     }
   }
 
+
+
   fetchCourses(): void {
     if (this.courseslist.length > 0) {
       const courseRequests = this.courseslist.map((courseId) =>
         this.coursesService.getcourseById(courseId).toPromise()
       );
+
+      this.coursesService
 
       Promise.all(courseRequests)
         .then((courses) => {
@@ -61,8 +66,13 @@ export class StudentComponent {
     const userId = user.id;
 
     if (!userId) {
-      alert('User not logged in.');
-      return;
+      Swal.fire({
+        title: 'Access Denied!',
+        text: 'User not logged in.',
+        icon: 'warning',
+        confirmButtonText: 'Login Now',
+        confirmButtonColor: '#f39c12',
+      }); return;
     }
 
     const updatedCourses = user.courses.filter((course: string) => course !== courseId);
@@ -75,7 +85,13 @@ export class StudentComponent {
     this.signService.updateUser(userId, updatedUserData).subscribe({
       next: (res) => {
         console.log('Course deleted successfully!', res);
-        alert('Course deleted successfully!');
+        Swal.fire({
+          title: 'Deleted!',
+          text: 'Course deleted successfully!',
+          icon: 'success',
+          timer: 3000, // Auto closes after 3 seconds
+          showConfirmButton: false
+        }); 
         this.coursedata = this.coursedata.filter((course) => course.id !== courseId);
         localStorage.setItem('users', JSON.stringify(updatedUserData));
       },
