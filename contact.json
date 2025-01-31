@@ -124,7 +124,8 @@
       "courses": [
         "f678",
         "b456",
-        "k123"
+        "k123",
+        "d012"
       ],
       "students": []
     },
@@ -281,34 +282,6 @@
       "courseFee": 450,
       "credits": 4,
       "trainerRemark": "Basic understanding of data structures is helpful."
-    },
-    {
-      "id": "d012",
-      "courseName": "Software Engineering",
-      "trainerName": "Sreejith Ks",
-      "duration": 5,
-      "technologies": [
-        "Agile",
-        "Scrum",
-        "UML"
-      ],
-      "courseFee": 400,
-      "credits": 4,
-      "trainerRemark": "Recommended for developers."
-    },
-    {
-      "id": "e345",
-      "courseName": "Advanced SQL Queries",
-      "trainerName": "Sreejith Ks",
-      "duration": 7,
-      "technologies": [
-        "Stored Procedures",
-        "Triggers",
-        "Optimization"
-      ],
-      "courseFee": 500,
-      "credits": 5,
-      "trainerRemark": "Prior SQL experience required."
     },
     {
       "id": "m789",

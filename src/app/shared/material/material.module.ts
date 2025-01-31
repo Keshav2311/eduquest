@@ -7,6 +7,10 @@ import { MatChipsModule, MatChipListbox } from '@angular/material/chips';
 import { MatCardModule } from '@angular/material/card';
 import { MatError } from '@angular/material/form-field';
 import { MatLabel } from '@angular/material/form-field';
+import { MatDrawer } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 
 @NgModule({
@@ -21,6 +25,10 @@ import { MatLabel } from '@angular/material/form-field';
     MatError,
     MatLabel,
     MatChipListbox,
+    MatToolbarModule,
+    MatMenuModule,
+    MatSidenavModule,
+    MatDrawer
   ],
   exports:[
     MatFormFieldModule,
@@ -32,5 +40,9 @@ import { MatLabel } from '@angular/material/form-field';
     MatError,
     MatLabel,
     MatChipListbox,
+    MatToolbarModule,
+    MatMenuModule,
+    MatSidenavModule,
+    MatDrawer
   ]})
 export class MaterialModule { }

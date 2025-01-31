@@ -4,6 +4,7 @@ import { CoursesService } from '../../services/courses.service';
 import { UserInterface } from '../../interfaces/user';
 import { Courseinterface } from '../../interfaces/courses';
 import { Route, Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-instructor',
@@ -55,7 +56,13 @@ export class IntructorComponent implements OnInit {
     this.coursesService.deleteCourse(courseId).subscribe({
       next: (res) => {
         console.log('Course deleted successfully!', res);
-        this.coursedata = this.coursedata.filter((course) => course.id !== courseId);
+        Swal.fire({
+          title: 'Course Deleted Successful!',
+          icon: 'success',
+          confirmButtonText: 'OK',
+          timer: 2500,
+          confirmButtonColor: '#3085d6',
+      });        this.coursedata = this.coursedata.filter((course) => course.id !== courseId);
       },
       error: (err) => {
         console.error('There was an error!', err);
