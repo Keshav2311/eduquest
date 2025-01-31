@@ -1,5 +1,8 @@
 .dashboard-section {
     margin-top: 11vh;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   .profile-img {
@@ -107,6 +110,16 @@
     font-family: "Kumbh Sans", sans-serif;
     background-color: #26023b;
     color: #f5f1f1;
+    height: 20vh;
+    margin-left: auto;
+    margin-right: auto;    
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.336);
   }
 
   .h1{
@@ -143,5 +156,23 @@
   }
   button{
     width: 100%;
+  }
+
+  canvas {
+    max-width: 100%;
+    height: 300px !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  h5{
+    color: #f4f1f5;
+    text-align: center;
+    background-color: rgb(25, 0, 26);
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.212);    
   }
   

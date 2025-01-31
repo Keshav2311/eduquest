@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
 import { SignService } from '../../services/sign.service';
 import { UserInterface } from '../../interfaces/user';
 import { Courseinterface } from '../../interfaces/courses';
 import { CoursesService } from '../../services/courses.service';
 import Swal from 'sweetalert2';
+import Chart from 'chart.js/auto';
 
 @Component({
   selector: 'app-student',
@@ -18,7 +19,13 @@ export class StudentComponent {
   luser = JSON.parse(localStorage.getItem('users') || '{}');
   courseslist: String[] = [];
   coursedata: Courseinterface[] = [];
-  constructor(private signService: SignService, private coursesService: CoursesService) { }
+
+  @ViewChild('courseChart') courseChartRef!: ElementRef;
+  @ViewChild('feeChart') feeChartRef!: ElementRef;
+  @ViewChild('creditsChart') creditsChartRef!: ElementRef;
+
+  
+  constructor(private signService: SignService, private coursesService: CoursesService, private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     // Fetch user data on component initialization
@@ -46,12 +53,14 @@ export class StudentComponent {
         this.coursesService.getcourseById(courseId).toPromise()
       );
 
-      this.coursesService
 
       Promise.all(courseRequests)
         .then((courses) => {
           this.coursedata = courses.filter((course) => course !== null);
           console.log('Fetched courses:', this.coursedata);
+
+          this.cdr.detectChanges(); // Ensure Angular detects changes
+          this.createCharts(); // Create charts after data is fetched
         })
         .catch((err) => {
           console.error('Error fetching courses:', err);
@@ -99,6 +108,77 @@ export class StudentComponent {
         console.error('Error deleting course:', err);
         alert('An error occurred while deleting the course.');
       },
+    });
+  }
+
+  ngAfterViewInit(): void {
+    if (this.coursedata.length > 0) {
+      this.createCharts();
+    }
+  }
+
+  createCharts(): void {
+    const courseNames = this.coursedata.map(course => course.courseName);
+    const fees = this.coursedata.map(course => course.courseFee);
+    const credits = this.coursedata.map(course => course.credits);
+
+    // Course Enrollment Chart
+    new Chart(this.courseChartRef.nativeElement, {
+      type: 'bar',
+      data: {
+        labels: courseNames,
+        datasets: [{
+          label: 'Courses Enrolled',
+          data: new Array(courseNames.length).fill(1),
+          backgroundColor: 'rgba(75, 192, 192, 0.6)',
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false }
+        }
+      }
+    });
+
+    new Chart(this.feeChartRef.nativeElement, {
+      type: 'pie',
+      data: {
+        labels: courseNames,
+        datasets: [{
+          label: 'Course Fees',
+          data: fees,
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.6)',
+            'rgba(54, 162, 235, 0.6)',
+            'rgba(255, 206, 86, 0.6)',
+            'rgba(75, 192, 192, 0.6)',
+            'rgba(153, 102, 255, 0.6)',
+            'rgba(255, 159, 64, 0.6)'
+          ],
+        }]
+      }
+    });
+
+    new Chart(this.creditsChartRef.nativeElement, {
+      type: 'doughnut',
+      data: {
+        labels: courseNames,
+        datasets: [{
+          label: 'Course Credits',
+          data: credits,
+          backgroundColor: [
+            'rgba(54, 162, 235, 0.6)',
+            'rgba(255, 99, 132, 0.6)',
+            'rgba(255, 206, 86, 0.6)',
+            'rgba(75, 192, 192, 0.6)',
+            'rgba(153, 102, 255, 0.6)',
+            'rgba(255, 159, 64, 0.6)'
+          ]
+        }]
+      }
     });
   }
 

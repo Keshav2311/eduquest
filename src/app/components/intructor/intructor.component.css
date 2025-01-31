@@ -104,11 +104,21 @@
     background-color: #3f0236;
 }
 
-  .content-section {
-    font-family: "Kumbh Sans", sans-serif;
-    background-color: #26023b;
-    color: #f5f1f1;
-  }
+.content-section {
+  font-family: "Kumbh Sans", sans-serif;
+  background-color: #26023b;
+  color: #f5f1f1;
+  height: 20vh;
+  margin-left: auto;
+  margin-right: auto;    
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.336);
+}
 
   .h1{
     color: #f4f1f5;

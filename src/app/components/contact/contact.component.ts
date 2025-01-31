@@ -56,9 +56,9 @@ export class ContactComponent {
         (response: { status: number; text: string }) => {
           console.log('Email sent successfully!', response.status, response.text);
           Swal.fire({
-            title: 'Incomplete Form!',
-            text: 'Please fill in all required fields.',
-            icon: 'warning',
+            title: 'Form Completed Successfully!',
+            text: 'Thank You for Contacting Us.',
+            icon: 'success',
             timer: 3000, // Closes automatically after 3 seconds
             showConfirmButton: false
           });        },
