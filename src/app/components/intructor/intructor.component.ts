@@ -29,7 +29,7 @@ export class IntructorComponent implements OnInit {
         this.userInfo = res;
         this.courseslist = this.userInfo?.courses || [];
         this.studentlist = this.userInfo?.students || [];
-        for (let i=0; i<this.studentlist.length; i++){
+        for (let i=0; i<this.courseslist.length; i++){
           this.count++;
         }
         console.log(this.courseslist);

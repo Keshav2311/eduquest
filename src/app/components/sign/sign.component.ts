@@ -42,6 +42,21 @@ export class SignComponent {
         confirmPassword: ['', Validators.required],
       }),
     });
+
+    this.signupForm.get('page2.role')?.valueChanges.subscribe((role) => {
+      if (role === 'instructor') {
+        this.signupForm.get('page2.experience')?.setValidators([
+          Validators.required,
+          Validators.pattern('^(0|[1-9]|1[0-2])$'),
+        ]);
+      } else {
+        this.signupForm.get('page2.experience')?.setValidators([
+          Validators.required,
+          Validators.pattern('^(19|20)\\d{2}$'), // Year format validation
+        ]);
+      }
+      this.signupForm.get('page2.experience')?.updateValueAndValidity();
+    });
   }
 
   // Navigate to the next page if the current page is valid

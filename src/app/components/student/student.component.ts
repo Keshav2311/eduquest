@@ -19,8 +19,9 @@ export class StudentComponent {
   luser = JSON.parse(localStorage.getItem('users') || '{}');
   courseslist: String[] = [];
   coursedata: Courseinterface[] = [];
+  count: number = 0;
 
-  @ViewChild('courseChart') courseChartRef!: ElementRef;
+
   @ViewChild('feeChart') feeChartRef!: ElementRef;
   @ViewChild('creditsChart') creditsChartRef!: ElementRef;
 
@@ -34,6 +35,9 @@ export class StudentComponent {
         next: (res) => {
           this.userInfo = res;
           this.courseslist = this.userInfo?.courses || [];
+          for (let i = 0; i < this.courseslist.length; i++) {
+            this.count++;
+          }
           this.fetchCourses();
         },
         error: (err) => {
@@ -121,27 +125,6 @@ export class StudentComponent {
     const courseNames = this.coursedata.map(course => course.courseName);
     const fees = this.coursedata.map(course => course.courseFee);
     const credits = this.coursedata.map(course => course.credits);
-
-    // Course Enrollment Chart
-    new Chart(this.courseChartRef.nativeElement, {
-      type: 'bar',
-      data: {
-        labels: courseNames,
-        datasets: [{
-          label: 'Courses Enrolled',
-          data: new Array(courseNames.length).fill(1),
-          backgroundColor: 'rgba(75, 192, 192, 0.6)',
-          borderColor: 'rgba(75, 192, 192, 1)',
-          borderWidth: 1
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: { display: false }
-        }
-      }
-    });
 
     new Chart(this.feeChartRef.nativeElement, {
       type: 'pie',

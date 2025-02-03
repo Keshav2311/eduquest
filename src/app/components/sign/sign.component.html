@@ -67,7 +67,6 @@
             </div>
           </div>
 
-          <!-- Page 2: Interest & Experience -->
           <div *ngIf="step === 2">
             <div formGroupName="page2">
               <div class="mb-3">
@@ -93,16 +92,18 @@
                 </small>
               </div>
               <div class="mb-3">
-                <label for="experience" class="form-label"
-                  >Years of Experience*</label
-                >
+                <label for="experience" class="form-label">
+                  {{ signupForm.get('page2.role')?.value === 'instructor' ? 'Years of Experience*' : 'Learner Since*' }}
+                </label>
+                
                 <input
                   type="number"
                   id="experience"
                   class="form-control"
                   formControlName="experience"
-                  placeholder="Enter years of experience (Max: 12)"
+                  placeholder="{{ signupForm.get('page2.role')?.value === 'instructor' ? 'Enter years of experience (Max: 12)' : 'Enter the year you started learning' }}"
                 />
+              
                 <small
                   *ngIf="
                     signupForm.get('page2.experience')?.touched &&
@@ -110,9 +111,10 @@
                   "
                   class="text-danger"
                 >
-                  Enter a valid number between 0 and 12.
+                  {{ signupForm.get('page2.role')?.value === 'instructor' ? 'Enter a valid number between 0 and 12.' : 'Enter a valid year.' }}
                 </small>
               </div>
+              
             </div>
           </div>
 

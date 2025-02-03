@@ -24,25 +24,6 @@
       "students": []
     },
     {
-      "id": "4dc1",
-      "name": "Sreejith Ks",
-      "email": "sreejith.ks@impelsys.com",
-      "gender": "male",
-      "role": "instructor",
-      "experience": 5,
-      "password": "Hello@123",
-      "courses": [
-        "k123",
-        "d012",
-        "e345"
-      ],
-      "students": [
-        "s007",
-        "s008",
-        "s009"
-      ]
-    },
-    {
       "id": "t001",
       "name": "Anjali Sharma",
       "email": "anjali.sharma@impelsys.com",
@@ -52,7 +33,8 @@
       "password": "Teach@ml123",
       "courses": [
         "m789",
-        "l567"
+        "l567",
+        "aefa"
       ],
       "students": [
         "s002",
@@ -73,7 +55,6 @@
         "f678"
       ],
       "students": [
-        "s001",
         "s002",
         "s004"
       ]
@@ -91,7 +72,6 @@
         "b456"
       ],
       "students": [
-        "s001",
         "s006",
         "s008"
       ]
@@ -114,22 +94,6 @@
       ]
     },
     {
-      "id": "s001",
-      "name": "Achyut",
-      "email": "achyut2311@gmail.com",
-      "gender": "male",
-      "role": "student",
-      "experience": 2,
-      "password": "Hello@2311",
-      "courses": [
-        "f678",
-        "b456",
-        "k123",
-        "d012"
-      ],
-      "students": []
-    },
-    {
       "id": "s002",
       "name": "Rohan Singh",
       "email": "rohan.singh@gmail.com",
@@ -139,7 +103,9 @@
       "password": "Cloud@123",
       "courses": [
         "m789",
-        "c456"
+        "c456",
+        "l567",
+        "p678"
       ],
       "students": []
     },
@@ -266,6 +232,18 @@
         "7986"
       ],
       "students": []
+    },
+    {
+      "id": "a34e",
+      "name": "Achyut Keshav",
+      "email": "achyut.keshav@gmail.com",
+      "gender": "male",
+      "role": "instructor",
+      "experience": 2,
+      "password": "Achyut@2311",
+      "courses": [
+        "72dc"
+      ]
     }
   ],
   "courses": [
@@ -408,6 +386,34 @@
       "courseFee": 100,
       "credits": 2,
       "trainerRemark": "Basic knowledge about databases"
+    },
+    {
+      "id": "aefa",
+      "courseName": "Oracle",
+      "trainerName": "Anjali Sharma",
+      "duration": 3,
+      "technologies": [
+        "sql"
+      ],
+      "courseFee": 100,
+      "credits": 3,
+      "trainerRemark": "Basic Knowledge in sql is reqiured"
+    },
+    {
+      "id": "72dc",
+      "courseName": "MERN",
+      "trainerName": "Achyut Keshav",
+      "duration": 10,
+      "technologies": [
+        "html",
+        "css",
+        "javascript",
+        "sql",
+        "api"
+      ],
+      "courseFee": 1000,
+      "credits": 10,
+      "trainerRemark": "Advanced MERN Stack course that will start from the beginners level to advanced level."
     }
   ]
 }
