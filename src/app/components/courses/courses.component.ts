@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CoursesService } from '../../services/courses.service';
 import { SignService } from '../../services/sign.service';
 import { AuthService } from '../../services/auth.service';
+import { Courseinterface } from '../../interfaces/courses';
 import * as Bootstrap from 'bootstrap';
 import Swal from 'sweetalert2';
 
@@ -12,7 +13,7 @@ import Swal from 'sweetalert2';
   styleUrl: './courses.component.css'
 })
 export class CoursesComponent implements OnInit {
-  courses: any[] = []; // All courses fetched from API
+  courses: Courseinterface[] = []; 
   filteredCourses: any[] = []; // Filtered courses for display
   searchTerm: string = ''; // User search term
   selectedCourse: any | null = null;
@@ -39,8 +40,10 @@ export class CoursesComponent implements OnInit {
   fetchCourses(): void {
     this.coursesService.getItem().subscribe({
       next: (data) => {
-        this.courses = data; // Store full list
-        this.filteredCourses = data; // Default filtered list is the same
+        console.log('Courses form source:', data);
+        this.courses = data; 
+        console.log('Courses:', data);
+        this.filteredCourses = data; 
       },
       error: (err) => {
         console.error('Error fetching courses:', err);

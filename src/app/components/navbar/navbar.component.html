@@ -20,7 +20,7 @@
 
     <!-- Support Dropdown -->
     <button mat-button [matMenuTriggerFor]="supportMenu">Support</button>
-    <mat-menu #supportMenu="matMenu">
+    <mat-menu #supportMenu="matMenu" onmouseover="this.style.backgroundColor='red'">
       <button mat-menu-item routerLink="/faq">FAQ</button>
       <button mat-menu-item routerLink="/contact">Contact Us</button>
     </mat-menu>

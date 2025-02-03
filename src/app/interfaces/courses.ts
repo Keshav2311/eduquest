@@ -1,5 +1,6 @@
 export interface Courseinterface {
-   id: string;
+    id: string;
+    imageUrl: string;
     courseName: string;
     trainerName: string;
     duration: number;

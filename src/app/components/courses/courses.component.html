@@ -12,6 +12,7 @@
       <div class="col-md-4 mb-4" *ngFor="let course of filteredCourses">
         <div class="card shadow-lg course-card">
           <div class="card-body">
+            <img src={{course.imageUrl}} alt="{{ course.courseName }}" id="course_image"/>
             <h5 class="card-title">{{ course.courseName }}</h5>
             <p class="card-text">
               <strong>Trainer:</strong> {{ course.trainerName }}

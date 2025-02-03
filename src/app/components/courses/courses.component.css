@@ -43,6 +43,14 @@ body
     margin-left: auto;
     margin-right: auto;
 }
+
+#course_image{
+    width: 48vh;
+    height: 15vw;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+}
 .search-icon
 {
     padding: 5px;

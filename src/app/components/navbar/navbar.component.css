@@ -14,6 +14,13 @@ mat-toolbar{
     left: 0;
     z-index: 10; 
 }
+
+mat-menu{
+  background-color: #d4c9d6;
+  color: rgb(45, 1, 56);  
+  
+}
+
 .logo-img {
     height: 50px;
     width: 50px;

@@ -4,6 +4,7 @@ import { CoursesService } from '../../services/courses.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SignService } from '../../services/sign.service';
 import Swal from 'sweetalert2';
+import { Courseinterface } from '../../interfaces/courses';
 
 @Component({
   selector: 'app-course-add',
@@ -15,6 +16,9 @@ import Swal from 'sweetalert2';
 export class CourseAddComponent {
   courseForm: FormGroup;
   courseId: string | null = null;
+ 
+
+
 
 
   constructor(private fb: FormBuilder, private coursesService: CoursesService, private router: Router, private signservice:SignService,   private route: ActivatedRoute) {
@@ -25,7 +29,8 @@ export class CourseAddComponent {
       technologies: [[], Validators.required],
       courseFee: [null, [Validators.required, Validators.min(0)]],
       credits: [null, [Validators.required, Validators.min(1), Validators.max(10)]],
-      trainerRemark: ['', [Validators.maxLength(250)]]
+      trainerRemark: ['', [Validators.maxLength(250)]],
+      imageUrl: ['', [Validators.required, Validators.pattern(/https?:\/\/.+\.(png|jpg|jpeg)/)]]
     });
   }
 
@@ -51,6 +56,8 @@ export class CourseAddComponent {
       this.courseForm.get('technologies')?.setValue(technologies);
     }
   }
+
+  
 
 
   ngOnInit(): void {
