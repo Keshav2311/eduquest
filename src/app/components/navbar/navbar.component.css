@@ -1,88 +1,82 @@
-/* Global Styles */
-mat-toolbar{
-    height: 11vh;
-    position: fixed;
-    background-color: #d4c9d6;
-    color: rgb(45, 1, 56);
-    font-family: "Dancing Script", serif;
-    font-size: 1.2rem;
-    font-weight: 500;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
-    top: 0; 
-    left: 0;
-    z-index: 10; 
-}
-
-mat-menu{
-  background-color: #d4c9d6;
-  color: rgb(45, 1, 56);  
-  
-}
-
-.logo-img {
-    height: 50px;
-    width: 50px;
-  }
-  
-  /* Flexbox for navbar */
-  .spacer {
-    flex-grow: 1;
-  }
-  
-  /* Hide navbar links on small screens */
-  /* Default Navbar Link Color */
-.nav-links button {
-    color: #280442 !important; /* Dark Purple */
+/* Navbar Styles */
+.navbar {
+  padding: 8px 10px;
+  background-color: #D9AFD9;
+  background-image: linear-gradient(0deg, #D9AFD9 0%, #f3f6f7 100%);
     font-weight: bolder;
-    padding: 20px;
-  }
-  
-  /* Hover Effect */
-.nav-links button:hover {
-    color: #050107 !important; /* Indigo */
-    scale: 1.02;
-  }
-  
-  ::ng-deep .nav-links button.active-link {
-    color: white !important;
-    background-color: #4B0082 !important;
-    border-radius: 4px;
-  }
-  
-  
-  /* Mobile menu button */
-  .menu-btn {
-    display: none;
-  }
-  
-  /* Responsive: Show menu button & hide nav-links on small screens */
-  @media (max-width: 768px) {
-    .nav-links {
-      display: none;
-    }
-    .menu-btn {
-      display: block;
-    }
-    .nav-links{
-        display: none;
-    }
-  }
+  font-family: "Kumbh Sans", sans-serif;
+  font-size: 1.1rem;
+  backdrop-filter: blur(10px);
+  transition: background-color 0.3s ease-in-out;
+}
 
-  @media screen and (MIN-width: 768px) {
-    mat-drawer-container{
-        display: none;
-    }
-    
-  }
-  
-  /* Side Drawer */
-  .drawer-container {
-    height: 100vh;
-  }
-  .drawer {
-    width: 250px;
-    color: black;
-  }
-  
+.scrolled {
+  background-color: rgb(228, 220, 236); /* Solid color when scrolled */
+}
+
+#logo{
+  width: 50px;
+  height: 50px;
+  padding: 0%;
+}
+
+/* Hover Dropdown */
+
+.nav-item {
+  margin-left: 10px;
+}
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0;
+  background-color: rgb(188, 158, 221);
+  color: #f3f6f7;
+}
+
+.dropdown-menu {
+  transition: all 0.3s ease-in-out;
+}
+
+.dropdown-item:hover{
+  background-color: rgb(219, 200, 231);
+}
+
+/* Offcanvas Mobile Drawer */
+.offcanvas {
+  width: 250px;
+  background-color: rgb(214, 198, 231);
+}
+
+.offcanvas-body .nav-link {
+  padding: 10px;
+  font-size: 18px;
+}
+
+.nav-link:hover {
+  color: #2a013d;
+  font-size: 1.2rem;
+}
+
+a.active {
+  color: #f9f7fa;
+  background-color: #4b036d;
+}
+
+.offcanvas-body .nav-link{
+  color: #1f012e;
+}
+
+.offcanvas-body .nav-link:hover{
+  color: #4b036d;
+  font-size: 1.2rem;
+}
+
+.btn{
+  background-color: #440461;
+  color: #f9f7fa;
+  font-weight: bolder;
+}
+.btn:hover{
+  background-color: #52027a;
+  color: #f7f3f8;
+  font-size: 1.01rem;
+}

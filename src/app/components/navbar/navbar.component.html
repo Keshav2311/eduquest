@@ -1,59 +1,65 @@
-<mat-toolbar class="mat-elevation-z1 text-dark">
-  <!-- Logo & Home -->
-  <div class="logo">
-    <a routerLink="/">
-      <img src="../../../../assets/images/logo.webp" alt="EduQuest logo" class="logo-img">
-    </a>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+  <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileDrawer">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <a class="navbar-brand" routerLink="/"><img src="assets/images/logo.webp" alt="logo" id="logo"></a>
+
+      <div class="collapse navbar-collapse">
+          <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                  <a class="nav-link" routerLink="/home">Home</a>
+              </li>
+
+              <!-- Courses Dropdown -->
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="coursesDropdown" role="button">Courses</a>
+                  <ul class="dropdown-menu" aria-labelledby="coursesDropdown">
+                      <li><a class="dropdown-item" routerLink="/courses">All Courses</a></li>
+                      <li *ngIf="!(isStudent$ | async) && (isAuthenticated$ | async)">
+                        <a class="dropdown-item" routerLink="/course_add">New Courses</a>
+                    </li>                  
+                  </ul>
+              </li>
+
+              <!-- Support Dropdown -->
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="supportDropdown" role="button">Support</a>
+                  <ul class="dropdown-menu" aria-labelledby="supportDropdown">
+                      <li><a class="dropdown-item" routerLink="/faq">FAQ</a></li>
+                      <li><a class="dropdown-item" routerLink="/contact">Contact Us</a></li>
+                  </ul>
+              </li>
+
+              <li class="nav-item">
+                  <a class="btn" *ngIf="isAuthenticated$ | async" [routerLink]="dashboardLink$ | async">Dashboard</a>
+              </li>
+              <li class="nav-item">
+                  <a class="btn" *ngIf="!(isAuthenticated$ | async)" routerLink="/login">Login</a>
+              </li>
+              <li class="nav-item">
+                  <button class="btn" *ngIf="isAuthenticated$ | async" (click)="onLogout()">Logout</button>
+              </li>
+          </ul>
+      </div>
   </div>
+</nav>
 
-  <!-- Navbar Links (Hidden in mobile) -->
-  <span class="spacer"></span>
-  <nav class="nav-links">
-    <button mat-button routerLink="/home">Home</button>
-
-    <!-- Courses Dropdown -->
-    <button mat-button [matMenuTriggerFor]="coursesMenu">Courses</button>
-    <mat-menu #coursesMenu="matMenu">
-      <button mat-menu-item routerLink="/courses">All Courses</button>
-      <button mat-menu-item routerLink="/course_add/:id">New Courses</button>
-    </mat-menu>
-
-    <!-- Support Dropdown -->
-    <button mat-button [matMenuTriggerFor]="supportMenu">Support</button>
-    <mat-menu #supportMenu="matMenu" onmouseover="this.style.backgroundColor='red'">
-      <button mat-menu-item routerLink="/faq">FAQ</button>
-      <button mat-menu-item routerLink="/contact">Contact Us</button>
-    </mat-menu>
-
-    <!-- Dashboard (Only for logged-in users) -->
-    <button mat-button *ngIf="authService.isAuthenticated()" [routerLink]="getDashboardLink()">Dashboard</button>
-
-    <!-- Login/Logout -->
-    <button mat-button *ngIf="!authService.isAuthenticated()" routerLink="/login">Login</button>
-    <button mat-button *ngIf="authService.isAuthenticated()" (click)="onLogout()">Logout</button>
-  </nav>
-
-  <!-- Mobile Menu -->
-  <button mat-icon-button (click)="drawer.toggle()" class="menu-btn">
-    <mat-icon>menu</mat-icon>
-  </button>
-</mat-toolbar>
-
-<!-- Side Drawer for Mobile -->
-<mat-drawer-container class="drawer-container">
-  <!-- Sidebar Drawer -->
-  <mat-drawer #drawer mode="over" class="drawer" (closedStart)="drawer.close()">
-    <button mat-button routerLink="/home" (click)="drawer.close()">Home</button>
-    <button mat-button routerLink="/courses" (click)="drawer.close()">All Courses</button>
-    <button mat-button *ngIf="authService.isAuthenticated()" (click)="drawer.close()">New Courses</button>
-    <button mat-button routerLink="/faq" (click)="drawer.close()">FAQ</button>
-    <button mat-button routerLink="/contact" (click)="drawer.close()">Contact Us</button>
-    <button mat-button *ngIf="authService.isAuthenticated()" [routerLink]="getDashboardLink()" (click)="drawer.close()">Dashboard</button>
-    <button mat-button *ngIf="!authService.isAuthenticated()" routerLink="/login" (click)="drawer.close()">Login</button>
-    <button mat-button *ngIf="authService.isAuthenticated()" (click)="onLogout(); drawer.close()">Logout</button>
-  </mat-drawer>
-
-  <!-- Main Content -->
- 
-</mat-drawer-container>
-
+<!-- Mobile Sidebar (Bootstrap Offcanvas) -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="mobileDrawer">
+  <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Menu</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body">
+      <a class="nav-link" routerLink="/home">Home</a>
+      <a class="nav-link" routerLink="/courses">All Courses</a>
+      <a class="nav-link" *ngIf="isAuthenticated$ | async" routerLink="/course_add">New Courses</a>
+      <a class="nav-link" routerLink="/faq">FAQ</a>
+      <a class="nav-link" routerLink="/contact">Contact Us</a>
+      <a class="btn mt-2 w-100" *ngIf="isAuthenticated$ | async" [routerLink]="dashboardLink$ | async">Dashboard</a>
+      <a class="btn mt-2 w-100" *ngIf="!(isAuthenticated$ | async)" routerLink="/login">Login</a>
+      <button class="btn btn-danger mt-2 w-100" *ngIf="isAuthenticated$ | async" (click)="onLogout()">Logout</button>
+  </div>
+</div>

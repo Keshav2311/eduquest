@@ -1,35 +1,26 @@
 import { Injectable } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { login, logout } from '../action/auth.action';
+import { selectIsAuthenticated, selectUserRole } from '../selector/auth.selector';
+import { from, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  isAuthenticated$: Observable<boolean>;
+  userRole$: Observable<string>;
 
-  private isLoggedIn = false;
-  private currentUser: any = null;
-
-  constructor() {}
+  constructor(private store: Store) {
+    this.isAuthenticated$ = this.store.select(selectIsAuthenticated);
+    this.userRole$ = this.store.select(selectUserRole);
+  }
 
   login(user: any): void {
-    this.isLoggedIn = true;
-    this.currentUser = user;
-    localStorage.setItem('users', JSON.stringify(user));
+    this.store.dispatch(login({ user }));
   }
 
   logout(): void {
-    this.isLoggedIn = false;
-    localStorage.removeItem('users')
-  }
-
-  isAuthenticated(): boolean {
-      return localStorage.getItem('users')? true : false;
-  }
-
-  getUserRole(): string {
-    if (!this.currentUser) {
-      const user = JSON.parse(localStorage.getItem('users') || '{}');
-      this.currentUser = user;
-    }
-    return this.currentUser?.role || '';
+    this.store.dispatch(logout());
   }
 }

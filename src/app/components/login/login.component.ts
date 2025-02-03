@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { SignService } from '../../services/sign.service';
-import { AuthService } from '../../services/auth.service';
+import { Store } from '@ngrx/store';
+import { login } from '../../action/auth.action';
 import Swal from 'sweetalert2';
+import { map } from 'rxjs/operators';
+
 @Component({
   selector: 'app-login',
   standalone: false,
-
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
@@ -18,55 +20,55 @@ export class LoginComponent {
     remember: false,
   };
 
-  constructor(private signService: SignService, private router: Router ,private authservice: AuthService) {}
+  constructor(
+    private signService: SignService,
+    private router: Router,
+    private store: Store
+  ) {}
+
   onSubmit(loginForm: any): void {
     if (loginForm.valid) {
       const email = loginForm.value.email; // Get email from the form
 
-      const userType = loginForm.value.role;
-
-      // localStorage.setItem("users", JSON.stringify(loginForm));
-
-
       this.signService.getUsers().subscribe({
         next: (users) => {
-          const userExists = users.some((user) => user.email === email); // Check email existence
-          const userdetail = users.find((user) => user.email === email); // Check email existence
-          console.log(userdetail);
+          const userDetail = users.find((user) => user.email === email); // Find user by email
 
-          if (userExists) {
-            localStorage.setItem("users", JSON.stringify(userdetail))
-            this.authservice.login(userdetail);
+          if (userDetail) {
+            // Dispatch login action to update NgRx store
+            this.store.dispatch(login({ user: userDetail }));
 
             Swal.fire({
               title: 'Welcome Back!',
               text: 'Login successful!',
               icon: 'success',
-              timer: 3000, // Auto closes after 3 seconds
-              showConfirmButton: false
-            });            console.log(userdetail.role);
-            if (userdetail.role === 'student') {
-              this.router.navigate(['/student']);
-              // alert("Student Dashboard");
-            } 
-            else if (userdetail.role === 'instructor') {
-              this.router.navigate(['/instructor']);
-            }
-            else if (userdetail.role === 'admin') {
-              this.router.navigate(['/admin']);
-            }
+              timer: 3000,
+              showConfirmButton: false,
+            });
+
+            // Redirect based on role using NgRx state
+            this.store
+              .select((state: any) => state.auth.user.role)
+              .pipe(map((role) => (role === 'student' ? '/student' : role === 'instructor' ? '/instructor' : '/admin')))
+              .subscribe((route) => this.router.navigate([route]));
           } else {
             Swal.fire({
               title: 'Error!',
               text: 'User does not exist.',
               icon: 'error',
-              timer: 3000, // Auto closes after 3 seconds
-              showConfirmButton: false
-            });          }
+              timer: 3000,
+              showConfirmButton: false,
+            });
+          }
         },
         error: (err) => {
           console.error('Error fetching users:', err);
-          alert('An error occurred. Please try again later.');
+          Swal.fire({
+            title: 'Error!',
+            text: 'An error occurred. Please try again later.',
+            icon: 'error',
+            showConfirmButton: true,
+          });
         },
       });
     } else {
@@ -76,6 +78,7 @@ export class LoginComponent {
         icon: 'warning',
         confirmButtonText: 'OK',
         confirmButtonColor: '#f39c12',
-      });    }
+      });
+    }
   }
 }

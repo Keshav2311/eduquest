@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
@@ -33,6 +33,12 @@ import { CoursesService } from './services/courses.service';
 import { CourseAddComponent } from './components/course-add/course-add.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { AuthService } from './services/auth.service';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { authReducer } from './reducer/auth.reducer';
+
 
 
 
@@ -66,7 +72,12 @@ import { AuthService } from './services/auth.service';
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot({}, {}),
+    EffectsModule.forRoot([]),
+    StoreModule.forRoot({ auth: authReducer }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    StoreRouterConnectingModule.forRoot()
     ],
   providers: [
     provideAnimationsAsync(),

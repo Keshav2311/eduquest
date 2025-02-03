@@ -29,8 +29,9 @@ export class CoursesComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchCourses();
-    this.role = this.authservice.getUserRole();
-
+    this.authservice.userRole$.subscribe((role) => {
+      this.role = role;
+    });
     const user = JSON.parse(localStorage.getItem('users') || '{}');
     if (user && user.courses) {
       this.enrolledCourses = new Set(user.courses);

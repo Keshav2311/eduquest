@@ -1,36 +1,41 @@
-import { Component, ViewChild } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
-import { Router } from '@angular/router';
-import { MatDrawer } from '@angular/material/sidenav';
-import Swal from 'sweetalert2';
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { logout } from '../../action/auth.action';
+import { selectIsAuthenticated, selectUserRole } from '../../selector/auth.selector';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-navbar',
   standalone: false,
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrl: './navbar.component.css',
 })
-export class NavbarComponent {
-  @ViewChild('drawer') drawer!: MatDrawer;
+export class NavbarComponent implements OnInit {
+  isAuthenticated$: Observable<boolean>;
+  dashboardLink$: Observable<string>;
+  isStudent$: Observable<boolean>;
 
+  constructor(private store: Store) {
+    this.isAuthenticated$ = this.store.select(selectIsAuthenticated);
+    this.isStudent$ = this.store.select(selectUserRole).pipe(
+      map(role => role === 'student')  // Checks if the role is 'student'
+    );
+    this.dashboardLink$ = this.store.select(selectUserRole).pipe(
+      map((role) => {
+        switch (role) {
+          case 'student': return '/student';
+          case 'instructor': return '/instructor';
+          case 'admin': return '/admin';
+          default: return '/home';
+        }
+      })
+    );
+  }
 
-  constructor(public authService: AuthService, private router: Router) {}
+  ngOnInit(): void {}
 
   onLogout(): void {
-    this.authService.logout();
-    this.router.navigate(['/login']);
-  }
-
-  getDashboardLink(): string {
-    const role = this.authService.getUserRole();
-    return role === 'student' ? '/student' : role === 'instructor' ? '/instructor' : '/admin';
-  }
-
-  
-
-  closeDrawer(): void {
-    if (this.drawer) {
-      this.drawer.close(); // Close only if the drawer exists
-    }
+    this.store.dispatch(logout());
   }
 }
