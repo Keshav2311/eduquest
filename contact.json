@@ -139,7 +139,8 @@
       "password": "Web@vivek",
       "courses": [
         "w123",
-        "b456"
+        "b456",
+        "72dc"
       ]
     },
     {
@@ -404,22 +405,6 @@
       "credits": 2,
       "trainerRemark": "Basic knowledge about databases",
       "students": []
-    },
-    {
-      "id": "aefa",
-      "imageUrl": "assets/images/courses/mern.webp",
-      "courseName": "Oracle",
-      "trainerName": "Anjali Sharma",
-      "duration": 3,
-      "technologies": [
-        "sql"
-      ],
-      "courseFee": 100,
-      "credits": 3,
-      "trainerRemark": "Basic Knowledge in sql is reqiured",
-      "students": [
-        "s003"
-      ]
     },
     {
       "id": "72dc",

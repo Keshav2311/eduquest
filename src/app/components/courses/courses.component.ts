@@ -85,6 +85,16 @@ export class CoursesComponent implements OnInit {
       },
     });
 
+    const updateUser = [...(user.student || []), id];
+    this.coursesService.updateCourse(id, updateUser).subscribe({
+      next: (response) => {
+        console.log('Student updated:', response);
+      },
+      error: (error) => {
+        console.error('Error updating student:', error);
+      },
+    });
+
     this.signservice.updateUser(userId, this.trainerName).subscribe({
       next: (response) => {
         console.log('Trainer name updated:', response);
