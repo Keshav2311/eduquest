@@ -23,6 +23,7 @@ export class AdminComponent {
   displayedData: UserInterface[] = [];
   displayedCoursesData: Courseinterface[] = [];
   showCourses = false;
+  showData = false;
   courses: any[] = [];
 
 
@@ -79,10 +80,16 @@ export class AdminComponent {
   }
 
   showTable(type: string): void {
-    if (type === 'student') {
-      this.displayedData = this.studentInfo;
-    } else if (type === 'instructor') {
-      this.displayedData = this.instructorInfo;
+    this.showData = !this.showData;
+    if(this.showData) {
+      if (type === 'student') {
+        this.displayedData = this.studentInfo;
+      } else if (type === 'instructor') {
+        this.displayedData = this.instructorInfo;
+      }
+    } 
+    else {
+      this.displayedData = [];
     }
   }
 

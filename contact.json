@@ -20,8 +20,7 @@
       "role": "admin",
       "experience": 0,
       "password": "Admin@1234",
-      "courses": [],
-      "students": []
+      "courses": []
     },
     {
       "id": "t001",
@@ -35,11 +34,6 @@
         "m789",
         "l567",
         "aefa"
-      ],
-      "students": [
-        "s002",
-        "s003",
-        "s010"
       ]
     },
     {
@@ -53,10 +47,6 @@
       "courses": [
         "c456",
         "f678"
-      ],
-      "students": [
-        "s002",
-        "s004"
       ]
     },
     {
@@ -70,10 +60,6 @@
       "courses": [
         "w123",
         "b456"
-      ],
-      "students": [
-        "s006",
-        "s008"
       ]
     },
     {
@@ -87,10 +73,6 @@
       "courses": [
         "d345",
         "p678"
-      ],
-      "students": [
-        "s005",
-        "s004"
       ]
     },
     {
@@ -106,8 +88,7 @@
         "c456",
         "l567",
         "p678"
-      ],
-      "students": []
+      ]
     },
     {
       "id": "s003",
@@ -121,8 +102,7 @@
         "l567",
         "m789",
         "aefa"
-      ],
-      "students": []
+      ]
     },
     {
       "id": "s004",
@@ -135,8 +115,7 @@
       "courses": [
         "c456",
         "p678"
-      ],
-      "students": []
+      ]
     },
     {
       "id": "s005",
@@ -148,8 +127,7 @@
       "password": "Data@sanya",
       "courses": [
         "d345"
-      ],
-      "students": []
+      ]
     },
     {
       "id": "s006",
@@ -162,8 +140,7 @@
       "courses": [
         "w123",
         "b456"
-      ],
-      "students": []
+      ]
     },
     {
       "id": "s007",
@@ -176,8 +153,7 @@
       "courses": [
         "k123",
         "e345"
-      ],
-      "students": []
+      ]
     },
     {
       "id": "s008",
@@ -190,8 +166,7 @@
       "courses": [
         "d012",
         "w123"
-      ],
-      "students": []
+      ]
     },
     {
       "id": "s009",
@@ -204,8 +179,7 @@
       "courses": [
         "d012",
         "k123"
-      ],
-      "students": []
+      ]
     },
     {
       "id": "s010",
@@ -218,8 +192,7 @@
       "courses": [
         "a789",
         "m789"
-      ],
-      "students": []
+      ]
     },
     {
       "id": "d81f",
@@ -231,8 +204,7 @@
       "password": "Ross@123",
       "courses": [
         "7986"
-      ],
-      "students": []
+      ]
     },
     {
       "id": "a34e",
@@ -261,7 +233,11 @@
       ],
       "courseFee": 450,
       "credits": 4,
-      "trainerRemark": "Basic understanding of data structures is helpful."
+      "trainerRemark": "Basic understanding of data structures is helpful.",
+      "students": [
+        "s007",
+        "s009"
+      ]
     },
     {
       "id": "m789",
@@ -276,7 +252,12 @@
       ],
       "courseFee": 450,
       "credits": 4,
-      "trainerRemark": "Basic knowledge of networking and virtualization is required."
+      "trainerRemark": "Basic knowledge of networking and virtualization is required.",
+      "students": [
+        "s002",
+        "s003",
+        "s010"
+      ]
     },
     {
       "id": "l567",
@@ -291,7 +272,11 @@
       ],
       "courseFee": 600,
       "credits": 6,
-      "trainerRemark": "Requires statistics knowledge."
+      "trainerRemark": "Requires statistics knowledge.",
+      "students": [
+        "s003",
+        "s002"
+      ]
     },
     {
       "id": "c456",
@@ -306,7 +291,11 @@
       ],
       "courseFee": 500,
       "credits": 5,
-      "trainerRemark": "Prior programming experience helpful."
+      "trainerRemark": "Prior programming experience helpful.",
+      "students": [
+        "s002",
+        "s004"
+      ]
     },
     {
       "id": "f678",
@@ -321,7 +310,10 @@
       ],
       "courseFee": 650,
       "credits": 6,
-      "trainerRemark": "Cybersecurity Basics recommended."
+      "trainerRemark": "Cybersecurity Basics recommended.",
+      "students": [
+        "s004"
+      ]
     },
     {
       "id": "w123",
@@ -337,7 +329,11 @@
       ],
       "courseFee": 700,
       "credits": 8,
-      "trainerRemark": "Prior JavaScript experience recommended."
+      "trainerRemark": "Prior JavaScript experience recommended.",
+      "students": [
+        "s006",
+        "s008"
+      ]
     },
     {
       "id": "b456",
@@ -352,7 +348,10 @@
       ],
       "courseFee": 550,
       "credits": 5,
-      "trainerRemark": "Basic JavaScript knowledge required."
+      "trainerRemark": "Basic JavaScript knowledge required.",
+      "students": [
+        "s006"
+      ]
     },
     {
       "id": "d345",
@@ -367,7 +366,10 @@
       ],
       "courseFee": 550,
       "credits": 5,
-      "trainerRemark": "Python basics recommended."
+      "trainerRemark": "Python basics recommended.",
+      "students": [
+        "s005"
+      ]
     },
     {
       "id": "p678",
@@ -382,7 +384,11 @@
       ],
       "courseFee": 600,
       "credits": 6,
-      "trainerRemark": "Prior data handling experience beneficial."
+      "trainerRemark": "Prior data handling experience beneficial.",
+      "students": [
+        "s002",
+        "s004"
+      ]
     },
     {
       "id": "7986",
@@ -396,7 +402,8 @@
       ],
       "courseFee": 100,
       "credits": 2,
-      "trainerRemark": "Basic knowledge about databases"
+      "trainerRemark": "Basic knowledge about databases",
+      "students": []
     },
     {
       "id": "aefa",
@@ -409,7 +416,10 @@
       ],
       "courseFee": 100,
       "credits": 3,
-      "trainerRemark": "Basic Knowledge in sql is reqiured"
+      "trainerRemark": "Basic Knowledge in sql is reqiured",
+      "students": [
+        "s003"
+      ]
     },
     {
       "id": "72dc",
@@ -426,7 +436,8 @@
       ],
       "courseFee": 1000,
       "credits": 10,
-      "trainerRemark": "Advanced MERN Stack course that will start from the beginners level to advanced level."
+      "trainerRemark": "Advanced MERN Stack course that will start from the beginners level to advanced level.",
+      "students": []
     }
   ]
 }

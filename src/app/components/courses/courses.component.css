@@ -45,8 +45,8 @@ body
 }
 
 #course_image{
-    width: 48vh;
-    height: 15vw;
+    width: 100%;
+    height: 30%;
     margin-left: auto;
     margin-right: auto;
     overflow: hidden;
@@ -231,6 +231,24 @@ width: 3px;
     font-weight: bolder;
     margin-left: auto;
     margin-right: auto;
-    width: 20%;
+    width: 40%;;
+    border-radius: 5px;
+  }
+
+  @media screen and (max-width: 1200px) {
+    .course-card .card-title {
+      aspect-ratio: 5/1;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .course-card .card-title {
+      aspect-ratio: 3/1;
+    }
+  }
+  @media screen and (max-width: 500px) {
+    .course-card .card-title {
+      aspect-ratio: 10/1;
+    }
   }
   

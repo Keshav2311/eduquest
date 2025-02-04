@@ -8,5 +8,4 @@ interest:String,
 experience:Number,
 password:String
 courses?: String[],
-students?: String[]
 };

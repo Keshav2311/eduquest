@@ -134,15 +134,13 @@
   }
 
   #courses{
-    background-color: #f6f4f8;
-    border-radius: 10px;
-    box-shadow: 0 10px 20px rgba(232, 230, 233, 0.2);
     flex-direction: row;
     font-weight: bolder;
     align-items: center;
     padding: 20px;
     text-align: center;
-    color: #1f0220;
+    font-size: 5.5rem;
+    color: #f3f0f3;
   }
   
   #card {

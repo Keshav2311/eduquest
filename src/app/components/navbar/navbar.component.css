@@ -24,6 +24,7 @@
 
 .nav-item {
   margin-left: 10px;
+
 }
 .nav-item.dropdown:hover .dropdown-menu {
   display: block;
@@ -47,13 +48,15 @@
 }
 
 .offcanvas-body .nav-link {
-  padding: 10px;
   font-size: 18px;
+}
+
+.nav-link {
+  padding: 10px;
 }
 
 .nav-link:hover {
   color: #2a013d;
-  font-size: 1.2rem;
 }
 
 a.active {
@@ -71,12 +74,12 @@ a.active {
 }
 
 .btn{
-  background-color: #440461;
+  background-color: #28013a;
   color: #f9f7fa;
   font-weight: bolder;
 }
 .btn:hover{
-  background-color: #52027a;
+  background-color: #310149;
   color: #f7f3f8;
   font-size: 1.01rem;
 }

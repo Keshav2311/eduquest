@@ -8,4 +8,5 @@ export interface Courseinterface {
     courseFee: number;
     credits: number;
     trainerRemark: string;
+    student : string[];
 }

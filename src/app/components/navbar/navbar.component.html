@@ -1,65 +1,65 @@
 <nav class="navbar navbar-expand-lg navbar-light fixed-top">
   <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileDrawer">
-          <span class="navbar-toggler-icon"></span>
-      </button>
 
-      <a class="navbar-brand" routerLink="/"><img src="assets/images/logo.webp" alt="logo" id="logo"></a>
 
-      <div class="collapse navbar-collapse">
-          <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-                  <a class="nav-link" routerLink="/home">Home</a>
-              </li>
+    <a class="navbar-brand" routerLink="/"><img src="assets/images/logo.webp" alt="logo" id="logo"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileDrawer">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home">Home</a>
+        </li>
 
-              <!-- Courses Dropdown -->
-              <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="coursesDropdown" role="button">Courses</a>
-                  <ul class="dropdown-menu" aria-labelledby="coursesDropdown">
-                      <li><a class="dropdown-item" routerLink="/courses">All Courses</a></li>
-                      <li *ngIf="!(isStudent$ | async) && (isAuthenticated$ | async)">
-                        <a class="dropdown-item" routerLink="/course_add">New Courses</a>
-                    </li>                  
-                  </ul>
-              </li>
-
-              <!-- Support Dropdown -->
-              <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="supportDropdown" role="button">Support</a>
-                  <ul class="dropdown-menu" aria-labelledby="supportDropdown">
-                      <li><a class="dropdown-item" routerLink="/faq">FAQ</a></li>
-                      <li><a class="dropdown-item" routerLink="/contact">Contact Us</a></li>
-                  </ul>
-              </li>
-
-              <li class="nav-item">
-                  <a class="btn" *ngIf="isAuthenticated$ | async" [routerLink]="dashboardLink$ | async">Dashboard</a>
-              </li>
-              <li class="nav-item">
-                  <a class="btn" *ngIf="!(isAuthenticated$ | async)" routerLink="/login">Login</a>
-              </li>
-              <li class="nav-item">
-                  <button class="btn" *ngIf="isAuthenticated$ | async" (click)="onLogout()">Logout</button>
-              </li>
+        <!-- Courses Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="coursesDropdown" role="button">Courses</a>
+          <ul class="dropdown-menu" aria-labelledby="coursesDropdown">
+            <li><a class="dropdown-item" routerLink="/courses">All Courses</a></li>
+            <li *ngIf="!(isStudent$ | async) && (isAuthenticated$ | async)">
+              <a class="dropdown-item" routerLink="/course_add">New Courses</a>
+            </li>
           </ul>
-      </div>
+        </li>
+
+        <!-- Support Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="supportDropdown" role="button">Support</a>
+          <ul class="dropdown-menu" aria-labelledby="supportDropdown">
+            <li><a class="dropdown-item" routerLink="/faq">FAQ</a></li>
+            <li><a class="dropdown-item" routerLink="/contact">Contact Us</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="btn" *ngIf="isAuthenticated$ | async" [routerLink]="dashboardLink$ | async">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn" *ngIf="!(isAuthenticated$ | async)" routerLink="/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <button class="btn" *ngIf="isAuthenticated$ | async" (click)="onLogout()">Logout</button>
+        </li>
+      </ul>
+    </div>
   </div>
 </nav>
 
 <!-- Mobile Sidebar (Bootstrap Offcanvas) -->
-<div class="offcanvas offcanvas-start" tabindex="-1" id="mobileDrawer">
+<div class="offcanvas offcanvas-end" tabindex="-1" id="mobileDrawer">
   <div class="offcanvas-header">
-      <h5 class="offcanvas-title">Menu</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    <h5 class="offcanvas-title">Menu</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
   </div>
   <div class="offcanvas-body">
-      <a class="nav-link" routerLink="/home">Home</a>
-      <a class="nav-link" routerLink="/courses">All Courses</a>
-      <a class="nav-link" *ngIf="isAuthenticated$ | async" routerLink="/course_add">New Courses</a>
-      <a class="nav-link" routerLink="/faq">FAQ</a>
-      <a class="nav-link" routerLink="/contact">Contact Us</a>
-      <a class="btn mt-2 w-100" *ngIf="isAuthenticated$ | async" [routerLink]="dashboardLink$ | async">Dashboard</a>
-      <a class="btn mt-2 w-100" *ngIf="!(isAuthenticated$ | async)" routerLink="/login">Login</a>
-      <button class="btn btn-danger mt-2 w-100" *ngIf="isAuthenticated$ | async" (click)="onLogout()">Logout</button>
+    <a class="nav-link" routerLink="/home">Home</a>
+    <a class="nav-link" routerLink="/courses">All Courses</a>
+    <a class="nav-link" *ngIf="isAuthenticated$ | async" routerLink="/course_add">New Courses</a>
+    <a class="nav-link" routerLink="/faq">FAQ</a>
+    <a class="nav-link" routerLink="/contact">Contact Us</a>
+    <a class="btn mt-2 w-100" *ngIf="isAuthenticated$ | async" [routerLink]="dashboardLink$ | async">Dashboard</a>
+    <a class="btn mt-2 w-100" *ngIf="!(isAuthenticated$ | async)" routerLink="/login">Login</a>
+    <button class="btn btn-danger mt-2 w-100" *ngIf="isAuthenticated$ | async" (click)="onLogout()">Logout</button>
   </div>
 </div>
