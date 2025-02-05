@@ -1,0 +1,56 @@
+.not-found {
+    height: 70vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    text-align: center;
+    color: #4a148c; /* Deep purple */
+    position: relative;
+    padding: 20px;
+}
+
+.not-found h1 {
+    font-size: 5rem;
+    font-weight: bold;
+    color: rgb(43, 2, 44);
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.not-found h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #120230; /* Light purple */
+    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
+}
+
+.not-found p {
+    font-size: 1.2rem;
+    color: rgb(49, 2, 51);
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+.not-found a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: #7e57c2; /* Medium purple */
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+}
+
+.not-found a:hover {
+    background-color: #6a1b9a; /* Darker purple */
+}
+
+/* Hide text on mobile */
+@media (max-width: 768px) {
+    .not-found img {
+        display: none;
+    }
+}

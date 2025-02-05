@@ -39,6 +39,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { authReducer } from './reducer/auth.reducer';
 import { N404Component } from './components/n404/n404.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 
 
@@ -64,7 +65,8 @@ import { N404Component } from './components/n404/n404.component';
     IntructorComponent,
     CourseAddComponent,
     AdminComponent,
-    N404Component    
+    N404Component,
+    DashboardComponent    
   ],
   imports: [
     BrowserAnimationsModule,

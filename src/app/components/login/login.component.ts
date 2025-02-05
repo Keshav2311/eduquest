@@ -49,7 +49,7 @@ export class LoginComponent {
             // Redirect based on role using NgRx state
             this.store
               .select((state: any) => state.auth.user.role)
-              .pipe(map((role) => (role === 'student' ? '/student' : role === 'instructor' ? '/instructor' : '/admin')))
+              .pipe(map((role) => (role === 'student' ? '/dashboard' : role === 'instructor' ? '/dashboard' : '/dashboard')))
               .subscribe((route) => this.router.navigate([route]));
           } else {
             Swal.fire({

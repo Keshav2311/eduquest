@@ -12,7 +12,7 @@ import { IntructorComponent } from './components/intructor/intructor.component';
 import { CourseAddComponent } from './components/course-add/course-add.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { N404Component } from './components/n404/n404.component';
-
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 const routes: Routes = [
   { path: "", component: HomeComponentComponent }, 
   { path: "home", component: HomeComponentComponent },
@@ -22,12 +22,9 @@ const routes: Routes = [
   { path: "contact", component: ContactComponent},
   { path: "faq", component: FaqComponent},
   { path: "courses", component: CoursesComponent },
-  { path: "student", component: StudentComponent},
-  { path: "instructor", component: IntructorComponent},
-  { path: "student", component: StudentComponent},
-  { path: "admin", component: AdminComponent},
   { path: "course_add", component: CourseAddComponent},
   { path: 'course_add/:id', component: CourseAddComponent } ,
+  {path:'dashboard',component:DashboardComponent},
   {path: '**', component: N404Component}
 
 ];

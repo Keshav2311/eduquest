@@ -24,9 +24,9 @@ export class NavbarComponent implements OnInit {
     this.dashboardLink$ = this.store.select(selectUserRole).pipe(
       map((role) => {
         switch (role) {
-          case 'student': return '/student';
-          case 'instructor': return '/instructor';
-          case 'admin': return '/admin';
+          case 'student': return '/dashboard';
+          case 'instructor': return '/dashboard';
+          case 'admin': return '/dashboard';
           default: return '/home';
         }
       })

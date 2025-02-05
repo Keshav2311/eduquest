@@ -1,0 +1,11 @@
+<div>
+    <div *ngIf="(dashboardmode === 'student')">
+        <app-student></app-student>
+   </div>
+   <div *ngIf="(dashboardmode === 'instructor')">
+       <app-instructor></app-instructor>
+   </div>
+   <div *ngIf="(dashboardmode === 'admin')">
+       <app-admin></app-admin>
+   </div>
+</div>
