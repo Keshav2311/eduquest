@@ -9,19 +9,19 @@ import { Courseinterface } from '../../interfaces/courses';
 @Component({
   selector: 'app-course-add',
   standalone: false,
-  
+
   templateUrl: './course-add.component.html',
   styleUrl: './course-add.component.css'
 })
 export class CourseAddComponent {
   courseForm: FormGroup;
   courseId: string | null = null;
- 
 
 
 
 
-  constructor(private fb: FormBuilder, private coursesService: CoursesService, private router: Router, private signservice:SignService,   private route: ActivatedRoute) {
+
+  constructor(private fb: FormBuilder, private coursesService: CoursesService, private router: Router, private signservice: SignService, private route: ActivatedRoute) {
     this.courseForm = this.fb.group({
       courseName: ['', [Validators.required, Validators.minLength(3)]],
       trainerName: ['', [Validators.required, Validators.minLength(3)]],
@@ -39,7 +39,7 @@ export class CourseAddComponent {
     const input = event.target as HTMLInputElement; // Type casting to HTMLInputElement
     const technology = input.value.trim();
     const technologies = this.courseForm.get('technologies')?.value;
-  
+
     if (technology && !technologies.includes(technology)) {
       technologies.push(technology);
       this.courseForm.get('technologies')?.setValue(technologies);
@@ -57,7 +57,7 @@ export class CourseAddComponent {
     }
   }
 
-  
+
 
 
   ngOnInit(): void {
@@ -74,11 +74,10 @@ export class CourseAddComponent {
 
 
   onSubmit(): void {
-
-    
-
     if (this.courseForm.valid) {
       const formData = this.courseForm.value;
+
+      formData.imageUrl = 'assets/images/courses/mern.webp';
 
       if (this.courseId) {
         // Update the course
@@ -90,51 +89,50 @@ export class CourseAddComponent {
               icon: 'success',
               confirmButtonText: 'OK',
               confirmButtonColor: '#28a745',
-            });          },
+            });
+          },
           error: (error) => {
             console.error('Error updating course:', error);
             alert('Error updating course.');
           }
         });
       }
-
       else {
-
-      // Use the service to send data to the backend
-      this.coursesService.addItem(formData).subscribe({
-        next: (response) => {
-          console.log('Course submitted successfully:', response);
-          Swal.fire({
-            title: 'Submitted!',
-            text: 'Course Added successfully!',
-            icon: 'success',
-            confirmButtonText: 'OK',
-            confirmButtonColor: '#28a745',
-          });          
-          console.log('Generated ID:', response.id); 
-          let courseid=response.id;
-          let tutorid = JSON.parse(localStorage.getItem('users')||'').id;
-          console.log(courseid,tutorid);
-          this.signservice.addCourseToUser(courseid,tutorid).subscribe(res=>{
-            console.log(">>>");
-            
-          });
-
-          this.courseForm.reset(); // Reset the form
-          this.router.navigate(['/courses']); // Optional: Navigate to another route
-        },
-        error: (error) => {
-          console.error('Error submitting the course:', error);
-          alert('An error occurred while submitting the course.');
-        }
-      });
-    }
-
-
+        // Use the service to send data to the backend
+        this.coursesService.addItem(formData).subscribe({
+          next: (response) => {
+            console.log('Course submitted successfully:', response);
+            Swal.fire({
+              title: 'Submitted!',
+              text: 'Course Added successfully!',
+              icon: 'success',
+              confirmButtonText: 'OK',
+              confirmButtonColor: '#28a745',
+            });
+            console.log('Generated ID:', response.id);
+            let courseid = response.id;
+            let tutorid = JSON.parse(localStorage.getItem('users') || '').id;
+            console.log(courseid, tutorid);
+            this.signservice.addCourseToUser(courseid, tutorid).subscribe({
+              next: () => {
+                console.log('Course added to user successfully');
+              },
+              error: (error) => {
+                console.error('Error adding course to user:', error);
+                alert('Error adding course to user.');
+              }
+            });
+            this.courseForm.reset(); // Reset the form
+            this.router.navigate(['/courses']); // Optional: Navigate to another route
+          },
+          error: (error) => {
+            console.error('Error submitting the course:', error);
+            alert('An error occurred while submitting the course.');
+          }
+        });
+      }
     } else {
       alert('Please correct the errors before submitting.');
     }
   }
-
-  
 }

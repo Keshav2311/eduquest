@@ -1,254 +1,164 @@
 @import url('https://fonts.googleapis.com/css2?family=Belanosima&family=Rubik+Vinyl&display=swap');
-   
-body
-{
+
+body {
     margin: 0;
     width: 100%;
-    height: 200vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: #E9F1FF;
-    overflow-y: scroll;
-    font-family: 'Belanosima', sans-serif;
     background-color: rgba(255, 255, 255, 0.5);
     background-image: linear-gradient(0deg, #d3b4d3 0%, #eee5f0 100%);
+    font-family: 'Belanosima', sans-serif;
+    overflow-x: hidden;
 }
 
-/* #search{
-    height: 10vh;
-    background-color: white;
-} */
-.container{
-     
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 11vh;
-}
-.spectacledcoder-search-bar
-{
+/* Search Bar */
+.spectacledcoder-search-bar {
     width: 60px;
     height: 60px;
-    
-    margin-top: 20px;
-    margin: auto;
     background-color: white;
     display: flex;
-    border-radius: 0% 30px 30px 30px;
-    transition: width 1s;
-    box-shadow: 5px 5px 20px #d8e6fd, -5px -5px 30px white;
-    /* position: fixed; */
-    /* top: 102px; */
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
+    align-items: center;
+    border-radius: 30px;
+    transition: width 0.5s ease-in-out;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    padding: 10px;
 }
 
-#course_image{
-    width: 100%;
-    height: 30%;
-    margin-left: auto;
-    margin-right: auto;
-    overflow: hidden;
-}
-.search-icon
-{
-    padding: 5px;
-    margin-bottom: auto;
-    margin-top: auto;
-    margin-left: 10px;
-    margin-right: auto;
+.search-icon {
+    padding: 8px;
     border-radius: 50%;
     background-color: #f6f3f7;
+    cursor: pointer;
 }
-.spectacledcoder-search-bar:hover
-{
-    width: 400px;
-    border-radius:  0% 30px 30px 30px;
+
+.spectacledcoder-search-bar:hover {
+    width: 300px;
 }
-.spectacledcoder-search-input
-{
-    margin: auto;
+
+.spectacledcoder-search-input {
     display: none;
-    transition: display 12s;
-    outline: none;
     border: none;
     font-family: 'Belanosima', sans-serif;
-    border-radius: 25px;
     padding-left: 10px;
+    width: 100%;
 }
-.spectacledcoder-search-bar:hover .spectacledcoder-search-input
-{
+
+.spectacledcoder-search-bar:hover .spectacledcoder-search-input {
     display: inline-flex;
-    width: 78%;
-    height: 70%;
-}
-input[type="submit"]
-{
-    display: none;
-}
-@media only screen and (max-width: 600px) 
-{
-    .spectacledcoder-search-bar:hover
-    {
-        width: 80%;
-        border-radius:  0% 30px 30px 15px;
-    }
 }
 
-.content
-{
-    /* width: 80%; */
-    height: 80vh;
-    /* margin: auto; */
-    background-color: white;
-    display: flex;
-    border-radius: 15px;
-    box-shadow: 5px 5px 20px #04050573, -5px -5px 30px rgba(7, 2, 2, 0.432);
-    margin-bottom: 20px;
-    margin-top: 11vh;
-    padding: 25px 25px 25px;
-}
-
- /* width */
- ::-webkit-scrollbar 
-{
-    width: 5px;
-}
-
-/* Track */
-::-webkit-scrollbar-track 
-{
-    background-color: rgba(226, 247, 255, 0);
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb 
-{
-background: #99beff;
-border-radius: 10px;
-height: 10px;
-width: 3px;
-}
-.nav p
-{
-    margin: auto;
-    color: #303030;
-}
-.disclaimer
-{
-    margin: auto;
-    width: fit-content;
-    color: rgb(0, 0, 0);
-}
-.disclaimer a
-{
-    text-decoration: none;
-    color: #6fa4ff;
-}
-.disclaimer a:hover
-{
-    color: #4a8cff;
-}
-::selection
-{
-    background-color: #ffffff00;
-    color: #ffffff00;
-}
-
-/* General styles */
-/* body {
-    background-color: #f5f0ff; /* Light purple background */
-    /* color: #4a148c; Deep purple text */
-  /* } */ 
-  
-  .course-card {
+/* Course Cards */
+.course-card {
     border: 1px solid #d1c4e9;
-    margin-top: 2vh;
     border-radius: 10px;
-    background-color: #fff; /* White card background */
-    color: #4a148c; /* Purple text */
+    background-color: #fff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .course-card .card-title {
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+.course-card:hover {
+    transform: scale(1.05);
+}
+
+.course-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.course-card .card-body {
+    padding: 15px;
     text-align: center;
+}
+
+.course-card .card-title {
     font-size: 1.2rem;
     font-weight: bold;
-  }
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
 
-  .card-text{
+.card-text {
     text-align: center;
-  }
-  
-  .course-card .card-footer {
-    text-align: center;
-    background-color: #f3e5f5; /* Light purple footer background */
-    border-top: 1px solid #d1c4e9;
-  }
-  
-  .btn-enroll {
-    background-color: #7e57c2; /* Medium purple */
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 0.5rem 1rem;
-  }
-  
-  .btn-enroll:hover {
-    background-color: #6a1b9a; /* Darker purple */
-  }
-  
-  .btn-details {
-    background-color: #4a148c; /* Deep purple */
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 0.5rem 1rem;
-  }
-  
-  .btn-details:hover {
-    background-color: #311b92; /* Even darker purple */
-  }
-  
-  /* Modal styling */
-  .modal-content {
-    background-color: #f3e5f5; /* Light purple background */
-    color: #4a148c; /* Deep purple text */
-  }
-  
-  .modal-header {
-    border-bottom: 1px solid #d1c4e9;
-  }
-  
-  .modal-footer {
-    border-top: 1px solid #d1c4e9;
-  }
+    font-size: 14px;
+}
 
-  #price{
+#price {
     background-color: rgb(73, 187, 8);
     color: whitesmoke;
     font-weight: bolder;
-    margin-left: auto;
-    margin-right: auto;
-    width: 40%;;
     border-radius: 5px;
-  }
+    padding: 5px;
+    margin: 10px auto;
+    width: 50%;
+}
 
-  @media screen and (max-width: 1200px) {
-    .course-card .card-title {
-      aspect-ratio: 5/1;
-    }
-  }
+/* Buttons */
+.btn {
+    font-size: 14px;
+    padding: 8px 12px;
+    width: 100%;
+    border-radius: 5px;
+}
 
-  @media screen and (max-width: 768px) {
-    .course-card .card-title {
-      aspect-ratio: 3/1;
+.btn-enroll {
+    background-color: #7e57c2;
+    color: white;
+    margin-right: 10px;
+}
+
+.btn-enroll:hover {
+    background-color: #6a1b9a;
+}
+
+.btn-details {
+    background-color: #4a148c;
+    color: white;
+}
+
+.btn-details:hover {
+    background-color: #311b92;
+}
+
+/* Modal Styling */
+.modal-content {
+    background-color: #f3e5f5;
+    color: #4a148c;
+}
+
+.modal-header, .modal-footer {
+    border-color: #d1c4e9;
+}
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: rgba(226, 247, 255, 0);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #99beff;
+    border-radius: 10px;
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 768px) {
+    .spectacledcoder-search-bar:hover {
+        width: 80%;
     }
-  }
-  @media screen and (max-width: 500px) {
-    .course-card .card-title {
-      aspect-ratio: 10/1;
+
+    .course-card img {
+        height: 150px;
     }
-  }
-  
+
+    #price {
+        width: 70%;
+    }
+}

@@ -38,6 +38,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { authReducer } from './reducer/auth.reducer';
+import { N404Component } from './components/n404/n404.component';
 
 
 
@@ -62,7 +63,8 @@ import { authReducer } from './reducer/auth.reducer';
     StudentComponent,
     IntructorComponent,
     CourseAddComponent,
-    AdminComponent    
+    AdminComponent,
+    N404Component    
   ],
   imports: [
     BrowserAnimationsModule,

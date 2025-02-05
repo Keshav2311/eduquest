@@ -11,6 +11,7 @@ import { StudentComponent } from './components/student/student.component';
 import { IntructorComponent } from './components/intructor/intructor.component';
 import { CourseAddComponent } from './components/course-add/course-add.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { N404Component } from './components/n404/n404.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponentComponent }, 
@@ -26,7 +27,8 @@ const routes: Routes = [
   { path: "student", component: StudentComponent},
   { path: "admin", component: AdminComponent},
   { path: "course_add", component: CourseAddComponent},
-  { path: 'course_add/:id', component: CourseAddComponent } // Route for editing courses
+  { path: 'course_add/:id', component: CourseAddComponent } ,
+  {path: '**', component: N404Component}
 
 ];
 // i fail
