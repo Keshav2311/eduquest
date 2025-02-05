@@ -99,4 +99,45 @@
     background-color: #3f0236;
 }
   
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+  min-height: 100%; /* Ensures equal height for all cards */
+}
+
+.card-img-top {
+  max-height: 250px; /* Limits image size to prevent overflow */
+  object-fit: cover;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.card-body h3 {
+  font-size: 18px;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.card-body p {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.btn {
+  font-size: 14px;
+  padding: 8px 12px;
+  margin-top: auto; /* Ensures buttons stay at the bottom */
+  width: 100%;
+}
+
   

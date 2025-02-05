@@ -113,7 +113,6 @@
       "experience": 1,
       "password": "Secure@amit",
       "courses": [
-        "c456",
         "p678"
       ]
     },
@@ -138,7 +137,6 @@
       "experience": 1,
       "password": "Web@vivek",
       "courses": [
-        "w123",
         "b456",
         "72dc"
       ]
@@ -275,8 +273,8 @@
       "credits": 6,
       "trainerRemark": "Requires statistics knowledge.",
       "students": [
-        "s003",
-        "s002"
+        "s002",
+        "s003"
       ]
     },
     {
@@ -294,8 +292,7 @@
       "credits": 5,
       "trainerRemark": "Prior programming experience helpful.",
       "students": [
-        "s002",
-        "s004"
+        "s002"
       ]
     },
     {
@@ -332,7 +329,6 @@
       "credits": 8,
       "trainerRemark": "Prior JavaScript experience recommended.",
       "students": [
-        "s006",
         "s008"
       ]
     },
@@ -351,6 +347,7 @@
       "credits": 5,
       "trainerRemark": "Basic JavaScript knowledge required.",
       "students": [
+        "s003",
         "s006"
       ]
     },
@@ -404,7 +401,10 @@
       "courseFee": 100,
       "credits": 2,
       "trainerRemark": "Basic knowledge about databases",
-      "students": []
+      "students": [
+        "s002",
+        "s003"
+      ]
     },
     {
       "id": "72dc",
@@ -422,7 +422,10 @@
       "courseFee": 1000,
       "credits": 10,
       "trainerRemark": "Advanced MERN Stack course that will start from the beginners level to advanced level.",
-      "students": []
+      "students": [
+        "s006",
+        "s010"
+      ]
     }
   ]
 }

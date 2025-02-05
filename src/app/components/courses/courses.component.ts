@@ -10,12 +10,12 @@ import Swal from 'sweetalert2';
   selector: 'app-courses',
   standalone: false,
   templateUrl: './courses.component.html',
-  styleUrl: './courses.component.css'
+  styleUrls: ['./courses.component.css'] // Fixed typo
 })
 export class CoursesComponent implements OnInit {
   courses: Courseinterface[] = []; 
-  filteredCourses: any[] = []; // Filtered courses for display
-  searchTerm: string = ''; // User search term
+  filteredCourses: any[] = []; 
+  searchTerm: string = ''; 
   selectedCourse: any | null = null;
   role: string = '';
   trainerName: string = '';
@@ -32,7 +32,10 @@ export class CoursesComponent implements OnInit {
     this.authservice.userRole$.subscribe((role) => {
       this.role = role;
     });
-    const user = JSON.parse(localStorage.getItem('users') || '{}');
+
+    const userData = localStorage.getItem('users');
+    const user = userData ? JSON.parse(userData) : null;
+
     if (user && user.courses) {
       this.enrolledCourses = new Set(user.courses);
     }
@@ -41,9 +44,7 @@ export class CoursesComponent implements OnInit {
   fetchCourses(): void {
     this.coursesService.getItem().subscribe({
       next: (data) => {
-        console.log('Courses form source:', data);
         this.courses = data; 
-        console.log('Courses:', data);
         this.filteredCourses = data; 
       },
       error: (err) => {
@@ -60,7 +61,8 @@ export class CoursesComponent implements OnInit {
   }
 
   enroll(courseName: string, id: string): void {
-    const user = JSON.parse(localStorage.getItem('users') || '{}');
+    const userData = localStorage.getItem('users');
+    const user = userData ? JSON.parse(userData) : null;
     const userId = user?.id;
 
     if (!userId) {
@@ -73,57 +75,76 @@ export class CoursesComponent implements OnInit {
       return;
     }
 
-    // Update user's courses list
+    if (this.enrolledCourses.has(id)) {
+      Swal.fire({
+        icon: 'info',
+        title: 'Already Enrolled',
+        text: `You are already enrolled in ${courseName}.`,
+        confirmButtonText: 'OK',
+      });
+      return;
+    }
+
     const updatedCourses = [...(user.courses || []), id];
-
-    this.coursesService.getcourseById(id).subscribe({
-      next: (data) => {
-        this.trainerName = data.trainerName;
-      },
-      error: (err) => {
-        console.error('Error fetching course details:', err);
-      },
-    });
-
-    const updateUser = [...(user.student || []), id];
-    this.coursesService.updateCourse(id, updateUser).subscribe({
-      next: (response) => {
-        console.log('Student updated:', response);
-      },
-      error: (error) => {
-        console.error('Error updating student:', error);
-      },
-    });
-
-    this.signservice.updateUser(userId, this.trainerName).subscribe({
-      next: (response) => {
-        console.log('Trainer name updated:', response);
-      },
-      error: (error) => {
-        console.error('Error updating trainer name:', error);
-      },
-    });
-
     const updatedUserData = { ...user, courses: updatedCourses };
-    console.log('Updated user data:', updatedUserData);
 
     this.signservice.updateUser(userId, updatedUserData).subscribe({
-      next: (response) => {
-        console.log('Enrollment successful:', response);
-        Swal.fire({
-          title: 'Enrollment Successful!',
-          text: `You have successfully enrolled in ${courseName}.`,
-          icon: 'success',
-          confirmButtonText: 'OK',
-          confirmButtonColor: '#3085d6',
-        });
+      next: () => {
+        this.coursesService.getcourseById(id).subscribe({
+          next: (course) => {
+            const updatedStudents = course.students ? [...course.students] : [];
 
-        localStorage.setItem('users', JSON.stringify(updatedUserData));
-        this.enrolledCourses.add(id);
+            if (!updatedStudents.includes(userId)) {
+              updatedStudents.push(userId);
+            }
+
+            const updatedCourse = { ...course, students: updatedStudents };
+
+
+            this.coursesService.updateCourse(id, updatedCourse).subscribe({
+              next: () => {
+                Swal.fire({
+                  title: 'Enrollment Successful!',
+                  text: `You have successfully enrolled in ${courseName}.`,
+                  icon: 'success',
+                  confirmButtonText: 'OK',
+                  confirmButtonColor: '#3085d6',
+                });
+
+                localStorage.setItem('users', JSON.stringify(updatedUserData));
+                localStorage.setItem('courses', JSON.stringify(this.courses));
+                this.enrolledCourses.add(id);
+              },
+              error: (courseError) => {
+                console.error('Error updating course enrollment:', courseError);
+                Swal.fire({
+                  icon: 'error',
+                  title: 'Enrollment Failed',
+                  text: 'Could not update course enrollment.',
+                  confirmButtonText: 'OK',
+                });
+              },
+            });
+          },
+          error: (fetchError) => {
+            console.error('Error fetching course details:', fetchError);
+            Swal.fire({
+              icon: 'error',
+              title: 'Enrollment Failed',
+              text: 'Could not retrieve course details.',
+              confirmButtonText: 'OK',
+            });
+          },
+        });
       },
-      error: (error) => {
-        console.error('Error enrolling in the course:', error);
-        alert('An error occurred while enrolling in the course.');
+      error: (userError) => {
+        console.error('Error updating user enrollment:', userError);
+        Swal.fire({
+          icon: 'error',
+          title: 'Enrollment Failed',
+          text: 'Could not update user enrollment.',
+          confirmButtonText: 'OK',
+        });
       },
     });
   }

@@ -25,7 +25,7 @@ export class StudentComponent {
   @ViewChild('feeChart') feeChartRef!: ElementRef;
   @ViewChild('creditsChart') creditsChartRef!: ElementRef;
 
-  
+
   constructor(private signService: SignService, private coursesService: CoursesService, private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
@@ -85,35 +85,71 @@ export class StudentComponent {
         icon: 'warning',
         confirmButtonText: 'Login Now',
         confirmButtonColor: '#f39c12',
-      }); return;
+      });
+      return;
     }
 
+    // Step 1: Remove course from the user's enrolled courses
     const updatedCourses = user.courses.filter((course: string) => course !== courseId);
+    const updatedUserData = { ...user, courses: updatedCourses };
 
-    const updatedUserData = {
-      ...user,
-      courses: updatedCourses,
-    };
+    // Step 2: Fetch courses from localStorage
+    let courses = JSON.parse(localStorage.getItem('courses') || '[]');
 
+    if (!Array.isArray(courses) || courses.length === 0) {
+      console.error('Courses not found or empty in localStorage.');
+      return;
+    }
+    // Step 3: Update courses array (remove student ID from the course)
+    const updatedCoursesList = courses.map((course: any) => {
+      if (course.id === courseId) {
+        return {
+          ...course,
+          students: course.students.filter((studentId: string) => studentId !== userId)
+        };
+      }
+      return course;
+    });
+    // Step 4: Update localStorage for users and courses
+    localStorage.setItem('users', JSON.stringify(updatedUserData));
+    localStorage.setItem('courses', JSON.stringify(updatedCoursesList));
+
+    // Step 5: Remove course from displayed list
+    this.coursedata = this.coursedata.filter((course) => course.id !== courseId);
+
+    // Step 6: Update backend
     this.signService.updateUser(userId, updatedUserData).subscribe({
       next: (res) => {
-        console.log('Course deleted successfully!', res);
+        console.log('User updated successfully:', res);
         Swal.fire({
           title: 'Deleted!',
-          text: 'Course deleted successfully!',
+          text: 'Course removed successfully!',
           icon: 'success',
-          timer: 3000, // Auto closes after 3 seconds
+          timer: 3000,
           showConfirmButton: false
-        }); 
-        this.coursedata = this.coursedata.filter((course) => course.id !== courseId);
-        localStorage.setItem('users', JSON.stringify(updatedUserData));
+        });
+
+        const updatedCourse = updatedCoursesList.find((course: any) => course.id === courseId);
+
+        if (updatedCourse) {
+          this.coursesService.updateCourse(courseId, updatedCourse).subscribe({
+            next: () => console.log('Course updated successfully in backend!'),
+            error: (err) => console.error('Error updating course:', err)
+          });
+        }
       },
       error: (err) => {
-        console.error('Error deleting course:', err);
-        alert('An error occurred while deleting the course.');
+        console.error('Error removing course:', err);
+        Swal.fire({
+          title: 'Error!',
+          text: 'An error occurred while removing the course.',
+          icon: 'error',
+          confirmButtonText: 'OK'
+        });
       },
     });
   }
+
 
   ngAfterViewInit(): void {
     if (this.coursedata.length > 0) {
