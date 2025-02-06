@@ -1,54 +1,12 @@
 <div class="questionarie">
-    <h1>Frequently Asked Questions</h1>
-    <div class="faq-container">
-  <div class="faq">
-    <h3 class="faq-title">
-        What is EduQuest LMS?
-    </h3>
-    <p class="faq-text">EduQuest LMS is an online platform that helps educators and learners manage, deliver, and track courses efficiently. It's designed to support personalized and engaging learning experiences.</p>
-    <button class="faq-toggle">
-      <i class="fas fa-angle-down"></i>
-    </button>
-  </div>
-
-  <div class="faq active">
-    <h3 class="faq-title">
-        How do I sign up for EduQuest LMS?
-    </h3>
-    <p class="faq-text">Click the Sign Up button, fill in your details, and verify your email. Once done, you can log in and start exploring courses immediately.</p>
-    <button class="faq-toggle">
-      <i class="fas fa-angle-down"></i>
-    </button>
-  </div>
-
-  <div class="faq">
-    <h3 class="faq-title">
-        What types of courses are available?
-    </h3>
-    <p class="faq-text">EduQuest offers courses on academic subjects, professional skills, certifications, and hobbies like photography and writing, catering to students and professionals alike.</p>
-    <button class="faq-toggle">
-      <i class="fas fa-angle-down"></i>
-    </button>
-  </div>
-
-  <div class="faq">
-    <h3 class="faq-title">
-        Can I use EduQuest LMS on my phone?
-    </h3>
-    <p class="faq-text">Yes, EduQuest is mobile-friendly and has an app for iOS and Android. You can also download course materials for offline access.</p>
-    <button class="faq-toggle">
-      <i class="fas fa-angle-down"></i>
-    </button>
-  </div>
-
-  <div class="faq">
-    <h3 class="faq-title">
-        How do I track my learning progress?
-    </h3>
-    <p class="faq-text">Your dashboard displays progress bars, completed lessons, and quiz scores, helping you stay on top of your goals and certifications.</p>
-    <button class="faq-toggle">
-      <i class="fas fa-angle-down"></i>
-    </button>
-  </div>
+  <h1>Frequently Asked Questions</h1>
+  <div class="faq-container">
+    <div *ngFor="let faq of faqs; let i = index" class="faq" [class.active]="activeIndex === i">
+      <h3 class="faq-title">{{ faq.question }}</h3>
+      <p class="faq-text" *ngIf="activeIndex === i">{{ faq.answer }}</p>
+      <button class="faq-toggle" (click)="toggleFaq(i)">
+        <i class="fas" [ngClass]="{'fa-angle-down': activeIndex !== i, 'fa-angle-up': activeIndex === i}"></i>
+      </button>
     </div>
+  </div>
 </div>

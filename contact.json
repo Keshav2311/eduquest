@@ -476,5 +476,47 @@
       "trainerRemark": "Nothing",
       "imageUrl": "assets/images/courses/image_1.jpg"
     }
-  ]
+  ],
+  "faq": [
+    {
+      "question": "What is EduQuest LMS?",
+      "answer": "EduQuest LMS is an advanced online learning platform specifically designed for Computer Science students and professionals. It offers structured courses on programming, data science, cybersecurity, and other tech-related fields."
+    },
+    {
+      "question": "What subjects and courses are available on EduQuest LMS?",
+      "answer": "EduQuest LMS provides courses on programming languages (Python, Java, C++), web development, artificial intelligence, machine learning, cybersecurity, cloud computing, and many more Computer Science subjects."
+    },
+    {
+      "question": "Can I access EduQuest LMS on different devices?",
+      "answer": "Yes, EduQuest LMS is fully responsive and works seamlessly on desktops, tablets, and smartphones. You can also use our mobile apps available for both iOS and Android for on-the-go learning."
+    },
+    {
+      "question": "Does EduQuest LMS support offline learning?",
+      "answer": "Yes, you can download course materials and video lectures to study offline through our mobile app. Your progress will sync once you're back online."
+    },
+    {
+      "question": "How do I enroll in a course?",
+      "answer": "Simply create an account, browse the available Computer Science courses, and click the 'Enroll' button. You can access both free and premium courses."
+    },
+    {
+      "question": "Is there a certification for completed courses?",
+      "answer": "Yes, after successfully completing a course, you will receive a digital certificate that you can add to your resume, LinkedIn profile, or portfolio."
+    },
+    {
+      "question": "How does EduQuest LMS support students with disabilities?",
+      "answer": "EduQuest LMS is designed with accessibility in mind. We provide screen reader support, keyboard navigation, closed captions for videos, and color contrast adjustments to ensure an inclusive learning experience for all users."
+    },
+    {
+      "question": "Can I use EduQuest LMS on my smart TV or other devices?",
+      "answer": "Yes! You can access EduQuest LMS through a web browser on Smart TVs and gaming consoles, making it easier to learn from any device."
+    },
+    {
+      "question": "How do I track my progress in a course?",
+      "answer": "Your personal dashboard provides progress tracking, quiz results, and course completion status, helping you stay on track with your learning goals."
+    },
+    {
+      "question": "What support options are available if I have issues?",
+      "answer": "We offer 24/7 support through live chat, email, and a dedicated help center to assist you with any technical or course-related queries."
+    }
+  ] 
 }

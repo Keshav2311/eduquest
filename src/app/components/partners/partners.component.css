@@ -63,15 +63,12 @@ h1 {
     align-items: right;
     gap: 20px;
     animation: scrolling 25s linear infinite;
-
 }
 
 @keyframes scrolling {
-
     0% {
         transform: translateX(90%);
     }
-
     100% {
         transform: translateX(-10%);
     }

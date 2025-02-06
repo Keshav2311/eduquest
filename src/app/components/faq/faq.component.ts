@@ -1,21 +1,25 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FaqService } from '../../services/faq.service';
 
 @Component({
   selector: 'app-faq',
   standalone: false,
   templateUrl: './faq.component.html',
-  styleUrl: './faq.component.css'
+  styleUrls: ['./faq.component.css']
 })
-export class FaqComponent implements AfterViewInit {
-  ngAfterViewInit(): void {
-    const buttons = document.querySelectorAll<HTMLButtonElement>('.faq-toggle');
+export class FaqComponent implements OnInit {
+  faqs: any[] = [];
+  activeIndex: number | null = null;
 
-    buttons.forEach((button) => {
-      button.addEventListener('click', () => {
-        if (button.parentElement) {
-          button.parentElement.classList.toggle('active');
-        }
-      });
+  constructor(private faqService: FaqService) {}
+
+  ngOnInit(): void {
+    this.faqService.getFaqs().subscribe((data) => {
+      this.faqs = data;
     });
+  }
+
+  toggleFaq(index: number): void {
+    this.activeIndex = this.activeIndex === index ? null : index;
   }
 }
