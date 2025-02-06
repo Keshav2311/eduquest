@@ -9,13 +9,12 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-admin',
   standalone: false,
-  
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.css'
 })
 export class AdminComponent {
   admin$: any[] = [];
-  
+
   adminInfo: UserInterface | undefined;
   coursesInfo: Courseinterface[] = [];
   studentInfo: UserInterface[] = [];
@@ -26,7 +25,6 @@ export class AdminComponent {
   showData = false;
   courses: any[] = [];
 
-
   luser = JSON.parse(localStorage.getItem('users') || '{}');
 
   constructor(private signservice: SignService, private courseService: CoursesService) { }
@@ -36,13 +34,12 @@ export class AdminComponent {
       this.signservice.getUserById(this.luser.id).subscribe({
         next: (res) => {
           this.adminInfo = res;
-          console.log(this.adminInfo);
         },
         error: (err) => {
           console.error('Error fetching user information:', err);
         }
       });
-    } 
+    }
     else {
       console.error('No user found in local storage');
     }
@@ -51,7 +48,7 @@ export class AdminComponent {
     this.fetchCourses();
     this.deleteUser = this.deleteUser.bind(this);
   }
-  
+
   fetchUsers(): void {
     this.signservice.getUsers().subscribe({
       next: (res) => {
@@ -81,13 +78,13 @@ export class AdminComponent {
 
   showTable(type: string): void {
     this.showData = !this.showData;
-    if(this.showData) {
+    if (this.showData) {
       if (type === 'student') {
         this.displayedData = this.studentInfo;
       } else if (type === 'instructor') {
         this.displayedData = this.instructorInfo;
       }
-    } 
+    }
     else {
       this.displayedData = [];
     }
