@@ -4,22 +4,16 @@ import { CoursesService } from '../../services/courses.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SignService } from '../../services/sign.service';
 import Swal from 'sweetalert2';
-import { Courseinterface } from '../../interfaces/courses';
 
 @Component({
   selector: 'app-course-add',
   standalone: false,
-
   templateUrl: './course-add.component.html',
   styleUrl: './course-add.component.css'
 })
 export class CourseAddComponent {
   courseForm: FormGroup;
   courseId: string | null = null;
-
-
-
-
 
   constructor(private fb: FormBuilder, private coursesService: CoursesService, private router: Router, private signservice: SignService, private route: ActivatedRoute) {
     this.courseForm = this.fb.group({
@@ -34,20 +28,18 @@ export class CourseAddComponent {
     });
   }
 
-  // Add chip to technologies array
   addTechnology(event: Event): void {
-    const input = event.target as HTMLInputElement; // Type casting to HTMLInputElement
+    const input = event.target as HTMLInputElement; 
     const technology = input.value.trim();
     const technologies = this.courseForm.get('technologies')?.value;
 
     if (technology && !technologies.includes(technology)) {
       technologies.push(technology);
       this.courseForm.get('technologies')?.setValue(technologies);
-      input.value = ''; // Clear the input field
+      input.value = ''; 
     }
   }
 
-  // Remove chip from technologies array
   removeTechnology(technology: string): void {
     const technologies = this.courseForm.get('technologies')?.value;
     const index = technologies.indexOf(technology);
@@ -56,9 +48,6 @@ export class CourseAddComponent {
       this.courseForm.get('technologies')?.setValue(technologies);
     }
   }
-
-
-
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -72,7 +61,6 @@ export class CourseAddComponent {
     });
   }
 
-
   onSubmit(): void {
     if (this.courseForm.valid) {
       const formData = this.courseForm.value;
@@ -80,7 +68,6 @@ export class CourseAddComponent {
       formData.imageUrl = 'assets/images/courses/mern.webp';
 
       if (this.courseId) {
-        // Update the course
         this.coursesService.updateCourse(this.courseId, formData).subscribe({
           next: () => {
             Swal.fire({
@@ -98,7 +85,6 @@ export class CourseAddComponent {
         });
       }
       else {
-        // Use the service to send data to the backend
         this.coursesService.addItem(formData).subscribe({
           next: (response) => {
             console.log('Course submitted successfully:', response);
@@ -122,8 +108,8 @@ export class CourseAddComponent {
                 alert('Error adding course to user.');
               }
             });
-            this.courseForm.reset(); // Reset the form
-            this.router.navigate(['/courses']); // Optional: Navigate to another route
+            this.courseForm.reset(); 
+            this.router.navigate(['/courses']);
           },
           error: (error) => {
             console.error('Error submitting the course:', error);

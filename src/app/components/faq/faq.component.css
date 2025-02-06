@@ -1,72 +1,58 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
 
-
-
-body{
+body {
   font-family: "Poppins", sans-serif;
-  color: #444; 
+  color: #444;
+  background-color: #f9f9f9;
 }
 
-.hello{
-    background-color: rgba(255, 255, 255, 0.5);
-    background-image: linear-gradient(0deg, #d3b4d3 0%, #eee5f0 100%); 
-    height: 100vh;
-}
-h1 {
+.questionarie {
   margin-top: 11vh;
+  background: linear-gradient(180deg, #e6d4ec 0%, #f3e8f8 100%);
+  padding: 50px 20px;
+}
+
+h1 {
   text-align: center;
-  font-family: "Kumbh Sans", sans-serif;
-  font-weight: bolder;
-  color: rgb(65, 2, 65);  
+  font-weight: 700;
+  color: #3d0247;
+  margin-bottom: 30px;
 }
 
 .faq-container {
-    font-family: "Kumbh Sans", sans-serif;
-    font-weight: bold;
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.5);
-    background-image: linear-gradient(0deg, #dbc2db 0%, #c89dd3 100%);    overflow: hidden;
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+  max-width: 800px;
+  margin: auto;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
 }
 
 .faq {
-  box-sizing: border-box;
-  background: transparent;
-  padding: 30px;
+  border-bottom: 1px solid #ddd;
+  padding: 15px 20px;
   position: relative;
-  overflow: hidden;
+  transition: all 0.3s ease;
 }
 
-.faq:not(:first-child) {
-  border-top: 1px solid #0d010f;
+.faq:last-child {
+  border-bottom: none;
 }
 
 .faq-title {
-  margin: 0 35px 0 0;
-  color: rgb(59, 2, 59);
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #4a024f;
 }
 
 .faq-text {
-    color: rgb(65, 4, 65);
-  margin: 30px 0 0;
+  color: #555;
+  margin-top: 10px;
   display: none;
-  line-height: 1.5rem;
-}
-
-.faq.active {
-  background-color: rgba(255, 255, 255, 0.5);
-  background-image: linear-gradient(0deg, #dbc2db 0%, #c89dd3 100%);    overflow: hidden;
-  box-shadow: inset 4px 0px 0px 0px var(--accent-color);
-  color: rgb(3, 3, 3);
-}
-
-.faq.active .faq-title {
-  color: var(--accent-color);
+  font-size: 14px;
+  line-height: 1.5;
+  width: 95%;
 }
 
 .faq.active .faq-text {
@@ -74,30 +60,24 @@ h1 {
 }
 
 .faq-toggle {
-  color: rgb(245, 243, 247); 
-  background-color: rgb(40, 3, 48);
+  background: #4a024f;
+  color: #fff;
+  border: none;
   border-radius: 50%;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 16px;
-  padding-top: 3px;
   position: absolute;
-  top: 30px;
-  right: 30px;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
   height: 30px;
   width: 30px;
-  transition: 0.3s ease;
-}
-
-.faq-toggle:focus {
-  outline: none;
+  transition: 0.3s;
 }
 
 .faq.active .faq-toggle {
-  transform: rotate(180deg);
-  color: rgb(245, 243, 247); 
-  background-color: rgb(40, 3, 48);
-  border-color: black;
+  transform: translateY(-50%) rotate(180deg);
 }

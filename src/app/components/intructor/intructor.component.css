@@ -1,107 +1,109 @@
 .dashboard-section {
-    margin-top: 11vh;
-  }
-  
-  .profile-img {
-    max-width: 150px;
-    height: auto;
-    border: 4px solid #fff;
-  }
-  
-  .button {
+  margin-top: 11vh;
+}
+
+.profile-img {
+  max-width: 150px;
+  height: auto;
+  border: 4px solid #fff;
+}
+
+.button {
+  opacity: 0;
+  margin-top: 10px;
+  animation: fadeInUp 0.6s ease-in-out 1.6s forwards;
+}
+
+.button .hero-cta {
+  position: relative;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 20px 40px;
+  font-weight: 600;
+  overflow: hidden;
+  color: #fff;
+  background: #190120;
+  letter-spacing: 0.8px;
+  border-radius: 7px;
+  text-decoration: none;
+  display: inline-flex;
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.button .hero-cta:before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  content: "";
+  border-radius: 7px;
+  transform: scaleX(0);
+  transform-origin: top right;
+  transition: transform 0.5s cubic-bezier(0.86, 0, 0.07, 1);
+  background-color: #e1c4e2;
+}
+
+.button .hero-cta:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  color: #9e3f8a;
+}
+
+.button .hero-cta:hover:before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.button .cta-title {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.button .cta-title i {
+  position: relative;
+  display: block;
+  margin-left: 10px;
+}
+
+@keyframes fadeIn {
+  from {
     opacity: 0;
-    margin-top: 10px; /* Ensure proper spacing for 'mt-2' */
-    animation: fadeInUp 0.6s ease-in-out 1.6s forwards;
   }
-  
-  .button .hero-cta {
-    position: relative;
-    font-size: 16px;
-    line-height: 24px;
-    padding: 20px 40px;
-    font-weight: 600;
-    overflow: hidden;
-    color: #fff;
-    background: #190120;
-    letter-spacing: 0.8px;
-    border-radius: 7px;
-    text-decoration: none;
-    display: inline-flex;
-    justify-content: center;
-    text-align: center;
-    white-space: nowrap;
-    transition: all 0.3s ease;
+
+  to {
+    opacity: 1;
   }
-  
-  .button .hero-cta:before {
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    content: "";
-    border-radius: 7px;
-    transform: scaleX(0);
-    transform-origin: top right;
-    transition: transform 0.5s cubic-bezier(0.86, 0, 0.07, 1);
-    background-color: #e1c4e2;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 40px, 0);
   }
-  
-  .button .hero-cta:hover {
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    color: #9e3f8a;
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
-  
-  .button .hero-cta:hover:before {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-  }
-  
-  .button .cta-title {
-    position: relative;
-    display: flex;
-    align-items: center;
-  }
-  
-  .button .cta-title i {
-    position: relative;
-    display: block;
-    margin-left: 10px;
-  }
-  
-  /* Keyframes */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translate3d(0, 40px, 0);
-    }
-    to {
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
-    }
-  }
-.btn{
-    color: rgb(27, 1, 34);
-    text-decoration: none;
-    border-radius: 10px;
-    background-color: #6c008a;
-    color: white;
-    /* box-shadow: 2px 2px 2px black;
-    border: none; */
-}  
-.btn:hover{
-    color: #f8f5f8;
-    text-decoration: none;
-    background-color: #3f0236;
+}
+
+.btn {
+  color: rgb(27, 1, 34);
+  text-decoration: none;
+  border-radius: 10px;
+  background-color: #6c008a;
+  color: white;
+
+}
+
+.btn:hover {
+  color: #f8f5f8;
+  text-decoration: none;
+  background-color: #3f0236;
 }
 
 .content-section {
@@ -110,7 +112,7 @@
   color: #f5f1f1;
   height: 20vh;
   margin-left: auto;
-  margin-right: auto;    
+  margin-right: auto;
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -120,55 +122,57 @@
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.336);
 }
 
-  .h1{
-    color: #f4f1f5;
-    text-align: center;
-    background-color: rgb(25, 0, 26);
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 10px;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.212);    
-  }
+.h1 {
+  color: #f4f1f5;
+  text-align: center;
+  background-color: rgb(25, 0, 26);
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.212);
+}
 
-  #courses{
-    flex-direction: row;
-    font-weight: bolder;
-    align-items: center;
-    /* padding: 10px; */
-    font-size: 5.4rem;
-    text-align: center;
-    color: #fdfbfd;
-  }
+#courses {
+  flex-direction: row;
+  font-weight: bolder;
+  align-items: center;
+  font-size: 5.4rem;
+  text-align: center;
+  color: #fdfbfd;
+}
 
-  #card {
-    background-color: #17032c;
-    border-radius: 10px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 20px;
-    margin: 20px;
-    text-align: left;
-    color: #f5f1f1;
-  }
-  
-  #button{
-    background-color: #f1eff3;
-    color: rgb(2, 2, 2);
-    border-radius: 20px;
-    padding: 1px;
-    border: none;
-    box-shadow: 2px 2px 2px black;
-  }
-  button{
-    width: 40%;
-    margin: 5px;
-  }
-  .detils{
-    width: 65%;
-  }
-  strong{
-    width: 30%;
-  }
+#card {
+  background-color: #17032c;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20px;
+  margin: 20px;
+  text-align: left;
+  color: #f5f1f1;
+}
+
+#button {
+  background-color: #f1eff3;
+  color: rgb(2, 2, 2);
+  border-radius: 20px;
+  padding: 1px;
+  border: none;
+  box-shadow: 2px 2px 2px black;
+}
+
+button {
+  width: 40%;
+  margin: 5px;
+}
+
+.detils {
+  width: 65%;
+}
+
+strong {
+  width: 30%;
+}

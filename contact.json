@@ -32,7 +32,6 @@
         "testimonial": "EduQuest is a game-changer for both students and instructors. The course content is engaging, and the assessments are designed to encourage critical thinking."
       }
     ]
-    
   ],
   "sign": [
     {
@@ -239,6 +238,15 @@
       "courses": [
         "72dc"
       ]
+    },
+    {
+      "id": "95e0",
+      "name": "Shivansh",
+      "email": "shivansh@gmail.com",
+      "gender": "male",
+      "role": "student",
+      "experience": 2019,
+      "password": "Shivan@123"
     }
   ],
   "courses": [

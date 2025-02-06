@@ -13,7 +13,7 @@
   
   .button {
     opacity: 0;
-    margin-top: 10px; /* Ensure proper spacing for 'mt-2' */
+    margin-top: 10px;
     animation: fadeInUp 0.6s ease-in-out 1.6s forwards;
   }
   
@@ -98,8 +98,6 @@
     border-radius: 10px;
     background-color: #6c008a;
     color: white;
-    /* box-shadow: 2px 2px 2px black;
-    border: none; */
 }  
 .btn:hover{
     color: #f8f5f8;

@@ -9,7 +9,6 @@ import Chart from 'chart.js/auto';
 @Component({
   selector: 'app-student',
   standalone: false,
-
   templateUrl: './student.component.html',
   styleUrl: './student.component.css'
 })
@@ -21,15 +20,12 @@ export class StudentComponent {
   coursedata: Courseinterface[] = [];
   count: number = 0;
 
-
   @ViewChild('feeChart') feeChartRef!: ElementRef;
   @ViewChild('creditsChart') creditsChartRef!: ElementRef;
-
 
   constructor(private signService: SignService, private coursesService: CoursesService, private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
-    // Fetch user data on component initialization
     if (this.luser && this.luser.id) {
       this.signService.getUserById(this.luser.id).subscribe({
         next: (res) => {
@@ -49,22 +45,18 @@ export class StudentComponent {
     }
   }
 
-
-
   fetchCourses(): void {
     if (this.courseslist.length > 0) {
       const courseRequests = this.courseslist.map((courseId) =>
         this.coursesService.getcourseById(courseId).toPromise()
       );
 
-
       Promise.all(courseRequests)
         .then((courses) => {
           this.coursedata = courses.filter((course) => course !== null);
           console.log('Fetched courses:', this.coursedata);
-
-          this.cdr.detectChanges(); // Ensure Angular detects changes
-          this.createCharts(); // Create charts after data is fetched
+          this.cdr.detectChanges(); 
+          this.createCharts(); 
         })
         .catch((err) => {
           console.error('Error fetching courses:', err);
@@ -77,7 +69,6 @@ export class StudentComponent {
   course_delete(courseId: string): void {
     const user = JSON.parse(localStorage.getItem('users') || '{}');
     const userId = user.id;
-
     if (!userId) {
       Swal.fire({
         title: 'Access Denied!',
@@ -89,18 +80,15 @@ export class StudentComponent {
       return;
     }
 
-    // Step 1: Remove course from the user's enrolled courses
     const updatedCourses = user.courses.filter((course: string) => course !== courseId);
     const updatedUserData = { ...user, courses: updatedCourses };
 
-    // Step 2: Fetch courses from localStorage
     let courses = JSON.parse(localStorage.getItem('courses') || '[]');
 
     if (!Array.isArray(courses) || courses.length === 0) {
       console.error('Courses not found or empty in localStorage.');
       return;
     }
-    // Step 3: Update courses array (remove student ID from the course)
     const updatedCoursesList = courses.map((course: any) => {
       if (course.id === courseId) {
         return {
@@ -110,14 +98,11 @@ export class StudentComponent {
       }
       return course;
     });
-    // Step 4: Update localStorage for users and courses
     localStorage.setItem('users', JSON.stringify(updatedUserData));
     localStorage.setItem('courses', JSON.stringify(updatedCoursesList));
 
-    // Step 5: Remove course from displayed list
     this.coursedata = this.coursedata.filter((course) => course.id !== courseId);
 
-    // Step 6: Update backend
     this.signService.updateUser(userId, updatedUserData).subscribe({
       next: (res) => {
         console.log('User updated successfully:', res);
@@ -149,7 +134,6 @@ export class StudentComponent {
       },
     });
   }
-
 
   ngAfterViewInit(): void {
     if (this.coursedata.length > 0) {
@@ -200,5 +184,4 @@ export class StudentComponent {
       }
     });
   }
-
 }

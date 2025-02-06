@@ -3,7 +3,7 @@ import { SignService } from '../../services/sign.service';
 import { CoursesService } from '../../services/courses.service';
 import { UserInterface } from '../../interfaces/user';
 import { Courseinterface } from '../../interfaces/courses';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -13,7 +13,6 @@ import Swal from 'sweetalert2';
   styleUrls: ['./intructor.component.css']
 })
 export class IntructorComponent implements OnInit {
-  instructor$: any[] = [];
   userInfo: UserInterface | undefined;
   luser = JSON.parse(localStorage.getItem('users') || '{}');
   courseslist: String[] = [];
@@ -68,10 +67,6 @@ export class IntructorComponent implements OnInit {
   }
 
   course_edit(courseId: string): void{
-
-
-  this.router.navigate(['/course_add', courseId]); // Navigate to the edit form with course ID
-
-  
+  this.router.navigate(['/course_add', courseId]);
   }
 }

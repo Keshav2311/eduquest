@@ -5,7 +5,6 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-forgot',
   standalone: false,
-  
   templateUrl: './forgot.component.html',
   styleUrl: './forgot.component.css'
 })
@@ -27,12 +26,12 @@ export class ForgotComponent {
     }
   }
 
-  constructor(private signService: SignService){}
+  constructor(private signService: SignService) { }
 
   onSubmit(form: any): void {
     const { name, forgot, confirm } = this.user;
 
-    if( !confirm ){
+    if (!confirm) {
       alert('Please provide all required fields.');
       return;
     }
@@ -46,7 +45,7 @@ export class ForgotComponent {
           icon: 'success',
           confirmButtonText: 'OK',
           confirmButtonColor: '#28a745',
-        });        
+        });
       },
       error: (err) => {
         console.error('Error updating Password:', err);

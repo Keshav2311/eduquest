@@ -39,7 +39,7 @@ export class TestimonialsComponent implements OnInit{
   autoslidechanger(){
     setInterval(() => {
       this.activeIndex=(this.activeIndex+1)% this.testimonials.length ;
-      console.log(this.activeIndex, this.testimonials[0])
+      // console.log(this.activeIndex, this.testimonials[0])
     }, 3000);
   }
 

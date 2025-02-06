@@ -8,7 +8,6 @@
   
   <div class="container mt-5">
     <div class="row">
-      <!-- Iterate over the courses array and display each course in a card -->
       <div class="col-md-4 mb-4" *ngFor="let course of filteredCourses">
         <div class="card shadow course-card h-100">
           <img src={{course.imageUrl}} alt="{{ course.courseName }}" id="course_image"/>
@@ -34,7 +33,6 @@
       </div>
     </div>
 
-    <!-- Dialog Box -->
     <div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">

@@ -9,14 +9,14 @@ section{
     padding: 20px 20px 20px;
 }
 
-h1{
+h2{
+    font-family: 'dancing script', serif !important; 
     text-align: center;
     color: rgb(24, 1, 48);
     background-color: #dbc0e0;
     width: 100%;
     border-radius: 10px;
     padding: 5px 5px 5px;
-    font-family: "Playfair Display", serif;
     font-weight: bolder;
     text-shadow: 1px 1px 1px black;
 }

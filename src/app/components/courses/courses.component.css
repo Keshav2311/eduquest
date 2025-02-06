@@ -12,7 +12,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Search Bar */
 .spectacledcoder-search-bar {
     width: 60px;
     height: 60px;
@@ -49,7 +48,6 @@ body {
     display: inline-flex;
 }
 
-/* Course Cards */
 .course-card {
     border: 1px solid #d1c4e9;
     border-radius: 10px;
@@ -97,7 +95,6 @@ body {
     width: 50%;
 }
 
-/* Buttons */
 .btn {
     font-size: 14px;
     padding: 8px 12px;
@@ -124,7 +121,6 @@ body {
     background-color: #311b92;
 }
 
-/* Modal Styling */
 .modal-content {
     background-color: #f3e5f5;
     color: #4a148c;
@@ -134,7 +130,6 @@ body {
     border-color: #d1c4e9;
 }
 
-/* Scrollbar Customization */
 ::-webkit-scrollbar {
     width: 5px;
 }
@@ -148,7 +143,6 @@ body {
     border-radius: 10px;
 }
 
-/* Responsive Design */
 @media only screen and (max-width: 768px) {
     .spectacledcoder-search-bar:hover {
         width: 80%;

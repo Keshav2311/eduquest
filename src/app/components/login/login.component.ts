@@ -20,22 +20,38 @@ export class LoginComponent {
     remember: false,
   };
 
+  
+
   constructor(
     private signService: SignService,
     private router: Router,
     private store: Store
   ) {}
 
+  ngOnInit(){
+    const luser = localStorage.getItem('users');
+    console.log(luser);
+    if(luser != null){
+      Swal.fire({
+        title: 'You are already Logged In!',
+        text: 'Welcome Back!',
+        icon: 'success',
+        timer: 3000,
+        showConfirmButton: false,
+      });
+      this.router.navigate(['/dashboard']);
+    }
+  }
+
   onSubmit(loginForm: any): void {
     if (loginForm.valid) {
-      const email = loginForm.value.email; // Get email from the form
+      const email = loginForm.value.email; 
 
       this.signService.getUsers().subscribe({
         next: (users) => {
-          const userDetail = users.find((user) => user.email === email); // Find user by email
+          const userDetail = users.find((user) => user.email === email);
 
           if (userDetail) {
-            // Dispatch login action to update NgRx store
             this.store.dispatch(login({ user: userDetail }));
 
             Swal.fire({
@@ -46,7 +62,6 @@ export class LoginComponent {
               showConfirmButton: false,
             });
 
-            // Redirect based on role using NgRx state
             this.store
               .select((state: any) => state.auth.user.role)
               .pipe(map((role) => (role === 'student' ? '/dashboard' : role === 'instructor' ? '/dashboard' : '/dashboard')))

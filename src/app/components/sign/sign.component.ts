@@ -3,19 +3,20 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { SignService } from '../../services/sign.service';
 import { UserInterface } from '../../interfaces/user';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign',
   standalone: false,
   templateUrl: './sign.component.html',
-  styleUrls: ['./sign.component.css'], // Fixed styleUrls key
+  styleUrls: ['./sign.component.css'],
 })
 export class SignComponent {
   step = 1; 
   signupForm: FormGroup;
   user: UserInterface | undefined;
 
-  constructor(private fb: FormBuilder, private signService: SignService) {
+  constructor(private fb: FormBuilder, private signService: SignService, private router: Router) {
     this.signupForm = this.fb.group({
       page1: this.fb.group({
         name: ['', [Validators.required, Validators.minLength(2)]],
@@ -23,7 +24,7 @@ export class SignComponent {
         gender: ['', Validators.required],
       }),
       page2: this.fb.group({
-        role: ['', Validators.required], // 'student' or 'instructor'
+        role: ['', Validators.required],
         experience: [
           '',
           [Validators.required, Validators.min(0), Validators.max(12)],
@@ -52,37 +53,47 @@ export class SignComponent {
       } else {
         this.signupForm.get('page2.experience')?.setValidators([
           Validators.required,
-          Validators.pattern('^(19|20)\\d{2}$'), // Year format validation
+          Validators.pattern('^(19|20)\\d{2}$'),
         ]);
       }
       this.signupForm.get('page2.experience')?.updateValueAndValidity();
     });
   }
 
-  // Navigate to the next page if the current page is valid
   nextStep(): void {
     if (this.isCurrentPageValid()) {
       this.step++;
     }
   }
 
-  // Navigate to the previous page
   previousStep(): void {
     this.step--;
   }
 
-  // Check if the current page is valid
   isCurrentPageValid(): boolean {
     const currentGroup = this.getCurrentPageGroup();
     return currentGroup.valid;
   }
 
-  // Get the form group for the current page
   getCurrentPageGroup(): FormGroup {
     return this.signupForm.get(`page${this.step}`) as FormGroup;
   }
 
-  // Submit the form
+
+  ngOnInit(){
+      const luser = localStorage.getItem('users');
+      if(luser != null){
+        Swal.fire({
+          title: 'You are already Logged In!',
+          text: 'Welcome Back!',
+          icon: 'success',
+          timer: 3000,
+          showConfirmButton: false,
+        });
+        this.router.navigate(['/dashboard']);
+      }
+    }
+
   onSubmit(): void {
     const { password, confirmPassword } = this.signupForm.get('page3')?.value;
     if (password === confirmPassword) {
@@ -92,7 +103,7 @@ export class SignComponent {
         ...this.signupForm.get('page3')?.value,
       };
 
-      delete formData.confirmPassword; // Remove confirmPassword before sending
+      delete formData.confirmPassword;
       console.log(formData);
       localStorage.setItem("users", JSON.stringify(formData))
 
@@ -105,22 +116,24 @@ export class SignComponent {
             icon: 'success',
             confirmButtonText: 'Continue',
             confirmButtonColor: '#28a745',
-          });          // localStorage.setItem("users", JSON.stringify(response))
+          });          
           this.signupForm.reset();
-          this.step = 1; // Reset to the first step
+          this.router.navigate(["/home"]);
         },
         error: (error) => {
           console.error('Error:', error);
           alert('Failed to submit the form. Please try again.');
         },
       });
-    } else {
+    } 
+    else {
       Swal.fire({
         title: 'Error!',
         text: 'Passwords do not match!',
         icon: 'error',
         confirmButtonText: 'Try Again',
         confirmButtonColor: '#d33',
-      });    }
+      });    
+    }
   }
 }
