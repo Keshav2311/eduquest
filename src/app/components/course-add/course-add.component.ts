@@ -24,7 +24,7 @@ export class CourseAddComponent {
       courseFee: [null, [Validators.required, Validators.min(0)]],
       credits: [null, [Validators.required, Validators.min(1), Validators.max(10)]],
       trainerRemark: ['', [Validators.maxLength(250)]],
-      imageUrl: ['', [Validators.required, Validators.pattern(/https?:\/\/.+\.(png|jpg|jpeg)/)]]
+      // imageUrl: ['', [Validators.required, Validators.pattern(/https?:\/\/.+\.(png|jpg|jpeg)/)]]
     });
   }
 
@@ -65,8 +65,19 @@ export class CourseAddComponent {
     if (this.courseForm.valid) {
       const formData = this.courseForm.value;
 
-      formData.imageUrl = 'assets/images/courses/mern.webp';
+      const imagePaths = [
+        'assets/images/courses/image_1.jpg',
+        'assets/images/courses/image_2.jpg',
+        'assets/images/courses/image_3.jpg',
+        'assets/images/courses/image_4.jpg',
+        'assets/images/courses/image_5.jpg',
+        'assets/images/courses/image_6.jpg',
+        'assets/images/courses/image_7.jpg',
+        'assets/images/courses/image_8.jpg'
+      ];
 
+      formData.imageUrl = imagePaths[Math.floor(Math.random() * imagePaths.length)];
+      console.log(formData.imageUrl);
       if (this.courseId) {
         this.coursesService.updateCourse(this.courseId, formData).subscribe({
           next: () => {

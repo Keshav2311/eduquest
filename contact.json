@@ -94,7 +94,8 @@
       "password": "Data@vikas",
       "courses": [
         "d345",
-        "p678"
+        "p678",
+        "c49a"
       ]
     },
     {
@@ -135,7 +136,8 @@
       "experience": 1,
       "password": "Secure@amit",
       "courses": [
-        "p678"
+        "p678",
+        "d345"
       ]
     },
     {
@@ -252,7 +254,7 @@
   "courses": [
     {
       "id": "k123",
-      "imageUrl": "assets/images/courses/mern.webp",
+      "imageUrl": "assets/images/courses/image_6.jpg",
       "courseName": "Database Management",
       "trainerName": "Sreejith Ks",
       "duration": 6,
@@ -271,7 +273,7 @@
     },
     {
       "id": "m789",
-      "imageUrl": "assets/images/courses/mern.webp",
+      "imageUrl": "assets/images/courses/image_3.jpg",
       "courseName": "Cloud Computing",
       "trainerName": "Anjali Sharma",
       "duration": 5,
@@ -291,7 +293,7 @@
     },
     {
       "id": "l567",
-      "imageUrl": "assets/images/courses/mern.webp",
+      "imageUrl": "assets/images/courses/image_1.jpg",
       "courseName": "Machine Learning Fundamentals",
       "trainerName": "Anjali Sharma",
       "duration": 8,
@@ -310,7 +312,7 @@
     },
     {
       "id": "c456",
-      "imageUrl": "assets/images/courses/mern.webp",
+      "imageUrl": "assets/images/courses/image_8.jpg",
       "courseName": "Cybersecurity Basics",
       "trainerName": "Raj Mehta",
       "duration": 6,
@@ -328,7 +330,7 @@
     },
     {
       "id": "f678",
-      "imageUrl": "assets/images/courses/mern.webp",
+      "imageUrl": "assets/images/courses/image_5.jpg",
       "courseName": "Ethical Hacking",
       "trainerName": "Raj Mehta",
       "duration": 7,
@@ -346,7 +348,7 @@
     },
     {
       "id": "w123",
-      "imageUrl": "assets/images/courses/mern.webp",
+      "imageUrl": "assets/images/courses/image_2.jpg",
       "courseName": "Full Stack Web Development",
       "trainerName": "Priya Verma",
       "duration": 10,
@@ -365,7 +367,7 @@
     },
     {
       "id": "b456",
-      "imageUrl": "assets/images/courses/mern.webp",
+      "imageUrl": "assets/images/courses/image_7.jpg",
       "courseName": "Frontend Development with Angular",
       "trainerName": "Priya Verma",
       "duration": 6,
@@ -384,7 +386,7 @@
     },
     {
       "id": "d345",
-      "imageUrl": "assets/images/courses/mern.webp",
+      "imageUrl": "assets/images/courses/image_8.jpg",
       "courseName": "Data Science with Python",
       "trainerName": "Vikas Reddy",
       "duration": 7,
@@ -397,12 +399,13 @@
       "credits": 5,
       "trainerRemark": "Python basics recommended.",
       "students": [
-        "s005"
+        "s005",
+        "s004"
       ]
     },
     {
       "id": "p678",
-      "imageUrl": "assets/images/courses/mern.webp",
+      "imageUrl": "assets/images/courses/image_6.jpg",
       "courseName": "Big Data Analytics",
       "trainerName": "Vikas Reddy",
       "duration": 8,
@@ -421,7 +424,7 @@
     },
     {
       "id": "7986",
-      "imageUrl": "assets/images/courses/mern.webp",
+      "imageUrl": "assets/images/courses/image_1.jpg",
       "courseName": "Postgres SQL",
       "trainerName": "Ross Geller",
       "duration": 3,
@@ -439,7 +442,7 @@
     },
     {
       "id": "72dc",
-      "imageUrl": "assets/images/courses/mern.webp",
+      "imageUrl": "assets/images/courses/image_7.jpg",
       "courseName": "MERN",
       "trainerName": "Achyut Keshav",
       "duration": 10,
@@ -457,6 +460,21 @@
         "s006",
         "s010"
       ]
+    },
+    {
+      "id": "c49a",
+      "courseName": "CyberSecurity",
+      "trainerName": "Vikas Reddy",
+      "duration": 8,
+      "technologies": [
+        "html",
+        "c",
+        "c++"
+      ],
+      "courseFee": 200,
+      "credits": 8,
+      "trainerRemark": "Nothing",
+      "imageUrl": "assets/images/courses/image_1.jpg"
     }
   ]
 }
