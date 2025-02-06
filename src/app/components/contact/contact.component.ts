@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
   selector: 'app-contact',
   standalone: false,
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.css'] // Fixed typo from "styleUrl" to "styleUrls"
+  styleUrls: ['./contact.component.css']
 })
 export class ContactComponent {
   users = {
@@ -21,15 +21,15 @@ export class ContactComponent {
   constructor() {}
 
   onSubmit(contactForm: any) {
-    // Validate the form
     if (!this.users.name || !this.users.email) {
       Swal.fire({
         title: 'Incomplete Form!',
         text: 'Please fill in all required fields.',
         icon: 'warning',
-        timer: 2000, // Closes automatically after 3 seconds
+        timer: 2000,
         showConfirmButton: false
-      });      return;
+      });      
+      return;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -38,18 +38,17 @@ export class ContactComponent {
         title: 'Incomplete Form!',
         text: 'Please fill Valid Email.',
         icon: 'warning',
-        timer: 2000, // Closes automatically after 3 seconds
+        timer: 2000,
         showConfirmButton: false
-      });      return;
+      });      
+      return;
     }
 
-    // Prepare the template parameters
     const templateParams = {
       user_name: this.users.name,
       user_email: this.users.email,
     };
 
-    // Send the email using Email.js
     emailjs
       .send(this.emailServiceId, this.emailTemplateId, templateParams, this.emailPublicKey)
       .then(
@@ -59,7 +58,7 @@ export class ContactComponent {
             title: 'Form Completed Successfully!',
             text: 'Thank You for Contacting Us.',
             icon: 'success',
-            timer: 3000, // Closes automatically after 3 seconds
+            timer: 3000,
             showConfirmButton: false
           });        },
         (error: any) => {
@@ -68,7 +67,6 @@ export class ContactComponent {
         }
       );
 
-    // Reset the form
-    contactForm.resetForm(); // If using NgForm
+    contactForm.resetForm();
   }
 }
