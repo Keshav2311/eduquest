@@ -2,34 +2,28 @@
 	<div class="row">
 		<div class="col-md-8 col-center m-auto">
 			<h2>Testimonials</h2>
-			<div id="myCarousel" class="carousel slide" data-ride="carousel">
-				<!-- Carousel -->
-				<div class="carousel-inner">
-					<div class="item carousel-item active">
-						<div class="img-box"><img src="/assets/images/testimonials/JenniferSmith.png" alt="Jennifer Smith"></div>
-						<p class="testimonial">"EduQuest has completely transformed my learning experience. The courses are structured in a way that makes complex topics easy to understand, and the support from instructors is second to none. I can learn at my own pace, and the interactive materials have been invaluable."</p>
-						<p class="overview"><b>Jennifer Smith</b>, Student, Data Science Program</p>
-					</div>
-					<div class="item carousel-item">
-						<div class="img-box"><img src="/assets/images/testimonials/DauglasMcNun.png" alt="Dauglas McNun"></div>
-						<p class="testimonial">"As an instructor, EduQuest has made managing my courses and interacting with students so much easier. The platform is intuitive, and I can track students' progress in real-time. I also love the community of fellow educators that provides valuable resources and collaboration opportunities."</p>
-						<p class="overview"><b>Dauglas McNun</b>, Instructor, Business Management</p>
-					</div>
-					<div class="item carousel-item">
-						<div class="img-box"><img src="/assets/images/testimonials/HellenWright.png" alt="Hellen Wright"></div>
-						<p class="testimonial">"EduQuest is a game-changer for both students and instructors. The course content is engaging, and the assessments are designed to encourage critical thinking. I can already see the progress I'm making in my course and how it’s helping me advance my career."</p>
-						<p class="overview"><b>Hellen Wright</b>, Student, Marketing & Strategy</p>
+			<div id="myCarousel" class="carousel slide">
+				<div class="carousel-inner" *ngIf="testimonials.length > 0">
+					<div *ngFor="let testimonial of testimonials; let i = index" class="carousel-item"
+						[class.active]="i === activeIndex">
+						<div class="img-box">
+							<img [src]="testimonial.image" [alt]="testimonial.name" />
+						</div>
+						<p class="testimonial">{{ testimonial.testimonial }}</p>
+						<p class="overview">
+							<b>{{ testimonial.name }}</b>, {{ testimonial.role }}
+						</p>
 					</div>
 				</div>
-				<!-- Carousel Controls -->
-				<a class="carousel-control-prev" href="#myCarousel" role="button" data-bs-slide="prev" style="color: black;" >
-                    <span class="carousel-control-prev-icon " aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#myCarousel" role="button" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
+
+				<a class="carousel-control-prev" (click)="prevSlide()" style="color: black;">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="carousel-control-next" (click)="nextSlide()">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
 			</div>
 		</div>
 	</div>

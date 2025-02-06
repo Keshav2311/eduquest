@@ -11,6 +11,29 @@
       "email": "sreejith.ks@impelsys.com"
     }
   ],
+  "testimonials": [
+    [
+      {
+        "name": "Jennifer Smith",
+        "role": "Student, Data Science Program",
+        "image": "assets/images/testimonials/JenniferSmith.png",
+        "testimonial": "EduQuest has completely transformed my learning experience. The courses are structured in a way that makes complex topics easy to understand, and the support from instructors is second to none."
+      },
+      {
+        "name": "Dauglas McNun",
+        "role": "Instructor, Business Management",
+        "image": "assets/images/testimonials/DauglasMcNun.png",
+        "testimonial": "As an instructor, EduQuest has made managing my courses and interacting with students so much easier. The platform is intuitive, and I can track students' progress in real-time."
+      },
+      {
+        "name": "Hellen Wright",
+        "role": "Student, Marketing & Strategy",
+        "image": "assets/images/testimonials/HellenWright.png",
+        "testimonial": "EduQuest is a game-changer for both students and instructors. The course content is engaging, and the assessments are designed to encourage critical thinking."
+      }
+    ]
+    
+  ],
   "sign": [
     {
       "id": "e240",
