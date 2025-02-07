@@ -14,7 +14,7 @@
 
         <!-- Courses Dropdown -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="coursesDropdown" role="button">Courses</a>
+          <a class="nav-link dropdown-toggle" id="coursesDropdown" role="button">Courses</a>
           <ul class="dropdown-menu" aria-labelledby="coursesDropdown">
             <li><a class="dropdown-item" routerLink="/courses">All Courses</a></li>
             <li *ngIf="!(isStudent$ | async) && (isAuthenticated$ | async)">
@@ -25,7 +25,7 @@
 
         <!-- Support Dropdown -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="supportDropdown" role="button">Support</a>
+          <a class="nav-link dropdown-toggle" id="supportDropdown" role="button">Support</a>
           <ul class="dropdown-menu" aria-labelledby="supportDropdown">
             <li><a class="dropdown-item" routerLink="/faq">FAQ</a></li>
             <li><a class="dropdown-item" routerLink="/contact">Contact Us</a></li>

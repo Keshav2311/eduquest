@@ -139,7 +139,10 @@
   align-items: center;
   font-size: 5.4rem;
   text-align: center;
-  color: #fdfbfd;
+  color: #200120;
+  background-color: #f5f1f1;
+  border-radius: 10px;
+  margin-left: 5px;
 }
 
 #card {

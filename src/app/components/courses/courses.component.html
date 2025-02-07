@@ -21,7 +21,7 @@
             </div>
           </div>
           <div class="card-footer d-flex justify-content-evenly">
-            <button class="btn btn-enroll" *ngIf="role === 'student' && !enrolledCourses.has(course.id)"
+            <button class="btn btn-enroll" *ngIf="!enrolledCourses.has(course.id)"
               (click)="enroll(course.courseName,course.id)">
               Enroll
             </button>

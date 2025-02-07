@@ -5,6 +5,7 @@ import { UserInterface } from '../../interfaces/user';
 import { Courseinterface } from '../../interfaces/courses';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-instructor',
@@ -18,6 +19,8 @@ export class IntructorComponent implements OnInit {
   courseslist: String[] = [];
   coursedata: Courseinterface[] = [];
   count: number = 0;
+  countStudent: number = 0;
+
 
   constructor(private signService: SignService, private coursesService: CoursesService, private router: Router ) { }
 
@@ -26,25 +29,28 @@ export class IntructorComponent implements OnInit {
       next: (res) => {
         this.userInfo = res;
         this.courseslist = this.userInfo?.courses || [];
-        for (let i=0; i<this.courseslist.length; i++){
-          this.count++;
+        this.count = this.courseslist.length;  
+        console.log(this.count);
+        
+        if (this.courseslist.length > 0) {
+          // Fetch all courses in parallel using forkJoin
+          forkJoin(this.courseslist.map(courseId => this.coursesService.getcourseById(courseId)))
+            .subscribe({
+
+              next: (courses) => {
+                console.log(courses);
+                
+
+                this.coursedata = courses;
+                this.countStudent = this.coursedata.reduce((total, course) => total + (course?.students?.length || 0), 0);
+                console.log('Courses:', this.coursedata);
+                console.log('Total students:', this.countStudent);
+              },
+              error: (err) => console.error('Error fetching courses:', err)
+            });
         }
-        console.log(this.courseslist);
-        this.courseslist.forEach((courseId) => {
-          this.coursesService.getcourseById(courseId).subscribe({
-            next: (course) => {
-              this.coursedata.push(course);
-              console.log("courses are:", this.coursedata);
-            },
-            error: (err) => {
-              console.error('There was an error!', err);
-            }
-          });
-        });
       },
-      error: (err) => {
-        console.error('There was an error!', err);
-      }
+      error: (err) => console.error('Error fetching user:', err)
     });
   }
 

@@ -66,14 +66,14 @@ export class CourseAddComponent {
       const formData = this.courseForm.value;
 
       const imagePaths = [
-        'assets/images/courses/image_1.jpg',
-        'assets/images/courses/image_2.jpg',
-        'assets/images/courses/image_3.jpg',
-        'assets/images/courses/image_4.jpg',
-        'assets/images/courses/image_5.jpg',
-        'assets/images/courses/image_6.jpg',
-        'assets/images/courses/image_7.jpg',
-        'assets/images/courses/image_8.jpg'
+        'assets/images/courses/image_1.webp',
+        'assets/images/courses/image_2.webp',
+        'assets/images/courses/image_3.webp',
+        'assets/images/courses/image_4.webp',
+        'assets/images/courses/image_5.webp',
+        'assets/images/courses/image_6.webp',
+        'assets/images/courses/image_7.webp',
+        'assets/images/courses/image_8.webp'
       ];
 
       formData.imageUrl = imagePaths[Math.floor(Math.random() * imagePaths.length)];

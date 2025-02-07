@@ -16,19 +16,19 @@
       {
         "name": "Jennifer Smith",
         "role": "Student, Data Science Program",
-        "image": "assets/images/testimonials/JenniferSmith.png",
+        "image": "assets/images/testimonials/JenniferSmith.webp",
         "testimonial": "EduQuest has completely transformed my learning experience. The courses are structured in a way that makes complex topics easy to understand, and the support from instructors is second to none."
       },
       {
         "name": "Dauglas McNun",
         "role": "Instructor, Business Management",
-        "image": "assets/images/testimonials/DauglasMcNun.png",
+        "image": "assets/images/testimonials/DauglasMcNun.webp",
         "testimonial": "As an instructor, EduQuest has made managing my courses and interacting with students so much easier. The platform is intuitive, and I can track students' progress in real-time."
       },
       {
         "name": "Hellen Wright",
         "role": "Student, Marketing & Strategy",
-        "image": "assets/images/testimonials/HellenWright.png",
+        "image": "assets/images/testimonials/HellenWright.webp",
         "testimonial": "EduQuest is a game-changer for both students and instructors. The course content is engaging, and the assessments are designed to encourage critical thinking."
       }
     ]
@@ -54,8 +54,7 @@
       "password": "Teach@ml123",
       "courses": [
         "m789",
-        "l567",
-        "aefa"
+        "l567"
       ]
     },
     {
@@ -254,7 +253,7 @@
   "courses": [
     {
       "id": "k123",
-      "imageUrl": "assets/images/courses/image_6.jpg",
+      "imageUrl": "assets/images/courses/image_6.webp",
       "courseName": "Database Management",
       "trainerName": "Sreejith Ks",
       "duration": 6,
@@ -273,7 +272,7 @@
     },
     {
       "id": "m789",
-      "imageUrl": "assets/images/courses/image_3.jpg",
+      "imageUrl": "assets/images/courses/image_3.webp",
       "courseName": "Cloud Computing",
       "trainerName": "Anjali Sharma",
       "duration": 5,
@@ -293,7 +292,7 @@
     },
     {
       "id": "l567",
-      "imageUrl": "assets/images/courses/image_1.jpg",
+      "imageUrl": "assets/images/courses/image_1.webp",
       "courseName": "Machine Learning Fundamentals",
       "trainerName": "Anjali Sharma",
       "duration": 8,
@@ -312,7 +311,7 @@
     },
     {
       "id": "c456",
-      "imageUrl": "assets/images/courses/image_8.jpg",
+      "imageUrl": "assets/images/courses/image_8.webp",
       "courseName": "Cybersecurity Basics",
       "trainerName": "Raj Mehta",
       "duration": 6,
@@ -330,7 +329,7 @@
     },
     {
       "id": "f678",
-      "imageUrl": "assets/images/courses/image_5.jpg",
+      "imageUrl": "assets/images/courses/image_5.webp",
       "courseName": "Ethical Hacking",
       "trainerName": "Raj Mehta",
       "duration": 7,
@@ -348,7 +347,7 @@
     },
     {
       "id": "w123",
-      "imageUrl": "assets/images/courses/image_2.jpg",
+      "imageUrl": "assets/images/courses/image_2.webp",
       "courseName": "Full Stack Web Development",
       "trainerName": "Priya Verma",
       "duration": 10,
@@ -367,7 +366,7 @@
     },
     {
       "id": "b456",
-      "imageUrl": "assets/images/courses/image_7.jpg",
+      "imageUrl": "assets/images/courses/image_7.webp",
       "courseName": "Frontend Development with Angular",
       "trainerName": "Priya Verma",
       "duration": 6,
@@ -386,7 +385,7 @@
     },
     {
       "id": "d345",
-      "imageUrl": "assets/images/courses/image_8.jpg",
+      "imageUrl": "assets/images/courses/image_8.webp",
       "courseName": "Data Science with Python",
       "trainerName": "Vikas Reddy",
       "duration": 7,
@@ -405,7 +404,7 @@
     },
     {
       "id": "p678",
-      "imageUrl": "assets/images/courses/image_6.jpg",
+      "imageUrl": "assets/images/courses/image_6.webp",
       "courseName": "Big Data Analytics",
       "trainerName": "Vikas Reddy",
       "duration": 8,
@@ -424,7 +423,7 @@
     },
     {
       "id": "7986",
-      "imageUrl": "assets/images/courses/image_1.jpg",
+      "imageUrl": "assets/images/courses/image_1.webp",
       "courseName": "Postgres SQL",
       "trainerName": "Ross Geller",
       "duration": 3,
@@ -442,7 +441,7 @@
     },
     {
       "id": "72dc",
-      "imageUrl": "assets/images/courses/image_7.jpg",
+      "imageUrl": "assets/images/courses/image_7.webp",
       "courseName": "MERN",
       "trainerName": "Achyut Keshav",
       "duration": 10,
@@ -474,7 +473,7 @@
       "courseFee": 200,
       "credits": 8,
       "trainerRemark": "Nothing",
-      "imageUrl": "assets/images/courses/image_1.jpg"
+      "imageUrl": "assets/images/courses/image_1.webp"
     }
   ],
   "faq": [
