@@ -17,10 +17,12 @@ export class AdminComponent {
 
   adminInfo: UserInterface | undefined;
   coursesInfo: Courseinterface[] = [];
+  coursedata: Courseinterface | undefined;
   studentInfo: UserInterface[] = [];
   instructorInfo: UserInterface[] = [];
   displayedData: any[] = [];
   courses: any[] = [];
+  students: string[] | undefined;
   selectedTable: String | undefined;
 
   luser = JSON.parse(localStorage.getItem('users') || '{}');
@@ -96,26 +98,105 @@ export class AdminComponent {
   }
   
 
+  // deleteCourse(courseId: string): void {
+  //   console.log("delete function invoked");
+  //   this.courseService.getcourseById(courseId).subscribe({
+  //     next: (res) => {
+  //       this.coursedata = res;
+  //       this.students = this.coursedata?.students;
+
+  //       console.log(this.students);
+  //       console.log(this.coursedata);
+  //     },
+  //     error: (err) => {
+  //       console.error('Error fetching courses:', err);
+  //     },
+  //   });
+
+  //   if (confirm('Are you sure you want to delete this course?')) {
+  //     this.courseService.deleteCourse(courseId).subscribe({
+  //       next: () => {
+  //         Swal.fire({
+  //           title: 'Deleted!',
+  //           text: 'Course deleted successfully.',
+  //           icon: 'success',
+  //           timer: 2000, // Closes automatically after 2 seconds
+  //           showConfirmButton: false
+  //         });          // Update the list after deletion
+  //         this.displayedData = this.displayedData.filter((course) => course.id !== courseId);
+
+  //       },
+  //       error: (err) => {
+  //         console.error('Error deleting course:', err);
+  //       },
+  //     });
+  //   }
+  // }
+
+
   deleteCourse(courseId: string): void {
-    console.log("delete function invoked");
-    if (confirm('Are you sure you want to delete this course?')) {
+    console.log("Delete function invoked");
+  
+    this.courseService.getcourseById(courseId).subscribe({
+      next: (course) => {
+        if (!course || !course.students || course.students.length === 0) {
+          // If no students are enrolled, directly delete the course
+          this.confirmAndDeleteCourse(courseId);
+          return;
+        }
+  
+        this.removeCourseFromStudents(course.students, courseId).then(() => {
+          // After updating students, delete the course
+          this.confirmAndDeleteCourse(courseId);
+        }).catch((error) => {
+          console.error("Error updating students:", error);
+        });
+      },
+      error: (err) => {
+        console.error("Error fetching course details:", err);
+      }
+    });
+  }
+  
+  // Helper function to update students and remove course from their list
+  async removeCourseFromStudents(studentIds: string[], courseId: string) {
+    const updatePromises = studentIds.map(studentId =>
+      this.signservice.getUserById(studentId).toPromise().then(student => {
+        if (!student || !student.courses) return;
+  
+        const updatedCourses = student.courses.filter((id: string)=> id !== courseId);
+        const updatedUser = { ...student, courses: updatedCourses };
+  
+        return this.signservice.updateUser(studentId, updatedUser).toPromise();
+      })
+    );
+  
+    await Promise.all(updatePromises);
+  }
+  
+  // Helper function to confirm and delete course
+  confirmAndDeleteCourse(courseId: string): void {
+    if (confirm("Are you sure you want to delete this course?")) {
       this.courseService.deleteCourse(courseId).subscribe({
         next: () => {
           Swal.fire({
-            title: 'Deleted!',
-            text: 'Course deleted successfully.',
-            icon: 'success',
+            title: "Deleted!",
+            text: "Course deleted successfully.",
+            icon: "success",
             timer: 2000, // Closes automatically after 2 seconds
             showConfirmButton: false
-          });          // Update the list after deletion
-          this.displayedData = this.displayedData.filter((course) => course.id !== courseId);
+          });
+  
+          // Update UI to remove the deleted course
+          this.displayedData = this.displayedData.filter(course => course.id !== courseId);
         },
         error: (err) => {
-          console.error('Error deleting course:', err);
-        },
+          console.error("Error deleting course:", err);
+        }
       });
     }
   }
+  
 
   deleteUser(userId: String): void {
     localStorage.setItem('userId', JSON.stringify(userId));
