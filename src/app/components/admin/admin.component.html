@@ -7,7 +7,8 @@
         </div>
       </div>
     </div>
-    <div class="row align-items-center bg-dark text-light rounded shadow p-4 mb-2" style="width: 90%; margin-left: auto;margin-right: auto;">
+    <div class="row align-items-center bg-dark text-light rounded shadow p-4 mb-2"
+      style="width: 90%; margin-left: auto;margin-right: auto;">
       <div class="col-md-4 col-sm-4 text-center ml-5">
         <img src="assets/images/images.png" alt="Admin Profile"
           class="img-fluid rounded-circle shadow-lg profile-img" />
@@ -19,16 +20,22 @@
     </div>
     <div class="row text-center my-4 d-flex justify-content-evenly">
       <div class="col-3">
-        <button class="p-2" (click)="showTable('student')">{{ showStudentData ? 'Hide Students' : 'Show Students' }}</button>
+        <button class="p-2" (click)="showTable('student')">{{ selectedTable== 'student'? 'Hide Students' : 'Show
+          Students' }}</button>
       </div>
       <div class="col-3">
-        <button class="p-2" (click)="showTable('instructor')">{{ showInstructorData ? 'Hide Instructors' : 'Show Instructors'}}</button>
+        <button class="p-2" (click)="showTable('instructor')">{{ selectedTable=='instructor' ? 'Hide Instructors' :
+          'Show Instructors'}}</button>
       </div>
       <div class="col-3">
-        <button class="p-2" (click)="showCoursesTable()">{{ showCourses ? 'Hide Courses' : 'Show Courses' }}</button>
+        <button class="p-2" (click)="showTable('courses')">{{ selectedTable=='courses' ? 'Hide Courses' : 'Show Courses'
+          }}</button>
       </div>
     </div>
-    <div class="row mt-4" *ngIf="displayedData.length > 0">
+    <div class="d-flex flex-column justify-content-center align-items-center w-100" *ngIf="loading == true">
+      <div class="loader"></div>
+    </div>
+    <div class="row mt-4" *ngIf="displayedData.length > 0 && selectedTable!='courses' && loading == false">
       <div class="col-12">
         <table class="table">
           <thead class="table-dark">
@@ -52,28 +59,27 @@
         </table>
       </div>
     </div>
-
-    <div class="row mt-4" *ngIf="displayedCoursesData.length > 0">
+    <div class="row mt-4" *ngIf="displayedData.length > 0 && selectedTable == 'courses'  && loading == false">
       <div class="col-12">
         <table class="table">
-        <thead>
-          <tr class="tr">
-            <th class="m-2 text-center">Course Name</th>
-            <th class="m-2 text-center">Course Instructor</th>
-            <th class="m-2 text-center">Course fee</th>
-            <th class="m-2 text-center">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let course of displayedCoursesData">
-            <td class="m-2 text-center">{{ course.courseName }}</td>
-            <td class="m-2 text-center">{{ course.trainerName }}</td>
-            <td class="m-2 text-center">{{ course.courseFee }}</td>
-            <td>
-              <button class="btn btn-danger btn-sm m-2 fw-bold" (click)="deleteCourse(course.id)">Desable</button>
-            </td>
-          </tr>
-        </tbody>
+          <thead>
+            <tr class="tr">
+              <th class="m-2 text-center">Course Name</th>
+              <th class="m-2 text-center">Course Instructor</th>
+              <th class="m-2 text-center">Course fee</th>
+              <th class="m-2 text-center">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let course of displayedData">
+              <td class="m-2 text-center">{{ course.courseName }}</td>
+              <td class="m-2 text-center">{{ course.trainerName }}</td>
+              <td class="m-2 text-center">{{ course.courseFee }}</td>
+              <td>
+                <button class="btn btn-danger btn-sm m-2 fw-bold" (click)="deleteCourse(course.id)">Desable</button>
+              </td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </div>

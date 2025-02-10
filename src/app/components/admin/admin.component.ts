@@ -19,14 +19,12 @@ export class AdminComponent {
   coursesInfo: Courseinterface[] = [];
   studentInfo: UserInterface[] = [];
   instructorInfo: UserInterface[] = [];
-  displayedData: UserInterface[] = [];
-  displayedCoursesData: Courseinterface[] = [];
-  showCourses = false;
-  showStudentData = false;
-  showInstructorData = false;
+  displayedData: any[] = [];
   courses: any[] = [];
+  selectedTable: String | undefined;
 
   luser = JSON.parse(localStorage.getItem('users') || '{}');
+  loading: boolean = false;
 
   constructor(private signservice: SignService, private courseService: CoursesService) { }
 
@@ -78,35 +76,25 @@ export class AdminComponent {
   }
 
   showTable(type: string): void {
-    this.showStudentData = !this.showStudentData;
-    this.showInstructorData = !this.showInstructorData;
-    if (this.showStudentData) {
-      if (type === 'student') {
-        this.displayedData = this.studentInfo;
-      }
-    }
-    else {
+    if (this.selectedTable === type) {
+      this.selectedTable = undefined;
       this.displayedData = [];
-    }
-    if (this.showInstructorData) {
-      if (type === 'instructor') {
-        this.displayedData = this.studentInfo;
-      }
-    }
-    else {
-      this.displayedData = [];
-    }
-    
-  }
-
-  showCoursesTable() {
-    this.showCourses = !this.showCourses;
-    if (this.showCourses) {
-      this.displayedCoursesData = this.coursesInfo;
     } else {
-      this.displayedCoursesData = [];
+      this.selectedTable = type;
+      this.loading = true;
+      setTimeout(() => {
+        this.loading = false;
+        if (type === 'student') {
+          this.displayedData = this.studentInfo;
+        } else if (type === 'instructor') {
+          this.displayedData = this.instructorInfo;
+        } else if (type === 'courses') {
+          this.displayedData = this.coursesInfo;
+        }
+      }, 1000);
     }
   }
+  
 
   deleteCourse(courseId: string): void {
     console.log("delete function invoked");
@@ -120,7 +108,7 @@ export class AdminComponent {
             timer: 2000, // Closes automatically after 2 seconds
             showConfirmButton: false
           });          // Update the list after deletion
-          this.displayedCoursesData = this.displayedCoursesData.filter((course) => course.id !== courseId);
+          this.displayedData = this.displayedData.filter((course) => course.id !== courseId);
         },
         error: (err) => {
           console.error('Error deleting course:', err);

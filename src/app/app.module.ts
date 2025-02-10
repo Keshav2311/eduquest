@@ -40,6 +40,8 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { authReducer } from './reducer/auth.reducer';
 import { N404Component } from './components/n404/n404.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { FaqService } from './services/faq.service';
+import { TestimonialService } from './services/testimonial.service';
 
 
 
@@ -88,7 +90,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     ContactService,
     SignService,
     CoursesService,
-    AuthService
+    AuthService,
+    FaqService,
+    TestimonialService
   ],
   bootstrap: [AppComponent]
 })
