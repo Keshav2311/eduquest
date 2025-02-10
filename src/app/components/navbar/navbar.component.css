@@ -55,7 +55,7 @@
   padding: 10px;
 }
 
-.active{
+.nav-link:active{
   color: #f7f3f8 !important; 
 }
 

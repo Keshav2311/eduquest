@@ -1,7 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light fixed-top">
   <div class="container-fluid">
-
-
     <a class="navbar-brand" routerLink="/"><img src="assets/images/logo.webp" alt="logo" id="logo"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileDrawer">
       <span class="navbar-toggler-icon"></span>
@@ -11,19 +9,16 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/home">Home</a>
         </li>
-
-        <!-- Courses Dropdown -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" id="coursesDropdown" role="button">Courses</a>
           <ul class="dropdown-menu" aria-labelledby="coursesDropdown">
             <li><a class="dropdown-item" routerLink="/courses">All Courses</a></li>
+            <li><a class="dropdown-item" routerLink="/tending_courses">Trending Courses</a></li>
             <li *ngIf="!(isStudent$ | async) && (isAuthenticated$ | async)">
               <a class="dropdown-item" routerLink="/course_add">New Courses</a>
             </li>
           </ul>
         </li>
-
-        <!-- Support Dropdown -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" id="supportDropdown" role="button">Support</a>
           <ul class="dropdown-menu" aria-labelledby="supportDropdown">
@@ -31,7 +26,6 @@
             <li><a class="dropdown-item" routerLink="/contact">Contact Us</a></li>
           </ul>
         </li>
-
         <li class="nav-item">
           <a class="btn" *ngIf="isAuthenticated$ | async" [routerLink]="dashboardLink$ | async">Dashboard</a>
         </li>
@@ -45,8 +39,6 @@
     </div>
   </div>
 </nav>
-
-<!-- Mobile Sidebar (Bootstrap Offcanvas) -->
 <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileDrawer">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title">Menu</h5>

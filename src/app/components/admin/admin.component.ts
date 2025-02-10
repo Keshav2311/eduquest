@@ -22,7 +22,8 @@ export class AdminComponent {
   displayedData: UserInterface[] = [];
   displayedCoursesData: Courseinterface[] = [];
   showCourses = false;
-  showData = false;
+  showStudentData = false;
+  showInstructorData = false;
   courses: any[] = [];
 
   luser = JSON.parse(localStorage.getItem('users') || '{}');
@@ -77,17 +78,25 @@ export class AdminComponent {
   }
 
   showTable(type: string): void {
-    this.showData = !this.showData;
-    if (this.showData) {
+    this.showStudentData = !this.showStudentData;
+    this.showInstructorData = !this.showInstructorData;
+    if (this.showStudentData) {
       if (type === 'student') {
         this.displayedData = this.studentInfo;
-      } else if (type === 'instructor') {
-        this.displayedData = this.instructorInfo;
       }
     }
     else {
       this.displayedData = [];
     }
+    if (this.showInstructorData) {
+      if (type === 'instructor') {
+        this.displayedData = this.studentInfo;
+      }
+    }
+    else {
+      this.displayedData = [];
+    }
+    
   }
 
   showCoursesTable() {

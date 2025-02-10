@@ -2,16 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { CoursesService } from '../../../services/courses.service';
 import { Courseinterface } from '../../../interfaces/courses';
 import { AuthService } from '../../../services/auth.service';
-import Swal from 'sweetalert2';
 import { SignService } from '../../../services/sign.service';
 import * as Bootstrap from 'bootstrap';
+import { Router } from '@angular/router';
 
 
 @Component({
   selector: 'app-trend-courses',
   standalone: false,
   templateUrl: './trend-courses.component.html',
-  styleUrls: ['./trend-courses.component.css'] // Fixed styleUrls
+  styleUrls: ['./trend-courses.component.css']
 })
 export class TrendCoursesComponent implements OnInit {
   courses: Courseinterface[] = [];
@@ -20,7 +20,7 @@ export class TrendCoursesComponent implements OnInit {
   selectedCourse: any | null = null;
 
 
-  constructor(private coursesService: CoursesService, private authservice: AuthService, private signservice: SignService) { }
+  constructor(private coursesService: CoursesService, private authservice: AuthService, private signservice: SignService, private route: Router) { }
 
   ngOnInit(): void {
     this.loadTrendingCourses();
