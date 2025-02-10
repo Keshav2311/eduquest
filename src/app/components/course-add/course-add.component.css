@@ -4,7 +4,7 @@
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-top: 15vh;
+  margin-top: 5vh;
   width: 80%;
   margin-bottom: 20px;
   margin-left: auto;
@@ -46,7 +46,7 @@ mat-form-field {
 mat-chip {
   margin-right: 5px;
   background-color: #d7b3d7; /* Light purple chips */
-  color: #5a005a; /* Dark purple text for chips */
+  color: #f3eef3; /* Dark purple text for chips */
 }
 
 button {

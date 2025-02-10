@@ -1,33 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap");
 
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Tsukimi+Rounded&display=swap");
-body {
-  font-size: 16px;
-  line-height: 32px;
-  font-weight: 400;
-  -moz-osx-font-smoothing: grayscale;
-  word-break: break-word;
-  -webkit-font-smoothing: antialiased;
-  font-family: "Kumbh Sans", sans-serif;
-  margin: 0;
-}
-* {
-  margin: 0;
-  padding: 0;
-  border: none;
-  outline: none;
-  font-size: 100%;
-}
 
-*,
-:after,
-:before {
-  box-sizing: border-box;
-}
 
 /* ============ HERO SECTION ============= */
 .creative-hero--section {
-  margin-top: 10vh;
   position: relative;
   overflow: hidden;
   height: 90vh;

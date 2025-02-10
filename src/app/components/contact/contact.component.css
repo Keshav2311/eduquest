@@ -3,10 +3,6 @@ body {
   background-color: #f8f9fa;
 }
 
-section {
-  margin-top: 10vh;
-}
-
 iframe {
   border: none;
   border-radius: 15px;

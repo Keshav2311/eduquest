@@ -8,6 +8,7 @@
   font-size: 1.1rem;
   backdrop-filter: blur(10px);
   transition: background-color 0.3s ease-in-out;
+  height: 11vh;
 }
 
 .scrolled {

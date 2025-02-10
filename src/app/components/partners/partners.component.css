@@ -1,34 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
-* {
-    box-sizing: border-box;
-    padding: 0%;
-    margin: 0%;
-    font-family: "Poppins", sans-serif;
-}
-
-body {
-    height: 100vh;
-    background-color:#c9c9c9;
-    display: grid;
-    place-items: center;
-}
-
-.partners{
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 section {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100vw;
     margin-bottom: 50px;
 }
 
@@ -44,17 +21,18 @@ h1 {
 
 .slider {
     display: flex;
+    margin-left: auto;
+    margin-right: auto;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
     background: rgb(250, 249, 250);
     border-radius: 16px;
     box-shadow: 5px 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(7.4px);
     -webkit-backdrop-filter: blur(7.4px);
     border: 1px solid rgba(255, 255, 255, 0.4);
+    width: 90vw;
+    overflow: hidden;
 }
 
 .slider-items {

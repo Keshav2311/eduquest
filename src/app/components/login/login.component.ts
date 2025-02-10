@@ -44,14 +44,17 @@ export class LoginComponent {
   }
 
   onSubmit(loginForm: any): void {
+
     if (loginForm.valid) {
-      const email = loginForm.value.email; 
+      const email = loginForm.value.email;
+      const password = loginForm.value.password; 
 
       this.signService.getUsers().subscribe({
         next: (users) => {
           const userDetail = users.find((user) => user.email === email);
+          const userPassword = users.find((user) => user.password === password);
 
-          if (userDetail) {
+          if (userDetail && userPassword) {
             this.store.dispatch(login({ user: userDetail }));
 
             Swal.fire({

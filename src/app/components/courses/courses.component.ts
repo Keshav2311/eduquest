@@ -27,6 +27,8 @@ export class CoursesComponent implements OnInit {
     private authservice: AuthService
   ) {}
 
+  
+
   ngOnInit(): void {
     this.fetchCourses();
     this.authservice.userRole$.subscribe((role) => {
@@ -73,6 +75,10 @@ export class CoursesComponent implements OnInit {
         confirmButtonText: 'OK',
       });
       return;
+    }
+
+    if(user.role === 'instructor'){
+      
     }
 
     if (this.enrolledCourses.has(id)) {
