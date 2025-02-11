@@ -45,44 +45,9 @@ export class StudentComponent {
     }
   }
 
-  // fetchCourses(): void {
-  //   if (this.courseslist.length > 0) {
-  //     const courseRequests = this.courseslist.map((courseId) =>
-  //       this.coursesService.getcourseById(courseId).toPromise().then(
-  //         (course) => ({ courseId, course }), // Preserve courseId for reference
-  //         () => ({ courseId, course: null }) // Handle errors gracefully
-  //       )
-  //     );
-  
-  //     Promise.all(courseRequests)
-  //       .then((courseResults) => {
-  //         const validCourses = courseResults.filter((entry) => entry.course !== null).map((entry) => entry.course);
-  //         const invalidCourseIds = courseResults.filter((entry) => entry.course === null).map((entry) => entry.courseId);
-  
-  //         this.coursedata = validCourses;
-  //         console.log('Fetched courses:', this.coursedata);
-  //         this.cdr.detectChanges(); 
-  //         this.createCharts(); 
-  
-  //         // Show Swal alert if there are missing course IDs
-  //         if (invalidCourseIds.length > 0) {
-  //           Swal.fire({
-  //             title: 'Missing Courses',
-  //             text: `The following courses are missing: ${invalidCourseIds.join(', ')}`,
-  //             icon: 'warning',
-  //             confirmButtonText: 'OK',
-  //           });
-  //         }
-  //       })
-  //       .catch((err) => {
-  //         console.error('Error fetching courses:', err);
-  //       });
-  //   } else {
-  //     console.log('No courses found for the user.');
-  //   }
-  // }
-
   fetchCourses(): void {
+    debugger; // Execution will pause here
+
     if (this.courseslist.length > 0) {
       const courseRequests = this.courseslist.map((courseId) =>
         this.coursesService.getcourseById(courseId).toPromise().then(
@@ -93,6 +58,8 @@ export class StudentComponent {
   
       Promise.all(courseRequests)
         .then((courseResults) => {
+          debugger; // Execution will pause here
+
           const validCourses = courseResults
             .filter((entry) => entry.course !== null)
             .map((entry) => entry.course);
@@ -240,6 +207,9 @@ export class StudentComponent {
         });
       },
     });
+    setTimeout(() => {
+      window.location.reload();
+    }, 500); 
   }
 
   ngAfterViewInit(): void {

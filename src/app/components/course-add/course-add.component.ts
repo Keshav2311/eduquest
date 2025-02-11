@@ -82,23 +82,40 @@ export class CourseAddComponent {
         console.log(formData.imageUrl);
       }      
       if (this.courseId) {
-        // formData = localStorage.getItem('users')
-        this.coursesService.updateCourse(this.courseId, formData).subscribe({
-          next: () => {
-            Swal.fire({
-              title: 'Updated!',
-              text: 'Course updated successfully!',
-              icon: 'success',
-              confirmButtonText: 'OK',
-              confirmButtonColor: '#28a745',
-            });
-          },
-          error: (error) => {
-            console.error('Error updating course:', error);
-            alert('Error updating course.');
+        const courseId: string = this.courseId; // Ensure it's a string
+      
+        this.coursesService.getcourseById(courseId).subscribe((existingCourse) => {
+          if (!existingCourse) {
+            console.error('Course not found.');
+            alert('Error: Course not found.');
+            return;
           }
+      
+          const formData = { 
+            ...this.courseForm.value,  
+            students: existingCourse.students || [],
+            imageUrl: existingCourse.imageUrl
+          };
+      
+          this.coursesService.updateCourse(courseId, formData).subscribe({
+            next: () => {
+              Swal.fire({
+                title: 'Updated!',
+                text: 'Course updated successfully!',
+                icon: 'success',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#28a745',
+              });
+            },
+            error: (error) => {
+              console.error('Error updating course:', error);
+              alert('Error updating course.');
+            }
+          });
         });
       }
+      
+
       else {
         this.coursesService.addItem(formData).subscribe({
           next: (response) => {

@@ -70,6 +70,9 @@ export class IntructorComponent implements OnInit {
         console.error('There was an error!', err);
       }
     });
+    setTimeout(() => {
+      window.location.reload();
+    }, 500); 
   }
 
   course_edit(courseId: string): void{
