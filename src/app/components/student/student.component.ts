@@ -45,18 +45,82 @@ export class StudentComponent {
     }
   }
 
+  // fetchCourses(): void {
+  //   if (this.courseslist.length > 0) {
+  //     const courseRequests = this.courseslist.map((courseId) =>
+  //       this.coursesService.getcourseById(courseId).toPromise().then(
+  //         (course) => ({ courseId, course }), // Preserve courseId for reference
+  //         () => ({ courseId, course: null }) // Handle errors gracefully
+  //       )
+  //     );
+  
+  //     Promise.all(courseRequests)
+  //       .then((courseResults) => {
+  //         const validCourses = courseResults.filter((entry) => entry.course !== null).map((entry) => entry.course);
+  //         const invalidCourseIds = courseResults.filter((entry) => entry.course === null).map((entry) => entry.courseId);
+  
+  //         this.coursedata = validCourses;
+  //         console.log('Fetched courses:', this.coursedata);
+  //         this.cdr.detectChanges(); 
+  //         this.createCharts(); 
+  
+  //         // Show Swal alert if there are missing course IDs
+  //         if (invalidCourseIds.length > 0) {
+  //           Swal.fire({
+  //             title: 'Missing Courses',
+  //             text: `The following courses are missing: ${invalidCourseIds.join(', ')}`,
+  //             icon: 'warning',
+  //             confirmButtonText: 'OK',
+  //           });
+  //         }
+  //       })
+  //       .catch((err) => {
+  //         console.error('Error fetching courses:', err);
+  //       });
+  //   } else {
+  //     console.log('No courses found for the user.');
+  //   }
+  // }
+
   fetchCourses(): void {
     if (this.courseslist.length > 0) {
       const courseRequests = this.courseslist.map((courseId) =>
-        this.coursesService.getcourseById(courseId).toPromise()
+        this.coursesService.getcourseById(courseId).toPromise().then(
+          (course) => ({ courseId, course }), // Preserve courseId for reference
+          () => ({ courseId, course: null }) // Handle errors gracefully
+        )
       );
-
+  
       Promise.all(courseRequests)
-        .then((courses) => {
-          this.coursedata = courses.filter((course) => course !== null);
+        .then((courseResults) => {
+          const validCourses = courseResults
+            .filter((entry) => entry.course !== null)
+            .map((entry) => entry.course);
+
+            const invalidCourseIds: string[] = courseResults
+            .filter((entry) => entry.course === null)
+            .map((entry) => entry.courseId.toString());
+  
+          this.coursedata = validCourses;
           console.log('Fetched courses:', this.coursedata);
-          this.cdr.detectChanges(); 
-          this.createCharts(); 
+          this.cdr.detectChanges();
+          this.createCharts();
+  
+          // If there are missing courses, ask the user if they want to unenroll
+          if (invalidCourseIds.length > 0) {
+            Swal.fire({
+              title: 'Missing Courses',
+              text: `The following courses no longer exist: ${invalidCourseIds.join(', ')}. Would you like to unenroll from them?`,
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonText: 'Yes, Unenroll',
+              cancelButtonText: 'No, Keep Them',
+            }).then((result) => {
+              if (result.isConfirmed) {
+                this.unenrollFromMissingCourses(invalidCourseIds);
+              }
+            });
+          }
         })
         .catch((err) => {
           console.error('Error fetching courses:', err);
@@ -65,6 +129,49 @@ export class StudentComponent {
       console.log('No courses found for the user.');
     }
   }
+  
+  // ✅ Function to unenroll from missing courses
+  unenrollFromMissingCourses(missingCourseIds: string[]): void {
+    if (!this.luser || !this.luser.id) {
+      console.error('User not found in local storage.');
+      return;
+    }
+  
+    this.signService.getUserById(this.luser.id).subscribe({
+      next: (user) => {
+        if (!user || !user.courses) return;
+  
+        // Remove missing courses from user's enrolled courses
+        const updatedCourses = user.courses.filter((id: string) => !missingCourseIds.includes(id));
+        const updatedUser = { ...user, courses: updatedCourses };
+  
+        // Update the user in the database
+        this.signService.updateUser(this.luser.id, updatedUser).subscribe({
+          next: () => {
+            Swal.fire({
+              title: 'Unenrolled!',
+              text: 'You have been unenrolled from missing courses.',
+              icon: 'success',
+              timer: 2000,
+              showConfirmButton: false,
+            });
+  
+            // Update UI
+            this.courseslist = updatedCourses;
+            this.cdr.detectChanges();
+          },
+          error: (err) => {
+            console.error('Error updating user courses:', err);
+          },
+        });
+      },
+      error: (err) => {
+        console.error('Error fetching user details:', err);
+      },
+    });
+  }
+  
+  
 
   course_delete(courseId: string): void {
     const user = JSON.parse(localStorage.getItem('users') || '{}');
