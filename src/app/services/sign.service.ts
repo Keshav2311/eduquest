@@ -19,7 +19,8 @@ export class SignService {
     name: string,
     forgot: string,
     confirm: string
-  ): Observable<any> {
+  ): 
+  Observable<any> {
     console.log(`New Password: ${forgot}, Confirm Password: ${confirm}`);
 
     return this.getUsers().pipe(
@@ -41,7 +42,7 @@ export class SignService {
         const url = `${this.apiUrl}/${user.id}`;
         console.log(`Updating user at URL: ${url}`);
 
-        const updatedUser = { ...user, password: confirm };
+        const updatedUser = { ...user, password: confirm };//spread operator
 
         return this.http.put(url, updatedUser);
       }),

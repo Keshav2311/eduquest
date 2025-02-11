@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { login, logout } from '../action/auth.action';
 import { selectIsAuthenticated, selectUserRole } from '../selector/auth.selector';
-import { from, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

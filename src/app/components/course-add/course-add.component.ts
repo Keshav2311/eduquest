@@ -4,6 +4,7 @@ import { CoursesService } from '../../services/courses.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SignService } from '../../services/sign.service';
 import Swal from 'sweetalert2';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-course-add',
@@ -76,9 +77,12 @@ export class CourseAddComponent {
         'assets/images/courses/image_8.webp'
       ];
 
-      formData.imageUrl = imagePaths[Math.floor(Math.random() * imagePaths.length)];
-      console.log(formData.imageUrl);
+      if (!this.courseId) {
+        formData.imageUrl = imagePaths[Math.floor(Math.random() * imagePaths.length)];
+        console.log(formData.imageUrl);
+      }      
       if (this.courseId) {
+        // formData = localStorage.getItem('users')
         this.coursesService.updateCourse(this.courseId, formData).subscribe({
           next: () => {
             Swal.fire({
@@ -119,8 +123,8 @@ export class CourseAddComponent {
                 alert('Error adding course to user.');
               }
             });
-            this.courseForm.reset(); 
             this.router.navigate(['/courses']);
+            this.courseForm.reset(); 
           },
           error: (error) => {
             console.error('Error submitting the course:', error);

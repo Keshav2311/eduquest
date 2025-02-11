@@ -58,9 +58,10 @@ export class ContactComponent {
             title: 'Form Completed Successfully!',
             text: 'Thank You for Contacting Us.',
             icon: 'success',
-            timer: 3000,
+            timer: 1000,
             showConfirmButton: false
-          });        },
+          });        
+        },
         (error: any) => {
           console.error('Failed to send email:', error);
           alert('Oops! Something went wrong. Please try again later.');

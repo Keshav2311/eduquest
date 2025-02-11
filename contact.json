@@ -53,8 +53,8 @@
       "experience": 6,
       "password": "Teach@ml123",
       "courses": [
-        "m789",
-        "l567"
+        "l567",
+        "m789"
       ]
     },
     {
@@ -109,7 +109,8 @@
         "m789",
         "c456",
         "l567",
-        "p678"
+        "p678",
+        "7986"
       ]
     },
     {
@@ -122,8 +123,7 @@
       "password": "ML@meera",
       "courses": [
         "l567",
-        "m789",
-        "aefa"
+        "m789"
       ]
     },
     {
@@ -172,10 +172,7 @@
       "role": "student",
       "experience": 2,
       "password": "DB@neha",
-      "courses": [
-        "k123",
-        "e345"
-      ]
+      "courses": []
     },
     {
       "id": "s008",
@@ -186,7 +183,6 @@
       "experience": 3,
       "password": "SoftEng@arjun",
       "courses": [
-        "d012",
         "w123"
       ]
     },
@@ -198,10 +194,7 @@
       "role": "student",
       "experience": 2,
       "password": "Net@kiran",
-      "courses": [
-        "d012",
-        "k123"
-      ]
+      "courses": []
     },
     {
       "id": "s010",
@@ -212,7 +205,6 @@
       "experience": 1,
       "password": "AI@rahul",
       "courses": [
-        "a789",
         "m789"
       ]
     },
@@ -251,25 +243,6 @@
     }
   ],
   "courses": [
-    {
-      "id": "k123",
-      "imageUrl": "assets/images/courses/image_6.webp",
-      "courseName": "Database Management",
-      "trainerName": "Sreejith Ks",
-      "duration": 6,
-      "technologies": [
-        "SQL",
-        "NoSQL",
-        "Indexing"
-      ],
-      "courseFee": 450,
-      "credits": 4,
-      "trainerRemark": "Basic understanding of data structures is helpful.",
-      "students": [
-        "s007",
-        "s009"
-      ]
-    },
     {
       "id": "m789",
       "imageUrl": "assets/images/courses/image_3.webp",
