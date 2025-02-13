@@ -4,7 +4,6 @@ import { CoursesService } from '../../services/courses.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SignService } from '../../services/sign.service';
 import Swal from 'sweetalert2';
-import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-course-add',
@@ -19,25 +18,24 @@ export class CourseAddComponent {
   constructor(private fb: FormBuilder, private coursesService: CoursesService, private router: Router, private signservice: SignService, private route: ActivatedRoute) {
     this.courseForm = this.fb.group({
       courseName: ['', [Validators.required, Validators.minLength(3)]],
-      trainerName: ['', [Validators.required, Validators.minLength(3)]],
+      trainerName: ['', [Validators.required, Validators.minLength(2)]],
       duration: [null, [Validators.required, Validators.min(1)]],
       technologies: [[], Validators.required],
       courseFee: [null, [Validators.required, Validators.min(0)]],
       credits: [null, [Validators.required, Validators.min(1), Validators.max(10)]],
       trainerRemark: ['', [Validators.maxLength(250)]],
-      // imageUrl: ['', [Validators.required, Validators.pattern(/https?:\/\/.+\.(png|jpg|jpeg)/)]]
     });
   }
 
   addTechnology(event: Event): void {
-    const input = event.target as HTMLInputElement; 
+    const input = event.target as HTMLInputElement;
     const technology = input.value.trim();
     const technologies = this.courseForm.get('technologies')?.value;
 
     if (technology && !technologies.includes(technology)) {
       technologies.push(technology);
       this.courseForm.get('technologies')?.setValue(technologies);
-      input.value = ''; 
+      input.value = '';
     }
   }
 
@@ -80,23 +78,23 @@ export class CourseAddComponent {
       if (!this.courseId) {
         formData.imageUrl = imagePaths[Math.floor(Math.random() * imagePaths.length)];
         console.log(formData.imageUrl);
-      }      
+      }
       if (this.courseId) {
         const courseId: string = this.courseId; // Ensure it's a string
-      
+
         this.coursesService.getcourseById(courseId).subscribe((existingCourse) => {
           if (!existingCourse) {
             console.error('Course not found.');
             alert('Error: Course not found.');
             return;
           }
-      
-          const formData = { 
-            ...this.courseForm.value,  
+
+          const formData = {
+            ...this.courseForm.value,
             students: existingCourse.students || [],
             imageUrl: existingCourse.imageUrl
           };
-      
+
           this.coursesService.updateCourse(courseId, formData).subscribe({
             next: () => {
               Swal.fire({
@@ -114,7 +112,6 @@ export class CourseAddComponent {
           });
         });
       }
-      
 
       else {
         this.coursesService.addItem(formData).subscribe({
@@ -141,7 +138,7 @@ export class CourseAddComponent {
               }
             });
             this.router.navigate(['/courses']);
-            this.courseForm.reset(); 
+            this.courseForm.reset();
           },
           error: (error) => {
             console.error('Error submitting the course:', error);
@@ -149,7 +146,8 @@ export class CourseAddComponent {
           }
         });
       }
-    } else {
+    } 
+    else {
       alert('Please correct the errors before submitting.');
     }
   }

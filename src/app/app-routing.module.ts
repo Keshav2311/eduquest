@@ -7,13 +7,11 @@ import { ForgotComponent } from './components/login/forgot/forgot.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { CoursesComponent } from './components/courses/courses.component';
-import { StudentComponent } from './components/student/student.component';
-import { IntructorComponent } from './components/intructor/intructor.component';
 import { CourseAddComponent } from './components/course-add/course-add.component';
-import { AdminComponent } from './components/admin/admin.component';
 import { N404Component } from './components/n404/n404.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TrendCoursesComponent } from './components/Home/trend-courses/trend-courses.component';
+
 const routes: Routes = [
   { path: "", component: HomeComponentComponent }, 
   { path: "home", component: HomeComponentComponent },
@@ -25,12 +23,11 @@ const routes: Routes = [
   { path: "courses", component: CoursesComponent },
   { path: "course_add", component: CourseAddComponent},
   { path: 'course_add/:id', component: CourseAddComponent } ,
-  { path:'dashboard',component:DashboardComponent},
+  { path: 'dashboard', component:DashboardComponent},
   { path: 'tending_courses', component: TrendCoursesComponent},
   { path: '**', component: N404Component}
 
 ];
-// i fail
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

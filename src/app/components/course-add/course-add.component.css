@@ -32,20 +32,20 @@ h2 {
   border-radius: 5px; /* Rounded edges for inputs */
 }
 
-.mdc-text-field--filled:not(.mdc-text-field--disabled) {
-  background-color: #eaeaee !important; /* Change this to your desired color */
+.mat-mdc-text-field {
+  --mdc-filled-text-field-container-color: white !important;
 }
 
 mat-form-field {
-  background-color: #ffffff; /* Input field background */
+  background-color: #ffffff !important; 
   padding: 10px;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
 
 mat-chip {
   margin-right: 5px;
-  background-color: #d7b3d7; /* Light purple chips */
+  background-color: #020102; /* Light purple chips */
   color: #f3eef3; /* Dark purple text for chips */
 }
 

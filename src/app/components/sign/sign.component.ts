@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./sign.component.css'],
 })
 export class SignComponent {
-  step = 1; 
+  step = 1;
   signupForm: FormGroup;
   user: UserInterface | undefined;
 
@@ -50,10 +50,11 @@ export class SignComponent {
           Validators.required,
           Validators.pattern('^(0|[1-9]|1[0-2])$'),
         ]);
-      } else {
+      }
+      else {
         this.signupForm.get('page2.experience')?.setValidators([
           Validators.required,
-          Validators.pattern('^(19|20)\\d{2}$'),
+          Validators.pattern('^201[0-9]$')
         ]);
       }
       this.signupForm.get('page2.experience')?.updateValueAndValidity();
@@ -79,20 +80,19 @@ export class SignComponent {
     return this.signupForm.get(`page${this.step}`) as FormGroup;
   }
 
-
-  ngOnInit(){
-      const luser = localStorage.getItem('users');
-      if(luser != null){
-        Swal.fire({
-          title: 'You are already Logged In!',
-          text: 'Welcome Back!',
-          icon: 'success',
-          timer: 3000,
-          showConfirmButton: false,
-        });
-        this.router.navigate(['/dashboard']);
-      }
+  ngOnInit() {
+    const luser = localStorage.getItem('users');
+    if (luser != null) {
+      Swal.fire({
+        title: 'You are already Logged In!',
+        text: 'Welcome Back!',
+        icon: 'success',
+        timer: 3000,
+        showConfirmButton: false,
+      });
+      this.router.navigate(['/dashboard']);
     }
+  }
 
   onSubmit(): void {
     const { password, confirmPassword } = this.signupForm.get('page3')?.value;
@@ -105,18 +105,16 @@ export class SignComponent {
 
       delete formData.confirmPassword;
       console.log(formData);
-      localStorage.setItem("users", JSON.stringify(formData))
 
       this.signService.addItem(formData).subscribe({
         next: (response) => {
-          console.log('Contact Detail Data added:', response);
           Swal.fire({
-            title: 'Welcome!',
-            text: 'Sign-up Successful!',
+            title: 'Thank You For Signing in!',
+            text: 'Sign-IN Successful!',
             icon: 'success',
             confirmButtonText: 'Continue',
             confirmButtonColor: '#28a745',
-          });          
+          });
           this.signupForm.reset();
           this.router.navigate(["/home"]);
         },
@@ -125,7 +123,7 @@ export class SignComponent {
           alert('Failed to submit the form. Please try again.');
         },
       });
-    } 
+    }
     else {
       Swal.fire({
         title: 'Error!',
@@ -133,7 +131,7 @@ export class SignComponent {
         icon: 'error',
         confirmButtonText: 'Try Again',
         confirmButtonColor: '#d33',
-      });    
+      });
     }
   }
 }

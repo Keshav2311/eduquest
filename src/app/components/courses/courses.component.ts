@@ -87,7 +87,7 @@ export class CoursesComponent implements OnInit {
         title: 'Already Enrolled',
         text: `You are already enrolled in ${courseName}.`,
         confirmButtonText: 'OK',
-      });
+      });  
       return;
     }
 

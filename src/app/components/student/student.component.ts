@@ -220,7 +220,7 @@ export class StudentComponent {
 
   createCharts(): void {
     const courseNames = this.coursedata.map(course => course.courseName);
-    const fees = this.coursedata.map(course => course.courseFee);
+    const duration = this.coursedata.map(course => course.duration);
     const credits = this.coursedata.map(course => course.credits);
 
     new Chart(this.feeChartRef.nativeElement, {
@@ -228,8 +228,8 @@ export class StudentComponent {
       data: {
         labels: courseNames,
         datasets: [{
-          label: 'Course Fees',
-          data: fees,
+          label: 'Course Duration',
+          data: duration,
           backgroundColor: [
             'rgba(255, 99, 132, 0.6)',
             'rgba(54, 162, 235, 0.6)',
@@ -243,7 +243,7 @@ export class StudentComponent {
     });
 
     new Chart(this.creditsChartRef.nativeElement, {
-      type: 'doughnut',
+      type: 'bar',
       data: {
         labels: courseNames,
         datasets: [{
