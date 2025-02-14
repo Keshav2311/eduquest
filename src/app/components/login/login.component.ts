@@ -52,51 +52,58 @@ export class LoginComponent {
       this.signService.getUsers().subscribe({
         next: (users) => {
           const userDetail = users.find((user) => user.email === email);
-          console.log(userDetail);
           
-          const userPassword = users.find((user) => user.password === password);
-          console.log(userPassword);
-          
-          let user = JSON.parse(localStorage.getItem('users') || '{}');
-          const isActive = user.active
-          console.log(isActive);
-
-          //userDetail is storing boolean data?
-          if(isActive === true){
-            if (userDetail && userPassword) {
-              this.store.dispatch(login({ user: userDetail }));
-
-              Swal.fire({
-                title: 'Welcome Back!',
-                text: 'Login successful!',
-                icon: 'success',
-                timer: 3000,
-                showConfirmButton: false,
-              });
-
-              this.store
-                .select((state: any) => state.auth.user.role)
-                .pipe(map((role) => (role === 'student' ? '/dashboard' : role === 'instructor' ? '/dashboard' : '/dashboard')))
-                .subscribe((route) => this.router.navigate([route]));
-            } 
-            else {
-              Swal.fire({
-                title: 'Error!',
-                text: 'User does not exist.',
-                icon: 'error',
-                timer: 3000,
-                showConfirmButton: false,
-              });
-            }
-          }
-          else{
+          if (!userDetail) {
             Swal.fire({
               title: 'Error!',
-              text: 'User is InActive',
+              text: 'User does not exist.',
+              icon: 'error',
+              timer: 3000,
+              showConfirmButton: false,
+            });
+            return;
+          }
+      
+          // Check if password matches for the correct user
+          if (userDetail.password !== password) {
+            Swal.fire({
+              title: 'Error!',
+              text: 'Invalid credentials!',
+              icon: 'error',
+              timer: 3000,
+              showConfirmButton: false,
+            });
+            return;
+          }
+      
+          // Check if user is active
+          if (!userDetail.active) {
+            Swal.fire({
+              title: 'Error!',
+              text: 'User is inactive. Please contact support.',
               icon: 'error',
               showConfirmButton: false,
             });
+            return;
           }
+      
+          // Dispatch login action and navigate based on role
+          this.store.dispatch(login({ user: userDetail }));
+      
+          Swal.fire({
+            title: 'Welcome Back!',
+            text: 'Login successful!',
+            icon: 'success',
+            timer: 3000,
+            showConfirmButton: false,
+          });
+      
+          this.store
+            .select((state: any) => state.auth.user.role)
+            .pipe(
+              map((role) => (role === 'student' ? '/dashboard' : role === 'instructor' ? '/dashboard' : '/dashboard'))
+            )
+            .subscribe((route) => this.router.navigate([route]));
         },
         error: (err) => {
           console.error('Error fetching users:', err);
@@ -108,6 +115,7 @@ export class LoginComponent {
           });
         },
       });
+      
     } else {
       Swal.fire({
         title: 'Invalid Email!',

@@ -54,6 +54,45 @@ export class IntructorComponent implements OnInit {
     });
   }
 
+  user_disable(id: string) {
+      console.log("Hi, I am disabling the user");
+    
+      Swal.fire({
+        title: 'Are you sure?',
+        text: 'You want to disable this user!',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Yes, disable!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.signService.getUserById(id).subscribe((user) => {
+            if (user) {
+              const updatedUser = { ...user, active: false }; // Keep all data, change only 'active'
+    
+              this.signService.updateUser(id, updatedUser).subscribe(() => {
+                Swal.fire('Disabled!', 'User has been disabled.', 'success').then(() => {
+                  localStorage.removeItem('users'); // Remove user data from local storage
+                  // let user = JSON.parse(localStorage.getItem('users') || '{}');
+                  // const isActive = user.active;
+                  // if(isActive === false){
+                  //   alert("user loggin required as this user is inactive")
+  
+                  // }
+                  setTimeout(() => {
+                    window.location.reload();
+                  }, 500);
+                });
+              });
+            } else {
+              Swal.fire('Error', 'User not found!', 'error');
+            }
+          });
+        }
+      });
+    }
+
   course_delete(courseId: string): void {
     this.coursesService.deleteCourse(courseId).subscribe({
       next: (res) => {
