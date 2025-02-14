@@ -144,6 +144,22 @@ body {
     border-radius: 10px;
 }
 
+mat-paginator{
+    border-radius: 10px;
+    box-shadow: 5px black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: right;
+    margin-bottom: 20px;
+    color: #1f0020;
+    font-weight: bolder;
+}
+
+.mat-mdc-paginator-touch-target {
+    color: black;
+}
+
 @media only screen and (max-width: 768px) {
     .spectacledcoder-search-bar:hover {
         width: 80%;

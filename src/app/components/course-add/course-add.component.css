@@ -51,11 +51,13 @@ mat-chip {
 
 button {
   display: block;
-  margin: 20px auto 0;
-  background-color: #a84ca8; /* Purple button background */
-  color: white; /* White text for buttons */
+  margin-left: 15px;
+  margin-right: 10px;
+  margin-top: 5px;
+  background-color: #240124; /* Purple button background */
+  color: rgb(248, 243, 243) !important; /* White text for buttons */
   font-weight: bold;
-  padding: 10px 20px;
+  padding: 2px 5px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -76,4 +78,18 @@ textarea, input[type="number"], input[type="text"] {
 
 textarea::placeholder, input::placeholder {
   color: #a084a0; /* Light placeholder color */
+}
+
+mat-label{
+  color: #020102;
+  font-weight: bold;
+}
+
+mat-chip{
+  color: #020102;
+  
+}
+
+.mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled) .mdc-evolution-chip__text-label{
+  color: #020102 !important;
 }

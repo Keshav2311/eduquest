@@ -11,6 +11,7 @@ import { MatDrawer } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatPaginatorModule} from '@angular/material/paginator'
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatToolbarModule,
     MatMenuModule,
     MatSidenavModule,
-    MatDrawer
+    MatDrawer,
+    MatPaginatorModule
   ],
   exports:[
     MatFormFieldModule,
@@ -43,6 +45,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatToolbarModule,
     MatMenuModule,
     MatSidenavModule,
-    MatDrawer
+    MatDrawer,
+    MatPaginatorModule
   ]})
 export class MaterialModule { }

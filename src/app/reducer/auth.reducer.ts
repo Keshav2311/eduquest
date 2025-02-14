@@ -12,7 +12,9 @@ const initialState: AuthState = {
 export const authReducer = createReducer(
   initialState,
   on(login, (state, { user }) => {
-    localStorage.setItem('users', JSON.stringify(user));
+
+    
+    localStorage.setItem('users', JSON.stringify({...user,password:'********'}));
     return { ...state, user };
   }),
   on(logout, () => {

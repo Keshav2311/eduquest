@@ -54,7 +54,7 @@ export class SignComponent {
       else {
         this.signupForm.get('page2.experience')?.setValidators([
           Validators.required,
-          Validators.pattern('^201[0-9]$')
+          Validators.pattern('^(201[0-9]|202[0-5])$')        
         ]);
       }
       this.signupForm.get('page2.experience')?.updateValueAndValidity();
@@ -104,6 +104,7 @@ export class SignComponent {
       };
 
       delete formData.confirmPassword;
+      formData.active = true;
       console.log(formData);
 
       this.signService.addItem(formData).subscribe({

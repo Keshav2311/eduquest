@@ -8,3 +8,12 @@ body {
     margin: 0; 
     font-family: Roboto, "Helvetica Neue", sans-serif; 
 }
+
+:root{
+    --mat-paginator-container-background-color: rgb(241, 237, 241);
+    --mdc-filled-text-field-container-color:rgb(247, 242, 247);
+    --mat-sys-on-surface-variant:rgb(7, 7, 7);
+    --mat-form-field-filled-with-label-container-padding-top: 40px;
+    --mdc-filled-text-field-input-text-color:rgb(27, 2, 34);
+
+}

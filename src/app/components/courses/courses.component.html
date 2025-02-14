@@ -59,5 +59,12 @@
     </div>
   </div>
 
+  <mat-paginator [length]="courses.length"
+                 [pageSize]="pageSize"
+                 [pageSizeOptions]="[6, 12, 18, 24, 100]"
+                 (page)="onPageChange($event)"
+                 aria-label="Select page">
+  </mat-paginator>
+
 
 </div>

@@ -5,6 +5,7 @@ import { AuthService } from '../../services/auth.service';
 import { Courseinterface } from '../../interfaces/courses';
 import * as Bootstrap from 'bootstrap';
 import Swal from 'sweetalert2';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-courses',
@@ -21,13 +22,14 @@ export class CoursesComponent implements OnInit {
   trainerName: string = '';
   enrolledCourses: Set<string> = new Set();
 
+  pageSize = 10;
+  pageIndex = 0;
+
   constructor(
     private coursesService: CoursesService, 
     private signservice: SignService, 
     private authservice: AuthService
   ) {}
-
-  
 
   ngOnInit(): void {
     this.fetchCourses();
@@ -37,10 +39,18 @@ export class CoursesComponent implements OnInit {
 
     const userData = localStorage.getItem('users');
     const user = userData ? JSON.parse(userData) : null;
-
     if (user && user.courses) {
       this.enrolledCourses = new Set(user.courses);
     }
+    this.filteredCourses = this.courses.slice(0, this.pageSize);
+  }
+
+  onPageChange(event: PageEvent) {
+    this.pageIndex = event.pageIndex;
+    this.pageSize = event.pageSize;
+    const startIndex = this.pageIndex * this.pageSize;
+    const endIndex = startIndex + this.pageSize;
+    this.filteredCourses = this.courses.slice(startIndex, endIndex);
   }
 
   fetchCourses(): void {
@@ -66,31 +76,6 @@ export class CoursesComponent implements OnInit {
     const userData = localStorage.getItem('users');
     const user = userData ? JSON.parse(userData) : null;
     const userId = user?.id;
-
-    if (!userId) {
-      Swal.fire({
-        icon: 'warning',
-        title: 'User Not Logged In',
-        text: 'Please login to enroll.',
-        confirmButtonText: 'OK',
-      });
-      return;
-    }
-
-    if(user.role === 'instructor'){
-      
-    }
-
-    if (this.enrolledCourses.has(id)) {
-      Swal.fire({
-        icon: 'info',
-        title: 'Already Enrolled',
-        text: `You are already enrolled in ${courseName}.`,
-        confirmButtonText: 'OK',
-      });  
-      return;
-    }
-
     const updatedCourses = [...(user.courses || []), id];
     const updatedUserData = { ...user, courses: updatedCourses };
 
@@ -99,13 +84,10 @@ export class CoursesComponent implements OnInit {
         this.coursesService.getcourseById(id).subscribe({
           next: (course) => {
             const updatedStudents = course.students ? [...course.students] : [];
-
             if (!updatedStudents.includes(userId)) {
               updatedStudents.push(userId);
             }
-
             const updatedCourse = { ...course, students: updatedStudents };
-
 
             this.coursesService.updateCourse(id, updatedCourse).subscribe({
               next: () => {

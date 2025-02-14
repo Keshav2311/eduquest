@@ -4,10 +4,18 @@
       <h3 class="fw-bolder mb-1 text-center">Instructor Dashboard Content</h3>
     </div>
     <div class="row align-items-center bg-dark text-light rounded shadow p-3">
-      <div class="col-md-4 col-sm-4 text-center">
+      <div class="col-md-4 col-sm-4 text-center align-items-center">
         <img
           src="https://media.istockphoto.com/id/1332100919/vector/man-icon-black-icon-person-symbol.jpg?s=612x612&w=0&k=20&c=AVVJkvxQQCuBhawHrUhDRTCeNQ3Jgt0K1tXjJsFy1eg="
           alt="Instructor Profile" class="img-fluid rounded-circle shadow-lg profile-img">
+          <div class="update p-4 mb-1 align-items-center">
+            <button class="fw-bolder mb-1 text-center w-25" id="update">
+              <i class="fas fa-edit"></i>
+            </button>
+            <button class="fw-bolder mb-1 text-center w-25" id="update">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </div>
       </div>
       <div class="col-md-3 col-sm-3 d-flex flex-column justify-content-center align-items-center">
         <h2 class="fw-bold">{{userInfo?.name}}</h2>
@@ -42,7 +50,7 @@
       <div class="d-flex flex-wrap justify-content-center align-items-center">
         <div *ngFor="let course of coursedata" class="row align-items-center rounded shadow p-4 m-2 col-md-5" id="card">
           <div>
-            <h2 class="fw-bold text-center" style="color: rgb(231, 189, 235);">{{course.courseName}}</h2>
+            <h2 class="fw-bold text-center text-truncate" style="color: rgb(231, 189, 235);">{{course.courseName}}</h2>
             <table>
               <thead>
                 <tr>
@@ -69,7 +77,7 @@
                 </tr>
                 <tr>
                   <td><strong>Trainer Remark</strong></td>
-                  <td class="px-3">{{ course.trainerRemark }}</td>
+                  <td class="px-3 text-truncate" style="max-width: 250px;">{{ course.trainerRemark }}</td>
                 </tr>
               </tbody>
             </table>

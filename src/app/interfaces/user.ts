@@ -8,4 +8,5 @@ export interface UserInterface {
     experience: Number,
     password: String
     courses?: String[],
+    active: boolean
 };

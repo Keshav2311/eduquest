@@ -52,9 +52,17 @@ export class LoginComponent {
       this.signService.getUsers().subscribe({
         next: (users) => {
           const userDetail = users.find((user) => user.email === email);
+          console.log(userDetail);
+          
           const userPassword = users.find((user) => user.password === password);
+          console.log(userPassword);
+          
+          const isActive = users.find((user) => user.active === true);
+          console.log(isActive);
 
-          if (userDetail && userPassword) {
+          //userDetail is storing boolean data?
+
+          if (userDetail && userPassword && isActive) {
             this.store.dispatch(login({ user: userDetail }));
 
             Swal.fire({

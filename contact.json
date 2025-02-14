@@ -42,7 +42,8 @@
       "role": "admin",
       "experience": 0,
       "password": "Admin@1234",
-      "courses": []
+      "courses": [],
+      "active": true
     },
     {
       "id": "t001",
@@ -55,7 +56,8 @@
       "courses": [
         "l567",
         "m789"
-      ]
+      ],
+      "active": true
     },
     {
       "id": "t002",
@@ -68,7 +70,8 @@
       "courses": [
         "c456",
         "f678"
-      ]
+      ],
+      "active": true
     },
     {
       "id": "t003",
@@ -81,7 +84,8 @@
       "courses": [
         "w123",
         "b456"
-      ]
+      ],
+      "active": true
     },
     {
       "id": "t004",
@@ -95,7 +99,8 @@
         "d345",
         "p678",
         "c49a"
-      ]
+      ],
+      "active": true
     },
     {
       "id": "s002",
@@ -103,15 +108,15 @@
       "email": "rohan.singh@gmail.com",
       "gender": "male",
       "role": "student",
-      "experience": 1,
-      "password": "Cloud@123",
+      "experience": 2020,
+      "password": "********",
       "courses": [
         "m789",
         "c456",
         "l567",
-        "p678",
-        "7986"
-      ]
+        "p678"
+      ],
+      "active": true
     },
     {
       "id": "s003",
@@ -119,12 +124,13 @@
       "email": "meera.nair@gmail.com",
       "gender": "female",
       "role": "student",
-      "experience": 2,
+      "experience": 2021,
       "password": "ML@meera",
       "courses": [
         "l567",
         "m789"
-      ]
+      ],
+      "active": true
     },
     {
       "id": "s004",
@@ -132,12 +138,13 @@
       "email": "amit.patel@gmail.com",
       "gender": "male",
       "role": "student",
-      "experience": 1,
+      "experience": 2022,
       "password": "Secure@amit",
       "courses": [
         "p678",
         "d345"
-      ]
+      ],
+      "active": true
     },
     {
       "id": "s005",
@@ -145,11 +152,12 @@
       "email": "sanya.kapoor@gmail.com",
       "gender": "female",
       "role": "student",
-      "experience": 3,
+      "experience": 2019,
       "password": "Data@sanya",
       "courses": [
         "d345"
-      ]
+      ],
+      "active": true
     },
     {
       "id": "s006",
@@ -157,12 +165,13 @@
       "email": "vivek.sharma@gmail.com",
       "gender": "male",
       "role": "student",
-      "experience": 1,
+      "experience": 2022,
       "password": "Web@vivek",
       "courses": [
         "b456",
         "72dc"
-      ]
+      ],
+      "active": true
     },
     {
       "id": "s007",
@@ -170,9 +179,10 @@
       "email": "neha.agarwal@gmail.com",
       "gender": "female",
       "role": "student",
-      "experience": 2,
+      "experience": 2021,
       "password": "DB@neha",
-      "courses": []
+      "courses": [],
+      "active": true
     },
     {
       "id": "s008",
@@ -180,11 +190,12 @@
       "email": "arjun.das@gmail.com",
       "gender": "male",
       "role": "student",
-      "experience": 3,
+      "experience": 2022,
       "password": "SoftEng@arjun",
       "courses": [
         "w123"
-      ]
+      ],
+      "active": true
     },
     {
       "id": "s009",
@@ -192,9 +203,10 @@
       "email": "kiran.nair@gmail.com",
       "gender": "female",
       "role": "student",
-      "experience": 2,
+      "experience": 2023,
       "password": "Net@kiran",
-      "courses": []
+      "courses": [],
+      "active": true
     },
     {
       "id": "s010",
@@ -202,11 +214,12 @@
       "email": "rahul.malhotra@gmail.com",
       "gender": "male",
       "role": "student",
-      "experience": 1,
+      "experience": 2024,
       "password": "AI@rahul",
       "courses": [
         "m789"
-      ]
+      ],
+      "active": true
     },
     {
       "id": "d81f",
@@ -218,7 +231,8 @@
       "password": "Ross@123",
       "courses": [
         "7986"
-      ]
+      ],
+      "active": true
     },
     {
       "id": "a34e",
@@ -230,7 +244,8 @@
       "password": "Achyut@2311",
       "courses": [
         "72dc"
-      ]
+      ],
+      "active": true
     },
     {
       "id": "95e0",
@@ -239,7 +254,32 @@
       "gender": "male",
       "role": "student",
       "experience": 2019,
-      "password": "Shivan@123"
+      "password": "Shivan@123",
+      "active": true
+    },
+    {
+      "id": "e85c",
+      "name": "Rijul Jain",
+      "email": "rijul.jain@gmail.com",
+      "gender": "male",
+      "role": "student",
+      "experience": 2010,
+      "password": "Rijul@1234",
+      "active": true,
+      "courses": [
+        "c456",
+        "l567"
+      ]
+    },
+    {
+      "id": "094d",
+      "name": "tapan",
+      "email": "tapan@gmial.com",
+      "gender": "male",
+      "role": "instructor",
+      "experience": 5,
+      "password": "Tapan@123",
+      "active": true
     }
   ],
   "courses": [
@@ -279,7 +319,8 @@
       "trainerRemark": "Requires statistics knowledge.",
       "students": [
         "s002",
-        "s003"
+        "s003",
+        "e85c"
       ]
     },
     {
@@ -297,7 +338,8 @@
       "credits": 5,
       "trainerRemark": "Prior programming experience helpful.",
       "students": [
-        "s002"
+        "s002",
+        "e85c"
       ]
     },
     {
@@ -407,9 +449,7 @@
       "courseFee": 100,
       "credits": 2,
       "trainerRemark": "Basic knowledge about databases",
-      "students": [
-        "s002"
-      ]
+      "students": []
     },
     {
       "id": "72dc",

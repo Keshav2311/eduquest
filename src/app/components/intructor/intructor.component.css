@@ -118,6 +118,16 @@
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.336);
 }
 
+#update{
+  background-color: #f6f5f7;
+  color: #2e022e;
+  border-radius: 5px;
+}
+
+#update:hover{
+  background-color: #ca9ec1;
+}
+
 .h1 {
   color: #f4f1f5;
   text-align: center;
