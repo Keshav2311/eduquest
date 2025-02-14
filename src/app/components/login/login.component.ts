@@ -57,32 +57,43 @@ export class LoginComponent {
           const userPassword = users.find((user) => user.password === password);
           console.log(userPassword);
           
-          const isActive = users.find((user) => user.active === true);
+          let user = JSON.parse(localStorage.getItem('users') || '{}');
+          const isActive = user.active
           console.log(isActive);
 
           //userDetail is storing boolean data?
+          if(isActive === true){
+            if (userDetail && userPassword) {
+              this.store.dispatch(login({ user: userDetail }));
 
-          if (userDetail && userPassword && isActive) {
-            this.store.dispatch(login({ user: userDetail }));
+              Swal.fire({
+                title: 'Welcome Back!',
+                text: 'Login successful!',
+                icon: 'success',
+                timer: 3000,
+                showConfirmButton: false,
+              });
 
-            Swal.fire({
-              title: 'Welcome Back!',
-              text: 'Login successful!',
-              icon: 'success',
-              timer: 3000,
-              showConfirmButton: false,
-            });
-
-            this.store
-              .select((state: any) => state.auth.user.role)
-              .pipe(map((role) => (role === 'student' ? '/dashboard' : role === 'instructor' ? '/dashboard' : '/dashboard')))
-              .subscribe((route) => this.router.navigate([route]));
-          } else {
+              this.store
+                .select((state: any) => state.auth.user.role)
+                .pipe(map((role) => (role === 'student' ? '/dashboard' : role === 'instructor' ? '/dashboard' : '/dashboard')))
+                .subscribe((route) => this.router.navigate([route]));
+            } 
+            else {
+              Swal.fire({
+                title: 'Error!',
+                text: 'User does not exist.',
+                icon: 'error',
+                timer: 3000,
+                showConfirmButton: false,
+              });
+            }
+          }
+          else{
             Swal.fire({
               title: 'Error!',
-              text: 'User does not exist.',
+              text: 'User is InActive',
               icon: 'error',
-              timer: 3000,
               showConfirmButton: false,
             });
           }

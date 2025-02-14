@@ -14,6 +14,7 @@ import Swal from 'sweetalert2';
 export class CourseAddComponent {
   courseForm: FormGroup;
   courseId: string | null = null;
+  role: String | null = null;
 
   constructor(private fb: FormBuilder, private coursesService: CoursesService, private router: Router, private signservice: SignService, private route: ActivatedRoute) {
     this.courseForm = this.fb.group({
@@ -49,6 +50,12 @@ export class CourseAddComponent {
   }
 
   ngOnInit(): void {
+    let user = JSON.parse(localStorage.getItem('users') || '{}');
+    this.role = user.role;
+    if(this.role === "student" || this.role === "admin" || this.role === ""){
+      this.router.navigate(['/**'])
+    }
+    // this.role = JSON.parse(localStorage.getItem('users')).role;
     this.route.paramMap.subscribe(params => {
       this.courseId = params.get('id');
       console.log('Course ID:', this.courseId);
