@@ -301,7 +301,8 @@
         "s002",
         "s003",
         "s010"
-      ]
+      ],
+      "flag": true
     },
     {
       "id": "l567",
@@ -321,7 +322,8 @@
         "s002",
         "s003",
         "e85c"
-      ]
+      ],
+      "flag": true
     },
     {
       "id": "c456",
@@ -340,7 +342,8 @@
       "students": [
         "s002",
         "e85c"
-      ]
+      ],
+      "flag": true
     },
     {
       "id": "f678",
@@ -358,7 +361,8 @@
       "trainerRemark": "Cybersecurity Basics recommended.",
       "students": [
         "s004"
-      ]
+      ],
+      "flag": true
     },
     {
       "id": "w123",
@@ -377,7 +381,8 @@
       "trainerRemark": "Prior JavaScript experience recommended.",
       "students": [
         "s008"
-      ]
+      ],
+      "flag": true
     },
     {
       "id": "b456",
@@ -396,7 +401,8 @@
       "students": [
         "s003",
         "s006"
-      ]
+      ],
+      "flag": true
     },
     {
       "id": "d345",
@@ -415,7 +421,8 @@
       "students": [
         "s005",
         "s004"
-      ]
+      ],
+      "flag": true
     },
     {
       "id": "p678",
@@ -434,7 +441,8 @@
       "students": [
         "s002",
         "s004"
-      ]
+      ],
+      "flag": true
     },
     {
       "id": "7986",
@@ -449,7 +457,8 @@
       "courseFee": 100,
       "credits": 2,
       "trainerRemark": "Basic knowledge about databases",
-      "students": []
+      "students": [],
+      "flag": true
     },
     {
       "id": "72dc",
@@ -469,7 +478,8 @@
       "trainerRemark": "Advanced MERN Stack course that will start from the beginners level to advanced level.",
       "students": [
         "s006"
-      ]
+      ],
+      "flag": true
     },
     {
       "id": "c49a",
@@ -484,7 +494,8 @@
       "courseFee": 200,
       "credits": 8,
       "trainerRemark": "Nothing",
-      "imageUrl": "assets/images/courses/image_1.webp"
+      "imageUrl": "assets/images/courses/image_1.webp",
+      "flag": true
     }
   ],
   "faq": [

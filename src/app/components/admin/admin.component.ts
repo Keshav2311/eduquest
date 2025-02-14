@@ -99,87 +99,6 @@ export class AdminComponent {
     }
   }
 
-  deleteCourse(courseId: string): void {
-    console.log("Delete function invoked");
-
-    this.courseService.getcourseById(courseId).subscribe({
-      next: (course) => {
-        if (!course || !course.students || course.students.length === 0) {
-          // If no students are enrolled, delete the course immediately
-          this.confirmAndDeleteCourse(courseId);
-          return;
-        }
-
-        // Remove course from students and then delete the course
-        this.removeCourseFromUsers(course.students, courseId)
-          .then(() => this.confirmAndDeleteCourse(courseId))
-          .catch((error) => console.error("Error updating students:", error));
-      },
-      error: (err) => console.error("Error fetching course details:", err),
-    });
-  }
-
-  // ✅ Helper function to update students and remove course from their list
-  async removeCourseFromUsers(studentIds: string[], courseId: string): Promise<void> {
-    const updatePromises = studentIds.map(studentId =>
-      this.signservice.getUserById(studentId).toPromise().then(student => {
-        if (!student || !student.courses) return;
-
-        const updatedCourses = student.courses.filter((id: string) => id !== courseId);
-        return this.signservice.updateUser(studentId, { ...student, courses: updatedCourses }).toPromise();
-      })
-    );
-
-    // Fetch all instructors safely
-    const allUsers = await this.signservice.getUsers().toPromise();
-    if (!allUsers || !Array.isArray(allUsers)) {
-      console.error("Failed to fetch users or received invalid data.");
-      return;
-    }
-
-    // Filter instructors with the course
-    const instructorsToUpdate = allUsers.filter(user =>
-      user.role === 'instructor' && user.courses && user.courses.includes(courseId)
-    );
-
-    // Remove course from instructors' course array
-    const instructorUpdatePromises = instructorsToUpdate.map(instructor => {
-      const updatedCourses = instructor.courses.filter((id: string) => id !== courseId);
-      return this.signservice.updateUser(instructor.id, { ...instructor, courses: updatedCourses }).toPromise();
-    });
-
-    await Promise.all([...updatePromises, ...instructorUpdatePromises]);
-
-    console.log(`Course ${courseId} removed from students and instructors.`);
-  }
-
-
-
-  // ✅ Helper function to confirm and delete course
-  confirmAndDeleteCourse(courseId: string): void {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "This action cannot be undone!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#d33",
-      cancelButtonColor: "#3085d6",
-      confirmButtonText: "Yes, delete it!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        this.courseService.deleteCourse(courseId).subscribe({
-          next: () => {
-            Swal.fire("Deleted!", "Course has been deleted.", "success");
-
-            // Update UI to remove the deleted course
-            this.displayedData = this.displayedData.filter(course => course.id !== courseId);
-          },
-          error: (err) => console.error("Error deleting course:", err),
-        });
-      }
-    });
-  }
-
   desable_User(userId: string): void {
     console.log("Toggling user status...");
   
@@ -232,6 +151,52 @@ export class AdminComponent {
       }
     });
   }
+
+  toggleCourseStatus(courseId: string): void {
+    console.log("Toggling course status...");
+  
+    // Find the course from the current list
+    const course = this.coursesInfo.find((c: any) => c.id === courseId);
+  
+    if (!course) {
+      Swal.fire('Error', 'Course not found!', 'error');
+      return;
+    }
+  
+    const newStatus = !course.flag; // Toggle active status
+  
+    Swal.fire({
+      title: 'Are you sure?',
+      text: `You want to ${newStatus ? 'enable' : 'disable'} this course!`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: newStatus ? '#28a745' : '#d33',
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: `Yes, ${newStatus ? 'enable' : 'disable'}!`
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const updatedCourse = { ...course, active: newStatus };
+  
+        this.courseService.updateCourse(courseId, updatedCourse).subscribe(() => {
+          Swal.fire(
+            newStatus ? 'Enabled!' : 'Disabled!',
+            `Course has been ${newStatus ? 'enabled' : 'disabled'}.`,
+            'success'
+          ).then(() => {
+            // Refresh courses after updating
+            this.fetchCourses();
+  
+            // Update local storage
+            let courses = JSON.parse(localStorage.getItem('courses') || '[]');
+            courses = courses.map((c: any) => (c.id === courseId ? updatedCourse : c));
+            localStorage.setItem('courses', JSON.stringify(courses));
+          });
+        });
+      }
+    });
+  }
+  
+  
   
   
 

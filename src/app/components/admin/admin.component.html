@@ -79,8 +79,13 @@
               <td class="m-2 text-center">{{ course.trainerName }}</td>
               <td class="m-2 text-center">{{ course.courseFee }}</td>
               <td>
-                <button class="btn btn-danger btn-sm m-2 fw-bold" (click)="deleteCourse(course.id)">Disable</button>
-              </td>
+                <button 
+                class="btn btn-sm fw-bold m-2" 
+                [ngClass]="course.active ? 'btn-danger' : 'btn-success'"
+                (click)="toggleCourseStatus(course.id)">
+                {{ course.active ? 'Enable' : 'Disable' }}
+              </button>              
+            </td>
             </tr>
           </tbody>
         </table>

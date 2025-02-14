@@ -9,4 +9,5 @@ export interface Courseinterface {
     credits: number;
     trainerRemark: string;
     students : string[];
+    flag: boolean;
 }

@@ -84,6 +84,7 @@ export class CourseAddComponent {
 
       if (!this.courseId) {
         formData.imageUrl = imagePaths[Math.floor(Math.random() * imagePaths.length)];
+        formData.flag = true;
         console.log(formData.imageUrl);
       }
       if (this.courseId) {
