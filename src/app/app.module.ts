@@ -42,6 +42,7 @@ import { N404Component } from './components/n404/n404.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FaqService } from './services/faq.service';
 import { TestimonialService } from './services/testimonial.service';
+import { ModalSignComponent } from './components/modal-sign/modal-sign.component';
 
 
 
@@ -68,7 +69,8 @@ import { TestimonialService } from './services/testimonial.service';
     CourseAddComponent,
     AdminComponent,
     N404Component,
-    DashboardComponent    
+    DashboardComponent,
+    ModalSignComponent
   ],
   imports: [
     BrowserAnimationsModule,

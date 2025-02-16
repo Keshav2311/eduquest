@@ -6,6 +6,8 @@ import { CoursesService } from '../../services/courses.service';
 import Swal from 'sweetalert2';
 import Chart from 'chart.js/auto';
 import { Router } from '@angular/router';
+import * as Bootstrap from 'bootstrap';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-student',
@@ -21,10 +23,22 @@ export class StudentComponent {
   coursedata: Courseinterface[] = [];
   count: number = 0;
 
+  updateForm: FormGroup;
+  selectedUser: UserInterface | null = null;
+  users: UserInterface[] = [];
+
   @ViewChild('feeChart') feeChartRef!: ElementRef;
   @ViewChild('creditsChart') creditsChartRef!: ElementRef;
 
-  constructor(private signService: SignService, private coursesService: CoursesService, private cdr: ChangeDetectorRef, private router: Router) { }
+  constructor(private signService: SignService, private coursesService: CoursesService, private cdr: ChangeDetectorRef, private router: Router, private fb: FormBuilder) {
+    this.updateForm = this.fb.group({
+      id: [''],
+      name: ['', [Validators.required, Validators.minLength(2)]],
+      email: ['', [Validators.required, Validators.email]],
+      gender: ['', Validators.required],
+      experience: ['', Validators.required],
+    });
+  }
 
   ngOnInit(): void {
     if (this.luser && this.luser.id) {
@@ -32,9 +46,7 @@ export class StudentComponent {
         next: (res) => {
           this.userInfo = res;
           this.courseslist = this.userInfo?.courses || [];
-          for (let i = 0; i < this.courseslist.length; i++) {
-            this.count++;
-          }
+          this.count = this.courseslist.length;
           this.fetchCourses();
         },
         error: (err) => {
@@ -56,7 +68,7 @@ export class StudentComponent {
           () => ({ courseId, course: null }) // Handle errors gracefully
         )
       );
-  
+
       Promise.all(courseRequests)
         .then((courseResults) => {
           debugger; // Execution will pause here
@@ -65,15 +77,15 @@ export class StudentComponent {
             .filter((entry) => entry.course !== null)
             .map((entry) => entry.course);
 
-            const invalidCourseIds: string[] = courseResults
+          const invalidCourseIds: string[] = courseResults
             .filter((entry) => entry.course === null)
             .map((entry) => entry.courseId.toString());
-  
+
           this.coursedata = validCourses;
           console.log('Fetched courses:', this.coursedata);
           this.cdr.detectChanges();
           this.createCharts();
-  
+
           // If there are missing courses, ask the user if they want to unenroll
           if (invalidCourseIds.length > 0) {
             Swal.fire({
@@ -97,22 +109,22 @@ export class StudentComponent {
       console.log('No courses found for the user.');
     }
   }
-  
+
   // ✅ Function to unenroll from missing courses
   unenrollFromMissingCourses(missingCourseIds: string[]): void {
     if (!this.luser || !this.luser.id) {
       console.error('User not found in local storage.');
       return;
     }
-  
+
     this.signService.getUserById(this.luser.id).subscribe({
       next: (user) => {
         if (!user || !user.courses) return;
-  
+
         // Remove missing courses from user's enrolled courses
         const updatedCourses = user.courses.filter((id: string) => !missingCourseIds.includes(id));
         const updatedUser = { ...user, courses: updatedCourses };
-  
+
         // Update the user in the database
         this.signService.updateUser(this.luser.id, updatedUser).subscribe({
           next: () => {
@@ -123,7 +135,7 @@ export class StudentComponent {
               timer: 2000,
               showConfirmButton: false,
             });
-  
+
             // Update UI
             this.courseslist = updatedCourses;
             this.cdr.detectChanges();
@@ -138,10 +150,10 @@ export class StudentComponent {
       },
     });
   }
-  
+
   user_disable(id: string) {
     console.log("Hi, I am disabling the user");
-  
+
     Swal.fire({
       title: 'Are you sure?',
       text: 'You want to disable this user!',
@@ -155,7 +167,7 @@ export class StudentComponent {
         this.signService.getUserById(id).subscribe((user) => {
           if (user) {
             const updatedUser = { ...user, active: false }; // Keep all data, change only 'active'
-  
+
             this.signService.updateUser(id, updatedUser).subscribe(() => {
               Swal.fire('Disabled!', 'User has been disabled.', 'success').then(() => {
                 localStorage.removeItem('users'); // Remove user data from local storage
@@ -177,8 +189,39 @@ export class StudentComponent {
       }
     });
   }
-  
 
+  user_update(id: string) {
+    this.signService.getUserById(id).subscribe(user => {
+      this.selectedUser = user;
+      this.updateForm.patchValue(user);
+      const modal = new Bootstrap.Modal(document.getElementById('updateUserModal') as HTMLElement);
+      modal.show();
+    });
+  }
+
+  onUpdate() {
+    this.signService.getUserById(this.luser.id).subscribe({
+
+    });
+
+    if (this.updateForm.valid) {
+      const formData = {
+        ...this.updateForm.value,
+        role: this.userInfo?.role,
+        password: this.userInfo?.password,
+        courses: this.userInfo?.courses,
+        active: this.userInfo?.active
+      }
+      const updatedUser = formData;
+      this.signService.updateUser(updatedUser.id, updatedUser).subscribe({
+        next: () => {
+          Swal.fire('Updated!', 'User details updated successfully.', 'success');
+          setTimeout(() => window.location.reload(), 500);
+        },
+        error: (err) => console.error('Error updating user:', err)
+      });
+    }
+  }
 
   course_delete(courseId: string): void {
     const user = JSON.parse(localStorage.getItem('users') || '{}');
@@ -249,7 +292,7 @@ export class StudentComponent {
     });
     setTimeout(() => {
       window.location.reload();
-    }, 500); 
+    }, 500);
   }
 
   ngAfterViewInit(): void {
@@ -300,5 +343,12 @@ export class StudentComponent {
         }]
       }
     });
+  }
+
+  show_update(user: any): void {
+    this.selectedUser = user;
+    this.updateForm.patchValue(user);
+    const modal = new Bootstrap.Modal(document.getElementById('updateUserModal') as HTMLElement);
+    modal.show();
   }
 }

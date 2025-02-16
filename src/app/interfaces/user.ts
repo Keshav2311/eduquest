@@ -4,7 +4,6 @@ export interface UserInterface {
     email: String
     gender: String,
     role: String,
-    interest: String,
     experience: Number,
     password: String
     courses?: String[],

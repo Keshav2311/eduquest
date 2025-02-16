@@ -14,7 +14,7 @@ import Swal from 'sweetalert2';
 })
 export class AdminComponent {
   admin$: any[] = [];
-
+  
   adminInfo: UserInterface | undefined;
   coursesInfo: Courseinterface[] = [];
   coursedata: Courseinterface | undefined;
@@ -51,7 +51,6 @@ export class AdminComponent {
   }
 
   fetchUsers(): void {
-    debugger;
     this.signservice.getUsers().subscribe({
       next: (res) => {
         this.studentInfo = res.filter((user: UserInterface) => user.role === 'student');
@@ -67,7 +66,6 @@ export class AdminComponent {
   }
 
   fetchCourses(): void {
-    debugger;
     this.courseService.getCourses().subscribe({
       next: (res) => {
         this.coursesInfo = res;
@@ -163,7 +161,7 @@ export class AdminComponent {
       return;
     }
   
-    const newStatus = !course.flag; // Toggle active status
+    const newStatus = !course.flag; // Toggle flag (true -> false, false -> true)
   
     Swal.fire({
       title: 'Are you sure?',
@@ -175,7 +173,7 @@ export class AdminComponent {
       confirmButtonText: `Yes, ${newStatus ? 'enable' : 'disable'}!`
     }).then((result) => {
       if (result.isConfirmed) {
-        const updatedCourse = { ...course, active: newStatus };
+        const updatedCourse = { ...course, flag: newStatus }; // Keep everything, just update flag
   
         this.courseService.updateCourse(courseId, updatedCourse).subscribe(() => {
           Swal.fire(
@@ -195,130 +193,4 @@ export class AdminComponent {
       }
     });
   }
-  
-  
-  
-  
-
-
-  // deleteInstructor(userId: string): void {
-  //   console.log("Delete function invoked");
-
-  //   Swal.fire({
-  //     title: "Are you sure?",
-  //     text: "This will permanently remove the user and update their enrolled courses.",
-  //     icon: "warning",
-  //     showCancelButton: true,
-  //     confirmButtonColor: "#d33",
-  //     cancelButtonColor: "#3085d6",
-  //     confirmButtonText: "Yes, delete!",
-  //   }).then((result) => {
-  //     if (result.isConfirmed) {
-  //       this.signservice.getUserById(userId).subscribe({
-  //         next: (user) => {
-  //           if (!user || !user.courses || user.courses.length === 0) {
-  //             // No courses enrolled, delete user directly
-  //             this.confirmAndDeleteInstructor(userId);
-  //             return;
-  //           }
-
-  //           // Step 1: Remove the user from enrolled courses
-  //           this.updateCoursesForDeletedInstructor(user.courses, userId)
-  //             .then(() => this.confirmAndDeleteInstructor(userId))
-  //             .catch((err) => console.error("Error updating courses:", err));
-  //         },
-  //         error: (err) => console.error("Error fetching user details:", err),
-  //       });
-  //     }
-  //   });
-  // }
-
-  // // ✅ Helper function to update courses and remove user from enrolled students
-  // async updateCoursesForDeletedInstructor(courseIds: string[], userId: string): Promise<void> {
-  //   const courseUpdatePromises = courseIds.map(courseId =>
-  //     this.courseService.getcourseById(courseId).toPromise().then(course => {
-  //       if (!course || !course.students) return;
-
-  //       const updatedStudents = course.students.filter((id: string) => id !== userId);
-
-  //       return this.courseService.updateCourse(courseId, { ...course, students: updatedStudents }).toPromise();
-  //     })
-  //   );
-
-  //   await Promise.all(courseUpdatePromises);
-  // }
-
-  // // ✅ Helper function to confirm and delete user
-  // confirmAndDeleteInstructor(userId: string): void {
-  //   this.signservice.deleteUser(userId).subscribe({
-  //     next: () => {
-  //       Swal.fire("Deleted!", "User has been deleted.", "success");
-
-  //       // Update UI to remove the deleted user
-  //       this.displayedData = this.displayedData.filter(user => user.id !== userId);
-  //     },
-  //     error: (err) => console.error("Error deleting user:", err),
-  //   });
-  // }
-
-
-  // deleteStudent(userId: string): void {
-  //   console.log("Delete function invoked for student");
-
-  //   Swal.fire({
-  //     title: "Are you sure?",
-  //     text: "This will permanently remove the student and update enrolled courses.",
-  //     icon: "warning",
-  //     showCancelButton: true,
-  //     confirmButtonColor: "#d33",
-  //     cancelButtonColor: "#3085d6",
-  //     confirmButtonText: "Yes, delete!",
-  //   }).then((result) => {
-  //     if (result.isConfirmed) {
-  //       this.signservice.getUserById(userId).subscribe({
-  //         next: (user) => {
-  //           if (!user || !user.courses || user.courses.length === 0) {
-  //             // No courses enrolled, delete student directly
-  //             this.confirmAndDeleteStudent(userId);
-  //             return;
-  //           }
-
-  //           // Step 1: Remove student ID from enrolled courses
-  //           this.updateCoursesForDeletedStudent(user.courses, userId)
-  //             .then(() => this.confirmAndDeleteStudent(userId))
-  //             .catch((err) => console.error("Error updating courses:", err));
-  //         },
-  //         error: (err) => console.error("Error fetching student details:", err),
-  //       });
-  //     }
-  //   });
-  // }
-
-  // // ✅ Helper function to update courses and remove student from enrolled students
-  // async updateCoursesForDeletedStudent(courseIds: string[], userId: string): Promise<void> {
-  //   const courseUpdatePromises = courseIds.map(courseId =>
-  //     this.courseService.getcourseById(courseId).toPromise().then(course => {
-  //       if (!course || !course.students) return;
-
-  //       const updatedStudents = course.students.filter((id: string) => id !== userId);
-
-  //       return this.courseService.updateCourse(courseId, { ...course, students: updatedStudents }).toPromise();
-  //     })
-  //   );
-
-  //   await Promise.all(courseUpdatePromises);
-  // }
-
-  // // ✅ Helper function to confirm and delete student
-  // confirmAndDeleteStudent(userId: string): void {
-  //   this.signservice.deleteUser(userId).subscribe({
-  //     next: () => {
-  //       Swal.fire("Deleted!", "Student has been deleted.", "success");
-
-  //       // Update UI to remove the deleted student
-  //       this.displayedData = this.displayedData.filter(user => user.id !== userId);
-  //     },
-  //     error: (err) => console.error("Error deleting student:", err),
-  //   });
-  // }
 }

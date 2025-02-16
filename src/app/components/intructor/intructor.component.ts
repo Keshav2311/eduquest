@@ -6,6 +6,8 @@ import { Courseinterface } from '../../interfaces/courses';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { forkJoin } from 'rxjs';
+import * as Bootstrap from 'bootstrap';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-instructor',
@@ -21,8 +23,20 @@ export class IntructorComponent implements OnInit {
   count: number = 0;
   countStudent: number = 0;
 
+  updateForm: FormGroup;
+  selectedUser: UserInterface | null = null;
+  users: UserInterface[] = [];
 
-  constructor(private signService: SignService, private coursesService: CoursesService, private router: Router ) { }
+
+  constructor(private signService: SignService, private coursesService: CoursesService, private router: Router, private fb: FormBuilder) { 
+    this.updateForm = this.fb.group({
+      id: [''],
+      name: ['', [Validators.required, Validators.minLength(2)]],
+      email: ['', [Validators.required, Validators.email]],
+      gender: ['', Validators.required],
+      experience: ['', Validators.required],
+    });
+  }
 
   ngOnInit() {
     this.signService.getUserById(this.luser.id).subscribe({
@@ -30,21 +44,13 @@ export class IntructorComponent implements OnInit {
         this.userInfo = res;
         this.courseslist = this.userInfo?.courses || [];
         this.count = this.courseslist.length;  
-        console.log(this.count);
         
         if (this.courseslist.length > 0) {
-          // Fetch all courses in parallel using forkJoin
           forkJoin(this.courseslist.map(courseId => this.coursesService.getcourseById(courseId)))
             .subscribe({
-
-              next: (courses) => {
-                console.log(courses);
-                
-
+              next: (courses) => {                
                 this.coursedata = courses;
                 this.countStudent = this.coursedata.reduce((total, course) => total + (course?.students?.length || 0), 0);
-                console.log('Courses:', this.coursedata);
-                console.log('Total students:', this.countStudent);
               },
               error: (err) => console.error('Error fetching courses:', err)
             });
@@ -93,6 +99,39 @@ export class IntructorComponent implements OnInit {
       });
     }
 
+  user_update(id: string){
+    this.signService.getUserById(id).subscribe(user => {
+      this.selectedUser = user;
+      this.updateForm.patchValue(user);
+      const modal = new Bootstrap.Modal(document.getElementById('updateUserModal') as HTMLElement);
+      modal.show();
+    });
+  }
+
+  onUpdate() {
+    this.signService.getUserById(this.luser.id).subscribe({
+      
+    });
+
+    if (this.updateForm.valid) {
+      const formData = {
+        ...this.updateForm.value,
+        role: this.userInfo?.role,
+        password: this.userInfo?.password,
+        courses: this.userInfo?.courses,
+        active: this.userInfo?.active
+      }
+      const updatedUser = formData;
+      this.signService.updateUser(updatedUser.id, updatedUser).subscribe({
+        next: () => {
+          Swal.fire('Updated!', 'User details updated successfully.', 'success');
+          setTimeout(() => window.location.reload(), 500);
+        },
+        error: (err) => console.error('Error updating user:', err)
+      });
+    }
+  }
+
   course_delete(courseId: string): void {
     this.coursesService.deleteCourse(courseId).subscribe({
       next: (res) => {
@@ -116,5 +155,12 @@ export class IntructorComponent implements OnInit {
 
   course_edit(courseId: string): void{
   this.router.navigate(['/course_add', courseId]);
+  }
+
+  show_update(user: any): void{
+    this.selectedUser = user;
+    this.updateForm.patchValue(user);
+    const modal = new Bootstrap.Modal(document.getElementById('updateUserModal') as HTMLElement);
+    modal.show();
   }
 }
