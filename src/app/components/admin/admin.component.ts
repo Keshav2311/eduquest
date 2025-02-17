@@ -1,9 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { UserInterface } from '../../interfaces/user';
 import { SignService } from '../../services/sign.service';
 import { CoursesService } from '../../services/courses.service';
 import { Courseinterface } from '../../interfaces/courses';
 import Swal from 'sweetalert2';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import * as Bootstrap from 'bootstrap';
+import Chart from 'chart.js/auto';
+
+
 
 
 @Component({
@@ -12,7 +17,7 @@ import Swal from 'sweetalert2';
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.css'
 })
-export class AdminComponent {
+export class AdminComponent implements OnInit{
   admin$: any[] = [];
   
   adminInfo: UserInterface | undefined;
@@ -29,7 +34,23 @@ export class AdminComponent {
   luser = JSON.parse(localStorage.getItem('users') || '{}');
   loading: boolean = false;
 
-  constructor(private signservice: SignService, private courseService: CoursesService) { }
+  updateForm: FormGroup;
+  selectedUser: UserInterface | null = null;
+  users: UserInterface[] = [];
+
+  @ViewChild('studentChart') studentChartRef!: ElementRef;
+  @ViewChild('instructorChart') instructorChartRef!: ElementRef;
+  studentChart!: Chart;
+  instructorChart!: Chart;
+
+  constructor(private signservice: SignService, private courseService: CoursesService, private fb: FormBuilder) { 
+    this.updateForm = this.fb.group({
+          id: [''],
+          name: ['', [Validators.required, Validators.minLength(2)]],
+          email: ['', [Validators.required, Validators.email]],
+          gender: ['', Validators.required],
+        });
+  }
 
   ngOnInit(): void {
     if (this.luser && this.luser.id) {
@@ -48,6 +69,7 @@ export class AdminComponent {
 
     this.fetchUsers();
     this.fetchCourses();
+    this.showTable('courses')
   }
 
   fetchUsers(): void {
@@ -55,6 +77,7 @@ export class AdminComponent {
       next: (res) => {
         this.studentInfo = res.filter((user: UserInterface) => user.role === 'student');
         this.instructorInfo = res.filter((user: UserInterface) => user.role === 'instructor');
+        // this.createInstructorChart();
 
         console.log('Students:', this.studentInfo);
         console.log('Instructors:', this.instructorInfo);
@@ -69,6 +92,7 @@ export class AdminComponent {
     this.courseService.getCourses().subscribe({
       next: (res) => {
         this.coursesInfo = res;
+        // this.createStudentChart();
         console.log('Courses:', this.coursesInfo);
       },
       error: (err) => {
@@ -76,6 +100,66 @@ export class AdminComponent {
       },
     });
   }
+
+  // createStudentChart(): void {
+  //   const courseLabels = this.coursesInfo.map(course => course.courseName);
+  //   const studentCounts = this.coursesInfo.map(course => course.students?.length || 0);
+    
+  //   this.studentChart = new Chart(this.studentChartRef.nativeElement, {
+  //     type: 'bar',
+  //     data: {
+  //       labels: courseLabels,
+  //       datasets: [{
+  //         label: 'Students per Course',
+  //         data: studentCounts,
+  //         backgroundColor: 'rgba(54, 162, 235, 0.5)',
+  //         borderColor: 'rgba(54, 162, 235, 1)',
+  //         borderWidth: 1
+  //       }]
+  //     },
+  //     options: {
+  //       responsive: true,
+  //       scales: {
+  //         y: { beginAtZero: true }
+  //       }
+  //     }
+  //   });
+  // }
+
+  // createInstructorChart(): void {
+  //   // Destroy previous instance if it exists
+  //   if (this.instructorChart) {
+  //     this.instructorChart.destroy();
+  //   }
+  
+  //   const experienceData = this.instructorInfo.map(inst => inst.experience || 0);
+  //   const instructorNames = this.instructorInfo.map(inst => inst.name);
+  
+  //   this.instructorChart = new Chart(this.instructorChartRef.nativeElement, {
+  //   //   type: 'pie',
+  //   //   data: {
+  //   //     labels: instructorNames,
+  //   //     datasets: [{
+  //   //       label: 'Years of Experience',
+  //   //       data: experienceData,
+  //   //       backgroundColor: [
+  //   //         '#FF6384',
+  //   //         '#36A2EB',
+  //   //         '#FFCE56',
+  //   //         '#4BC0C0',
+  //   //         '#9966FF',
+  //   //         '#a8d0e6',
+  //   //         '#f76c6c'
+  //   //       ],
+  //   //     }]
+  //   //   },
+  //   //   options: {
+  //   //     responsive: true
+  //   //   }
+  //   // });
+  // }
+  
+  
 
   showTable(type: string): void {
     if (this.selectedTable === type) {
@@ -96,6 +180,40 @@ export class AdminComponent {
       }, 1000);
     }
   }
+
+  user_update(id: string){
+      this.signservice.getUserById(id).subscribe(user => {
+        this.selectedUser = user;
+        this.updateForm.patchValue(user);
+        const modal = new Bootstrap.Modal(document.getElementById('updateUserModal') as HTMLElement);
+        modal.show();
+      });
+    }
+  
+    onUpdate() {
+      this.signservice.getUserById(this.luser.id).subscribe({
+        
+      });
+  
+      if (this.updateForm.valid) {
+        const formData = {
+          ...this.updateForm.value,
+          role: this.adminInfo?.role,
+          experience: this.adminInfo?.experience,
+          password: this.adminInfo?.password,
+          courses: this.adminInfo?.courses,
+          active: this.adminInfo?.active
+        }
+        const updatedUser = formData;
+        this.signservice.updateUser(updatedUser.id, updatedUser).subscribe({
+          next: () => {
+            Swal.fire('Updated!', 'User details updated successfully.', 'success');
+            setTimeout(() => window.location.reload(), 500);
+          },
+          error: (err) => console.error('Error updating user:', err)
+        });
+      }
+    }
 
   desable_User(userId: string): void {
     console.log("Toggling user status...");

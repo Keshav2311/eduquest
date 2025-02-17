@@ -27,6 +27,16 @@ h2, h3 {
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
+#update{
+  background-color: #f6f5f7;
+  color: #2e022e;
+  border-radius: 5px;
+}
+
+#update:hover{
+  background-color: #ca9ec1;
+}
+
 button {
   color: white;
   background-color: #6c008a;

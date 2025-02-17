@@ -50,12 +50,18 @@ export class CourseAddComponent {
   }
 
   ngOnInit(): void {
+    this.coursesService.generateandput500items();
     let user = JSON.parse(localStorage.getItem('users') || '{}');
-    this.role = user.role;
-    if(this.role === "student" || this.role === "admin" || this.role === ""){
+    if(user === null){
       this.router.navigate(['/**'])
     }
-    // this.role = JSON.parse(localStorage.getItem('users')).role;
+    this.role = user.role;
+    if(this.role === 'instructor'){
+      this.router.navigate(['course_add']);
+    }
+    else{
+      this.router.navigate(['/**']);
+    }
     this.route.paramMap.subscribe(params => {
       this.courseId = params.get('id');
       console.log('Course ID:', this.courseId);

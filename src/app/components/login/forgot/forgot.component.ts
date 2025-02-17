@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SignService } from '../../../services/sign.service';
 import Swal from 'sweetalert2';
+import { UserInterface } from '../../../interfaces/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-forgot',
@@ -8,12 +10,14 @@ import Swal from 'sweetalert2';
   templateUrl: './forgot.component.html',
   styleUrl: './forgot.component.css'
 })
-export class ForgotComponent {
+export class ForgotComponent implements OnInit{
   user = {
     name: '',
     forgot: '',
     confirm: '',
   };
+
+  userInfo : UserInterface | undefined;
 
   showPassword: boolean = false;
   showConfirmPassword: boolean = false;
@@ -26,7 +30,15 @@ export class ForgotComponent {
     }
   }
 
-  constructor(private signService: SignService) { }
+  constructor(private signService: SignService, private router: Router) { }
+
+  ngOnInit(): void {
+    
+      this.userInfo = JSON.parse(localStorage.getItem('users') || '{}');
+      if(this.userInfo != null){
+        this.router.navigate(['/**']);
+      }
+    }
 
   onSubmit(form: any): void {
     const { name, forgot, confirm } = this.user;

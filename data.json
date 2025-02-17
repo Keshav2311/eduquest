@@ -107,8 +107,8 @@
       "name": "Rohan Singh",
       "email": "rohan.singh@gmail.com",
       "gender": "male",
-      "role": "student",
       "experience": 2020,
+      "role": "student",
       "password": "Cloud@123",
       "courses": [
         "m789",

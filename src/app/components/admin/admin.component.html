@@ -12,12 +12,25 @@
       <div class="col-md-4 col-sm-4 text-center ml-5">
         <img src="assets/images/images.png" alt="Admin Profile"
           class="img-fluid rounded-circle shadow-lg profile-img" />
+          <div class="update p-4 mb-1 align-items-center">
+            <button class="fw-bolder mb-1 text-center w-25" id="update" (click) = "user_update(luser.id)">
+              <i class="fas fa-edit"></i>
+            </button>
+          </div>
       </div>
       <div class="col-md-8 col-sm-8 d-flex flex-column justify-content-center align-items-center">
         <h2 class="fw-bold">{{ adminInfo?.name }}</h2>
         <p class="mb-1"><strong>Gender:</strong> {{ adminInfo?.gender }}</p>
       </div>
     </div>
+    <!-- <div class="row mt-4">
+      <div class="col-md-12">
+        <div class="card p-3 shadow">
+          <h5 class="text-center">Students per Course</h5>
+          <canvas #studentsChart></canvas>
+        </div>
+      </div>
+    </div> -->
     <div class="row text-center my-4 d-flex justify-content-evenly">
       <div class="col-3">
         <button class="p-2" (click)="showTable('student')">{{ selectedTable== 'student'? 'Hide Students' : 'Show
@@ -89,6 +102,39 @@
             </tr>
           </tbody>
         </table>
+      </div>
+    </div>
+
+    <div class="modal fade" id="updateUserModal" tabindex="-1" aria-labelledby="updateUserModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <form [formGroup]="updateForm" (ngSubmit)="onUpdate()">
+              <div class="mb-3">
+                <label for="name" class="form-label">Name*</label>
+                <input type="text" id="name" class="form-control" formControlName="name" />
+              </div>
+    
+              <div class="mb-3">
+                <label for="email" class="form-label">Email*</label>
+                <input type="email" id="email" class="form-control" formControlName="email" />
+              </div>
+    
+              <div class="mb-3">
+                <label class="form-label">Gender*</label>
+                <div>
+                  <input type="radio" formControlName="gender" value="male" /> Male
+                  <input type="radio" formControlName="gender" value="female" /> Female
+                </div>
+              </div>
+    
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-success">Update</button>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   </div>
