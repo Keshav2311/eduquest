@@ -129,7 +129,7 @@ export class CoursesService {
     return this.http.delete<any>(`${this.apiUrl}/${id}`);
   }
 
-  updateCourse(courseId: string, updatedData: any): Observable<any> {
+  updateCourse(courseId: String, updatedData: any): Observable<any> {
     return this.http.put<any>(`${this.apiUrl}/${courseId}`, updatedData);
   }
 }

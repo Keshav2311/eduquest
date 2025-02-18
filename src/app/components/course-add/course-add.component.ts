@@ -13,7 +13,7 @@ import Swal from 'sweetalert2';
 })
 export class CourseAddComponent {
   courseForm: FormGroup;
-  courseId: string | null = null;
+  courseId: String | null = null;
   role: String | null = null;
 
   constructor(private fb: FormBuilder, private coursesService: CoursesService, private router: Router, private signservice: SignService, private route: ActivatedRoute) {
@@ -50,33 +50,40 @@ export class CourseAddComponent {
   }
 
   ngOnInit(): void {
-    // this.coursesService.generateandput500items();
     let user = JSON.parse(localStorage.getItem('users') || '{}');
-    if(user === null){
-      this.router.navigate(['/**'])
+  
+    if (!user || Object.keys(user).length === 0) {
+      this.router.navigate(['/**']);
+      return;
     }
+  
     this.role = user.role;
-    if(this.role === 'instructor'){
-      this.router.navigate(['course_add']);
-    }
-    else{
+  
+    if (this.role === 'instructor') {
+      this.route.paramMap.subscribe(params => {
+        this.courseId = params.get('id');
+        console.log('Course ID:', this.courseId);
+        
+        if (this.courseId) {
+          this.coursesService.getcourseById(this.courseId).subscribe(course => {
+            console.log("update will happen");
+            this.courseForm.patchValue(course);
+          });
+        }
+  
+        // Ensure correct navigation using a **dynamic route**
+        this.router.navigate([`/course_add/${this.courseId}`]);
+      });
+    } else {
       this.router.navigate(['/**']);
     }
-    this.route.paramMap.subscribe(params => {
-      this.courseId = params.get('id');
-      console.log('Course ID:', this.courseId);
-      if (this.courseId) {
-        this.coursesService.getcourseById(this.courseId).subscribe(course => {
-          this.courseForm.patchValue(course);
-        });
-      }
-    });
   }
+  
 
   onSubmit(): void {
     if (this.courseForm.valid) {
       const formData = this.courseForm.value;
-
+  
       const imagePaths = [
         'assets/images/courses/image_1.webp',
         'assets/images/courses/image_2.webp',
@@ -87,82 +94,114 @@ export class CourseAddComponent {
         'assets/images/courses/image_7.webp',
         'assets/images/courses/image_8.webp'
       ];
-
-      if (!this.courseId) {
-        formData.imageUrl = imagePaths[Math.floor(Math.random() * imagePaths.length)];
-        formData.flag = true;
-        console.log(formData.imageUrl);
-      }
+  
       if (this.courseId) {
-        const courseId: string = this.courseId; // Ensure it's a string
-
-        this.coursesService.getcourseById(courseId).subscribe((existingCourse) => {
+        // Update existing course
+        this.coursesService.getcourseById(this.courseId).subscribe((existingCourse) => {
           if (!existingCourse) {
             console.error('Course not found.');
-            alert('Error: Course not found.');
+            Swal.fire({
+              title: 'Error',
+              text: 'Course not found.',
+              icon: 'error',
+              confirmButtonText: 'OK',
+            });
             return;
           }
-
-          const formData = {
-            ...this.courseForm.value,
-            students: existingCourse.students || [],
-            imageUrl: existingCourse.imageUrl
+  
+          const updatedCourse = {
+            ...existingCourse,
+            ...formData // Merge updated values
           };
-
-          this.coursesService.updateCourse(courseId, formData).subscribe({
-            next: () => {
-              Swal.fire({
-                title: 'Updated!',
-                text: 'Course updated successfully!',
-                icon: 'success',
-                confirmButtonText: 'OK',
-                confirmButtonColor: '#28a745',
+  
+          if (this.courseId !== null && this.courseId !== undefined) {
+            this.coursesService.getcourseById(this.courseId).subscribe((existingCourse) => {
+              if (!existingCourse) {
+                console.error('Course not found.');
+                Swal.fire({
+                  title: 'Error',
+                  text: 'Course not found.',
+                  icon: 'error',
+                  confirmButtonText: 'OK',
+                });
+                return;
+              }
+          
+              const updatedCourse = {
+                ...existingCourse,
+                ...formData // Merge updated values
+              };
+          
+              this.coursesService.updateCourse(this.courseId!, updatedCourse).subscribe({
+                next: () => {
+                  Swal.fire({
+                    title: 'Updated!',
+                    text: 'Course updated successfully!',
+                    icon: 'success',
+                    confirmButtonText: 'OK',
+                  }).then(() => {
+                    this.router.navigate(['/courses']);
+                  });
+                },
+                error: (error) => {
+                  console.error('Error updating course:', error);
+                  Swal.fire({
+                    title: 'Error',
+                    text: 'An error occurred while updating the course.',
+                    icon: 'error',
+                    confirmButtonText: 'OK',
+                  });
+                }
               });
-            },
-            error: (error) => {
-              console.error('Error updating course:', error);
-              alert('Error updating course.');
-            }
-          });
+            });
+          }
+          
         });
-      }
-
-      else {
+      } else {
+        // Create a new course
+        formData.imageUrl = imagePaths[Math.floor(Math.random() * imagePaths.length)];
+        formData.flag = true;
+  
         this.coursesService.addItem(formData).subscribe({
           next: (response) => {
-            console.log('Course submitted successfully:', response);
             Swal.fire({
               title: 'Submitted!',
-              text: 'Course Added successfully!',
+              text: 'Course added successfully!',
               icon: 'success',
               confirmButtonText: 'OK',
-              confirmButtonColor: '#28a745',
+            }).then(() => {
+              this.router.navigate(['/courses']);
             });
-            console.log('Generated ID:', response.id);
+  
             let courseid = response.id;
-            let tutorid = JSON.parse(localStorage.getItem('users') || '').id;
-            console.log(courseid, tutorid);
+            let tutorid = JSON.parse(localStorage.getItem('users') || '{}').id;
+  
             this.signservice.addCourseToUser(courseid, tutorid).subscribe({
-              next: () => {
-                console.log('Course added to user successfully');
-              },
-              error: (error) => {
-                console.error('Error adding course to user:', error);
-                alert('Error adding course to user.');
-              }
+              next: () => console.log('Course added to user successfully'),
+              error: (error) => console.error('Error adding course to user:', error)
             });
-            this.router.navigate(['/courses']);
+  
             this.courseForm.reset();
           },
           error: (error) => {
             console.error('Error submitting the course:', error);
-            alert('An error occurred while submitting the course.');
+            Swal.fire({
+              title: 'Error',
+              text: 'An error occurred while submitting the course.',
+              icon: 'error',
+              confirmButtonText: 'OK',
+            });
           }
         });
       }
-    } 
-    else {
-      alert('Please correct the errors before submitting.');
+    } else {
+      Swal.fire({
+        title: 'Validation Error',
+        text: 'Please correct the errors before submitting.',
+        icon: 'warning',
+        confirmButtonText: 'OK',
+      });
     }
   }
+  
 }

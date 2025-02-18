@@ -279,7 +279,10 @@
       "role": "instructor",
       "experience": 5,
       "password": "Tapan@123",
-      "active": true
+      "active": true,
+      "courses": [
+        "b37c"
+      ]
     }
   ],
   "courses": [
@@ -292,9 +295,10 @@
       "technologies": [
         "AWS",
         "Azure",
-        "Google Cloud"
+        "Google Cloud",
+        "piping"
       ],
-      "courseFee": 450,
+      "courseFee": 550,
       "credits": 4,
       "trainerRemark": "Basic knowledge of networking and virtualization is required.",
       "students": [
@@ -2296,6 +2300,23 @@
       "students": [],
       "flag": true,
       "trainerName": "Anjali Sharma"
+    },
+    {
+      "id": "b37c",
+      "courseName": "Angular",
+      "trainerName": "tapan",
+      "duration": 8,
+      "technologies": [
+        "html",
+        "css",
+        "javascript",
+        "bootstrap"
+      ],
+      "courseFee": 50,
+      "credits": 8,
+      "trainerRemark": "Beginner to advanced level",
+      "imageUrl": "assets/images/courses/image_6.webp",
+      "flag": true
     }
   ],
   "faq": [

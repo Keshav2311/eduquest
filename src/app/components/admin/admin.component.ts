@@ -9,9 +9,6 @@ import * as Bootstrap from 'bootstrap';
 import Chart from 'chart.js/auto';
 import { PageEvent } from '@angular/material/paginator';
 
-
-
-
 @Component({
   selector: 'app-admin',
   standalone: false,
@@ -19,34 +16,22 @@ import { PageEvent } from '@angular/material/paginator';
   styleUrl: './admin.component.css'
 })
 export class AdminComponent implements OnInit {
-  admin$: any[] = [];
-
   adminInfo: UserInterface | undefined;
   coursesInfo: Courseinterface[] = [];
-  coursedata: Courseinterface | undefined;
   studentInfo: UserInterface[] = [];
   instructorInfo: UserInterface[] = [];
   displayedData: any[] = [];
-  courses: any[] = [];
-  students: string[] | undefined;
   selectedTable: String | undefined;
-  course: Courseinterface | undefined;
 
   luser = JSON.parse(localStorage.getItem('users') || '{}');
   loading: boolean = false;
 
   updateForm: FormGroup;
   selectedUser: UserInterface | null = null;
-  users: UserInterface[] = [];
 
   filteredCourses: any[] = [];
   pageSize = 12;
   pageIndex = 0;
-
-  @ViewChild('studentChart') studentChartRef!: ElementRef;
-  @ViewChild('instructorChart') instructorChartRef!: ElementRef;
-  studentChart!: Chart;
-  instructorChart!: Chart;
 
   constructor(private signservice: SignService, private courseService: CoursesService, private fb: FormBuilder) {
     this.updateForm = this.fb.group({
@@ -210,7 +195,6 @@ export class AdminComponent implements OnInit {
 
                 // Update local storage
                 let users = JSON.parse(localStorage.getItem('users') || '[]');
-                users = users.map((u: any) => (u.id === userId ? updatedUser : u));
                 localStorage.setItem('users', JSON.stringify(users));
 
                 // If the logged-in user is disabled, log them out
@@ -231,17 +215,17 @@ export class AdminComponent implements OnInit {
 
   toggleCourseStatus(courseId: string): void {
     console.log("Toggling course status...");
-
+  
     // Find the course from the current list
     const courseIndex = this.coursesInfo.findIndex((c: any) => c.id === courseId);
-
+  
     if (courseIndex === -1) {
       Swal.fire('Error', 'Course not found!', 'error');
       return;
     }
-
-    const newStatus = !this.coursesInfo[courseIndex].flag; // Toggle flag
-
+  
+    const newStatus = !this.coursesInfo[courseIndex].flag; // Toggle the status (enabled/disabled)
+  
     Swal.fire({
       title: 'Are you sure?',
       text: `You want to ${newStatus ? 'enable' : 'disable'} this course!`,
@@ -252,29 +236,38 @@ export class AdminComponent implements OnInit {
       confirmButtonText: `Yes, ${newStatus ? 'enable' : 'disable'}!`
     }).then((result) => {
       if (result.isConfirmed) {
-        // **Update the UI immediately**
+        // **Update the course status immediately in the UI**
         this.coursesInfo[courseIndex] = { ...this.coursesInfo[courseIndex], flag: newStatus };
-
+  
         const updatedCourse = this.coursesInfo[courseIndex];
-
-        this.courseService.updateCourse(courseId, updatedCourse).subscribe(() => {
-          Swal.fire(
-            newStatus ? 'Enabled!' : 'Disabled!',
-            `Course has been ${newStatus ? 'enabled' : 'disabled'}.`,
-            'success'
-          );
-
-          // Update local storage
-          let courses = JSON.parse(localStorage.getItem('courses') || '[]');
-          courses = courses.map((c: any) => (c.id === courseId ? updatedCourse : c));
-          localStorage.setItem('courses', JSON.stringify(courses));
-        }, error => {
-          // **Revert UI change if API fails**
-          this.coursesInfo[courseIndex].flag = !newStatus;
-          Swal.fire('Error', 'Failed to update course status!', 'error');
+  
+        // Update the course on the server
+        this.courseService.updateCourse(courseId, updatedCourse).subscribe({
+          next: () => {
+            Swal.fire(
+              newStatus ? 'Enabled!' : 'Disabled!',
+              `Course has been ${newStatus ? 'enabled' : 'disabled'}.`,
+              'success'
+            );
+  
+            // **Update local storage**
+            let courses = JSON.parse(localStorage.getItem('courses') || '[]');
+            // Update the local courses array in local storage
+            courses = courses.map((c: any) => c.id === courseId ? updatedCourse : c);
+            localStorage.setItem('courses', JSON.stringify(courses));
+  
+            // **Update displayedData to reflect the status change**
+            this.displayedData = this.displayedData.map((course) =>
+              course.id === courseId ? updatedCourse : course
+            );
+          },
+          error: (error) => {
+            // Revert the UI change if API fails
+            this.coursesInfo[courseIndex].flag = !newStatus;
+            Swal.fire('Error', 'Failed to update course status!', 'error');
+          }
         });
       }
     });
-  }
-
+  }  
 }

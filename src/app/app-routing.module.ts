@@ -22,6 +22,7 @@ const routes: Routes = [
   { path: "faq", component: FaqComponent},
   { path: "courses", component: CoursesComponent },
   { path: "course_add", component: CourseAddComponent},
+  { path: "course_add/:id", component: CourseAddComponent},
   { path: 'dashboard', component:DashboardComponent},
   { path: 'tending_courses', component: TrendCoursesComponent},
   { path: '**', component: N404Component}

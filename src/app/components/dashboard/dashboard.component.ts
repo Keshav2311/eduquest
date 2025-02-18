@@ -15,7 +15,6 @@ export class DashboardComponent implements OnInit {
   dashboardmode = "login";
 
   ngOnInit() {
-    console.log("hello");
     let user = JSON.parse(localStorage.getItem('users') || 'null');
     console.log(user);
     if (user) {

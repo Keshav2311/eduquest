@@ -177,7 +177,7 @@ export class IntructorComponent implements OnInit {
   
 
   course_edit(courseId: string): void {
-    this.router.navigate(['/course_add', courseId]);
+    this.router.navigate(['/course_add/', courseId]);
   }
 
   show_update(user: any): void {
