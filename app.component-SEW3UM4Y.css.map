@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/app.component.css"],
+  "sourcesContent": ["*{\n    margin: 0;\n    padding: 0;\n\n}\n::-webkit-scrollbar{\n    display: none;\n}\nbody{\n    background-color: #050005;\n    background-image: linear-gradient(0deg, #f0e9f0 0%, #f1f6f7 100%);   \n}\n\n.paddingtop{\n    padding-top: 11vh;\n}"],
+  "mappings": "AAAA,SACY,EADZ,QAEa,CAEb,CACA,oBACI,QAAS,IACb,CACA,KACI,iBAAkB,QAClB,iBAAkB,gBAAgB,IAAhB,CAAsB,OAAtB,CAAkC,QACxD,CAEA,CAAC,WACG,YAAa,IACjB",
+  "names": []
+}

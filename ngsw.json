@@ -1,0 +1,153 @@
+{
+  "configVersion": 1,
+  "timestamp": 1739861368103,
+  "index": "https://keshav2311.github.io/eduquest/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "https://keshav2311.github.io/eduquest/chunk-3VIQM4RM.js",
+        "https://keshav2311.github.io/eduquest/chunk-B3SJSKAM.js",
+        "https://keshav2311.github.io/eduquest/favicon.ico",
+        "https://keshav2311.github.io/eduquest/index.html",
+        "https://keshav2311.github.io/eduquest/main-LIJHJZQ3.js",
+        "https://keshav2311.github.io/eduquest/manifest.webmanifest",
+        "https://keshav2311.github.io/eduquest/polyfills-Q763KACN.js",
+        "https://keshav2311.github.io/eduquest/scripts-OYUF3O7H.js",
+        "https://keshav2311.github.io/eduquest/styles-4NK7IVAN.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "https://keshav2311.github.io/eduquest/assets/images/about.avif",
+        "https://keshav2311.github.io/eduquest/assets/images/courses/image_1.webp",
+        "https://keshav2311.github.io/eduquest/assets/images/courses/image_2.webp",
+        "https://keshav2311.github.io/eduquest/assets/images/courses/image_3.webp",
+        "https://keshav2311.github.io/eduquest/assets/images/courses/image_4.webp",
+        "https://keshav2311.github.io/eduquest/assets/images/courses/image_5.webp",
+        "https://keshav2311.github.io/eduquest/assets/images/courses/image_6.webp",
+        "https://keshav2311.github.io/eduquest/assets/images/courses/image_7.webp",
+        "https://keshav2311.github.io/eduquest/assets/images/courses/image_8.webp",
+        "https://keshav2311.github.io/eduquest/assets/images/images.png",
+        "https://keshav2311.github.io/eduquest/assets/images/logo.webp",
+        "https://keshav2311.github.io/eduquest/assets/images/partners/aws-educate.webp",
+        "https://keshav2311.github.io/eduquest/assets/images/partners/coursera-logo.webp",
+        "https://keshav2311.github.io/eduquest/assets/images/partners/edx.webp",
+        "https://keshav2311.github.io/eduquest/assets/images/partners/google-for-education.webp",
+        "https://keshav2311.github.io/eduquest/assets/images/partners/harvard-online.webp",
+        "https://keshav2311.github.io/eduquest/assets/images/partners/ibm-skillbuild.webp",
+        "https://keshav2311.github.io/eduquest/assets/images/partners/khan-academy.webp",
+        "https://keshav2311.github.io/eduquest/assets/images/partners/linkdin-learn.webp",
+        "https://keshav2311.github.io/eduquest/assets/images/partners/microsoft.webp",
+        "https://keshav2311.github.io/eduquest/assets/images/partners/plural-sight.webp",
+        "https://keshav2311.github.io/eduquest/assets/images/partners/skillshare.webp",
+        "https://keshav2311.github.io/eduquest/assets/images/partners/udemy-logo.webp",
+        "https://keshav2311.github.io/eduquest/assets/images/testimonials/DauglasMcNun.webp",
+        "https://keshav2311.github.io/eduquest/assets/images/testimonials/HellenWright.webp",
+        "https://keshav2311.github.io/eduquest/assets/images/testimonials/JenniferSmith.webp",
+        "https://keshav2311.github.io/eduquest/icons/icon-128x128.png",
+        "https://keshav2311.github.io/eduquest/icons/icon-144x144.png",
+        "https://keshav2311.github.io/eduquest/icons/icon-152x152.png",
+        "https://keshav2311.github.io/eduquest/icons/icon-192x192.png",
+        "https://keshav2311.github.io/eduquest/icons/icon-384x384.png",
+        "https://keshav2311.github.io/eduquest/icons/icon-512x512.png",
+        "https://keshav2311.github.io/eduquest/icons/icon-72x72.png",
+        "https://keshav2311.github.io/eduquest/icons/icon-96x96.png",
+        "https://keshav2311.github.io/eduquest/media/fa-brands-400-Q3XCMWHQ.woff2",
+        "https://keshav2311.github.io/eduquest/media/fa-brands-400-R2XQZCET.ttf",
+        "https://keshav2311.github.io/eduquest/media/fa-regular-400-QSNYFYRT.woff2",
+        "https://keshav2311.github.io/eduquest/media/fa-regular-400-XUOPSR7E.ttf",
+        "https://keshav2311.github.io/eduquest/media/fa-solid-900-5ZUYHGA7.woff2",
+        "https://keshav2311.github.io/eduquest/media/fa-solid-900-PJNKLK6W.ttf",
+        "https://keshav2311.github.io/eduquest/media/fa-v4compatibility-LFEHZI6Y.woff2",
+        "https://keshav2311.github.io/eduquest/media/fa-v4compatibility-YY67RJWG.ttf"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "https://keshav2311.github.io/eduquest/assets/images/about.avif": "9fcc17601f5931d61442e673b58db169a7f5669e",
+    "https://keshav2311.github.io/eduquest/assets/images/courses/image_1.webp": "4a80bde47d4b0f8a4589bd443d30423e0b19e517",
+    "https://keshav2311.github.io/eduquest/assets/images/courses/image_2.webp": "450bf3ea0f1dfcc7dd77f9c28b8c1998d87f433c",
+    "https://keshav2311.github.io/eduquest/assets/images/courses/image_3.webp": "b2d649e14341798fc8c2135471fda8752c0fd972",
+    "https://keshav2311.github.io/eduquest/assets/images/courses/image_4.webp": "0c49694beef881cfe9999a3c4c3ea5e138585533",
+    "https://keshav2311.github.io/eduquest/assets/images/courses/image_5.webp": "759a62ed8738fdad875b82910f914b8a5f8c7c54",
+    "https://keshav2311.github.io/eduquest/assets/images/courses/image_6.webp": "44e4cc1da98c3aa1a1fab8c297d6c44a37289977",
+    "https://keshav2311.github.io/eduquest/assets/images/courses/image_7.webp": "6e6ecab15a1d775e0a41ae754469e8fc4fa86c1a",
+    "https://keshav2311.github.io/eduquest/assets/images/courses/image_8.webp": "1e8c138e23214e9362d5e7f351313f2c370be67b",
+    "https://keshav2311.github.io/eduquest/assets/images/images.png": "4b9814218bfe5320b5064923a53622120c2c8917",
+    "https://keshav2311.github.io/eduquest/assets/images/logo.webp": "00b403ff5cfc04e9e90e7a297b21390711ca953c",
+    "https://keshav2311.github.io/eduquest/assets/images/partners/aws-educate.webp": "4aca92c7b07ee39bcef2457bd9cc079d17b410e5",
+    "https://keshav2311.github.io/eduquest/assets/images/partners/coursera-logo.webp": "d3bf6133991134463064cb0746866f601f081dd9",
+    "https://keshav2311.github.io/eduquest/assets/images/partners/edx.webp": "11f9e8562785c3cf8b1afb5517af53694c6199db",
+    "https://keshav2311.github.io/eduquest/assets/images/partners/google-for-education.webp": "9ed96b06dfaff501b2c64341230b1cee357efac0",
+    "https://keshav2311.github.io/eduquest/assets/images/partners/harvard-online.webp": "6e0f2368779996507bf4012c76ed9fe16ad5db08",
+    "https://keshav2311.github.io/eduquest/assets/images/partners/ibm-skillbuild.webp": "fd38026f11160aaf964d55ef79ccdfcd1ceeece2",
+    "https://keshav2311.github.io/eduquest/assets/images/partners/khan-academy.webp": "4c0b39b7bd64ccf03dc38fca743ddcbea8c84469",
+    "https://keshav2311.github.io/eduquest/assets/images/partners/linkdin-learn.webp": "27e2cbc1490d85b128d8288c47b65260285dddf2",
+    "https://keshav2311.github.io/eduquest/assets/images/partners/microsoft.webp": "792e492110a92229730e02c34d1ae36900c659bb",
+    "https://keshav2311.github.io/eduquest/assets/images/partners/plural-sight.webp": "8c3a03e1fad8e0942dd24af99f520da4dbcb9053",
+    "https://keshav2311.github.io/eduquest/assets/images/partners/skillshare.webp": "4338a9e1b558dd65428ff5dc00960b0f9859a127",
+    "https://keshav2311.github.io/eduquest/assets/images/partners/udemy-logo.webp": "d30f014b160edd0e3b4e05ce9003d640b13f3485",
+    "https://keshav2311.github.io/eduquest/assets/images/testimonials/DauglasMcNun.webp": "e47dd2195be9a2a6a3adfd6a7063760646713bcc",
+    "https://keshav2311.github.io/eduquest/assets/images/testimonials/HellenWright.webp": "65cc943e1f37c70efce38dfe2cc8ae511b23ef2f",
+    "https://keshav2311.github.io/eduquest/assets/images/testimonials/JenniferSmith.webp": "90603749a5d4eb2f7fa1f154e732884c73258fc0",
+    "https://keshav2311.github.io/eduquest/chunk-3VIQM4RM.js": "90b864d4207840d01a05cb6dd2ae213ec7a31c38",
+    "https://keshav2311.github.io/eduquest/chunk-B3SJSKAM.js": "ffe1487a09b606e64a9e2e4f205aeb708f97ce09",
+    "https://keshav2311.github.io/eduquest/favicon.ico": "9c39f434fe1261f68c5e3eefdf734630d99c5670",
+    "https://keshav2311.github.io/eduquest/icons/icon-128x128.png": "f912963bdc6d5a38d8f1dd0afbaab2ce8d657acb",
+    "https://keshav2311.github.io/eduquest/icons/icon-144x144.png": "b155fd5f2fd5d2ea7760721063003c4cd95fd783",
+    "https://keshav2311.github.io/eduquest/icons/icon-152x152.png": "eae6e0f0c8afb8aaae339e2a569b43e9238e5e6c",
+    "https://keshav2311.github.io/eduquest/icons/icon-192x192.png": "15c4180454633880d98674aa7394656196c91584",
+    "https://keshav2311.github.io/eduquest/icons/icon-384x384.png": "94a915751ef6c9282df9aea405ad679230631814",
+    "https://keshav2311.github.io/eduquest/icons/icon-512x512.png": "1de182f76f7329dfa8f9fcdd1fdcdd695bea6a99",
+    "https://keshav2311.github.io/eduquest/icons/icon-72x72.png": "aa88a6096bd973be7f6d7a5489bfa6bc2463f8c4",
+    "https://keshav2311.github.io/eduquest/icons/icon-96x96.png": "7fb8f59c30ce2ff12c700321a0b39e14b3dc8f95",
+    "https://keshav2311.github.io/eduquest/index.html": "4a36a0162e8c01e812f1906dea848ab2add59d94",
+    "https://keshav2311.github.io/eduquest/main-LIJHJZQ3.js": "f6898edf26dd567c3cec361316ca02e97bdf0c7d",
+    "https://keshav2311.github.io/eduquest/manifest.webmanifest": "f58dcba3a36cddcdccdb29fc662a547b7aba6c2d",
+    "https://keshav2311.github.io/eduquest/media/fa-brands-400-Q3XCMWHQ.woff2": "31c30351084e2670bbe5c47bd342e11540a68717",
+    "https://keshav2311.github.io/eduquest/media/fa-brands-400-R2XQZCET.ttf": "da6f537cd597b76d264970f1c95e4beebc82fde9",
+    "https://keshav2311.github.io/eduquest/media/fa-regular-400-QSNYFYRT.woff2": "e9b6f5b842be227e2423733feb961dd6cb804066",
+    "https://keshav2311.github.io/eduquest/media/fa-regular-400-XUOPSR7E.ttf": "6e7f0651059eea9783ea8b28892b2c979c2f7f30",
+    "https://keshav2311.github.io/eduquest/media/fa-solid-900-5ZUYHGA7.woff2": "7cd8afd6501962fda35d66f0e4c3b8815ac471d8",
+    "https://keshav2311.github.io/eduquest/media/fa-solid-900-PJNKLK6W.ttf": "780a8ff16ebb681f85d5d30fac94ebe845a12b5e",
+    "https://keshav2311.github.io/eduquest/media/fa-v4compatibility-LFEHZI6Y.woff2": "4fd82f39237a3e52cb4e311d1961bbb47353a147",
+    "https://keshav2311.github.io/eduquest/media/fa-v4compatibility-YY67RJWG.ttf": "ad415f99aab4d9bf17e523f484a377f839ca8c3c",
+    "https://keshav2311.github.io/eduquest/polyfills-Q763KACN.js": "e2a9f135443e4bc6115449a6098604d881bf5931",
+    "https://keshav2311.github.io/eduquest/scripts-OYUF3O7H.js": "769a85dd2997f76803259831fd25bbcd8037b177",
+    "https://keshav2311.github.io/eduquest/styles-4NK7IVAN.css": "402837297423968eb23747696474ee378e538223"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}

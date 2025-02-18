@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/components/login/login.component.css"],
+  "sourcesContent": ["section{\n    background-image: linear-gradient(0deg, #dbc3db 0%, #f1f6f7 100%);\n}\n.container{\n    border-radius: 10px;\n    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.478);\n    background-color: rgb(250, 241, 250);\n    padding: 20px 20px 20px;\n}\n\nh2{\n    font-family: 'dancing script', serif !important; \n    text-align: center;\n    color: rgb(24, 1, 48);\n    background-color: #dbc0e0;\n    width: 100%;\n    border-radius: 10px;\n    padding: 5px 5px 5px;\n    font-weight: bolder;\n    text-shadow: 1px 1px 1px black;\n}\nlabel{\n    color: #520352;\n    font-weight: bold;\n}\n\n#forgotten{\n    color: #250344;\n    text-decoration: none;\n    font-weight: bold;\n}\n\n#forgotten:hover{\n    text-decoration: none;\n\n}\n\n\n@media screen and (max-width: 768px){\n    #dissbox{\n     display:none;\n    }\n}"],
+  "mappings": "AAAA,QACI,iBAAkB,gBAAgB,IAAhB,CAAsB,OAAtB,CAAkC,QACxD,CACA,CAAC,UAHD,cAImB,KACf,WAAY,KAAK,KAAK,KAAK,UAC3B,iBAAkB,QANtB,QAOa,IACb,CAEA,GACI,YAAa,cAAgB,CAAE,gBAC/B,WAAY,OACZ,MAAO,QACP,iBAAkB,QAClB,MAAO,KAfX,cAgBmB,KAhBnB,QAiBa,IACT,YAAa,OACb,YAAa,IAAI,IAAI,IAAI,KAC7B,CACA,MACI,MAAO,QACP,YAAa,GACjB,CAEA,CAAC,UACG,MAAO,QACP,gBAAiB,KACjB,YAAa,GACjB,CAEA,CANC,SAMS,OACN,gBAAiB,IAErB,CAGA,OAAO,OAAO,IAAI,CAAC,SAAS,EAAE,OAC1B,CAAC,QACA,QAAQ,IACT,CACJ",
+  "names": []
+}
