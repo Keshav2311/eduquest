@@ -62,11 +62,18 @@
                   "maximumError": "40kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "serviceWorker": "ngsw-config.json",
+              "aot": true,
+              "optimization": true,
+              "extractLicenses": true,
+              "baseHref": "/",
+
+              "sourceMap": true
             },
             "development": {
-              "optimization": false,
-              "extractLicenses": false,
+              "baseHref": "/",
+
               "sourceMap": true
             }
           },

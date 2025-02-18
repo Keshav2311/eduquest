@@ -11,7 +11,7 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
   selector: 'app-courses',
   standalone: false,
   templateUrl: './courses.component.html',
-  styleUrls: ['./courses.component.css'] // Fixed typo
+  styleUrls: ['./courses.component.css']
 })
 export class CoursesComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
@@ -22,9 +22,7 @@ export class CoursesComponent implements OnInit {
   role: string = '';
   enrolledCourses: Set<string> = new Set();
 
-  coursess = Array.from({ length: 500 }, (_, i) => `Course ${i + 1}`);
-  paginatedCourses: string[] = [];  
-  pageSize = 6;
+  pageSize = 12;
   pageIndex = 0;
 
   constructor(
@@ -48,9 +46,9 @@ export class CoursesComponent implements OnInit {
   fetchCourses(): void {
     this.coursesService.getItem().subscribe({
       next: (data) => {
-        this.courses = data; 
-        this.filteredCourses = data.filter(course => course.flag); // Filter courses where flag is true        
-        this.setPaginatedCourses();
+        this.courses = data;
+        this.filteredCourses = data.filter(course => course.flag); // Filter courses where flag is true
+        this.setPageData();
       },
       error: (err) => {
         console.error('Error fetching courses:', err);
@@ -58,16 +56,16 @@ export class CoursesComponent implements OnInit {
     });
   }
 
-  onPageChange(event: PageEvent) {
+  onPageChange(event: PageEvent): void {
     this.pageIndex = event.pageIndex;
     this.pageSize = event.pageSize;
-    this.setPaginatedCourses();
+    this.setPageData();
   }
 
-  setPaginatedCourses() {
+  setPageData(): void {
     const startIndex = this.pageIndex * this.pageSize;
     const endIndex = startIndex + this.pageSize;
-    this.paginatedCourses = this.coursess.slice(startIndex, endIndex);
+    this.filteredCourses = this.filteredCourses.slice(startIndex, endIndex);
   }
 
   filterCourses(): void {
@@ -76,7 +74,7 @@ export class CoursesComponent implements OnInit {
       course.trainerName.toLowerCase().includes(this.searchTerm.toLowerCase())
     );
     this.pageIndex = 0; // Reset to first page after filtering
-    this.setPaginatedCourses();
+    this.setPageData();
   }
 
   enroll(courseName: string, id: string): void {
@@ -107,7 +105,6 @@ export class CoursesComponent implements OnInit {
                 });
 
                 localStorage.setItem('users', JSON.stringify(updatedUserData));
-                localStorage.setItem('courses', JSON.stringify(this.courses));
                 this.enrolledCourses.add(id);
               },
               error: (courseError) => {

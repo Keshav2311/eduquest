@@ -43,6 +43,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FaqService } from './services/faq.service';
 import { TestimonialService } from './services/testimonial.service';
 import { ModalSignComponent } from './components/modal-sign/modal-sign.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 
 
@@ -85,7 +86,13 @@ import { ModalSignComponent } from './components/modal-sign/modal-sign.component
     EffectsModule.forRoot([]),
     StoreModule.forRoot({ auth: authReducer }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
-    StoreRouterConnectingModule.forRoot()
+    StoreRouterConnectingModule.forRoot(),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
     ],
   providers: [
     provideAnimationsAsync(),

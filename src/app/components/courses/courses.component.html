@@ -59,11 +59,12 @@
   </div>
 
   <mat-paginator 
-    [length] = pageSize
-    [pageSize] = pageSize
-    [pageIndex] = pageIndex
-    [pageSizeOptions] = "[6, 12, 18, 24, 100]"
-    (page) = "onPageChange($event)"
-    aria-label = "Select page">
-  </mat-paginator>
+  [length]="filteredCourses.length" 
+  [pageSize]="pageSize" 
+  [pageIndex]="pageIndex" 
+  [pageSizeOptions]="[6, 12, 18, 24, 100]" 
+  (page)="onPageChange($event)" 
+  aria-label="Select page">
+</mat-paginator>
+
 </div>
