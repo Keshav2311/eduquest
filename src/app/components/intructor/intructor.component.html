@@ -8,14 +8,14 @@
         <img
           src="https://media.istockphoto.com/id/1332100919/vector/man-icon-black-icon-person-symbol.jpg?s=612x612&w=0&k=20&c=AVVJkvxQQCuBhawHrUhDRTCeNQ3Jgt0K1tXjJsFy1eg="
           alt="Instructor Profile" class="img-fluid rounded-circle shadow-lg profile-img">
-          <div class="update p-4 mb-1 align-items-center">
-            <button class="fw-bolder mb-1 text-center w-25" id="update" (click) = "user_update(luser.id)">
-              <i class="fas fa-edit"></i>
-            </button>
-            <button class="fw-bolder mb-1 text-center w-25" id="update" (click) = "user_disable(luser.id)">
-              <i class="fas fa-trash-alt"></i>
-            </button>
-          </div>
+        <div class="update p-4 mb-1 align-items-center">
+          <button class="fw-bolder mb-1 text-center w-25" id="update" (click)="user_update(luser.id)">
+            <i class="fas fa-edit"></i>
+          </button>
+          <button class="fw-bolder mb-1 text-center w-25" id="update" (click)="user_disable(luser.id)">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </div>
       </div>
       <div class="col-md-3 col-sm-3 d-flex flex-column justify-content-center align-items-center">
         <h2 class="fw-bold">{{userInfo?.name}}</h2>
@@ -81,7 +81,10 @@
                 </tr>
               </tbody>
             </table>
-            <button mat-raised-button type="button" (click)="course_delete(course.id)" id="button">Delete</button>
+            <button mat-raised-button type="button" (click)="toggleCourseStatus(course.id, course.flag)"
+              [ngClass]="course.flag ? 'btn-danger' : 'btn-success'">
+              {{ course.flag ? 'Disable' : 'Enable' }}
+            </button> 
             <button mat-raised-button type="button" (click)="course_edit(course.id)" id="button">Edit</button>
           </div>
         </div>

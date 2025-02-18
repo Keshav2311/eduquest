@@ -16,6 +16,8 @@ export class CoursesService {
     return this.http.get<any[]>('http://localhost:3000/sign');
   }
   generateandput500items() {
+    // console.log("helo");
+    
     let rounds = 100;
     this.getUsers().subscribe(
       {
@@ -83,10 +85,7 @@ export class CoursesService {
             let randomCourseName = `${getRandomElement(coursenme[0])} ${getRandomElement(coursenme[1])} ${getRandomElement(coursenme[2])}`;
             let trainernamee = getRandomElement(tutorlist).name;
             let randomimage = getRandomElement(imagePaths)
-            console.log("Random Trainer Remark:", randomTrainerRemark);
-            console.log("Random Technologies:", randomTechnologies);
-            console.log("Random Course Name:", randomCourseName);
-            let courseee: Courseinterface = {
+             let courseee: Courseinterface = {
               id: Date.now().toString(),
               imageUrl: randomimage,
               courseName: randomCourseName,
@@ -99,8 +98,7 @@ export class CoursesService {
               flag: true,
               trainerName: trainernamee
             }
-            console.log(courseee);
-            this.addItem(courseee)
+            this.addItem(courseee).subscribe(res=>{})
           }
 
         }
@@ -111,6 +109,8 @@ export class CoursesService {
   }
 
   addItem(item: any): Observable<any> {
+    console.log(item);
+    
     return this.http.post<any>(this.apiUrl, item);
   }
 

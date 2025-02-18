@@ -50,7 +50,7 @@ export class CourseAddComponent {
   }
 
   ngOnInit(): void {
-    this.coursesService.generateandput500items();
+    // this.coursesService.generateandput500items();
     let user = JSON.parse(localStorage.getItem('users') || '{}');
     if(user === null){
       this.router.navigate(['/**'])

@@ -17,9 +17,9 @@ import Chart from 'chart.js/auto';
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.css'
 })
-export class AdminComponent implements OnInit{
+export class AdminComponent implements OnInit {
   admin$: any[] = [];
-  
+
   adminInfo: UserInterface | undefined;
   coursesInfo: Courseinterface[] = [];
   coursedata: Courseinterface | undefined;
@@ -43,13 +43,13 @@ export class AdminComponent implements OnInit{
   studentChart!: Chart;
   instructorChart!: Chart;
 
-  constructor(private signservice: SignService, private courseService: CoursesService, private fb: FormBuilder) { 
+  constructor(private signservice: SignService, private courseService: CoursesService, private fb: FormBuilder) {
     this.updateForm = this.fb.group({
-          id: [''],
-          name: ['', [Validators.required, Validators.minLength(2)]],
-          email: ['', [Validators.required, Validators.email]],
-          gender: ['', Validators.required],
-        });
+      id: [''],
+      name: ['', [Validators.required, Validators.minLength(2)]],
+      email: ['', [Validators.required, Validators.email]],
+      gender: ['', Validators.required],
+    });
   }
 
   ngOnInit(): void {
@@ -104,7 +104,7 @@ export class AdminComponent implements OnInit{
   // createStudentChart(): void {
   //   const courseLabels = this.coursesInfo.map(course => course.courseName);
   //   const studentCounts = this.coursesInfo.map(course => course.students?.length || 0);
-    
+
   //   this.studentChart = new Chart(this.studentChartRef.nativeElement, {
   //     type: 'bar',
   //     data: {
@@ -131,10 +131,10 @@ export class AdminComponent implements OnInit{
   //   if (this.instructorChart) {
   //     this.instructorChart.destroy();
   //   }
-  
+
   //   const experienceData = this.instructorInfo.map(inst => inst.experience || 0);
   //   const instructorNames = this.instructorInfo.map(inst => inst.name);
-  
+
   //   this.instructorChart = new Chart(this.instructorChartRef.nativeElement, {
   //   //   type: 'pie',
   //   //   data: {
@@ -158,8 +158,8 @@ export class AdminComponent implements OnInit{
   //   //   }
   //   // });
   // }
-  
-  
+
+
 
   showTable(type: string): void {
     if (this.selectedTable === type) {
@@ -181,48 +181,48 @@ export class AdminComponent implements OnInit{
     }
   }
 
-  user_update(id: string){
-      this.signservice.getUserById(id).subscribe(user => {
-        this.selectedUser = user;
-        this.updateForm.patchValue(user);
-        const modal = new Bootstrap.Modal(document.getElementById('updateUserModal') as HTMLElement);
-        modal.show();
-      });
-    }
-  
-    onUpdate() {
-      this.signservice.getUserById(this.luser.id).subscribe({
-        
-      });
-  
-      if (this.updateForm.valid) {
-        const formData = {
-          ...this.updateForm.value,
-          role: this.adminInfo?.role,
-          experience: this.adminInfo?.experience,
-          password: this.adminInfo?.password,
-          courses: this.adminInfo?.courses,
-          active: this.adminInfo?.active
-        }
-        const updatedUser = formData;
-        this.signservice.updateUser(updatedUser.id, updatedUser).subscribe({
-          next: () => {
-            Swal.fire('Updated!', 'User details updated successfully.', 'success');
-            setTimeout(() => window.location.reload(), 500);
-          },
-          error: (err) => console.error('Error updating user:', err)
-        });
+  user_update(id: string) {
+    this.signservice.getUserById(id).subscribe(user => {
+      this.selectedUser = user;
+      this.updateForm.patchValue(user);
+      const modal = new Bootstrap.Modal(document.getElementById('updateUserModal') as HTMLElement);
+      modal.show();
+    });
+  }
+
+  onUpdate() {
+    this.signservice.getUserById(this.luser.id).subscribe({
+
+    });
+
+    if (this.updateForm.valid) {
+      const formData = {
+        ...this.updateForm.value,
+        role: this.adminInfo?.role,
+        experience: this.adminInfo?.experience,
+        password: this.adminInfo?.password,
+        courses: this.adminInfo?.courses,
+        active: this.adminInfo?.active
       }
+      const updatedUser = formData;
+      this.signservice.updateUser(updatedUser.id, updatedUser).subscribe({
+        next: () => {
+          Swal.fire('Updated!', 'User details updated successfully.', 'success');
+          setTimeout(() => window.location.reload(), 500);
+        },
+        error: (err) => console.error('Error updating user:', err)
+      });
     }
+  }
 
   desable_User(userId: string): void {
     console.log("Toggling user status...");
-  
+
     // Fetch the user details
     this.signservice.getUserById(userId).subscribe((user) => {
       if (user) {
         const newStatus = !user.active; // Toggle active status
-  
+
         Swal.fire({
           title: 'Are you sure?',
           text: `You want to ${newStatus ? 'enable' : 'disable'} this user!`,
@@ -234,29 +234,29 @@ export class AdminComponent implements OnInit{
         }).then((result) => {
           if (result.isConfirmed) {
             const updatedUser = { ...user, active: newStatus };
-  
+
             this.signservice.updateUser(userId, updatedUser).subscribe(() => {
               Swal.fire(
                 newStatus ? 'Enabled!' : 'Disabled!',
                 `User has been ${newStatus ? 'enabled' : 'disabled'}.`,
                 'success'
               ).then(() => {
-                
+
                 // Update displayed data in UI
-                this.displayedData = this.displayedData.map(u => 
+                this.displayedData = this.displayedData.map(u =>
                   u.id === userId ? updatedUser : u
                 );
-  
+
                 // Update local storage
                 let users = JSON.parse(localStorage.getItem('users') || '[]');
                 users = users.map((u: any) => (u.id === userId ? updatedUser : u));
                 localStorage.setItem('users', JSON.stringify(users));
-  
+
                 // If the logged-in user is disabled, log them out
                 const loggedInUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
                 if (loggedInUser.id === userId && !newStatus) {
                   localStorage.removeItem('currentUser');
-                  
+
                 }
               });
             });
@@ -272,14 +272,14 @@ export class AdminComponent implements OnInit{
     console.log("Toggling course status...");
   
     // Find the course from the current list
-    const course = this.coursesInfo.find((c: any) => c.id === courseId);
+    const courseIndex = this.coursesInfo.findIndex((c: any) => c.id === courseId);
   
-    if (!course) {
+    if (courseIndex === -1) {
       Swal.fire('Error', 'Course not found!', 'error');
       return;
     }
   
-    const newStatus = !course.flag; // Toggle flag (true -> false, false -> true)
+    const newStatus = !this.coursesInfo[courseIndex].flag; // Toggle flag
   
     Swal.fire({
       title: 'Are you sure?',
@@ -291,24 +291,29 @@ export class AdminComponent implements OnInit{
       confirmButtonText: `Yes, ${newStatus ? 'enable' : 'disable'}!`
     }).then((result) => {
       if (result.isConfirmed) {
-        const updatedCourse = { ...course, flag: newStatus }; // Keep everything, just update flag
+        // **Update the UI immediately**
+        this.coursesInfo[courseIndex] = { ...this.coursesInfo[courseIndex], flag: newStatus };
+  
+        const updatedCourse = this.coursesInfo[courseIndex];
   
         this.courseService.updateCourse(courseId, updatedCourse).subscribe(() => {
           Swal.fire(
             newStatus ? 'Enabled!' : 'Disabled!',
             `Course has been ${newStatus ? 'enabled' : 'disabled'}.`,
             'success'
-          ).then(() => {
-            // Refresh courses after updating
-            this.fetchCourses();
+          );
   
-            // Update local storage
-            let courses = JSON.parse(localStorage.getItem('courses') || '[]');
-            courses = courses.map((c: any) => (c.id === courseId ? updatedCourse : c));
-            localStorage.setItem('courses', JSON.stringify(courses));
-          });
+          // Update local storage
+          let courses = JSON.parse(localStorage.getItem('courses') || '[]');
+          courses = courses.map((c: any) => (c.id === courseId ? updatedCourse : c));
+          localStorage.setItem('courses', JSON.stringify(courses));
+        }, error => {
+          // **Revert UI change if API fails**
+          this.coursesInfo[courseIndex].flag = !newStatus;
+          Swal.fire('Error', 'Failed to update course status!', 'error');
         });
       }
     });
   }
+  
 }

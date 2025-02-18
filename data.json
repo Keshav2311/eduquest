@@ -496,6 +496,1806 @@
       "trainerRemark": "Nothing",
       "imageUrl": "assets/images/courses/image_1.webp",
       "flag": true
+    },
+    {
+      "id": "1739860519224",
+      "imageUrl": "assets/images/courses/image_3.webp",
+      "courseName": "Python Proficient Up-to-date",
+      "duration": 5,
+      "technologies": [
+        "Ruby",
+        "C++",
+        "Python",
+        "HTML"
+      ],
+      "courseFee": 200,
+      "credits": 7,
+      "trainerRemark": "Needs improvement",
+      "students": [],
+      "flag": true,
+      "trainerName": "Ross Geller"
+    },
+    {
+      "id": "1739860519230",
+      "imageUrl": "assets/images/courses/image_5.webp",
+      "courseName": "JavaScript Beginner Revised",
+      "duration": 3,
+      "technologies": [
+        "Cloud Computing",
+        "Python",
+        "Python",
+        "Rust"
+      ],
+      "courseFee": 100,
+      "credits": 8,
+      "trainerRemark": "Outstanding performance",
+      "students": [],
+      "flag": true,
+      "trainerName": "tapan"
+    },
+    {
+      "id": "1739860519236",
+      "imageUrl": "assets/images/courses/image_1.webp",
+      "courseName": "Java Complete Up-to-date",
+      "duration": 6,
+      "technologies": [
+        "Blockchain",
+        "HTML",
+        "Machine Learning",
+        "HTML"
+      ],
+      "courseFee": 100,
+      "credits": 9,
+      "trainerRemark": "Needs improvement",
+      "students": [],
+      "flag": true,
+      "trainerName": "tapan"
+    },
+    {
+      "id": "1739860519241",
+      "imageUrl": "assets/images/courses/image_4.webp",
+      "courseName": "CSS Full Contemporary",
+      "duration": 8,
+      "technologies": [
+        "Blockchain",
+        "CSS",
+        "HTML",
+        "C++"
+      ],
+      "courseFee": 100,
+      "credits": 10,
+      "trainerRemark": "Needs improvement",
+      "students": [],
+      "flag": true,
+      "trainerName": "Raj Mehta"
+    },
+    {
+      "id": "1739860519246",
+      "imageUrl": "assets/images/courses/image_7.webp",
+      "courseName": "Go Thorough Contemporary",
+      "duration": 8,
+      "technologies": [
+        "CSS",
+        "Cloud Computing",
+        "Swift",
+        "Go"
+      ],
+      "courseFee": 0,
+      "credits": 5,
+      "trainerRemark": "Can do better",
+      "students": [],
+      "flag": true,
+      "trainerName": "tapan"
+    },
+    {
+      "id": "1739860519252",
+      "imageUrl": "assets/images/courses/image_1.webp",
+      "courseName": "NoSQL Full Latest",
+      "duration": 3,
+      "technologies": [
+        "Cybersecurity",
+        "SQL",
+        "Rust",
+        "Rust"
+      ],
+      "courseFee": 100,
+      "credits": 9,
+      "trainerRemark": "Requires more practice",
+      "students": [],
+      "flag": true,
+      "trainerName": "Vikas Reddy"
+    },
+    {
+      "id": "1739860519259",
+      "imageUrl": "assets/images/courses/image_8.webp",
+      "courseName": "C++ Beginner Fresh",
+      "duration": 12,
+      "technologies": [
+        "SQL",
+        "CSS",
+        "Kotlin",
+        "JavaScript"
+      ],
+      "courseFee": 500,
+      "credits": 7,
+      "trainerRemark": "Keep up the good work",
+      "students": [],
+      "flag": true,
+      "trainerName": "Raj Mehta"
+    },
+    {
+      "id": "1739860519264",
+      "imageUrl": "assets/images/courses/image_5.webp",
+      "courseName": "CSS Advanced Refresh",
+      "duration": 5,
+      "technologies": [
+        "Machine Learning",
+        "Artificial Intelligence",
+        "Python",
+        "Python"
+      ],
+      "courseFee": 800,
+      "credits": 8,
+      "trainerRemark": "Can do better",
+      "students": [],
+      "flag": true,
+      "trainerName": "Vikas Reddy"
+    },
+    {
+      "id": "1739860519270",
+      "imageUrl": "assets/images/courses/image_8.webp",
+      "courseName": "CSS Expert Revised",
+      "duration": 12,
+      "technologies": [
+        "Cybersecurity",
+        "Java",
+        "Ruby",
+        "CSS"
+      ],
+      "courseFee": 800,
+      "credits": 8,
+      "trainerRemark": "Can do better",
+      "students": [],
+      "flag": true,
+      "trainerName": "Vikas Reddy"
+    },
+    {
+      "id": "1739860519276",
+      "imageUrl": "assets/images/courses/image_6.webp",
+      "courseName": "Ruby Advanced Refresh",
+      "duration": 6,
+      "technologies": [
+        "Go",
+        "JavaScript",
+        "C++",
+        "Cloud Computing"
+      ],
+      "courseFee": 0,
+      "credits": 6,
+      "trainerRemark": "Well done",
+      "students": [],
+      "flag": true,
+      "trainerName": "Achyut Keshav"
+    },
+    {
+      "id": "1739860519282",
+      "imageUrl": "assets/images/courses/image_8.webp",
+      "courseName": "HTML Beginner Enhanced",
+      "duration": 3,
+      "technologies": [
+        "Rust",
+        "Kotlin",
+        "Rust",
+        "CSS"
+      ],
+      "courseFee": 50,
+      "credits": 6,
+      "trainerRemark": "Keep up the good work",
+      "students": [],
+      "flag": true,
+      "trainerName": "Raj Mehta"
+    },
+    {
+      "id": "1739860519287",
+      "imageUrl": "assets/images/courses/image_1.webp",
+      "courseName": "HTML Master Recent",
+      "duration": 5,
+      "technologies": [
+        "Machine Learning",
+        "Go",
+        "Cloud Computing",
+        "Swift"
+      ],
+      "courseFee": 100,
+      "credits": 7,
+      "trainerRemark": "Requires more practice",
+      "students": [],
+      "flag": true,
+      "trainerName": "Ross Geller"
+    },
+    {
+      "id": "1739860519292",
+      "imageUrl": "assets/images/courses/image_3.webp",
+      "courseName": "Python Comprehensive Up-to-date",
+      "duration": 8,
+      "technologies": [
+        "Cloud Computing",
+        "NoSQL",
+        "SQL",
+        "Cybersecurity"
+      ],
+      "courseFee": 800,
+      "credits": 8,
+      "trainerRemark": "Can do better",
+      "students": [],
+      "flag": true,
+      "trainerName": "tapan"
+    },
+    {
+      "id": "1739860519298",
+      "imageUrl": "assets/images/courses/image_7.webp",
+      "courseName": "Blockchain Specialist Novel",
+      "duration": 8,
+      "technologies": [
+        "Python",
+        "Rust",
+        "Ruby",
+        "JavaScript"
+      ],
+      "courseFee": 800,
+      "credits": 8,
+      "trainerRemark": "Excellent progress",
+      "students": [],
+      "flag": true,
+      "trainerName": "Anjali Sharma"
+    },
+    {
+      "id": "1739860519302",
+      "imageUrl": "assets/images/courses/image_1.webp",
+      "courseName": "CSS Advanced Refresh",
+      "duration": 5,
+      "technologies": [
+        "DevOps",
+        "HTML",
+        "CSS",
+        "TypeScript"
+      ],
+      "courseFee": 0,
+      "credits": 6,
+      "trainerRemark": "Excellent progress",
+      "students": [],
+      "flag": true,
+      "trainerName": "Raj Mehta"
+    },
+    {
+      "id": "1739860519306",
+      "imageUrl": "assets/images/courses/image_2.webp",
+      "courseName": "Java Skilled Refresh",
+      "duration": 12,
+      "technologies": [
+        "Machine Learning",
+        "Python",
+        "CSS",
+        "Blockchain"
+      ],
+      "courseFee": 50,
+      "credits": 8,
+      "trainerRemark": "Keep up the good work",
+      "students": [],
+      "flag": true,
+      "trainerName": "Anjali Sharma"
+    },
+    {
+      "id": "1739860519310",
+      "imageUrl": "assets/images/courses/image_2.webp",
+      "courseName": "Cybersecurity Thorough Improved",
+      "duration": 5,
+      "technologies": [
+        "Machine Learning",
+        "Blockchain",
+        "DevOps",
+        "Rust"
+      ],
+      "courseFee": 100,
+      "credits": 7,
+      "trainerRemark": "Requires more practice",
+      "students": [],
+      "flag": true,
+      "trainerName": "Ross Geller"
+    },
+    {
+      "id": "1739860519316",
+      "imageUrl": "assets/images/courses/image_6.webp",
+      "courseName": "CSS Expert Enhanced",
+      "duration": 3,
+      "technologies": [
+        "Go",
+        "Java",
+        "SQL",
+        "NoSQL"
+      ],
+      "courseFee": 100,
+      "credits": 9,
+      "trainerRemark": "Well done",
+      "students": [],
+      "flag": true,
+      "trainerName": "Vikas Reddy"
+    },
+    {
+      "id": "1739860519321",
+      "imageUrl": "assets/images/courses/image_5.webp",
+      "courseName": "DevOps Experienced Recent",
+      "duration": 5,
+      "technologies": [
+        "HTML",
+        "Blockchain",
+        "Swift",
+        "HTML"
+      ],
+      "courseFee": 800,
+      "credits": 5,
+      "trainerRemark": "Excellent progress",
+      "students": [],
+      "flag": true,
+      "trainerName": "Achyut Keshav"
+    },
+    {
+      "id": "1739860519326",
+      "imageUrl": "assets/images/courses/image_8.webp",
+      "courseName": "NoSQL Skilled Updated",
+      "duration": 12,
+      "technologies": [
+        "JavaScript",
+        "NoSQL",
+        "HTML",
+        "Blockchain"
+      ],
+      "courseFee": 500,
+      "credits": 7,
+      "trainerRemark": "Can do better",
+      "students": [],
+      "flag": true,
+      "trainerName": "Anjali Sharma"
+    },
+    {
+      "id": "1739860519331",
+      "imageUrl": "assets/images/courses/image_7.webp",
+      "courseName": "DevOps Beginner Advanced",
+      "duration": 6,
+      "technologies": [
+        "DevOps",
+        "TypeScript",
+        "Swift",
+        "TypeScript"
+      ],
+      "courseFee": 800,
+      "credits": 8,
+      "trainerRemark": "Well done",
+      "students": [],
+      "flag": true,
+      "trainerName": "Ross Geller"
+    },
+    {
+      "id": "1739860519337",
+      "imageUrl": "assets/images/courses/image_7.webp",
+      "courseName": "TypeScript Introductory Fresh",
+      "duration": 6,
+      "technologies": [
+        "Machine Learning",
+        "Rust",
+        "NoSQL",
+        "CSS"
+      ],
+      "courseFee": 500,
+      "credits": 6,
+      "trainerRemark": "Needs improvement",
+      "students": [],
+      "flag": true,
+      "trainerName": "Raj Mehta"
+    },
+    {
+      "id": "1739860519343",
+      "imageUrl": "assets/images/courses/image_8.webp",
+      "courseName": "Machine Learning Full Recent",
+      "duration": 12,
+      "technologies": [
+        "Cloud Computing",
+        "Artificial Intelligence",
+        "Cloud Computing",
+        "JavaScript"
+      ],
+      "courseFee": 50,
+      "credits": 7,
+      "trainerRemark": "Keep up the good work",
+      "students": [],
+      "flag": true,
+      "trainerName": "Vikas Reddy"
+    },
+    {
+      "id": "1739860519348",
+      "imageUrl": "assets/images/courses/image_1.webp",
+      "courseName": "Cybersecurity Experienced Refresh",
+      "duration": 8,
+      "technologies": [
+        "Rust",
+        "CSS",
+        "Cybersecurity",
+        "Kotlin"
+      ],
+      "courseFee": 800,
+      "credits": 9,
+      "trainerRemark": "Outstanding performance",
+      "students": [],
+      "flag": true,
+      "trainerName": "Ross Geller"
+    },
+    {
+      "id": "1739860519354",
+      "imageUrl": "assets/images/courses/image_7.webp",
+      "courseName": "Ruby Comprehensive Novel",
+      "duration": 8,
+      "technologies": [
+        "Kotlin",
+        "Java",
+        "SQL",
+        "Rust"
+      ],
+      "courseFee": 200,
+      "credits": 7,
+      "trainerRemark": "Outstanding performance",
+      "students": [],
+      "flag": true,
+      "trainerName": "tapan"
+    },
+    {
+      "id": "1739860519359",
+      "imageUrl": "assets/images/courses/image_4.webp",
+      "courseName": "NoSQL Intermediate Up-to-date",
+      "duration": 5,
+      "technologies": [
+        "Go",
+        "Swift",
+        "Ruby",
+        "C++"
+      ],
+      "courseFee": 0,
+      "credits": 5,
+      "trainerRemark": "Excellent progress",
+      "students": [],
+      "flag": true,
+      "trainerName": "Anjali Sharma"
+    },
+    {
+      "id": "1739860519365",
+      "imageUrl": "assets/images/courses/image_4.webp",
+      "courseName": "NoSQL Complete Refresh",
+      "duration": 5,
+      "technologies": [
+        "JavaScript",
+        "Ruby",
+        "C++",
+        "Ruby"
+      ],
+      "courseFee": 200,
+      "credits": 10,
+      "trainerRemark": "Needs improvement",
+      "students": [],
+      "flag": true,
+      "trainerName": "Raj Mehta"
+    },
+    {
+      "id": "1739860519370",
+      "imageUrl": "assets/images/courses/image_1.webp",
+      "courseName": "Blockchain Expert Contemporary",
+      "duration": 5,
+      "technologies": [
+        "Swift",
+        "Machine Learning",
+        "NoSQL",
+        "SQL"
+      ],
+      "courseFee": 50,
+      "credits": 8,
+      "trainerRemark": "Good participation",
+      "students": [],
+      "flag": true,
+      "trainerName": "Vikas Reddy"
+    },
+    {
+      "id": "1739860519376",
+      "imageUrl": "assets/images/courses/image_7.webp",
+      "courseName": "JavaScript Experienced Refresh",
+      "duration": 5,
+      "technologies": [
+        "Python",
+        "CSS",
+        "CSS",
+        "Ruby"
+      ],
+      "courseFee": 0,
+      "credits": 9,
+      "trainerRemark": "Good participation",
+      "students": [],
+      "flag": true,
+      "trainerName": "Anjali Sharma"
+    },
+    {
+      "id": "1739860519381",
+      "imageUrl": "assets/images/courses/image_4.webp",
+      "courseName": "Swift Fundamental Novel",
+      "duration": 12,
+      "technologies": [
+        "Swift",
+        "CSS",
+        "DevOps",
+        "Python"
+      ],
+      "courseFee": 100,
+      "credits": 6,
+      "trainerRemark": "Requires more practice",
+      "students": [],
+      "flag": true,
+      "trainerName": "Priya Verma"
+    },
+    {
+      "id": "1739860519387",
+      "imageUrl": "assets/images/courses/image_6.webp",
+      "courseName": "Python In-depth Novel",
+      "duration": 6,
+      "technologies": [
+        "HTML",
+        "NoSQL",
+        "Swift",
+        "TypeScript"
+      ],
+      "courseFee": 200,
+      "credits": 8,
+      "trainerRemark": "Struggling with concepts",
+      "students": [],
+      "flag": true,
+      "trainerName": "Anjali Sharma"
+    },
+    {
+      "id": "1739860519392",
+      "imageUrl": "assets/images/courses/image_6.webp",
+      "courseName": "Java Expert Advanced",
+      "duration": 12,
+      "technologies": [
+        "Ruby",
+        "Go",
+        "SQL",
+        "Python"
+      ],
+      "courseFee": 0,
+      "credits": 6,
+      "trainerRemark": "Struggling with concepts",
+      "students": [],
+      "flag": true,
+      "trainerName": "Anjali Sharma"
+    },
+    {
+      "id": "1739860519398",
+      "imageUrl": "assets/images/courses/image_3.webp",
+      "courseName": "Kotlin Advanced State-of-the-art",
+      "duration": 12,
+      "technologies": [
+        "Kotlin",
+        "CSS",
+        "NoSQL",
+        "Ruby"
+      ],
+      "courseFee": 100,
+      "credits": 7,
+      "trainerRemark": "Great understanding",
+      "students": [],
+      "flag": true,
+      "trainerName": "Priya Verma"
+    },
+    {
+      "id": "1739860519404",
+      "imageUrl": "assets/images/courses/image_7.webp",
+      "courseName": "C++ Specialist Contemporary",
+      "duration": 3,
+      "technologies": [
+        "Rust",
+        "Python",
+        "Ruby",
+        "NoSQL"
+      ],
+      "courseFee": 100,
+      "credits": 8,
+      "trainerRemark": "Can do better",
+      "students": [],
+      "flag": true,
+      "trainerName": "Priya Verma"
+    },
+    {
+      "id": "1739860519409",
+      "imageUrl": "assets/images/courses/image_3.webp",
+      "courseName": "DevOps Novice Latest",
+      "duration": 3,
+      "technologies": [
+        "Artificial Intelligence",
+        "TypeScript",
+        "Ruby",
+        "Python"
+      ],
+      "courseFee": 800,
+      "credits": 10,
+      "trainerRemark": "Great understanding",
+      "students": [],
+      "flag": true,
+      "trainerName": "Priya Verma"
+    },
+    {
+      "id": "1739860519415",
+      "imageUrl": "assets/images/courses/image_7.webp",
+      "courseName": "DevOps Thorough Enhanced",
+      "duration": 5,
+      "technologies": [
+        "HTML",
+        "HTML",
+        "Go",
+        "JavaScript"
+      ],
+      "courseFee": 800,
+      "credits": 5,
+      "trainerRemark": "Keep up the good work",
+      "students": [],
+      "flag": true,
+      "trainerName": "Anjali Sharma"
+    },
+    {
+      "id": "1739860519419",
+      "imageUrl": "assets/images/courses/image_2.webp",
+      "courseName": "C++ Full Refresh",
+      "duration": 8,
+      "technologies": [
+        "NoSQL",
+        "CSS",
+        "Java",
+        "Go"
+      ],
+      "courseFee": 100,
+      "credits": 10,
+      "trainerRemark": "Good participation",
+      "students": [],
+      "flag": true,
+      "trainerName": "Achyut Keshav"
+    },
+    {
+      "id": "1739860519423",
+      "imageUrl": "assets/images/courses/image_1.webp",
+      "courseName": "Go Introductory Recent",
+      "duration": 5,
+      "technologies": [
+        "Swift",
+        "Java",
+        "Cybersecurity",
+        "DevOps"
+      ],
+      "courseFee": 100,
+      "credits": 5,
+      "trainerRemark": "Excellent progress",
+      "students": [],
+      "flag": true,
+      "trainerName": "Priya Verma"
+    },
+    {
+      "id": "1739860519429",
+      "imageUrl": "assets/images/courses/image_3.webp",
+      "courseName": "Python Comprehensive New",
+      "duration": 8,
+      "technologies": [
+        "TypeScript",
+        "Swift",
+        "Blockchain",
+        "Swift"
+      ],
+      "courseFee": 0,
+      "credits": 7,
+      "trainerRemark": "Requires more practice",
+      "students": [],
+      "flag": true,
+      "trainerName": "Raj Mehta"
+    },
+    {
+      "id": "1739860519433",
+      "imageUrl": "assets/images/courses/image_1.webp",
+      "courseName": "SQL Experienced Improved",
+      "duration": 8,
+      "technologies": [
+        "CSS",
+        "Cybersecurity",
+        "Artificial Intelligence",
+        "C++"
+      ],
+      "courseFee": 200,
+      "credits": 10,
+      "trainerRemark": "Excellent progress",
+      "students": [],
+      "flag": true,
+      "trainerName": "Priya Verma"
+    },
+    {
+      "id": "1739860519438",
+      "imageUrl": "assets/images/courses/image_6.webp",
+      "courseName": "CSS Extensive Modernized",
+      "duration": 8,
+      "technologies": [
+        "NoSQL",
+        "Swift",
+        "Artificial Intelligence",
+        "HTML"
+      ],
+      "courseFee": 800,
+      "credits": 6,
+      "trainerRemark": "Requires more practice",
+      "students": [],
+      "flag": true,
+      "trainerName": "Vikas Reddy"
+    },
+    {
+      "id": "1739860519443",
+      "imageUrl": "assets/images/courses/image_5.webp",
+      "courseName": "Blockchain Proficient Current",
+      "duration": 8,
+      "technologies": [
+        "Java",
+        "C++",
+        "JavaScript",
+        "Artificial Intelligence"
+      ],
+      "courseFee": 500,
+      "credits": 10,
+      "trainerRemark": "Outstanding performance",
+      "students": [],
+      "flag": true,
+      "trainerName": "Raj Mehta"
+    },
+    {
+      "id": "1739860519448",
+      "imageUrl": "assets/images/courses/image_1.webp",
+      "courseName": "NoSQL In-depth Recent",
+      "duration": 5,
+      "technologies": [
+        "Swift",
+        "HTML",
+        "Rust",
+        "C++"
+      ],
+      "courseFee": 0,
+      "credits": 8,
+      "trainerRemark": "Needs improvement",
+      "students": [],
+      "flag": true,
+      "trainerName": "tapan"
+    },
+    {
+      "id": "1739860519453",
+      "imageUrl": "assets/images/courses/image_3.webp",
+      "courseName": "Java Extensive Up-to-date",
+      "duration": 5,
+      "technologies": [
+        "Java",
+        "Go",
+        "CSS",
+        "Artificial Intelligence"
+      ],
+      "courseFee": 800,
+      "credits": 6,
+      "trainerRemark": "Outstanding performance",
+      "students": [],
+      "flag": true,
+      "trainerName": "tapan"
+    },
+    {
+      "id": "1739860519459",
+      "imageUrl": "assets/images/courses/image_8.webp",
+      "courseName": "C++ In-depth Advanced",
+      "duration": 6,
+      "technologies": [
+        "Artificial Intelligence",
+        "NoSQL",
+        "Kotlin",
+        "SQL"
+      ],
+      "courseFee": 0,
+      "credits": 10,
+      "trainerRemark": "Well done",
+      "students": [],
+      "flag": true,
+      "trainerName": "Ross Geller"
+    },
+    {
+      "id": "1739860519464",
+      "imageUrl": "assets/images/courses/image_2.webp",
+      "courseName": "Cybersecurity Intermediate Enhanced",
+      "duration": 6,
+      "technologies": [
+        "Cybersecurity",
+        "Python",
+        "CSS",
+        "Blockchain"
+      ],
+      "courseFee": 100,
+      "credits": 8,
+      "trainerRemark": "Good participation",
+      "students": [],
+      "flag": true,
+      "trainerName": "tapan"
+    },
+    {
+      "id": "1739860519470",
+      "imageUrl": "assets/images/courses/image_5.webp",
+      "courseName": "Blockchain Expert Novel",
+      "duration": 3,
+      "technologies": [
+        "Blockchain",
+        "C++",
+        "JavaScript",
+        "Swift"
+      ],
+      "courseFee": 500,
+      "credits": 5,
+      "trainerRemark": "Well done",
+      "students": [],
+      "flag": true,
+      "trainerName": "Priya Verma"
+    },
+    {
+      "id": "1739860519475",
+      "imageUrl": "assets/images/courses/image_7.webp",
+      "courseName": "Kotlin Experienced Up-to-date",
+      "duration": 12,
+      "technologies": [
+        "JavaScript",
+        "JavaScript",
+        "TypeScript",
+        "Kotlin"
+      ],
+      "courseFee": 0,
+      "credits": 7,
+      "trainerRemark": "Can do better",
+      "students": [],
+      "flag": true,
+      "trainerName": "Raj Mehta"
+    },
+    {
+      "id": "1739860519480",
+      "imageUrl": "assets/images/courses/image_3.webp",
+      "courseName": "Rust Full Leading-edge",
+      "duration": 12,
+      "technologies": [
+        "Ruby",
+        "Java",
+        "Blockchain",
+        "Swift"
+      ],
+      "courseFee": 0,
+      "credits": 7,
+      "trainerRemark": "Outstanding performance",
+      "students": [],
+      "flag": true,
+      "trainerName": "Raj Mehta"
+    },
+    {
+      "id": "1739860519486",
+      "imageUrl": "assets/images/courses/image_3.webp",
+      "courseName": "Cloud Computing Experienced Contemporary",
+      "duration": 12,
+      "technologies": [
+        "Python",
+        "Python",
+        "TypeScript",
+        "HTML"
+      ],
+      "courseFee": 50,
+      "credits": 5,
+      "trainerRemark": "Excellent progress",
+      "students": [],
+      "flag": true,
+      "trainerName": "Achyut Keshav"
+    },
+    {
+      "id": "1739860519491",
+      "imageUrl": "assets/images/courses/image_7.webp",
+      "courseName": "Cybersecurity Proficient Cutting-edge",
+      "duration": 12,
+      "technologies": [
+        "DevOps",
+        "Artificial Intelligence",
+        "Ruby",
+        "Rust"
+      ],
+      "courseFee": 800,
+      "credits": 5,
+      "trainerRemark": "Struggling with concepts",
+      "students": [],
+      "flag": true,
+      "trainerName": "Raj Mehta"
+    },
+    {
+      "id": "1739860519496",
+      "imageUrl": "assets/images/courses/image_4.webp",
+      "courseName": "NoSQL Proficient Upgraded",
+      "duration": 6,
+      "technologies": [
+        "Cybersecurity",
+        "HTML",
+        "Machine Learning",
+        "Go"
+      ],
+      "courseFee": 200,
+      "credits": 8,
+      "trainerRemark": "Can do better",
+      "students": [],
+      "flag": true,
+      "trainerName": "Ross Geller"
+    },
+    {
+      "id": "1739860519501",
+      "imageUrl": "assets/images/courses/image_8.webp",
+      "courseName": "Rust Detailed Improved",
+      "duration": 12,
+      "technologies": [
+        "HTML",
+        "Rust",
+        "Blockchain",
+        "Rust"
+      ],
+      "courseFee": 500,
+      "credits": 5,
+      "trainerRemark": "Struggling with concepts",
+      "students": [],
+      "flag": true,
+      "trainerName": "Anjali Sharma"
+    },
+    {
+      "id": "1739860519507",
+      "imageUrl": "assets/images/courses/image_3.webp",
+      "courseName": "Python Introductory Cutting-edge",
+      "duration": 3,
+      "technologies": [
+        "Swift",
+        "Cybersecurity",
+        "JavaScript",
+        "HTML"
+      ],
+      "courseFee": 500,
+      "credits": 6,
+      "trainerRemark": "Requires more practice",
+      "students": [],
+      "flag": true,
+      "trainerName": "Priya Verma"
+    },
+    {
+      "id": "1739860519512",
+      "imageUrl": "assets/images/courses/image_3.webp",
+      "courseName": "Artificial Intelligence Extensive State-of-the-art",
+      "duration": 12,
+      "technologies": [
+        "SQL",
+        "DevOps",
+        "CSS",
+        "C++"
+      ],
+      "courseFee": 50,
+      "credits": 9,
+      "trainerRemark": "Keep up the good work",
+      "students": [],
+      "flag": true,
+      "trainerName": "tapan"
+    },
+    {
+      "id": "1739860519517",
+      "imageUrl": "assets/images/courses/image_4.webp",
+      "courseName": "Rust Beginner Recent",
+      "duration": 8,
+      "technologies": [
+        "Cloud Computing",
+        "NoSQL",
+        "Cloud Computing",
+        "Cybersecurity"
+      ],
+      "courseFee": 0,
+      "credits": 8,
+      "trainerRemark": "Requires more practice",
+      "students": [],
+      "flag": true,
+      "trainerName": "Achyut Keshav"
+    },
+    {
+      "id": "1739860519523",
+      "imageUrl": "assets/images/courses/image_1.webp",
+      "courseName": "SQL Thorough Up-to-date",
+      "duration": 12,
+      "technologies": [
+        "Java",
+        "NoSQL",
+        "HTML",
+        "Java"
+      ],
+      "courseFee": 500,
+      "credits": 7,
+      "trainerRemark": "Keep up the good work",
+      "students": [],
+      "flag": true,
+      "trainerName": "tapan"
+    },
+    {
+      "id": "1739860519528",
+      "imageUrl": "assets/images/courses/image_8.webp",
+      "courseName": "JavaScript Intermediate Recent",
+      "duration": 5,
+      "technologies": [
+        "C++",
+        "SQL",
+        "JavaScript",
+        "Ruby"
+      ],
+      "courseFee": 100,
+      "credits": 6,
+      "trainerRemark": "Outstanding performance",
+      "students": [],
+      "flag": true,
+      "trainerName": "Ross Geller"
+    },
+    {
+      "id": "1739860519533",
+      "imageUrl": "assets/images/courses/image_3.webp",
+      "courseName": "Ruby Beginner Updated",
+      "duration": 12,
+      "technologies": [
+        "HTML",
+        "Kotlin",
+        "C++",
+        "Artificial Intelligence"
+      ],
+      "courseFee": 50,
+      "credits": 7,
+      "trainerRemark": "Well done",
+      "students": [],
+      "flag": true,
+      "trainerName": "Raj Mehta"
+    },
+    {
+      "id": "1739860519541",
+      "imageUrl": "assets/images/courses/image_4.webp",
+      "courseName": "Java Detailed Contemporary",
+      "duration": 3,
+      "technologies": [
+        "Blockchain",
+        "Artificial Intelligence",
+        "NoSQL",
+        "Ruby"
+      ],
+      "courseFee": 0,
+      "credits": 8,
+      "trainerRemark": "Needs improvement",
+      "students": [],
+      "flag": true,
+      "trainerName": "Raj Mehta"
+    },
+    {
+      "id": "1739860519549",
+      "imageUrl": "assets/images/courses/image_3.webp",
+      "courseName": "DevOps Basic Current",
+      "duration": 6,
+      "technologies": [
+        "Cloud Computing",
+        "Ruby",
+        "Blockchain",
+        "Java"
+      ],
+      "courseFee": 500,
+      "credits": 10,
+      "trainerRemark": "Well done",
+      "students": [],
+      "flag": true,
+      "trainerName": "Ross Geller"
+    },
+    {
+      "id": "1739860519566",
+      "imageUrl": "assets/images/courses/image_4.webp",
+      "courseName": "Cloud Computing Full Leading-edge",
+      "duration": 12,
+      "technologies": [
+        "Swift",
+        "Machine Learning",
+        "Ruby",
+        "Rust"
+      ],
+      "courseFee": 800,
+      "credits": 7,
+      "trainerRemark": "Keep up the good work",
+      "students": [],
+      "flag": true,
+      "trainerName": "Ross Geller"
+    },
+    {
+      "id": "1739860519555",
+      "imageUrl": "assets/images/courses/image_7.webp",
+      "courseName": "NoSQL Novice Cutting-edge",
+      "duration": 3,
+      "technologies": [
+        "SQL",
+        "CSS",
+        "Rust",
+        "Java"
+      ],
+      "courseFee": 0,
+      "credits": 9,
+      "trainerRemark": "Outstanding performance",
+      "students": [],
+      "flag": true,
+      "trainerName": "Ross Geller"
+    },
+    {
+      "id": "1739860519561",
+      "imageUrl": "assets/images/courses/image_4.webp",
+      "courseName": "Artificial Intelligence Complete Enhanced",
+      "duration": 6,
+      "technologies": [
+        "JavaScript",
+        "Cybersecurity",
+        "Machine Learning",
+        "JavaScript"
+      ],
+      "courseFee": 50,
+      "credits": 7,
+      "trainerRemark": "Good participation",
+      "students": [],
+      "flag": true,
+      "trainerName": "Achyut Keshav"
+    },
+    {
+      "id": "1739860519572",
+      "imageUrl": "assets/images/courses/image_4.webp",
+      "courseName": "Blockchain Introductory Recent",
+      "duration": 5,
+      "technologies": [
+        "NoSQL",
+        "Kotlin",
+        "Python",
+        "Cybersecurity"
+      ],
+      "courseFee": 50,
+      "credits": 8,
+      "trainerRemark": "Good participation",
+      "students": [],
+      "flag": true,
+      "trainerName": "tapan"
+    },
+    {
+      "id": "1739860519579",
+      "imageUrl": "assets/images/courses/image_2.webp",
+      "courseName": "Java Basic Leading-edge",
+      "duration": 5,
+      "technologies": [
+        "DevOps",
+        "HTML",
+        "Machine Learning",
+        "C++"
+      ],
+      "courseFee": 200,
+      "credits": 10,
+      "trainerRemark": "Struggling with concepts",
+      "students": [],
+      "flag": true,
+      "trainerName": "tapan"
+    },
+    {
+      "id": "1739860519584",
+      "imageUrl": "assets/images/courses/image_8.webp",
+      "courseName": "Rust Beginner Improved",
+      "duration": 5,
+      "technologies": [
+        "Java",
+        "Ruby",
+        "CSS",
+        "HTML"
+      ],
+      "courseFee": 200,
+      "credits": 5,
+      "trainerRemark": "Outstanding performance",
+      "students": [],
+      "flag": true,
+      "trainerName": "Anjali Sharma"
+    },
+    {
+      "id": "1739860519593",
+      "imageUrl": "assets/images/courses/image_4.webp",
+      "courseName": "TypeScript Beginner Latest",
+      "duration": 3,
+      "technologies": [
+        "Kotlin",
+        "CSS",
+        "Artificial Intelligence",
+        "TypeScript"
+      ],
+      "courseFee": 0,
+      "credits": 9,
+      "trainerRemark": "Struggling with concepts",
+      "students": [],
+      "flag": true,
+      "trainerName": "tapan"
+    },
+    {
+      "id": "1739860519598",
+      "imageUrl": "assets/images/courses/image_5.webp",
+      "courseName": "C++ Fundamental Recent",
+      "duration": 3,
+      "technologies": [
+        "NoSQL",
+        "C++",
+        "TypeScript",
+        "Go"
+      ],
+      "courseFee": 800,
+      "credits": 5,
+      "trainerRemark": "Requires more practice",
+      "students": [],
+      "flag": true,
+      "trainerName": "Vikas Reddy"
+    },
+    {
+      "id": "1739860519605",
+      "imageUrl": "assets/images/courses/image_1.webp",
+      "courseName": "Cloud Computing Introductory Revised",
+      "duration": 6,
+      "technologies": [
+        "C++",
+        "Blockchain",
+        "Python",
+        "Rust"
+      ],
+      "courseFee": 500,
+      "credits": 6,
+      "trainerRemark": "Excellent progress",
+      "students": [],
+      "flag": true,
+      "trainerName": "Achyut Keshav"
+    },
+    {
+      "id": "1739860519611",
+      "imageUrl": "assets/images/courses/image_3.webp",
+      "courseName": "Cloud Computing Complete State-of-the-art",
+      "duration": 12,
+      "technologies": [
+        "Java",
+        "Blockchain",
+        "DevOps",
+        "Kotlin"
+      ],
+      "courseFee": 500,
+      "credits": 5,
+      "trainerRemark": "Requires more practice",
+      "students": [],
+      "flag": true,
+      "trainerName": "Ross Geller"
+    },
+    {
+      "id": "1739860519615",
+      "imageUrl": "assets/images/courses/image_5.webp",
+      "courseName": "SQL Novice State-of-the-art",
+      "duration": 3,
+      "technologies": [
+        "Ruby",
+        "CSS",
+        "Go",
+        "Swift"
+      ],
+      "courseFee": 50,
+      "credits": 5,
+      "trainerRemark": "Can do better",
+      "students": [],
+      "flag": true,
+      "trainerName": "Priya Verma"
+    },
+    {
+      "id": "1739860519620",
+      "imageUrl": "assets/images/courses/image_7.webp",
+      "courseName": "Python Experienced State-of-the-art",
+      "duration": 8,
+      "technologies": [
+        "Kotlin",
+        "TypeScript",
+        "Rust",
+        "JavaScript"
+      ],
+      "courseFee": 800,
+      "credits": 10,
+      "trainerRemark": "Requires more practice",
+      "students": [],
+      "flag": true,
+      "trainerName": "Ross Geller"
+    },
+    {
+      "id": "1739860519625",
+      "imageUrl": "assets/images/courses/image_2.webp",
+      "courseName": "SQL Proficient Up-to-date",
+      "duration": 3,
+      "technologies": [
+        "HTML",
+        "NoSQL",
+        "Kotlin",
+        "Swift"
+      ],
+      "courseFee": 200,
+      "credits": 7,
+      "trainerRemark": "Good participation",
+      "students": [],
+      "flag": true,
+      "trainerName": "Raj Mehta"
+    },
+    {
+      "id": "1739860519630",
+      "imageUrl": "assets/images/courses/image_1.webp",
+      "courseName": "Blockchain Thorough Revised",
+      "duration": 8,
+      "technologies": [
+        "Cybersecurity",
+        "Go",
+        "Ruby",
+        "CSS"
+      ],
+      "courseFee": 50,
+      "credits": 9,
+      "trainerRemark": "Great understanding",
+      "students": [],
+      "flag": true,
+      "trainerName": "Raj Mehta"
+    },
+    {
+      "id": "1739860519635",
+      "imageUrl": "assets/images/courses/image_8.webp",
+      "courseName": "TypeScript Extensive New",
+      "duration": 12,
+      "technologies": [
+        "Go",
+        "Cloud Computing",
+        "NoSQL",
+        "Blockchain"
+      ],
+      "courseFee": 800,
+      "credits": 10,
+      "trainerRemark": "Requires more practice",
+      "students": [],
+      "flag": true,
+      "trainerName": "Achyut Keshav"
+    },
+    {
+      "id": "1739860519641",
+      "imageUrl": "assets/images/courses/image_4.webp",
+      "courseName": "HTML Proficient Updated",
+      "duration": 6,
+      "technologies": [
+        "CSS",
+        "Kotlin",
+        "Cloud Computing",
+        "Machine Learning"
+      ],
+      "courseFee": 800,
+      "credits": 6,
+      "trainerRemark": "Struggling with concepts",
+      "students": [],
+      "flag": true,
+      "trainerName": "Priya Verma"
+    },
+    {
+      "id": "1739860519647",
+      "imageUrl": "assets/images/courses/image_1.webp",
+      "courseName": "Java Beginner Contemporary",
+      "duration": 5,
+      "technologies": [
+        "Swift",
+        "JavaScript",
+        "Machine Learning",
+        "JavaScript"
+      ],
+      "courseFee": 100,
+      "credits": 5,
+      "trainerRemark": "Can do better",
+      "students": [],
+      "flag": true,
+      "trainerName": "tapan"
+    },
+    {
+      "id": "1739860519651",
+      "imageUrl": "assets/images/courses/image_4.webp",
+      "courseName": "Ruby Fundamental Upgraded",
+      "duration": 3,
+      "technologies": [
+        "Rust",
+        "TypeScript",
+        "Java",
+        "NoSQL"
+      ],
+      "courseFee": 500,
+      "credits": 7,
+      "trainerRemark": "Can do better",
+      "students": [],
+      "flag": true,
+      "trainerName": "Vikas Reddy"
+    },
+    {
+      "id": "1739860519656",
+      "imageUrl": "assets/images/courses/image_3.webp",
+      "courseName": "Artificial Intelligence Specialist New",
+      "duration": 5,
+      "technologies": [
+        "TypeScript",
+        "Artificial Intelligence",
+        "Swift",
+        "CSS"
+      ],
+      "courseFee": 50,
+      "credits": 9,
+      "trainerRemark": "Great understanding",
+      "students": [],
+      "flag": true,
+      "trainerName": "Priya Verma"
+    },
+    {
+      "id": "1739860519660",
+      "imageUrl": "assets/images/courses/image_4.webp",
+      "courseName": "JavaScript In-depth Updated",
+      "duration": 12,
+      "technologies": [
+        "Artificial Intelligence",
+        "TypeScript",
+        "SQL",
+        "Cybersecurity"
+      ],
+      "courseFee": 50,
+      "credits": 9,
+      "trainerRemark": "Well done",
+      "students": [],
+      "flag": true,
+      "trainerName": "Ross Geller"
+    },
+    {
+      "id": "1739860519665",
+      "imageUrl": "assets/images/courses/image_4.webp",
+      "courseName": "Rust Expert Contemporary",
+      "duration": 3,
+      "technologies": [
+        "Artificial Intelligence",
+        "Python",
+        "Python",
+        "Rust"
+      ],
+      "courseFee": 800,
+      "credits": 9,
+      "trainerRemark": "Well done",
+      "students": [],
+      "flag": true,
+      "trainerName": "Anjali Sharma"
+    },
+    {
+      "id": "1739860519668",
+      "imageUrl": "assets/images/courses/image_2.webp",
+      "courseName": "Machine Learning Detailed Contemporary",
+      "duration": 8,
+      "technologies": [
+        "Artificial Intelligence",
+        "Kotlin",
+        "Cybersecurity",
+        "Swift"
+      ],
+      "courseFee": 50,
+      "credits": 9,
+      "trainerRemark": "Well done",
+      "students": [],
+      "flag": true,
+      "trainerName": "Priya Verma"
+    },
+    {
+      "id": "1739860519672",
+      "imageUrl": "assets/images/courses/image_5.webp",
+      "courseName": "Java Novice Refresh",
+      "duration": 8,
+      "technologies": [
+        "Rust",
+        "HTML",
+        "NoSQL",
+        "Cloud Computing"
+      ],
+      "courseFee": 800,
+      "credits": 6,
+      "trainerRemark": "Keep up the good work",
+      "students": [],
+      "flag": true,
+      "trainerName": "Achyut Keshav"
+    },
+    {
+      "id": "1739860519677",
+      "imageUrl": "assets/images/courses/image_8.webp",
+      "courseName": "HTML Detailed Refresh",
+      "duration": 5,
+      "technologies": [
+        "C++",
+        "Cloud Computing",
+        "Java",
+        "Machine Learning"
+      ],
+      "courseFee": 50,
+      "credits": 5,
+      "trainerRemark": "Good participation",
+      "students": [],
+      "flag": true,
+      "trainerName": "Achyut Keshav"
+    },
+    {
+      "id": "1739860519681",
+      "imageUrl": "assets/images/courses/image_5.webp",
+      "courseName": "Java Novice Updated",
+      "duration": 6,
+      "technologies": [
+        "Cloud Computing",
+        "NoSQL",
+        "Kotlin",
+        "Java"
+      ],
+      "courseFee": 50,
+      "credits": 6,
+      "trainerRemark": "Struggling with concepts",
+      "students": [],
+      "flag": true,
+      "trainerName": "Raj Mehta"
+    },
+    {
+      "id": "1739860519687",
+      "imageUrl": "assets/images/courses/image_7.webp",
+      "courseName": "SQL Fundamental Improved",
+      "duration": 6,
+      "technologies": [
+        "Kotlin",
+        "Blockchain",
+        "Ruby",
+        "Blockchain"
+      ],
+      "courseFee": 200,
+      "credits": 9,
+      "trainerRemark": "Outstanding performance",
+      "students": [],
+      "flag": true,
+      "trainerName": "Anjali Sharma"
+    },
+    {
+      "id": "1739860519693",
+      "imageUrl": "assets/images/courses/image_8.webp",
+      "courseName": "HTML In-depth State-of-the-art",
+      "duration": 3,
+      "technologies": [
+        "Cloud Computing",
+        "SQL",
+        "Blockchain",
+        "Ruby"
+      ],
+      "courseFee": 100,
+      "credits": 10,
+      "trainerRemark": "Can do better",
+      "students": [],
+      "flag": true,
+      "trainerName": "tapan"
+    },
+    {
+      "id": "1739860519698",
+      "imageUrl": "assets/images/courses/image_7.webp",
+      "courseName": "Cloud Computing Master Up-to-date",
+      "duration": 12,
+      "technologies": [
+        "DevOps",
+        "C++",
+        "SQL",
+        "Python"
+      ],
+      "courseFee": 500,
+      "credits": 9,
+      "trainerRemark": "Needs improvement",
+      "students": [],
+      "flag": true,
+      "trainerName": "Priya Verma"
+    },
+    {
+      "id": "1739860519701",
+      "imageUrl": "assets/images/courses/image_4.webp",
+      "courseName": "CSS Skilled Contemporary",
+      "duration": 3,
+      "technologies": [
+        "Python",
+        "Rust",
+        "CSS",
+        "Rust"
+      ],
+      "courseFee": 100,
+      "credits": 9,
+      "trainerRemark": "Good participation",
+      "students": [],
+      "flag": true,
+      "trainerName": "Vikas Reddy"
+    },
+    {
+      "id": "1739860519706",
+      "imageUrl": "assets/images/courses/image_8.webp",
+      "courseName": "TypeScript Full Leading-edge",
+      "duration": 5,
+      "technologies": [
+        "TypeScript",
+        "Kotlin",
+        "NoSQL",
+        "C++"
+      ],
+      "courseFee": 100,
+      "credits": 5,
+      "trainerRemark": "Great understanding",
+      "students": [],
+      "flag": true,
+      "trainerName": "Priya Verma"
+    },
+    {
+      "id": "1739860519710",
+      "imageUrl": "assets/images/courses/image_2.webp",
+      "courseName": "Go Proficient State-of-the-art",
+      "duration": 6,
+      "technologies": [
+        "Kotlin",
+        "Artificial Intelligence",
+        "Python",
+        "NoSQL"
+      ],
+      "courseFee": 500,
+      "credits": 10,
+      "trainerRemark": "Excellent progress",
+      "students": [],
+      "flag": true,
+      "trainerName": "Raj Mehta"
+    },
+    {
+      "id": "1739860519714",
+      "imageUrl": "assets/images/courses/image_4.webp",
+      "courseName": "Swift Introductory Leading-edge",
+      "duration": 6,
+      "technologies": [
+        "DevOps",
+        "Kotlin",
+        "Artificial Intelligence",
+        "Swift"
+      ],
+      "courseFee": 200,
+      "credits": 10,
+      "trainerRemark": "Keep up the good work",
+      "students": [],
+      "flag": true,
+      "trainerName": "Ross Geller"
+    },
+    {
+      "id": "1739860519718",
+      "imageUrl": "assets/images/courses/image_7.webp",
+      "courseName": "Cloud Computing Comprehensive Revised",
+      "duration": 6,
+      "technologies": [
+        "TypeScript",
+        "C++",
+        "Machine Learning",
+        "NoSQL"
+      ],
+      "courseFee": 100,
+      "credits": 7,
+      "trainerRemark": "Good participation",
+      "students": [],
+      "flag": true,
+      "trainerName": "Anjali Sharma"
+    },
+    {
+      "id": "1739860519723",
+      "imageUrl": "assets/images/courses/image_8.webp",
+      "courseName": "HTML Extensive Cutting-edge",
+      "duration": 3,
+      "technologies": [
+        "Machine Learning",
+        "Kotlin",
+        "TypeScript",
+        "Cloud Computing"
+      ],
+      "courseFee": 800,
+      "credits": 7,
+      "trainerRemark": "Keep up the good work",
+      "students": [],
+      "flag": true,
+      "trainerName": "Vikas Reddy"
+    },
+    {
+      "id": "1739860519727",
+      "imageUrl": "assets/images/courses/image_6.webp",
+      "courseName": "SQL Comprehensive Updated",
+      "duration": 8,
+      "technologies": [
+        "Kotlin",
+        "Go",
+        "SQL",
+        "Artificial Intelligence"
+      ],
+      "courseFee": 100,
+      "credits": 8,
+      "trainerRemark": "Excellent progress",
+      "students": [],
+      "flag": true,
+      "trainerName": "Anjali Sharma"
+    },
+    {
+      "id": "1739860519731",
+      "imageUrl": "assets/images/courses/image_6.webp",
+      "courseName": "NoSQL Comprehensive Current",
+      "duration": 8,
+      "technologies": [
+        "Blockchain",
+        "Machine Learning",
+        "Kotlin",
+        "Cloud Computing"
+      ],
+      "courseFee": 200,
+      "credits": 7,
+      "trainerRemark": "Requires more practice",
+      "students": [],
+      "flag": true,
+      "trainerName": "Anjali Sharma"
+    },
+    {
+      "id": "1739860519735",
+      "imageUrl": "assets/images/courses/image_2.webp",
+      "courseName": "HTML Detailed Innovative",
+      "duration": 12,
+      "technologies": [
+        "SQL",
+        "CSS",
+        "CSS",
+        "JavaScript"
+      ],
+      "courseFee": 0,
+      "credits": 9,
+      "trainerRemark": "Requires more practice",
+      "students": [],
+      "flag": true,
+      "trainerName": "Priya Verma"
+    },
+    {
+      "id": "1739860519740",
+      "imageUrl": "assets/images/courses/image_7.webp",
+      "courseName": "Python Beginner Enhanced",
+      "duration": 3,
+      "technologies": [
+        "Cybersecurity",
+        "Artificial Intelligence",
+        "JavaScript",
+        "TypeScript"
+      ],
+      "courseFee": 100,
+      "credits": 7,
+      "trainerRemark": "Requires more practice",
+      "students": [],
+      "flag": true,
+      "trainerName": "Anjali Sharma"
+    },
+    {
+      "id": "1739860519744",
+      "imageUrl": "assets/images/courses/image_4.webp",
+      "courseName": "Go Beginner Recent",
+      "duration": 12,
+      "technologies": [
+        "CSS",
+        "Rust",
+        "C++",
+        "JavaScript"
+      ],
+      "courseFee": 100,
+      "credits": 5,
+      "trainerRemark": "Good participation",
+      "students": [],
+      "flag": true,
+      "trainerName": "Anjali Sharma"
     }
   ],
   "faq": [

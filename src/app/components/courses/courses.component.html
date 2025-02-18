@@ -32,7 +32,6 @@
         </div>
       </div>
     </div>
-
     <div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -59,12 +58,12 @@
     </div>
   </div>
 
-  <mat-paginator [length]="courses.length"
-                 [pageSize]="pageSize"
-                 [pageSizeOptions]="[6, 12, 18, 24, 100]"
-                 (page)="onPageChange($event)"
-                 aria-label="Select page">
+  <mat-paginator 
+    [length] = pageSize
+    [pageSize] = pageSize
+    [pageIndex] = pageIndex
+    [pageSizeOptions] = "[6, 12, 18, 24, 100]"
+    (page) = "onPageChange($event)"
+    aria-label = "Select page">
   </mat-paginator>
-
-
 </div>

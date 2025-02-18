@@ -17,6 +17,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class IntructorComponent implements OnInit {
   userInfo: UserInterface | undefined;
+  
   luser = JSON.parse(localStorage.getItem('users') || '{}');
   courseslist: String[] = [];
   coursedata: Courseinterface[] = [];
@@ -28,7 +29,7 @@ export class IntructorComponent implements OnInit {
   users: UserInterface[] = [];
 
 
-  constructor(private signService: SignService, private coursesService: CoursesService, private router: Router, private fb: FormBuilder) { 
+  constructor(private signService: SignService, private coursesService: CoursesService, private router: Router, private fb: FormBuilder) {
     this.updateForm = this.fb.group({
       id: [''],
       name: ['', [Validators.required, Validators.minLength(2)]],
@@ -43,12 +44,12 @@ export class IntructorComponent implements OnInit {
       next: (res) => {
         this.userInfo = res;
         this.courseslist = this.userInfo?.courses || [];
-        this.count = this.courseslist.length;  
-        
+        this.count = this.courseslist.length;
+
         if (this.courseslist.length > 0) {
           forkJoin(this.courseslist.map(courseId => this.coursesService.getcourseById(courseId)))
             .subscribe({
-              next: (courses) => {                
+              next: (courses) => {
                 this.coursedata = courses;
                 this.countStudent = this.coursedata.reduce((total, course) => total + (course?.students?.length || 0), 0);
               },
@@ -61,45 +62,39 @@ export class IntructorComponent implements OnInit {
   }
 
   user_disable(id: string) {
-      console.log("Hi, I am disabling the user");
-    
-      Swal.fire({
-        title: 'Are you sure?',
-        text: 'You want to disable this user!',
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#d33',
-        cancelButtonColor: '#3085d6',
-        confirmButtonText: 'Yes, disable!'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          this.signService.getUserById(id).subscribe((user) => {
-            if (user) {
-              const updatedUser = { ...user, active: false }; // Keep all data, change only 'active'
-    
-              this.signService.updateUser(id, updatedUser).subscribe(() => {
-                Swal.fire('Disabled!', 'User has been disabled.', 'success').then(() => {
-                  localStorage.removeItem('users'); // Remove user data from local storage
-                  // let user = JSON.parse(localStorage.getItem('users') || '{}');
-                  // const isActive = user.active;
-                  // if(isActive === false){
-                  //   alert("user loggin required as this user is inactive")
-  
-                  // }
-                  setTimeout(() => {
-                    window.location.reload();
-                  }, 500);
-                });
-              });
-            } else {
-              Swal.fire('Error', 'User not found!', 'error');
-            }
-          });
-        }
-      });
-    }
+    console.log("Hi, I am disabling the user");
 
-  user_update(id: string){
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You want to disable this user!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'Yes, disable!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.signService.getUserById(id).subscribe((user) => {
+          if (user) {
+            const updatedUser = { ...user, active: false }; // Keep all data, change only 'active'
+
+            this.signService.updateUser(id, updatedUser).subscribe(() => {
+              Swal.fire('Disabled!', 'User has been disabled.', 'success').then(() => {
+                localStorage.removeItem('users'); // Remove user data from local storage
+                setTimeout(() => {
+                  window.location.reload();
+                }, 500);
+              });
+            });
+          } else {
+            Swal.fire('Error', 'User not found!', 'error');
+          }
+        });
+      }
+    });
+  }
+
+  user_update(id: string) {
     this.signService.getUserById(id).subscribe(user => {
       this.selectedUser = user;
       this.updateForm.patchValue(user);
@@ -110,7 +105,7 @@ export class IntructorComponent implements OnInit {
 
   onUpdate() {
     this.signService.getUserById(this.luser.id).subscribe({
-      
+
     });
 
     if (this.updateForm.valid) {
@@ -132,32 +127,60 @@ export class IntructorComponent implements OnInit {
     }
   }
 
-  course_delete(courseId: string): void {
-    this.coursesService.deleteCourse(courseId).subscribe({
-      next: (res) => {
-        console.log('Course deleted successfully!', res);
-        Swal.fire({
-          title: 'Course Deleted Successful!',
-          icon: 'success',
-          confirmButtonText: 'OK',
-          timer: 2500,
-          confirmButtonColor: '#3085d6',
-      });        this.coursedata = this.coursedata.filter((course) => course.id !== courseId);
-      },
-      error: (err) => {
-        console.error('There was an error!', err);
+  toggleCourseStatus(courseId: string, currentStatus: boolean): void {
+    const newStatus = !currentStatus; // Toggle flag
+  
+    Swal.fire({
+      title: 'Are you sure?',
+      text: `You want to ${newStatus ? 'enable' : 'disable'} this course!`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: newStatus ? '#28a745' : '#d33',
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: `Yes, ${newStatus ? 'enable' : 'disable'}!`
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // **Find and update the course locally**
+        const courseIndex = this.coursedata.findIndex((c: any) => c.id === courseId);
+        if (courseIndex === -1) {
+          Swal.fire('Error', 'Course not found!', 'error');
+          return;
+        }
+  
+        this.coursedata[courseIndex].flag = newStatus;  // ✅ Update UI instantly
+  
+        const updatedCourse = { ...this.coursedata[courseIndex], flag: newStatus };
+  
+        this.coursesService.updateCourse(courseId, updatedCourse).subscribe({
+          next: () => {
+            Swal.fire(
+              newStatus ? 'Enabled!' : 'Disabled!',
+              `Course has been ${newStatus ? 'enabled' : 'disabled'}.`,
+              'success'
+            );
+  
+            // **Update local storage**
+            let courses = JSON.parse(localStorage.getItem('courses') || '[]');
+            courses = courses.map((c: any) => (c.id === courseId ? updatedCourse : c));
+            localStorage.setItem('courses', JSON.stringify(courses));
+          },
+          error: () => {
+            // **Revert UI if API fails**
+            this.coursedata[courseIndex].flag = !newStatus;
+            Swal.fire('Error', 'Failed to update course status!', 'error');
+          }
+        });
       }
     });
-    setTimeout(() => {
-      window.location.reload();
-    }, 500); 
+  }
+  
+  
+
+  course_edit(courseId: string): void {
+    this.router.navigate(['/course_add', courseId]);
   }
 
-  course_edit(courseId: string): void{
-  this.router.navigate(['/course_add', courseId]);
-  }
-
-  show_update(user: any): void{
+  show_update(user: any): void {
     this.selectedUser = user;
     this.updateForm.patchValue(user);
     const modal = new Bootstrap.Modal(document.getElementById('updateUserModal') as HTMLElement);

@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CoursesService } from '../../services/courses.service';
 import { SignService } from '../../services/sign.service';
 import { AuthService } from '../../services/auth.service';
 import { Courseinterface } from '../../interfaces/courses';
 import * as Bootstrap from 'bootstrap';
 import Swal from 'sweetalert2';
-import { PageEvent } from '@angular/material/paginator';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-courses',
@@ -14,15 +14,17 @@ import { PageEvent } from '@angular/material/paginator';
   styleUrls: ['./courses.component.css'] // Fixed typo
 })
 export class CoursesComponent implements OnInit {
+  @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
   courses: Courseinterface[] = []; 
   filteredCourses: any[] = []; 
   searchTerm: string = ''; 
   selectedCourse: any | null = null;
   role: string = '';
-  trainerName: string = '';
   enrolledCourses: Set<string> = new Set();
 
-  pageSize = 10;
+  coursess = Array.from({ length: 500 }, (_, i) => `Course ${i + 1}`);
+  paginatedCourses: string[] = [];  
+  pageSize = 6;
   pageIndex = 0;
 
   constructor(
@@ -36,28 +38,19 @@ export class CoursesComponent implements OnInit {
     this.authservice.userRole$.subscribe((role) => {
       this.role = role;
     });
-
     const userData = localStorage.getItem('users');
     const user = userData ? JSON.parse(userData) : null;
     if (user && user.courses) {
       this.enrolledCourses = new Set(user.courses);
     }
-    this.filteredCourses = this.courses.slice(0, this.pageSize);
-  }
-
-  onPageChange(event: PageEvent) {
-    this.pageIndex = event.pageIndex;
-    this.pageSize = event.pageSize;
-    const startIndex = this.pageIndex * this.pageSize;
-    const endIndex = startIndex + this.pageSize;
-    this.filteredCourses = this.courses.slice(startIndex, endIndex);
   }
 
   fetchCourses(): void {
     this.coursesService.getItem().subscribe({
       next: (data) => {
         this.courses = data; 
-        this.filteredCourses = data; 
+        this.filteredCourses = data.filter(course => course.flag); // Filter courses where flag is true        
+        this.setPaginatedCourses();
       },
       error: (err) => {
         console.error('Error fetching courses:', err);
@@ -65,11 +58,25 @@ export class CoursesComponent implements OnInit {
     });
   }
 
+  onPageChange(event: PageEvent) {
+    this.pageIndex = event.pageIndex;
+    this.pageSize = event.pageSize;
+    this.setPaginatedCourses();
+  }
+
+  setPaginatedCourses() {
+    const startIndex = this.pageIndex * this.pageSize;
+    const endIndex = startIndex + this.pageSize;
+    this.paginatedCourses = this.coursess.slice(startIndex, endIndex);
+  }
+
   filterCourses(): void {
     this.filteredCourses = this.courses.filter(course =>
       course.courseName.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
       course.trainerName.toLowerCase().includes(this.searchTerm.toLowerCase())
     );
+    this.pageIndex = 0; // Reset to first page after filtering
+    this.setPaginatedCourses();
   }
 
   enroll(courseName: string, id: string): void {
