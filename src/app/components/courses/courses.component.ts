@@ -21,7 +21,7 @@ export class CoursesComponent implements OnInit {
   selectedCourse: any | null = null;
   role: string = '';
   enrolledCourses: Set<string> = new Set();
-
+  shownCourses: any;
   pageSize = 12;
   pageIndex = 0;
 
@@ -60,12 +60,17 @@ export class CoursesComponent implements OnInit {
     this.pageIndex = event.pageIndex;
     this.pageSize = event.pageSize;
     this.setPageData();
+    
   }
 
   setPageData(): void {
     const startIndex = this.pageIndex * this.pageSize;
     const endIndex = startIndex + this.pageSize;
-    this.filteredCourses = this.filteredCourses.slice(startIndex, endIndex);
+    this.shownCourses = this.filteredCourses.slice(startIndex, endIndex);
+    console.log(this.filteredCourses);
+    console.log(this.shownCourses);
+    console.log(startIndex,endIndex);
+    
   }
 
   filterCourses(): void {

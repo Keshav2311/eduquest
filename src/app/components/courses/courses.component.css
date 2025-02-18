@@ -84,6 +84,12 @@ body {
 .card-text {
     text-align: center;
     font-size: 14px;
+    
+}
+
+.mat-mdc-select-min-line{
+    color: rgb(214, 0, 0)!important;
+    background-color: red !important;
 }
 
 #price {

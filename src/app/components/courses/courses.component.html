@@ -8,7 +8,7 @@
   
   <div class="container mt-5">
     <div class="row">
-      <div class="col-md-4 mb-4" *ngFor="let course of filteredCourses">
+      <div class="col-md-4 mb-4" *ngFor="let course of shownCourses">
         <div class="card shadow course-card h-100">
           <img src={{course.imageUrl}} alt="{{ course.courseName }}" id="course_image"/>
           <div class="card-body d-flex flex-column">
@@ -62,9 +62,11 @@
   [length]="filteredCourses.length" 
   [pageSize]="pageSize" 
   [pageIndex]="pageIndex" 
-  [pageSizeOptions]="[6, 12, 18, 24, 100]" 
+  [pageSizeOptions]="[6, 12, 18, 24]" 
   (page)="onPageChange($event)" 
-  aria-label="Select page">
+  aria-label="Select page"
+  >
+  
 </mat-paginator>
 
 </div>
