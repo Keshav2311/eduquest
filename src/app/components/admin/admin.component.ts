@@ -7,6 +7,7 @@ import Swal from 'sweetalert2';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import * as Bootstrap from 'bootstrap';
 import Chart from 'chart.js/auto';
+import { PageEvent } from '@angular/material/paginator';
 
 
 
@@ -37,6 +38,10 @@ export class AdminComponent implements OnInit {
   updateForm: FormGroup;
   selectedUser: UserInterface | null = null;
   users: UserInterface[] = [];
+
+  filteredCourses: any[] = [];
+  pageSize = 12;
+  pageIndex = 0;
 
   @ViewChild('studentChart') studentChartRef!: ElementRef;
   @ViewChild('instructorChart') instructorChartRef!: ElementRef;
@@ -92,8 +97,8 @@ export class AdminComponent implements OnInit {
     this.courseService.getCourses().subscribe({
       next: (res) => {
         this.coursesInfo = res;
-        // this.createStudentChart();
-        console.log('Courses:', this.coursesInfo);
+        this.filteredCourses = res.filter((course: { flag: any; }) => course.flag); // Filter courses where flag is true
+        this.setPageData();
       },
       error: (err) => {
         console.error('Error fetching courses:', err);
@@ -101,71 +106,27 @@ export class AdminComponent implements OnInit {
     });
   }
 
-  // createStudentChart(): void {
-  //   const courseLabels = this.coursesInfo.map(course => course.courseName);
-  //   const studentCounts = this.coursesInfo.map(course => course.students?.length || 0);
+  onPageChange(event: PageEvent): void {
+    this.pageIndex = event.pageIndex;
+    this.pageSize = event.pageSize;
+    this.setPageData();
+  }
 
-  //   this.studentChart = new Chart(this.studentChartRef.nativeElement, {
-  //     type: 'bar',
-  //     data: {
-  //       labels: courseLabels,
-  //       datasets: [{
-  //         label: 'Students per Course',
-  //         data: studentCounts,
-  //         backgroundColor: 'rgba(54, 162, 235, 0.5)',
-  //         borderColor: 'rgba(54, 162, 235, 1)',
-  //         borderWidth: 1
-  //       }]
-  //     },
-  //     options: {
-  //       responsive: true,
-  //       scales: {
-  //         y: { beginAtZero: true }
-  //       }
-  //     }
-  //   });
-  // }
-
-  // createInstructorChart(): void {
-  //   // Destroy previous instance if it exists
-  //   if (this.instructorChart) {
-  //     this.instructorChart.destroy();
-  //   }
-
-  //   const experienceData = this.instructorInfo.map(inst => inst.experience || 0);
-  //   const instructorNames = this.instructorInfo.map(inst => inst.name);
-
-  //   this.instructorChart = new Chart(this.instructorChartRef.nativeElement, {
-  //   //   type: 'pie',
-  //   //   data: {
-  //   //     labels: instructorNames,
-  //   //     datasets: [{
-  //   //       label: 'Years of Experience',
-  //   //       data: experienceData,
-  //   //       backgroundColor: [
-  //   //         '#FF6384',
-  //   //         '#36A2EB',
-  //   //         '#FFCE56',
-  //   //         '#4BC0C0',
-  //   //         '#9966FF',
-  //   //         '#a8d0e6',
-  //   //         '#f76c6c'
-  //   //       ],
-  //   //     }]
-  //   //   },
-  //   //   options: {
-  //   //     responsive: true
-  //   //   }
-  //   // });
-  // }
-
-
+  setPageData(): void {
+    const startIndex = this.pageIndex * this.pageSize;
+    const endIndex = startIndex + this.pageSize;
+    this.displayedData = this.filteredCourses.slice(startIndex, endIndex);
+    console.log(this.filteredCourses);
+    console.log(this.displayedData);
+    console.log(startIndex, endIndex);
+  }
 
   showTable(type: string): void {
     if (this.selectedTable === type) {
       this.selectedTable = undefined;
       this.displayedData = [];
-    } else {
+    }
+    else {
       this.selectedTable = type;
       this.loading = true;
       setTimeout(() => {
@@ -175,7 +136,7 @@ export class AdminComponent implements OnInit {
         } else if (type === 'instructor') {
           this.displayedData = this.instructorInfo;
         } else if (type === 'courses') {
-          this.displayedData = this.coursesInfo;
+          this.setPageData();
         }
       }, 1000);
     }
@@ -270,17 +231,17 @@ export class AdminComponent implements OnInit {
 
   toggleCourseStatus(courseId: string): void {
     console.log("Toggling course status...");
-  
+
     // Find the course from the current list
     const courseIndex = this.coursesInfo.findIndex((c: any) => c.id === courseId);
-  
+
     if (courseIndex === -1) {
       Swal.fire('Error', 'Course not found!', 'error');
       return;
     }
-  
+
     const newStatus = !this.coursesInfo[courseIndex].flag; // Toggle flag
-  
+
     Swal.fire({
       title: 'Are you sure?',
       text: `You want to ${newStatus ? 'enable' : 'disable'} this course!`,
@@ -293,16 +254,16 @@ export class AdminComponent implements OnInit {
       if (result.isConfirmed) {
         // **Update the UI immediately**
         this.coursesInfo[courseIndex] = { ...this.coursesInfo[courseIndex], flag: newStatus };
-  
+
         const updatedCourse = this.coursesInfo[courseIndex];
-  
+
         this.courseService.updateCourse(courseId, updatedCourse).subscribe(() => {
           Swal.fire(
             newStatus ? 'Enabled!' : 'Disabled!',
             `Course has been ${newStatus ? 'enabled' : 'disabled'}.`,
             'success'
           );
-  
+
           // Update local storage
           let courses = JSON.parse(localStorage.getItem('courses') || '[]');
           courses = courses.map((c: any) => (c.id === courseId ? updatedCourse : c));
@@ -315,5 +276,5 @@ export class AdminComponent implements OnInit {
       }
     });
   }
-  
+
 }

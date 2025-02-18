@@ -15,5 +15,5 @@ body {
     --mat-sys-on-surface-variant:rgb(7, 7, 7);
     --mat-form-field-filled-with-label-container-padding-top: 40px;
     --mdc-filled-text-field-input-text-color:rgb(27, 2, 34);
-    --mat-select-enabled-trigger-text-color:red;
+    --mat-select-enabled-trigger-text-color:rgb(4, 2, 43);
 }

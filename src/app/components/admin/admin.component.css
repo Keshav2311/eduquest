@@ -122,6 +122,10 @@ tr:nth-child(even) {
 .loader::after {
   margin: 8px;
 }
+
+mat-paginator{
+  color: #26023b;
+}
 @keyframes l16 { 
   100%{transform: rotate(1turn)}
 }
